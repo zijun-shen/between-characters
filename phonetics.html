@@ -903,7 +903,7 @@
     <!-- ==========================================================================
        【第一層】工作室大總部首頁 (Main Hub View)
        ========================================================================== -->
-    <div id="main-hub-view" class="page-view">
+    <div id="main-hub-view" class="page-view hidden">
         <header>
             <div class="brand-tag">Slow Chinese Learning Hub</div>
             <h1 class="main-title">Between characters<span>.</span></h1>
@@ -917,7 +917,7 @@
 
         <div class="hub-container">
             <!-- 卡片 1：注音符號故事集（溫潤茶金） -->
-            <div class="hub-card card-phonetics" onclick="window.location.href='phonetics.html'">
+            <div class="hub-card card-phonetics" onclick="navigateToBopomofo()">
                 <div class="card-meta">Phonetics & Stories</div>
                 <div class="card-title">注音符號故事集</div>
                 <div class="card-desc">結合美學、聲音與童趣故事，為成人與文化愛好者設計的優雅發音啟蒙專區。</div>
@@ -948,9 +948,9 @@
     <!-- ==========================================================================
        【第二層 - A】注音符號入口大廳 (Bopomofo Unit Entrance View)
        ========================================================================== -->
-    <div id="bopomofo-lobby-view" class="page-view hidden">
+    <div id="bopomofo-lobby-view" class="page-view">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>
@@ -985,7 +985,7 @@
                     <div class="bopomofo-unit-row-action">進入故事 Explore →</div>
                 </div>
 
-                <div class="bopomofo-unit-row unit-2 locked-row">
+                <div class="bopomofo-unit-row unit-2 locked-row" onclick="window.location.href='bopomofo/unit02.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 02</div><div class="bopomofo-unit-symbols">ㄉ ㄊ ㄋ ㄌ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -993,7 +993,7 @@
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
 
-                <div class="bopomofo-unit-row unit-3 locked-row">
+                <div class="bopomofo-unit-row unit-3 locked-row" onclick="window.location.href='bopomofo/unit03.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 03</div><div class="bopomofo-unit-symbols">ㄍ ㄎ ㄏ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1001,7 +1001,7 @@
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
 
-                <div class="bopomofo-unit-row unit-4 locked-row">
+                <div class="bopomofo-unit-row unit-4 locked-row" onclick="window.location.href='bopomofo/unit04.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 04</div><div class="bopomofo-unit-symbols">ㄐ ㄑ ㄒ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1009,7 +1009,7 @@
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
 
-                <div class="bopomofo-unit-row unit-5 locked-row">
+                <div class="bopomofo-unit-row unit-5 locked-row" onclick="window.location.href='bopomofo/unit05.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 05</div><div class="bopomofo-unit-symbols">ㄓ ㄔ ㄕ ㄖ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1017,7 +1017,7 @@
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
 
-                <div class="bopomofo-unit-row unit-6 locked-row">
+                <div class="bopomofo-unit-row unit-6 locked-row" onclick="window.location.href='bopomofo/unit06.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 06</div><div class="bopomofo-unit-symbols">ㄗ ㄘ ㄙ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1032,7 +1032,7 @@
             </div>
 
             <div class="bopomofo-unit-row-list">
-                <div class="bopomofo-unit-row unit-7 locked-row">
+                <div class="bopomofo-unit-row unit-7 locked-row" onclick="window.location.href='bopomofo/unit07.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 07</div><div class="bopomofo-unit-symbols">ㄧ ㄨ ㄩ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1047,28 +1047,28 @@
             </div>
 
             <div class="bopomofo-unit-row-list">
-                <div class="bopomofo-unit-row unit-8 locked-row">
+                <div class="bopomofo-unit-row unit-8 locked-row" onclick="window.location.href='bopomofo/unit08.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 08</div><div class="bopomofo-unit-symbols">ㄚ ㄛ ㄜ ㄝ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
                     </div>
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
-                <div class="bopomofo-unit-row unit-9 locked-row">
+                <div class="bopomofo-unit-row unit-9 locked-row" onclick="window.location.href='bopomofo/unit09.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 09</div><div class="bopomofo-unit-symbols">ㄞ ㄟ ㄠ ㄡ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
                     </div>
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
-                <div class="bopomofo-unit-row unit-10 locked-row">
+                <div class="bopomofo-unit-row unit-10 locked-row" onclick="window.location.href='bopomofo/unit10.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 10</div><div class="bopomofo-unit-symbols">ㄢ ㄣ ㄤ ㄥ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
                     </div>
                     <div class="bopomofo-unit-row-action">Coming Soon</div>
                 </div>
-                <div class="bopomofo-unit-row unit-11 locked-row">
+                <div class="bopomofo-unit-row unit-11 locked-row" onclick="window.location.href='bopomofo/unit11.html'">
                     <div>
                         <div class="bopomofo-unit-row-main"><div class="bopomofo-unit-row-number">UNIT 11</div><div class="bopomofo-unit-symbols">ㄦ</div><div class="bopomofo-unit-title">故事集</div></div>
                         <div class="bopomofo-unit-row-desc">Stories and listening practice for this bopomofo unit</div>
@@ -1202,7 +1202,7 @@
        ========================================================================== -->
     <div id="drama-lobby-view" class="page-view hidden">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>
@@ -1409,7 +1409,7 @@
        ========================================================================== -->
     <div id="film-lobby-view" class="page-view hidden">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>

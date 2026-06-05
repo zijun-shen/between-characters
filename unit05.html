@@ -903,7 +903,7 @@
     <!-- ==========================================================================
        【第一層】工作室大總部首頁 (Main Hub View)
        ========================================================================== -->
-    <div id="main-hub-view" class="page-view">
+    <div id="main-hub-view" class="page-view hidden">
         <header>
             <div class="brand-tag">Slow Chinese Learning Hub</div>
             <h1 class="main-title">Between characters<span>.</span></h1>
@@ -917,7 +917,7 @@
 
         <div class="hub-container">
             <!-- 卡片 1：注音符號故事集（溫潤茶金） -->
-            <div class="hub-card card-phonetics" onclick="window.location.href='phonetics.html'">
+            <div class="hub-card card-phonetics" onclick="navigateToBopomofo()">
                 <div class="card-meta">Phonetics & Stories</div>
                 <div class="card-title">注音符號故事集</div>
                 <div class="card-desc">結合美學、聲音與童趣故事，為成人與文化愛好者設計的優雅發音啟蒙專區。</div>
@@ -950,7 +950,7 @@
        ========================================================================== -->
     <div id="bopomofo-lobby-view" class="page-view hidden">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='../index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>
@@ -973,7 +973,7 @@
             </div>
 
             <div class="bopomofo-unit-row-list">
-                <div class="bopomofo-unit-row unit-1" onclick="window.location.href='bopomofo/unit01.html'">
+                <div class="bopomofo-unit-row unit-1" onclick="navigateToBpmfStories()">
                     <div>
                         <div class="bopomofo-unit-row-main">
                             <div class="bopomofo-unit-row-number">UNIT 01</div>
@@ -1081,10 +1081,9 @@
 
     <!-- ==========================================================================
        【第二層 - A2】ㄅㄆㄇㄈ故事集 (Bopomofo BPMF Story View)
-       ========================================================================== -->
-    <div id="bopomofo-bpmf-story-view" class="page-view hidden">
+       ========================================================================== -<div id="bopomofo-bpmf-story-view" class="page-view">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToBopomofoEntrance()">
+            <button class="back-button" onclick="window.location.href='../phonetics.html'">
                 ← 返回 Phonetics 單元入口
             </button>
         </div>
@@ -1093,116 +1092,35 @@
             <div class="brand-tag">Slow learn bopomofo gallery</div>
             <h1 class="main-title">Phonetics<span>.</span></h1>
             <div class="subtitle">
-                請選擇您想探索的注音符號。連結精緻線上繪本學堂，展開優雅發音啟蒙之旅。
+                UNIT 04：ㄐ ㄑ ㄒ 故事集
             </div>
             <div class="subtitle-en">
-                Select a phonetic symbol to begin. Start your auditory journey through beautifully animated tales.
+                Stories and listening practice for this bopomofo unit. This unit page is ready for future story cards.
             </div>
         </header>
 
         <div class="hub-container bpmf-story-grid">
-
-            <!-- 故事 0：ㄅ的故事（新加入） -->
-            <div class="hub-card" style="border-top: 6px solid #D8E8FF;" onclick="window.location.href='bopomofo/b.html'">
-                <div class="bopomofo-illustration" style="border-color: rgba(26, 0, 255, 0.22);">
-                    <svg viewBox="0 0 100 100" width="78" height="78" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.06));">
-                        <defs>
-                            <linearGradient id="bStoryBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#EEF3FF;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#BFD3FF;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="22" y="35" width="56" height="42" rx="8" fill="url(#bStoryBlueGrad)" stroke="#7EA0E8" stroke-width="2"/>
-                        <path d="M18,38 L50,15 L82,38" fill="none" stroke="#7EA0E8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="43" y="54" width="14" height="23" rx="2" fill="#FFFFFF" opacity="0.86"/>
-                        <circle cx="63" cy="48" r="6" fill="#FFFFFF" opacity="0.8"/>
-                    </svg>
+            <div class="hub-card" style="border-top: 6px solid #D8E8FF;">
+                <div class="bopomofo-illustration" style="border-color: rgba(26, 0, 255, 0.22); display:flex; align-items:center; justify-content:center; font-size:3rem; color:#1A00FF; font-weight:700;">
+                    ㄐ ㄑ ㄒ
                 </div>
-                <div class="card-meta">Bopomofo ㄅ / Dad Is Home</div>
-                <div class="card-title">ㄅ 的故事：爸爸回家了</div>
-                <div class="card-desc">從「爸爸」與「回家」開始，在溫暖的家庭情境中自然練習ㄅ的發音。</div>
-                <div class="card-desc-en">Dad Is Home: A warm, audio-guided story for practicing the ㄅ sound through a family scene.</div>
-                <div class="card-action" style="color: #64748B;">進入課堂 Explore Story →</div>
-            </div>
-
-            <!-- 故事 1：ㄆ的故事 (修復404：完全載入正確線上網址) -->
-            <div class="hub-card" style="border-top: 6px solid #E6D2B5;" onclick="window.location.href='bopomofo/p.html'">
-                <div class="bopomofo-illustration">
-                    <svg viewBox="0 0 100 100" width="75" height="75" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.06));">
-                        <defs>
-                            <linearGradient id="balloonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD1D1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FF9E9E;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M50,15 C68,15 75,32 72,48 C69,64 50,75 50,75 C50,75 31,64 28,48 C25,32 32,15 50,15 Z" fill="url(#balloonGrad)" />
-                        <path d="M48,74 L52,74 L54,79 L46,79 Z" fill="#E6A1A1" />
-                        <path d="M50,79 Q47,88 51,95" stroke="#B0A090" stroke-width="2" fill="none" stroke-linecap="round" />
-                        <circle cx="42" cy="35" r="4" fill="#FFFFFF" opacity="0.6" />
-                    </svg>
-                </div>
-                <div class="card-meta">Bopomofo ㄆ / The Happy Party</div>
-                <div class="card-title">ㄆ 的故事：快樂的派對</div>
-                <div class="card-desc">以派對、漂亮等詞彙，編織出色彩繽紛、充滿童趣的發音啟蒙繪本。</div>
-                <div class="card-desc-en">The Happy Party: A color-coded, audio-guided story designed to master the 'p' sound naturally.</div>
-                <div class="card-action" style="color: #B5905B;">進入課堂 Explore Story →</div>
-            </div>
-
-            <!-- 故事 2：ㄇ的故事 (修復404：完全載入正確線上網址) -->
-            <div class="hub-card" style="border-top: 6px solid #F0C987;" onclick="window.location.href='bopomofo/m.html'">
-                <div class="bopomofo-illustration" style="border-color: rgba(240, 201, 135, 0.5);">
-                    <svg viewBox="0 0 100 100" width="80" height="80">
-                        <defs>
-                            <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFE49E;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#F5B041;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="60" cy="40" r="18" fill="url(#sunGrad)" />
-                        <path d="M25,65 C25,55 35,48 45,50 C48,42 58,40 65,46 C72,46 78,52 75,60 C82,60 85,68 78,73 C75,75 25,75 25,65 Z" fill="#FFFFFF" filter="drop-shadow(0px 3px 4px rgba(0,0,0,0.05))" />
-                    </svg>
-                </div>
-                <div class="card-meta">Bopomofo ㄇ / A Beautiful Day</div>
-                <div class="card-title">ㄇ 的故事：美好的一天</div>
-                <div class="card-desc">跟著溫和舒適的日常點滴，在溫暖療癒的家常對話中自然掌握「ㄇ」發音。</div>
-                <div class="card-desc-en">A Beautiful Day: Experience the cozy flow of the 'm' sound through a peaceful, warm daily routine.</div>
-                <div class="card-action" style="color: #D4AC0D;">進入課堂 Explore Story →</div>
-            </div>
-
-            <!-- 故事 3：ㄈ的故事（已加入） -->
-            <div class="hub-card" style="border-top: 6px solid #BFE8D2;" onclick="window.location.href='bopomofo/f.html'">
-                <div class="bopomofo-illustration" style="border-color: rgba(139, 190, 158, 0.45);">
-                    <svg viewBox="0 0 100 100" width="75" height="75">
-                        <defs>
-                            <linearGradient id="fStoryGreenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#F2FFF6;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#BFE8D2;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="48" r="30" fill="url(#fStoryGreenGrad)" stroke="#8BBE9E" stroke-width="2"/>
-                        <path d="M35,48 Q50,28 65,48" fill="none" stroke="#6EA982" stroke-width="4" stroke-linecap="round"/>
-                        <circle cx="39" cy="50" r="4" fill="#6EA982"/>
-                        <circle cx="61" cy="50" r="4" fill="#6EA982"/>
-                        <path d="M41,62 Q50,68 59,62" fill="none" stroke="#6EA982" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M28,28 L40,18 L45,34" fill="#FFE49E" stroke="#D9B85C" stroke-width="1.5"/>
-                        <path d="M72,28 L60,18 L55,34" fill="#FFC0CB" stroke="#D98FA1" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <div class="card-meta">Bopomofo ㄈ / Aunt Fang Is Here</div>
-                <div class="card-title">ㄈ 的故事：方阿姨來了</div>
-                <div class="card-desc">跟著方阿姨來到家裡的溫暖情境，自然練習「ㄈ」的發音與注音閱讀。</div>
-                <div class="card-desc-en">Aunt Fang Is Here: Practice the ㄈ sound through a warm, audio-guided home story.</div>
-                <div class="card-action" style="color: #6EA982;">進入課堂 Explore Story →</div>
+                <div class="card-meta">Bopomofo Unit 04</div>
+                <div class="card-title">UNIT 04：ㄐ ㄑ ㄒ</div>
+                <div class="card-desc">這個單元頁面已經建立好。之後新增故事時，只需要把故事卡片放在這裡。</div>
+                <div class="card-desc-en">Coming soon: this page is prepared for future illustrated stories and listening practice.</div>
+                <div class="card-action" style="color: #64748B;">Coming Soon</div>
             </div>
         </div>
     </div>
+
+/div>
 
     <!-- ==========================================================================
        【第二層 - B】台劇大廳 (Drama Lobby View)
        ========================================================================== -->
     <div id="drama-lobby-view" class="page-view hidden">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='../index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>
@@ -1409,7 +1327,7 @@
        ========================================================================== -->
     <div id="film-lobby-view" class="page-view hidden">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
+            <button class="back-button" onclick="window.location.href='../index.html'">
                 ← 返回 Between characters 總部
             </button>
         </div>

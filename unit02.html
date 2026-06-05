@@ -903,7 +903,7 @@
     <!-- ==========================================================================
        【第一層】工作室大總部首頁 (Main Hub View)
        ========================================================================== -->
-    <div id="main-hub-view" class="page-view">
+    <div id="main-hub-view" class="page-view hidden">
         <header>
             <div class="brand-tag">Slow Chinese Learning Hub</div>
             <h1 class="main-title">Between characters<span>.</span></h1>
@@ -917,7 +917,7 @@
 
         <div class="hub-container">
             <!-- 卡片 1：注音符號故事集（溫潤茶金） -->
-            <div class="hub-card card-phonetics" onclick="window.location.href='phonetics.html'">
+            <div class="hub-card card-phonetics" onclick="navigateToBopomofo()">
                 <div class="card-meta">Phonetics & Stories</div>
                 <div class="card-title">注音符號故事集</div>
                 <div class="card-desc">結合美學、聲音與童趣故事，為成人與文化愛好者設計的優雅發音啟蒙專區。</div>
@@ -973,7 +973,7 @@
             </div>
 
             <div class="bopomofo-unit-row-list">
-                <div class="bopomofo-unit-row unit-1" onclick="window.location.href='bopomofo/unit01.html'">
+                <div class="bopomofo-unit-row unit-1" onclick="navigateToBpmfStories()">
                     <div>
                         <div class="bopomofo-unit-row-main">
                             <div class="bopomofo-unit-row-number">UNIT 01</div>
@@ -1082,9 +1082,9 @@
     <!-- ==========================================================================
        【第二層 - A2】ㄅㄆㄇㄈ故事集 (Bopomofo BPMF Story View)
        ========================================================================== -->
-    <div id="bopomofo-bpmf-story-view" class="page-view hidden">
+    <div id="bopomofo-bpmf-story-view" class="page-view">
         <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToBopomofoEntrance()">
+            <button class="back-button" onclick="window.location.href='../phonetics.html'">
                 ← 返回 Phonetics 單元入口
             </button>
         </div>
@@ -1103,7 +1103,7 @@
         <div class="hub-container bpmf-story-grid">
 
             <!-- 故事 0：ㄅ的故事（新加入） -->
-            <div class="hub-card" style="border-top: 6px solid #D8E8FF;" onclick="window.location.href='bopomofo/b.html'">
+            <div class="hub-card" style="border-top: 6px solid #D8E8FF;" onclick="window.location.href='b.html'">
                 <div class="bopomofo-illustration" style="border-color: rgba(26, 0, 255, 0.22);">
                     <svg viewBox="0 0 100 100" width="78" height="78" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.06));">
                         <defs>
@@ -1126,7 +1126,7 @@
             </div>
 
             <!-- 故事 1：ㄆ的故事 (修復404：完全載入正確線上網址) -->
-            <div class="hub-card" style="border-top: 6px solid #E6D2B5;" onclick="window.location.href='bopomofo/p.html'">
+            <div class="hub-card" style="border-top: 6px solid #E6D2B5;" onclick="window.location.href='p.html'">
                 <div class="bopomofo-illustration">
                     <svg viewBox="0 0 100 100" width="75" height="75" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.06));">
                         <defs>
@@ -1149,7 +1149,7 @@
             </div>
 
             <!-- 故事 2：ㄇ的故事 (修復404：完全載入正確線上網址) -->
-            <div class="hub-card" style="border-top: 6px solid #F0C987;" onclick="window.location.href='bopomofo/m.html'">
+            <div class="hub-card" style="border-top: 6px solid #F0C987;" onclick="window.location.href='m.html'">
                 <div class="bopomofo-illustration" style="border-color: rgba(240, 201, 135, 0.5);">
                     <svg viewBox="0 0 100 100" width="80" height="80">
                         <defs>
@@ -1170,7 +1170,7 @@
             </div>
 
             <!-- 故事 3：ㄈ的故事（已加入） -->
-            <div class="hub-card" style="border-top: 6px solid #BFE8D2;" onclick="window.location.href='bopomofo/f.html'">
+            <div class="hub-card" style="border-top: 6px solid #BFE8D2;" onclick="window.location.href='f.html'">
                 <div class="bopomofo-illustration" style="border-color: rgba(139, 190, 158, 0.45);">
                     <svg viewBox="0 0 100 100" width="75" height="75">
                         <defs>
