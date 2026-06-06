@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ㄆ的故事 — 快樂的派對</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;700&display=swap');
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --p-color: #1A00FF;
@@ -82,10 +82,63 @@ body {
   .page { display: block !important; page-break-after: always; }
   .page-inner { padding: 10px; }
 }
+
+.story-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8C8275;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 5px 0;
+  box-shadow: none;
+  transition: color .25s ease, transform .25s ease;
+  white-space: nowrap;
+}
+.story-back-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(140, 130, 117, 0.38);
+  transform: scaleX(0.28);
+  transform-origin: left center;
+  transition: transform .28s ease, background .28s ease;
+}
+.story-back-link:hover {
+  transform: translateY(-1px);
+  color: #2C3E50;
+}
+.story-back-link:hover::after {
+  transform: scaleX(1);
+  background: rgba(44, 62, 80, 0.55);
+}
+@media (max-width: 640px) {
+  .top-bar {
+    flex-wrap: wrap;
+  }
+  .story-back-link {
+    order: -1;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+}
+
 </style>
 </head>
 <body>
 <div class="top-bar">
+<a class="story-back-link" href="unit01.html">← STORY COLLECTION</a>
 <h1>ㄆ 的故事 · 快樂的派對</h1>
 <span class="top-hint">青藍色 = ㄆ發音的字</span>
 </div>
