@@ -926,7 +926,7 @@
             </div>
 
             <!-- 卡片 2：戲劇中的台灣（極緻薰衣草紫） -->
-            <div class="hub-card card-drama-section" onclick="navigateToDrama()">
+            <div class="hub-card card-drama-section" onclick="window.location.href='drama/index.html'">
                 <div class="card-meta">Taiwan Drama & Society</div>
                 <div class="card-title">戲劇中的台灣</div>
                 <div class="card-desc">從當代台劇中的人際關係、生活文化與社會議題，探索台灣社會的多元樣貌。</div>
@@ -2745,7 +2745,7 @@ function restoreEmbeddedTemplateView(templateId) {
          * 導向台劇大廳 (向下滑動並淡入)
          */
         function navigateToDrama() {
-            transitionPages('main-hub-view', 'drama-lobby-view');
+            window.location.href = 'drama/index.html';
         }
 
         /**
