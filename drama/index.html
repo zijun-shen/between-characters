@@ -1,14 +1,255 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=the-world-between-us/">
-<title>Redirecting...</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taiwan Drama｜Between Characters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+        * { box-sizing: border-box; }
 
+        body {
+            background-color: #F8F6F2;
+            font-family: "Noto Sans TC", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            max-width: 800px;
+        }
+
+        .brand-tag {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            color: #8C8275;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.8rem;
+            color: #2C3E50;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .main-title span {
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 300;
+            color: #8C8275;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #6C757D;
+            line-height: 1.8;
+            letter-spacing: 1.5px;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subtitle-en {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.85rem;
+            color: #6F6A64;
+            margin-top: 10px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           【返回按鈕】
+           ========================================================================== */
+        .back-nav-container {
+            width: 90%;
+            max-width: 1100px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 0.9rem;
+            color: #8C8275;
+            cursor: pointer;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            color: #2C3E50;
+        }
+
+        /* ==========================================================================
+           【主題卡片網格排版】
+           ========================================================================== */
+        .hub-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            width: 90%;
+            margin-bottom: 80px;
+            padding: 20px;
+        }
+
+        /* 高級都會風純白卡片基礎樣式 */
+        .hub-card {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-decoration: none;
+            box-shadow: 0 4px 25px rgba(140, 130, 117, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(140, 130, 117, 0.08);
+            position: relative;
+            cursor: pointer;
+            color: inherit;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(140, 130, 117, 0.12);
+        }
+
+        .card-meta {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #2C3E50;
+            margin: 0 0 15px 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.7;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .card-desc-en {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.8rem;
+            color: #6F6A64;
+            line-height: 1.6;
+            margin: 0 0 35px 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .card-action {
+            margin-top: auto;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .hub-card:hover .card-action {
+            color: #2C3E50 !important;
+        }
+
+        /* 鎖定狀態卡片（即將推出） */
+        .locked-card {
+            opacity: 0.65;
+            cursor: default;
+        }
+
+        .locked-card:hover {
+            transform: none;
+            box-shadow: 0 4px 25px rgba(140, 130, 117, 0.05);
+        }
+
+        @media (max-width: 700px) {
+            .main-title {
+                font-size: 3.2rem;
+            }
+        }
+</style>
+</head>
 <body>
-<script>
-window.location.href="the-world-between-us/";
-</script>
+
+    <div class="back-nav-container">
+        <a class="back-button" href="../index.html">← 返回 Between Characters 總部</a>
+    </div>
+
+    <header style="padding-top: 40px;">
+        <div class="brand-tag">Slow learn drama gallery</div>
+        <h1 class="main-title">Taiwan Drama<span>.</span></h1>
+        <div class="subtitle">
+            請選擇您想探索的台劇文本。透過經典台詞與語境分析，深化華語聽讀能力。
+        </div>
+        <div class="subtitle-en">
+            Select a drama to begin. Deepen your language skills through contextual script analysis.
+        </div>
+    </header>
+
+    <div class="hub-container">
+        <!-- 劇目 1：我們與惡的距離 -->
+        <a class="hub-card" style="border-top: 6px solid #CBD5E1;" href="the-world-between-us/index.html">
+            <div class="card-meta" style="color:#64748B;">Drama 01 / Selected Episode</div>
+            <div class="card-title">我們與惡的距離</div>
+            <div class="card-desc">探討社會輿論、媒體職德與精神疾病等深度議題，拆解高階思辨華語語彙。</div>
+            <div class="card-desc-en">The World Between Us: Analyze advanced conversational vocabulary through intense legal and social debates.</div>
+            <div class="card-action" style="color: #64748B;">進入劇目選單 Explore Drama →</div>
+        </a>
+
+        <!-- 劇目 2：想見你（即將推出） -->
+        <div class="hub-card locked-card" style="border-top: 6px solid #D6D6F2;">
+            <div class="card-meta" style="color:#7E7EB8;">Drama 02 / Romance &amp; Mystery</div>
+            <div class="card-title">想見你</div>
+            <div class="card-desc">結合懸疑與穿越時空的浪漫經典，拆解日常流行語彙與青年生活文化。</div>
+            <div class="card-desc-en">Someday or One Day: Discover daily youth slang and romantic expressions embedded in a gripping narrative.</div>
+            <div class="card-action" style="color: #7E7EB8;">即將推出 Coming Soon</div>
+        </div>
+
+        <!-- 劇目 3：茶金（即將推出） -->
+        <div class="hub-card locked-card" style="border-top: 6px solid #E6D2B5;">
+            <div class="card-meta" style="color:#B5905B;">Drama 03 / Period Drama</div>
+            <div class="card-title">茶金</div>
+            <div class="card-desc">精緻刻劃台灣茶業輝煌史，探討時代變遷下的商戰謀略與多元族群語境。</div>
+            <div class="card-desc-en">Goldleaf: Explore historical business vocabulary, dialects, and the rich cultural heritage of Taiwan's tea golden age.</div>
+            <div class="card-action" style="color: #B5905B;">即將推出 Coming Soon</div>
+        </div>
+    </div>
+
 </body>
 </html>
