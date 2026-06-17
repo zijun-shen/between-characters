@@ -104,9 +104,9 @@
            ========================================================================== */
         .hub-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 35px;
-            max-width: 1100px;
+            max-width: 900px;
             width: 90%;
             margin-bottom: 80px;
             padding: 20px;
@@ -138,16 +138,16 @@
         
         /* 1. 注音符號（改為高雅的溫潤茶金色，呼應茶金美學） */
         .card-phonetics {
-            border-top: 6px solid #E6D2B5;
+            border-top: 6px solid #F2D0BB;
         }
         .card-phonetics:hover {
-            border-color: #DBC19D;
+            border-color: #E8BC9F;
         }
         .card-phonetics .card-meta {
-            color: #B5905B;
+            color: #C49070;
         }
         .card-phonetics .card-action {
-            color: #B5905B;
+            color: #C49070;
         }
 
         /* 2. 戲劇台灣（改為極致優雅的薰衣草紫，呼應想見你美學） */
@@ -164,18 +164,32 @@
             color: #7E7EB8;
         }
 
-        /* 3. 電影台灣（改為沉靜優雅的霧灰藍，呼應與惡美學） */
+        /* 3. 電影台灣（淡珊瑚橘） */
         .card-film {
-            border-top: 6px solid #CBD5E1;
+            border-top: 6px solid #F2C0D0;
         }
         .card-film:hover {
-            border-color: #B4C3D4;
+            border-color: #E4A8BC;
         }
         .card-film .card-meta {
-            color: #64748B;
+            color: #C0607A;
         }
         .card-film .card-action {
-            color: #64748B;
+            color: #C0607A;
+        }
+
+        /* 4. 我走過的台灣（淡薄荷綠） */
+        .card-taiwan {
+            border-top: 6px solid #B8E8D8;
+        }
+        .card-taiwan:hover {
+            border-color: #96D4C0;
+        }
+        .card-taiwan .card-meta {
+            color: #5FAA90;
+        }
+        .card-taiwan .card-action {
+            color: #5FAA90;
         }
 
         /* 卡片內容排版 */
@@ -730,13 +744,13 @@
         </header>
 
         <div class="hub-container">
-            <!-- 卡片 1：注音符號故事集（溫潤茶金） -->
-            <div class="hub-card card-phonetics" onclick="window.location.href='phonetics.html'">
-                <div class="card-meta">Phonetics & Stories</div>
-                <div class="card-title">注音符號故事集</div>
-                <div class="card-desc">結合美學、聲音與童趣故事，為成人與文化愛好者設計的優雅發音啟蒙專區。</div>
-                <div class="card-desc-en">A beautiful, audio-guided introduction to phonetic symbols through heartwarming original stories.</div>
-                <div class="card-action">瀏覽故事 Browse Stories →</div>
+            <!-- 卡片 1：從電影看台灣 (靜謐霧灰藍) -->
+            <div class="hub-card card-film" onclick="window.location.href='film/index.html'">
+                <div class="card-meta">Taiwan Through Film</div>
+                <div class="card-title">從電影看台灣</div>
+                <div class="card-desc">透過當代台灣電影，感受日常對話中的語感、文化細節與台灣社會的人情風景。</div>
+                <div class="card-desc-en">Immerse yourself in contemporary Taiwanese cinema to capture the nuances of daily dialogue, cultural subtleties, and heartwarming human landscapes.</div>
+                <div class="card-action">瀏覽電影 Browse Films →</div>
             </div>
 
             <!-- 卡片 2：戲劇中的台灣（極緻薰衣草紫） -->
@@ -748,13 +762,22 @@
                 <div class="card-action">瀏覽劇目 Browse Dramas →</div>
             </div>
 
-            <!-- 卡片 3：從電影看台灣 (靜謐霧灰藍) -->
-            <div class="hub-card card-film" onclick="navigateToFilm()">
-                <div class="card-meta">Taiwan Through Film</div>
-                <div class="card-title">從電影看台灣</div>
-                <div class="card-desc">透過當代台灣電影，感受日常對話中的語感、文化細節與台灣社會的人情風景。</div>
-                <div class="card-desc-en">Immerse yourself in contemporary Taiwanese cinema to capture the nuances of daily dialogue, cultural subtleties, and heartwarming human landscapes.</div>
-                <div class="card-action">瀏覽電影 Browse Films →</div>
+            <!-- 卡片 3：注音符號故事集（溫潤茶金） -->
+            <div class="hub-card card-phonetics" onclick="window.location.href='phonetics.html'">
+                <div class="card-meta">Phonetics & Stories</div>
+                <div class="card-title">注音符號故事集</div>
+                <div class="card-desc">結合美學、聲音與童趣故事，為成人與文化愛好者設計的優雅發音啟蒙專區。</div>
+                <div class="card-desc-en">A beautiful, audio-guided introduction to phonetic symbols through heartwarming original stories.</div>
+                <div class="card-action">瀏覽故事 Browse Stories →</div>
+            </div>
+
+            <!-- 卡片 4：我走過的台灣 (苔綠) -->
+            <div class="hub-card card-taiwan" onclick="window.location.href='taiwan/index.html'">
+                <div class="card-meta">The Taiwan I Walk Through</div>
+                <div class="card-title">我走過的台灣</div>
+                <div class="card-desc">走進台灣的廟宇、老街與宅院，從真實的地方與故事中，感受這座島嶼的文化底蘊與日常之美。</div>
+                <div class="card-desc-en">Step into the temples, streets, and gardens of Taiwan — discovering the island's cultural depth through real places and stories.</div>
+                <div class="card-action">走進台灣 Explore Taiwan →</div>
             </div>
         </div>
     </div>
@@ -940,7 +963,7 @@
             </div>
 
             <!-- 故事 1：ㄆ的故事 (修復404：完全載入正確線上網址) -->
-            <div class="hub-card" style="border-top: 6px solid #E6D2B5;" onclick="window.location.href='bopomofo/p.html'">
+            <div class="hub-card" style="border-top: 6px solid #F2D0BB;" onclick="window.location.href='bopomofo/p.html'">
                 <div class="bopomofo-illustration">
                     <svg viewBox="0 0 100 100" width="75" height="75" style="filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.06));">
                         <defs>
@@ -1010,39 +1033,6 @@
             </div>
         </div>
     </div>
-    <!-- ==========================================================================
-       【第二層 - C】電影大廳 (Film Lobby View)
-       ========================================================================== -->
-    <div id="film-lobby-view" class="page-view hidden">
-        <div class="back-nav-container">
-            <button class="back-button" onclick="navigateToHub()">
-                ← 返回 Between characters 總部
-            </button>
-        </div>
-
-        <header style="padding-top: 40px;">
-            <div class="brand-tag">Slow learn film gallery</div>
-            <h1 class="main-title">Taiwan Film<span>.</span></h1>
-            <div class="subtitle">
-                請選擇您想探索的台灣電影。從影像、台詞與人物關係出發，慢慢讀懂當代台灣的生活情感與社會議題。
-            </div>
-            <div class="subtitle-en">
-                Select a film to begin. Explore contemporary Taiwan through images, dialogue, relationships, and social questions.
-            </div>
-        </header>
-
-        <div class="hub-container">
-            <!-- 電影 1：怪胎 -->
-            <div class="hub-card locked-card" style="border-top: 6px solid #F9B7C8;">
-                <div class="card-meta">Film 01 / Coming Soon</div>
-                <div class="card-title">怪胎</div>
-                <div class="card-desc">即將開放。這個單元將從人物關係、生活秩序與情感選擇出發，思考當愛情中的兩個人不再以相同的步調前進時，該如何面對改變、理解彼此，以及重新定義愛的模樣。</div>
-                <div class="card-desc-en">Coming soon: A film unit for exploring relationships, routines, emotional choices, and what love asks of two people when they begin moving at different rhythms.</div>
-                <div class="card-action" style="color: #D85C7E;">即將推出 Coming Soon</div>
-            </div>
-        </div>
-    </div>
-
     <!-- ==========================================================================
        【第三層】都會高階課堂閱讀器 (Classroom Reader View)
        ========================================================================== -->
@@ -1128,13 +1118,6 @@ function restoreEmbeddedTemplateView(templateId) {
          */
         function navigateToDrama() {
             window.location.href = 'drama/index.html';
-        }
-
-        /**
-         * 導向電影大廳 (向下滑動並淡入)
-         */
-        function navigateToFilm() {
-            transitionPages('main-hub-view', 'film-lobby-view');
         }
 
         /**
