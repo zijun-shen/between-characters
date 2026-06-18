@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taiwan Film｜Between Characters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; }
+    body {
+        background-color: #F8F6F2;
+        font-family: "Noto Sans TC", "Helvetica Neue", sans-serif;
+        margin: 0; padding: 0; color: #333333;
+        display: flex; flex-direction: column; align-items: center;
+        min-height: 100vh; overflow-x: hidden;
+    }
+    .back-nav-container {
+        width: 90%; max-width: 1100px; margin-top: 40px;
+        display: flex; justify-content: flex-start;
+    }
+    .back-button {
+        background: none; border: none;
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 0.9rem; color: #8C8275; cursor: pointer;
+        padding: 10px 0; display: flex; align-items: center;
+        letter-spacing: 1px; font-weight: 400;
+        transition: color 0.2s ease; text-decoration: none;
+    }
+    .back-button:hover { color: #2C3E50; }
+    header {
+        text-align: center; padding: 40px 20px 40px;
+        max-width: 800px;
+    }
+    .brand-tag {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem; letter-spacing: 4px; color: #8C8275;
+        margin-bottom: 12px; font-weight: 500;
+    }
+    .main-title {
+        font-family: 'Great Vibes', cursive;
+        font-size: 4.8rem; color: #2C3E50;
+        margin: 0 0 15px 0; font-weight: 400;
+    }
+    .main-title span { font-family: "Noto Sans TC", sans-serif; font-weight: 300; color: #8C8275; }
+    .subtitle {
+        font-size: 0.95rem; color: #6C757D; line-height: 1.8;
+        letter-spacing: 1.5px; font-weight: 300; max-width: 600px; margin: 0 auto;
+    }
+    .subtitle-en {
+        font-family: "Montserrat", sans-serif; font-size: 0.85rem;
+        color: #6F6A64; margin-top: 10px; font-weight: 400; letter-spacing: 1px;
+    }
+    .hub-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 900px;
+        width: 90%;
+        margin-bottom: 80px;
+        padding: 20px;
+    }
+    .hub-card {
+        background-color: #FFFFFF;
+        border-radius: 16px;
+        padding: 28px 36px;
+        text-decoration: none;
+        box-shadow: 0 4px 25px rgba(140,130,117,0.05);
+        transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 36px;
+        border: 1px solid rgba(140,130,117,0.08);
+        cursor: pointer;
+        color: inherit;
+    }
+    .hub-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(140,130,117,0.12); }
+    .locked-card { opacity: 0.65; cursor: default; }
+    .locked-card:hover { transform: none; box-shadow: 0 4px 25px rgba(140,130,117,0.05); }
+    .card-left {
+        flex-shrink: 0;
+        width: 180px;
+        border-right: 1px solid rgba(140,130,117,0.12);
+        padding-right: 30px;
+    }
+    .card-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-meta {
+        font-family: "Montserrat", sans-serif; font-size: 0.72rem;
+        letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; font-weight: 500;
+    }
+    .card-title { font-size: 1.55rem; color: #2C3E50; margin: 0 0 6px; font-weight: 500; letter-spacing: 1px; }
+    .card-tags {
+        font-family: "Montserrat", sans-serif; font-size: 0.68rem;
+        letter-spacing: 2px; color: #9B8B7A; margin-bottom: 0;
+        text-transform: uppercase; font-weight: 400;
+    }
+    .card-desc { font-size: 0.92rem; color: #555; line-height: 1.75; margin: 0 0 8px; font-weight: 300; }
+    .card-desc-en {
+        font-family: "Montserrat", sans-serif; font-size: 0.78rem;
+        color: #6F6A64; line-height: 1.6; margin: 0 0 16px; font-weight: 400;
+    }
+    .card-action {
+        margin-top: auto; font-size: 0.83rem; font-weight: 500; letter-spacing: 1px;
+    }
+    footer {
+        font-family: "Montserrat", sans-serif; font-size: 0.78rem; font-style: italic;
+        color: #8C8275; letter-spacing: 0.08em;
+        text-align: center; padding: 2rem 2.5rem 3rem;
+    }
+    @media (max-width: 700px) {
+        .main-title { font-size: 3.2rem; }
+        .hub-card { flex-direction: column; padding: 24px 22px; gap: 16px; }
+        .card-left { width: 100%; border-right: none; border-bottom: 1px solid rgba(140,130,117,0.12); padding-right: 0; padding-bottom: 14px; }
+    }
+</style>
+</head>
+<body>
+    <div class="back-nav-container">
+        <a class="back-button" href="../index.html">← 返回 Between Characters 總部</a>
+    </div>
+
+    <header>
+        <div class="brand-tag">Slow learn film gallery</div>
+        <h1 class="main-title">Taiwan Film<span>.</span></h1>
+        <div class="subtitle">請選擇您想探索的台灣電影。從日常對話、人物關係與生活細節出發，感受台灣獨有的人情風景與文化記憶。</div>
+        <div class="subtitle-en">Select a film to begin. Discover Taiwan through everyday dialogue, relationships, and the unique emotions and cultural memories woven into daily life.</div>
+    </header>
+
+    <div class="hub-container">
+
+        <!-- Film 01：怪胎 -->
+        <a class="hub-card" style="border-left: 5px solid #f0b9c5;" href="the-world-between-us/guai-tai.html">
+            <div class="card-left">
+                <div class="card-meta" style="color:#d97391;">Film 01</div>
+                <div class="card-title">怪胎</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; color:#d97391; margin-top:14px; letter-spacing:0.05em;">I WeirDo</div>
+            </div>
+            <div class="card-right">
+                <div class="card-tags" style="color:#d97391; margin-bottom:10px;">Love · OCD · Relationship</div>
+                <div class="card-desc">找到和自己相同的人會比較幸福嗎？但當兩個人開始改變，愛情還會是原來的樣子嗎？</div>
+                <div class="card-desc-en">A Taiwanese romantic film about love, OCD, and the fear of losing ourselves as relationships change.</div>
+                <div class="card-action" style="color:#d97391;">進入電影 Explore Film →</div>
+            </div>
+        </a>
+
+        <!-- Film 02：惡女（即將推出） -->
+        <div class="hub-card locked-card" style="border-left: 5px solid #CBD5E1;">
+            <div class="card-left">
+                <div class="card-meta" style="color:#64748B;">Film 02</div>
+                <div class="card-title">惡女</div>
+                <div class="card-tags">Identity · Survival · Society</div>
+            </div>
+            <div class="card-right">
+                <div class="card-desc">即將開放。從一個被定義為「壞女人」的故事出發，探討社會對女性的凝視與自我認同的掙扎。</div>
+                <div class="card-desc-en">Coming soon: A film about identity, survival, and what it means to be labeled a bad woman in Taiwan.</div>
+                <div class="card-action" style="color:#64748B;">即將推出 Coming Soon</div>
+            </div>
+        </div>
+
+        <!-- Film 03：關於我跟鬼變成家人的那件事（即將推出） -->
+        <div class="hub-card locked-card" style="border-left: 5px solid #C4B5E8;">
+            <div class="card-left">
+                <div class="card-meta" style="color:#7E6EB8;">Film 03</div>
+                <div class="card-title">關於我跟鬼變成家人的那件事</div>
+                <div class="card-tags">Family · LGBTQ+ · Culture</div>
+            </div>
+            <div class="card-right">
+                <div class="card-desc">即將開放。一部透過幽默與溫情，探索台灣傳統家庭觀念、民俗信仰與當代 LGBTQ+ 議題的電影。</div>
+                <div class="card-desc-en">Coming soon: A warm comedy exploring Taiwanese folk beliefs, family, and LGBTQ+ identity.</div>
+                <div class="card-action" style="color:#7E6EB8;">即將推出 Coming Soon</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>Between Characters · Film Gallery</footer>
+</body>
+</html>
