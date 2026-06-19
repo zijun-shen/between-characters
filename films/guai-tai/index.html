@@ -764,6 +764,476 @@
       .synopsis-card, .culture-card { padding: 1.8rem 1.6rem; }
       .character-card { padding: 1.8rem 1.6rem; }
     }
+
+    .language-link-card {
+      display: block;
+      margin: 1.5rem auto 0;
+      padding: 1.25rem 1.5rem;
+      max-width: 720px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      box-shadow: 0 4px 22px rgba(217,115,145,0.06);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .language-link-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border);
+    }
+    .language-link-card .link-eyebrow {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.25rem;
+    }
+    .language-link-card .link-title {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+    .language-link-card .link-sub {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+
+    .language-notes-button-wrap {
+      text-align: center;
+      margin: 2.4rem auto 2.8rem;
+    }
+    .language-notes-button {
+      display: inline-block;
+      padding: 0.85rem 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255,255,255,0.72);
+      text-decoration: none;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      box-shadow: 0 4px 18px rgba(217,115,145,0.06);
+      transition: all 0.25s ease;
+    }
+    .language-notes-button:hover {
+      color: var(--ink);
+      background: var(--blue-pale);
+      transform: translateY(-1px);
+    }
+
+
+    .summary-action-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem auto 0;
+    }
+    .summary-action-btn,
+    .summary-action-row summary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 0.78rem 1.35rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--blue);
+      text-decoration: none;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      box-shadow: 0 4px 18px rgba(217,115,145,0.06);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      list-style: none;
+    }
+    .summary-action-row summary::-webkit-details-marker { display: none; }
+    .summary-action-btn:hover,
+    .summary-action-row summary:hover {
+      color: var(--ink);
+      background: var(--blue-pale);
+      transform: translateY(-1px);
+    }
+    .summary-action-row details {
+      display: inline-block;
+      position: relative;
+    }
+    .summary-action-row details[open] {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    .summary-action-row details[open] summary {
+      margin: 0 auto 1.2rem;
+    }
+    .summary-action-row details:not([open]) summary .close-label,
+    .summary-action-row details[open] summary .open-label {
+      display: none;
+    }
+    .summary-action-row details[open] summary .close-label {
+      display: inline;
+    }
+    .summary-panel {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+
+    /* Fixed three-button row under Story Summary */
+    .summary-action-row {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      gap: 1rem !important;
+      flex-wrap: nowrap !important;
+      margin: 2rem auto 0 !important;
+      position: relative;
+      z-index: 2;
+    }
+    .summary-action-row details {
+      display: block !important;
+      width: 230px !important;
+      position: relative;
+      text-align: center;
+    }
+    .summary-action-row details[open] {
+      display: block !important;
+      width: 230px !important;
+      text-align: center !important;
+    }
+    .summary-action-row details[open] summary {
+      margin: 0 !important;
+    }
+    .summary-action-btn,
+    .summary-action-row summary {
+      width: 230px !important;
+      min-width: 230px !important;
+      height: 48px !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 999px !important;
+      background: rgba(255,255,255,0.72) !important;
+      color: var(--blue) !important;
+      text-decoration: none !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 1.05rem !important;
+      font-style: italic !important;
+      letter-spacing: 0.04em !important;
+      line-height: 1 !important;
+      box-shadow: 0 4px 18px rgba(217,115,145,0.06) !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+    }
+    .summary-action-btn:hover,
+    .summary-action-row summary:hover {
+      color: var(--ink) !important;
+      background: var(--blue-pale) !important;
+      transform: translateY(-1px) !important;
+    }
+    .summary-action-row details:not([open]) summary .close-label,
+    .summary-action-row details[open] summary .open-label {
+      display: none !important;
+    }
+    .summary-action-row details[open] summary .close-label {
+      display: inline !important;
+    }
+    .summary-action-row .summary-panel {
+      position: absolute !important;
+      left: 50% !important;
+      top: 60px !important;
+      transform: translateX(-50%) !important;
+      width: min(760px, calc(100vw - 48px)) !important;
+      max-width: 760px !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-soft) !important;
+      border-radius: 18px !important;
+      padding: 1.4rem 1.6rem !important;
+      box-shadow: 0 12px 36px rgba(217,115,145,0.12) !important;
+      text-align: left !important;
+      z-index: 10 !important;
+    }
+    @media (max-width: 760px) {
+      .summary-action-row {
+        flex-wrap: wrap !important;
+      }
+      .summary-action-row details,
+      .summary-action-row details[open],
+      .summary-action-btn,
+      .summary-action-row summary {
+        width: 100% !important;
+        max-width: 300px !important;
+        min-width: 0 !important;
+      }
+    }
+
+
+    .summary-action-row details summary {
+      width: 230px !important;
+      min-width: 230px !important;
+      height: 48px !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .summary-action-row details[open] summary {
+      margin: 0 !important;
+    }
+
+
+    .summary-action-row .english-summary summary::after,
+    .summary-action-row .english-summary summary::before {
+      content: none !important;
+      display: none !important;
+    }
+    .summary-action-row .english-summary summary {
+      gap: 0 !important;
+      text-align: center !important;
+    }
+
+
+/* --- Force 3 buttons to align horizontally --- */
+.summary-action-row{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:20px !important;
+    flex-wrap:nowrap !important;
+}
+
+.summary-action-row details,
+.summary-action-row a,
+.summary-action-row button{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.summary-action-row details{
+    width:230px !important;
+    min-width:230px !important;
+    display:block !important;
+}
+
+.summary-action-row summary,
+.summary-action-row .summary-action-btn{
+    width:230px !important;
+    min-width:230px !important;
+    height:48px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    padding:0 !important;
+    margin:0 !important;
+
+    box-sizing:border-box !important;
+    vertical-align:middle !important;
+}
+
+.summary-action-row .summary-panel{
+    position:absolute !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    top:62px !important;
+    width:min(760px, calc(100vw - 48px)) !important;
+}
+
+.summary-action-row summary::before,
+.summary-action-row summary::after{
+    content:none !important;
+}
+
+
+/* Cleaner English Summary expansion */
+.summary-action-row .summary-panel{
+    position: static !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:900px !important;
+    margin:1.5rem auto 0 !important;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+}
+
+.summary-action-row .english-summary-content{
+    background:#fffdfd !important;
+    border-top:1px solid rgba(226,180,190,.45) !important;
+    padding:1.5rem 2rem !important;
+    color:#b77b87 !important;
+    line-height:2 !important;
+}
+
+.summary-action-row details{
+    position:static !important;
+}
+
+
+/* Final English Summary card */
+.summary-action-row .summary-panel{
+    position: absolute !important;
+    left: 50% !important;
+    top: 64px !important;
+    transform: translateX(-50%) !important;
+
+    width: 700px !important;
+    max-width: calc(100vw - 48px) !important;
+
+    background: #fffafa !important;
+    border: 1px solid rgba(226,180,190,.35) !important;
+    border-radius: 24px !important;
+
+    padding: 32px !important;
+    box-shadow: 0 10px 30px rgba(217,115,145,.08) !important;
+
+    z-index: 20 !important;
+}
+
+.summary-action-row .english-summary-content{
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+
+    color:#b77b87 !important;
+    line-height: 2 !important;
+    font-size: 1rem !important;
+}
+
+.summary-action-row details{
+    position: relative !important;
+}
+
+.summary-action-row .english-summary-content p{
+    margin-bottom: 1.2rem !important;
+}
+
+
+/* === FINAL FIX: English Summary expands aligned with the 3-button row === */
+.summary-action-row {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+  width: 730px !important;              /* 230 * 3 + 20 * 2 */
+  max-width: calc(100vw - 48px) !important;
+  margin: 2rem auto 0 !important;
+}
+
+.summary-action-row details,
+.summary-action-row .summary-action-btn {
+  flex: 0 0 230px !important;
+  width: 230px !important;
+  min-width: 230px !important;
+  max-width: 230px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.summary-action-row summary,
+.summary-action-row .summary-action-btn {
+  width: 230px !important;
+  height: 48px !important;
+  min-width: 230px !important;
+  max-width: 230px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.summary-action-row summary::before,
+.summary-action-row summary::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* The expanded card is now a full row below the buttons,
+   with the same left/right edges as the full button row. */
+.summary-action-row details[open] {
+  display: contents !important;
+}
+
+.summary-action-row .summary-panel {
+  position: static !important;
+  transform: none !important;
+  flex: 0 0 730px !important;
+  width: 730px !important;
+  max-width: calc(100vw - 48px) !important;
+  margin: 22px 0 0 0 !important;
+  background: #fffafa !important;
+  border: 1px solid rgba(226,180,190,.35) !important;
+  border-radius: 24px !important;
+  padding: 32px !important;
+  box-shadow: 0 10px 30px rgba(217,115,145,.08) !important;
+  z-index: 1 !important;
+  text-align: left !important;
+}
+
+.summary-action-row .english-summary-content {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #b77b87 !important;
+  line-height: 2 !important;
+  font-size: 1rem !important;
+}
+
+.summary-action-row .english-summary-content p {
+  margin: 0 0 1.2rem 0 !important;
+}
+
+@media (max-width: 760px) {
+  .summary-action-row {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+
+  .summary-action-row details,
+  .summary-action-row .summary-action-btn,
+  .summary-action-row summary {
+    flex: 0 0 230px !important;
+    width: 230px !important;
+    min-width: 230px !important;
+    max-width: 230px !important;
+  }
+
+  .summary-action-row details[open] {
+    display: contents !important;
+  }
+
+  .summary-action-row .summary-panel {
+    flex: 0 0 calc(100vw - 48px) !important;
+    width: calc(100vw - 48px) !important;
+    max-width: calc(100vw - 48px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -789,8 +1259,7 @@
       <a class="hero-watch" href="https://www.myvideo.net.tw/details/0/321155#" target="_blank" rel="noopener">在 MyVideo 觀看完整電影</a>
     </div>
   </section>
-
-  <div class="info-strip">
+<div class="info-strip">
     <div class="info-inner">
       <div class="fact-item">
         <div class="fact-label">Director</div>
@@ -823,30 +1292,31 @@
       <p>Two people, one shared world</p>
     </div>
     <div class="synopsis-card">
-      <p>
-        陳柏青是一名強迫症患者，有嚴重的<span class="vocab-word" data-word="潔癖" data-pinyin="jié pì" data-en="germaphobia; obsession with cleanliness">潔癖</span>，每天按固定<span class="vocab-word" data-word="步伐" data-pinyin="bù fá" data-en="steps; pace">步伐</span>出門，照著嚴格的 SOP 生活，<span class="vocab-word" data-word="日復一日" data-pinyin="rì fù yī rì" data-en="day after day">日復一日</span>、<span class="vocab-word" data-word="千篇一律" data-pinyin="qiān piān yī lǜ" data-en="monotonous; always the same">千篇一律</span>，過著<span class="vocab-word" data-word="與世隔絕" data-pinyin="yǔ shì gé jué" data-en="isolated from society; cut off from the world">與世隔絕</span>的日子。<span class="vocab-word" data-word="渾身不對勁" data-pinyin="hún shēn bú duì jìn" data-en="to feel wrong all over; to feel uncomfortable">渾身不對勁</span>卻改變不了，深感自己是社會中的<span class="vocab-word" data-word="異類" data-pinyin="yì lèi" data-en="outsider; weirdo; someone seen as different">異類</span>，受 OCD <span class="vocab-word" data-word="制約" data-pinyin="zhì yuē" data-en="to be constrained by; to be controlled by">制約</span>，嚴重影響<span class="vocab-word" data-word="作息" data-pinyin="zuò xí" data-en="daily routine; schedule">作息</span>。
+            <p>
+        陳柏青是一名<span class="vocab-word" data-word="強迫症" data-pinyin="qiáng pò zhèng" data-en="OCD; obsessive-compulsive disorder">強迫症</span>患者，有嚴重的<span class="vocab-word" data-word="潔癖" data-pinyin="jié pì" data-en="germaphobia; obsession with cleanliness">潔癖</span>，每次出門都數著<span class="vocab-word" data-word="固定步伐" data-pinyin="gù dìng bù fá" data-en="fixed steps; a fixed walking routine">固定步伐</span>，照著嚴格的 SOP 生活，<span class="vocab-word" data-word="日復一日" data-pinyin="rì fù yī rì" data-en="day after day">日復一日</span>、<span class="vocab-word" data-word="千篇一律" data-pinyin="qiān piān yī lǜ" data-en="monotonous; always the same">千篇一律</span>，過著<span class="vocab-word" data-word="與世隔絕" data-pinyin="yǔ shì gé jué" data-en="to be isolated from society; cut off from the world">與世隔絕</span>的日子。<span class="vocab-word" data-word="渾身不對勁" data-pinyin="hún shēn bú duì jìn" data-en="to feel wrong all over; to feel uncomfortable">渾身不對勁</span>卻改變不了，深感自己是社會中的<span class="vocab-word" data-word="異類" data-pinyin="yì lèi" data-en="outsider; weirdo; someone seen as different">異類</span>，受 OCD <span class="vocab-word" data-word="制約" data-pinyin="zhì yuē" data-en="to be constrained by; to be controlled by">制約</span>，嚴重影響<span class="vocab-word" data-word="作息" data-pinyin="zuò xí" data-en="daily routine; schedule">作息</span>。
       </p>
       <p>
-        某個 15 號，他在超市注意到一個偷巧克力的女孩陳靜。之後兩人又<span class="vocab-word" data-word="恰巧" data-pinyin="qià qiǎo" data-en="by chance; coincidentally">恰巧</span>相遇，陳靜教柏青偷巧克力要躲在監視器<span class="vocab-word" data-word="死角" data-pinyin="sǐ jiǎo" data-en="blind spot">死角</span>，後來她把偷來的巧克力給柏青，以「<span class="vocab-word" data-word="封口費" data-pinyin="fēng kǒu fèi" data-en="hush money">封口費</span>」要他保密。事後卻發現彼此竟是<span class="vocab-word" data-word="同路人" data-pinyin="tóng lù rén" data-en="people who share the same experience or situation">同路人</span>，<span class="vocab-word" data-word="顧名思義" data-pinyin="gù míng sī yì" data-en="as the name suggests">顧名思義</span>就是兩人都<span class="vocab-word" data-word="罹患" data-pinyin="lí huàn" data-en="to suffer from; to be diagnosed with">罹患</span>強迫症。陳靜不想<span class="vocab-word" data-word="搞曖昧" data-pinyin="gǎo ài mèi" data-en="to have an ambiguous romantic relationship">搞曖昧</span>，率先<span class="vocab-word" data-word="告白" data-pinyin="gào bái" data-en="to confess one's feelings">告白</span>，兩人<span class="vocab-word" data-word="一言為定" data-pinyin="yì yán wéi dìng" data-en="it's a deal; to make a promise">一言為定</span>，正式交往。
+        某個 15 號，他在超市注意到一個偷巧克力的女孩陳靜。之後兩人又<span class="vocab-word" data-word="恰巧" data-pinyin="qià qiǎo" data-en="by chance; coincidentally">恰巧</span>相遇，發現彼此竟是<span class="vocab-word" data-word="同路人" data-pinyin="tóng lù rén" data-en="people who share the same experience or situation">同路人</span>，<span class="vocab-word" data-word="顧名思義" data-pinyin="gù míng sī yì" data-en="as the name suggests">顧名思義</span>就是兩人都<span class="vocab-word" data-word="罹患" data-pinyin="lí huàn" data-en="to suffer from; to be diagnosed with">罹患</span><span class="vocab-word" data-word="強迫症" data-pinyin="qiáng pò zhèng" data-en="OCD; obsessive-compulsive disorder">強迫症</span>。陳靜不想<span class="vocab-word" data-word="搞曖昧" data-pinyin="gǎo ài mèi" data-en="to have an ambiguous romantic relationship">搞曖昧</span>，率先<span class="vocab-word" data-word="告白" data-pinyin="gào bái" data-en="to confess one&#x27;s feelings">告白</span>，兩人<span class="vocab-word" data-word="一言為定" data-pinyin="yì yán wéi dìng" data-en="it&#x27;s a deal; to make a promise">一言為定</span>，正式交往。
       </p>
       <p>
-        為了製造更多相處時間，陳靜發明「<span class="vocab-word" data-word="細菌大挑戰" data-pinyin="xì jūn dà tiǎo zhàn" data-en="germ challenge">細菌大挑戰</span>」，兩人在彼此的陪伴下慢慢跨出自己的世界。柏青做翻譯，但打字速度慢。陳靜的聽打速度讓柏青<span class="vocab-word" data-word="望塵莫及" data-pinyin="wàng chén mò jí" data-en="to be far behind; unable to catch up">望塵莫及</span>，為了賺更多錢，一個人說，一個人打，兩人合作無間，簡直是<span class="vocab-word" data-word="天作之合" data-pinyin="tiān zuò zhī hé" data-en="a match made in heaven; a perfect match">天作之合</span>。
+        為了製造更多相處時間，陳靜發明「<span class="vocab-word" data-word="細菌" data-pinyin="xì jùn" data-en="germs / bacteria">細菌</span>大挑戰」，兩人接觸得更頻繁。柏青當翻譯，但有打字障礙。陳靜的聽打速度讓柏青<span class="vocab-word" data-word="望塵莫及" data-pinyin="wàng chén mò jí" data-en="to be far behind; unable to catch up">望塵莫及</span>，為了賺更多錢，一個人說，一個人打，簡直是<span class="vocab-word" data-word="天作之合" data-pinyin="tiān zuò zhī hé" data-en="a match made in heaven">天作之合</span>。
       </p>
       <p>
-        那個本以為是<span class="vocab-word" data-word="詛咒" data-pinyin="zǔ zhòu" data-en="curse">詛咒</span>的強迫症，<span class="vocab-word" data-word="冥冥之中" data-pinyin="míng míng zhī zhōng" data-en="as if guided by an unseen force; in a mysterious way">冥冥之中</span>居然像是<span class="vocab-word" data-word="命中注定" data-pinyin="mìng zhōng zhù dìng" data-en="destined; meant to be">命中注定</span>，為了讓兩人相遇而存在。雖然兩人被<span class="vocab-word" data-word="剝奪" data-pinyin="bō duó" data-en="to deprive; to take away">剝奪</span>了可以正常生活的能力，卻愛得<span class="vocab-word" data-word="轟轟烈烈" data-pinyin="hōng hōng liè liè" data-en="passionately; dramatically and intensely">轟轟烈烈</span>，並打勾勾說誰變心誰就<span class="vocab-word" data-word="生不如死" data-pinyin="shēng bù rú sǐ" data-en="a fate worse than death">生不如死</span>。
+        那個本以為是<span class="vocab-word" data-word="詛咒" data-pinyin="zǔ zhòu" data-en="curse">詛咒</span>的<span class="vocab-word" data-word="強迫症" data-pinyin="qiáng pò zhèng" data-en="OCD; obsessive-compulsive disorder">強迫症</span>，卻像是<span class="vocab-word" data-word="命中注定" data-pinyin="mìng zhōng zhù dìng" data-en="destined; meant to be">命中注定</span>，讓兩人在<span class="vocab-word" data-word="冥冥之中" data-pinyin="míng míng zhī zhōng" data-en="as if guided by an unseen force; in a mysterious way">冥冥之中</span>遇見彼此。雖然兩人被<span class="vocab-word" data-word="剝奪" data-pinyin="bō duó" data-en="to deprive; to take away">剝奪</span>了可以正常生活的能力，卻愛得<span class="vocab-word" data-word="轟轟烈烈" data-pinyin="hōng hōng liè liè" data-en="passionately; dramatically and intensely">轟轟烈烈</span>，並打勾勾說誰變心誰就<span class="vocab-word" data-word="生不如死" data-pinyin="shēng bù rú sǐ" data-en="a fate worse than death">生不如死</span>。
       </p>
       <p>
-        有一天，柏青的 OCD <span class="vocab-word" data-word="毫無徵兆" data-pinyin="háo wú zhēng zhào" data-en="without any warning signs">毫無徵兆</span>地消失。陳靜感到不安，帶著他<span class="vocab-word" data-word="求神問卜" data-pinyin="qiú shén wèn bǔ" data-en="to seek answers from gods or fortune telling">求神問卜</span>、拜拜算命，試圖把舊的柏青找回來。但柏青走入職場，發現並沒有想像中的<span class="vocab-word" data-word="爾虞我詐" data-pinyin="ěr yú wǒ zhà" data-en="scheming against one another; mutual deception">爾虞我詐</span>、<span class="vocab-word" data-word="勾心鬥角" data-pinyin="gōu xīn dòu jiǎo" data-en="to scheme and fight against one another">勾心鬥角</span>，不但越來越融入正常生活，與女同事還越走越近。
+        有一天，柏青的 OCD <span class="vocab-word" data-word="毫無徵兆" data-pinyin="háo wú zhēng zhào" data-en="without any warning signs">毫無徵兆</span>地消失。陳靜感到不安，帶著他<span class="vocab-word" data-word="求神問卜" data-pinyin="qiú shén wèn bǔ" data-en="to seek answers from gods or fortune telling">求神問卜</span>、看診、算命，試圖把舊的柏青找回來。但隨著柏青走入職場，他發現並沒有想像中的那麼<span class="vocab-word" data-word="爾虞我詐" data-pinyin="ěr yú wǒ zhà" data-en="scheming against one another; mutual deception">爾虞我詐</span>、<span class="vocab-word" data-word="勾心鬥角" data-pinyin="gōu xīn dòu jiǎo" data-en="to scheme and fight against one another">勾心鬥角</span>。他不但越來越融入正常生活，和陳靜的共通話題也慢慢減少，甚至還與女同事越走越近。
       </p>
       <p>
         而陳靜只能繼續在家<span class="vocab-word" data-word="做牛做馬" data-pinyin="zuò niú zuò mǎ" data-en="to work extremely hard; to toil like an ox or horse">做牛做馬</span>。她怕追問柏青與女同事的關係會加深柏青的<span class="vocab-word" data-word="戒心" data-pinyin="jiè xīn" data-en="wariness; guardedness">戒心</span>，只好<span class="vocab-word" data-word="糾結" data-pinyin="jiū jié" data-en="to struggle emotionally; to feel conflicted">糾結</span>地什麼都不說，<span class="vocab-word" data-word="不甘心" data-pinyin="bù gān xīn" data-en="unwilling to accept the situation">不甘心</span>卻又無可奈何。
       </p>
       <p>
-        愛的時候，所有的缺點都是優點；不愛的時候，那些缺點都將成為<span class="vocab-word" data-word="致命傷" data-pinyin="zhì mìng shāng" data-en="fatal flaw; fatal weakness">致命傷</span>。當兩個怪胎不再一樣，這段愛情究竟還能走多遠？當對方變好了，你只能<span class="vocab-word" data-word="自生自滅" data-pinyin="zì shēng zì miè" data-en="to fend for oneself; to be left to survive on one's own">自生自滅</span>嗎？
+        愛的時候，所有的缺點都是優點；不愛的時候，那些缺點都將成為<span class="vocab-word" data-word="致命傷" data-pinyin="zhì mìng shāng" data-en="fatal flaw; fatal weakness">致命傷</span>。當兩個怪胎不再一樣，這段愛情究竟還能走多遠？當對方變好了，你只能<span class="vocab-word" data-word="自生自滅" data-pinyin="zì shēng zì miè" data-en="to fend for oneself; to be left to survive on one&#x27;s own">自生自滅</span>嗎？
       </p>
 
-      <details class="english-summary">
-        <summary>English Summary</summary>
+      <div class="summary-action-row">
+        <details class="english-summary">
+        <summary>English Summary</summary><div class="summary-panel">
         <div class="english-summary-content">
           <p>
             Chen Po-Ching lives with OCD and a severe fear of germs. His days are controlled by strict routines, fixed steps, and a life that keeps him isolated from the outside world. One day, he notices Chen Ching, a girl who steals chocolate at a supermarket. After several strange encounters, the two discover that they are “fellow travelers” — people who share the same condition and finally understand each other’s world.
@@ -858,12 +1328,12 @@
             But everything changes when Po-Ching’s OCD suddenly disappears. He begins to enter the workplace, adapt to ordinary life, and grow closer to another woman, while Chen Ching remains trapped in the same routines and fears. The film asks a painful question: if love begins because two people are alike, what happens when one person changes? When the person you love becomes “better,” are you left behind to survive on your own?
           </p>
         </div>
-      </details>
-
-      <div class="vocab-download">
-        <button type="button" id="downloadVocabBtn">下載完整生詞表</button>
+      </div></details>
+        <button type="button" id="downloadVocabBtn" class="summary-action-btn">Vocabulary List</button>
+        <a class="summary-action-btn" href="language-culture-notes.html">Taiwan Through Language</a>
       </div>
-    </div>
+
+</div>
   </section>
 
   <!-- ============================== STORY KEYWORDS ============================== -->
@@ -903,7 +1373,7 @@
   </section>
 
   <!-- ============================== SECTION 3：電影想問你的事 ============================== -->
-  <section class="section" id="questions">
+<section class="section" id="questions">
     <div class="section-header">
       <div class="section-eyebrow">Questions Worth Asking</div>
       <h2>電影想問你的事</h2>
@@ -937,7 +1407,7 @@
         <ol class="question-list">
           <li>你曾經因為和別人有共同點而喜歡上他嗎？</li>
           <li>你愛的是這個人，還是你們之間的相似？</li>
-          <li>如果你有一個別人無法理解的習慣，你會想找一個和你一樣的人嗎？</li>
+          <li>如果你有一個別人無法理解的習慣，你會想找一個和你一樣的人交往嗎？</li>
           <li>如果一個人有一個缺點，找另一個有一樣缺點的人談戀愛，會不會比較容易？</li>
           <li>你認為真正的愛情，是找到另一個自己，還是被一個不同的人接受？</li>
         </ol>
@@ -951,8 +1421,8 @@
           <div class="q-toggle"></div>
         </summary>
         <ol class="question-list">
-          <li>如果有一個缺點讓你很困擾，你會希望有人跟你一樣，還是鼓勵你改變？</li>
-          <li>如果你不是所謂的「正常人」，你會希望別人理解你，還是希望自己變得正常？</li>
+          <li>如果有一個缺點讓你很困擾，你會希望伴侶和你一樣，還是鼓勵你改變？</li>
+          <li>如果你不是所謂的「正常人」，你會希望伴侶理解真正的你，還是希望自己變得正常？</li>
           <li>你覺得愛情中，伴侶應該接受你的缺點，還是幫助你變得更好？</li>
           <li>你覺得被接受比較重要，還是變得更好比較重要？</li>
           <li>愛情的意義，是帶著彼此的缺點相愛，還是陪伴彼此一起變得更好？</li>
@@ -1015,10 +1485,13 @@
           <div class="keyword-box">
             <div class="keyword-label">Key Words</div>
             <div class="keyword-list">
-              <span class="keyword-chip">合群 <em>fit in</em></span>
               <span class="keyword-chip">怪胎 <em>weirdo</em></span>
-              <span class="keyword-chip">正常 <em>normal</em></span>
-              <span class="keyword-chip">心理健康 <em>mental health</em></span>
+              <span class="keyword-chip">異類 <em>outsider / misfit</em></span>
+              <span class="keyword-chip">與世隔絕 <em>isolated from society</em></span>
+              <span class="keyword-chip">強迫症 <em>obsessive-compulsive disorder (OCD)</em></span>
+              <span class="keyword-chip">潔癖 <em>germaphobia</em></span>
+              <span class="keyword-chip">心理諮商 <em>counseling</em></span>
+            
             </div>
           </div>
           <p>在傳統的台灣社會裡，人們重視「合群」與「不要造成別人的麻煩」，期待建立一個和諧的社會。</p>
@@ -1230,8 +1703,8 @@
   <footer>
     <p>Between Characters · Film Study Series · 怪胎 I WeirDo</p>
     <p>本網站僅供華語教學與教育用途；電影《怪胎》相關劇照、圖片與影片版權皆屬 MyVideo 與原著作權人所有。</p>
-    <p>This website is for Mandarin teaching and educational purposes only. Film stills, images, and video materials from <em>I WeirDo</em> are copyrighted by MyVideo and the original copyright holders.</p>
     <p>可於 <a href="https://www.myvideo.net.tw/details/0/321155#" target="_blank" rel="noopener">MyVideo</a> 加入會員並觀看完整電影。</p>
+    <p>This website is for Mandarin teaching and educational purposes only. Film stills, images, and video materials from <em>I WeirDo</em> are copyrighted by MyVideo and the original copyright holders.</p>
     <p>You can watch the full film on <a href="https://www.myvideo.net.tw/details/0/321155#" target="_blank" rel="noopener">MyVideo</a> with a membership.</p>
   </footer>
 
