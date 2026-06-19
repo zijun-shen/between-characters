@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I WeirDo｜Language & Culture Notes</title>
+  <style>
+    :root{
+      /* 核心配色：粉紅與紫藕色系 */
+      --bg: #f9f2f5;           /* 淡淡的灰粉底色 */
+      --paper: #fffcfd;        /* 微帶粉紅的明亮紙張色 */
+      --ink: #42383c;          /* 深紫藕調的墨水黑 */
+      --muted: #8c7a82;        /* 灰紫藕調的次要文字色 */
+      --line: #ebdce3;         /* 柔和的淺粉紫分隔線 */
+      --soft: #f4e6ec;         /* 電影台詞的粉紫底色 */
+      --accent: #9c6c84;       /* 濃郁的紫藕重點色 */
+      --tag: #b8869e;          /* 灰粉紅的標籤色 */
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman","Noto Serif TC",serif;line-height:1.8;}
+    .wrap{max-width:1080px;margin:0 auto;padding:70px 24px 90px;}
+    .intro{text-align:center;margin-bottom:48px;}
+    .eyebrow{font-family:Montserrat,Arial,sans-serif;font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    h1{font-size:2.55rem;font-weight:400;letter-spacing:.5px;margin:0 0 12px;color:var(--ink);}
+    .subtitle{max-width:680px; margin:0 auto; color:var(--muted); font-size:1rem;}
+    .section{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(92,72,81,.05);}
+    details.section[open] summary { border-bottom:1px solid var(--line); }
+    summary{cursor:pointer;list-style:none;padding:28px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+    summary::-webkit-details-marker{display:none;}
+    .section-title{font-family:Montserrat,Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:.88rem;color:var(--accent);margin-bottom:4px;}
+    .section-desc{color:var(--muted);font-size:.96rem;font-style:italic;}
+    .toggle{font-family:Montserrat,Arial,sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);white-space:nowrap;}
+    details .toggle::before{content:"Open";}
+    details[open] .toggle::before{content:"Close";}
+    .content{padding:30px 34px 38px;}
+    
+    /* Section 1: The Way We Speak */
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+    .card{background:#fff9fb;border:1px solid var(--line);border-radius:22px;padding:24px 24px 22px;}
+    .card h3{margin:0 0 4px;font-size:1.2rem;font-weight:500;color:var(--ink);}
+    .pinyin{font-size:.92rem;font-style:italic;color:var(--muted);font-weight:400;margin-left:5px;}
+    .meaning{color:var(--muted);font-size:.96rem;font-style:italic;margin-bottom:14px;}
+    .quote{color:var(--ink);font-style:italic;padding:12px 15px;background:var(--soft);border-radius:14px;margin:10px 0 16px;}
+    .usage{font-size:.98rem;color:var(--ink);margin:0 0 16px;}
+    .label{font-family:Montserrat,Arial,sans-serif;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--tag);margin-bottom:6px;}
+    .example{margin:0 0 14px;padding-left:0;}
+    .example p{margin:0;}
+    .en{color:var(--muted);font-size:.92rem;font-style:italic;}
+    
+    /* Section 2: Taiwanese Expressions */
+    .expr-list{display:flex; flex-direction:column; gap:18px;}
+    .expr-card{background:#fff9fb; border:1px solid var(--line); border-radius:22px; padding:24px 28px;}
+    
+    /* 左側統一鎖定在 430px */
+    .expr-header{display:grid; grid-template-columns: 430px 1fr; align-items: center; margin-bottom:14px; gap:10px;}
+    .expr-meta-left{display:flex; align-items:center; flex-wrap:nowrap; gap:6px; white-space:nowrap;}
+    .expr-header h3{margin:0; font-size:1.25rem; font-weight:500; color:var(--ink);}
+    .expr-pinyin{font-family:Georgia, serif; font-size:.92rem; font-style:italic; color:var(--muted); font-weight:400;}
+    .tag{display:inline-block; padding:2px 8px; border-radius:99px; background:#f2e3ea; color:var(--accent); font-family:Montserrat,Arial,sans-serif; font-size:.68rem; letter-spacing:1px;}
+    .expr-meaning-inline{font-family:Georgia, serif; color:var(--muted); font-size:.92rem; font-style:italic; white-space:nowrap;}
+    
+    /* 電影台詞樣式 */
+    .movie-line-container{font-size:1.1rem; font-weight:500; color:var(--ink); display:flex; align-items:center; gap:8px;}
+    .movie-line-text{font-style:italic; color:var(--ink); background:var(--soft); padding:3px 12px; border-radius:8px;}
+
+    /* 下方例句區塊 */
+    .expr-body{display:grid; grid-template-columns: 430px 1fr; border-top:1px dashed var(--line); padding-top:14px; gap:10px;}
+    .expr-examples-col{display:flex; flex-direction:column; gap:12px;}
+    .expr-eg p{margin:0; font-size:0.96rem;}
+
+    /* 直式小方塊排版 (Section 3 & 4) */
+    .word-list{display:grid; gap:14px;}
+    .word{background:#fff9fb;border:1px solid var(--line);border-radius:18px;padding:18px 16px;min-height:118px;}
+    
+    .word strong{display:inline-block; font-size:1.06rem; font-weight:500; color:var(--ink);}
+    .word .pinyin-inline{display:inline-block; font-size:.9rem; font-style:italic; color:var(--muted); font-weight:400; margin-left:6px;}
+    .word .en-inline{display:inline-block; font-size:.9rem; font-style:italic; color:var(--accent); font-weight:400; margin-left:6px;}
+    
+    .word .zh{display:block; font-style:normal; color:var(--muted); margin-top:8px; line-height:1.7;}
+    .word .en-desc{display:block; font-size:.88rem; color:var(--muted); line-height:1.55; margin-top:6px;}
+    
+    @media (max-width:850px){
+      .grid, .word-list{grid-template-columns:1fr!important;}
+      .expr-header, .expr-body{grid-template-columns:1fr!important; gap:10px;}
+      h1{font-size:2rem;}
+      summary{align-items:flex-start;flex-direction:column;gap:10px;}
+    }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="intro">
+    <div class="eyebrow">Between Characters · I WeirDo</div>
+    <h1>Language & Culture Notes</h1>
+    <p class="subtitle">A compact sample section for exploring how Taiwanese people speak, socialize, and make meaning through everyday expressions.</p>
+  </div>
+
+  <details class="section" open>
+    <summary><div><div class="section-title">The Way We Speak</div><div class="section-desc">How Taiwanese people really speak.</div></div><div class="toggle"></div></summary>
+    <div class="content"><div class="grid">
+      <div class="card"><h3>渾身不對勁 <span class="pinyin">hún shēn bú duì jìn</span></h3><div class="meaning">to feel uncomfortable / to feel that something is off</div><div class="quote">「我看到這些圖片就渾身不對勁。」</div><p class="usage"><strong>用法（Usage）</strong> 除了身體不舒服，也可以表示覺得怪怪的、不自在或不習慣。</p><div class="label">Examples</div><div class="example"><p>我一天沒喝珍奶就渾身不對勁。</p><p class="en">I feel off if I don't drink bubble tea for a day.</p></div><div class="example"><p>穿正式服裝上台演講，我覺得渾身不對勁。</p><p class="en">I feel awkward giving a presentation in formal clothes.</p></div><div class="example"><p>老闆突然對我那麼好，我真是渾身不對勁。</p><p class="en">My boss suddenly became so nice to me. It feels weird.</p></div></div>
+      <div class="card"><h3>……好嗎？ <span class="pinyin">hǎo ma</span></h3><div class="meaning">used to emphasize a point; not always a real question</div><div class="quote">「同路人也是有分等級的好嗎？」<br>「大家都大人了，你成熟一點好嗎？」</div><p class="usage"><strong>用法（Usage）</strong> 「……好嗎？」不一定是在問問題，也可以用來強調、抱怨、表達自己的立場，或提醒對方。</p><div class="label">Examples</div><div class="example"><p>這很難的好嗎？</p><p class="en">This is difficult, okay?</p></div><div class="example"><p>有什麼事情明天再說，我已經很累了好嗎？</p><p class="en">Can we talk about it tomorrow? I'm already exhausted, okay?</p></div><div class="example"><p>我又不是故意的好嗎？</p><p class="en">It's not like I did it on purpose, okay?</p></div><div class="example"><p>我們快來不及了，你快一點好嗎？</p><p class="en">We're running out of time. Can you hurry up?</p></div></div>
+      <div class="card"><h3>（你）認真？ <span class="pinyin">rèn zhēn</span></h3><div class="meaning">Really? / Are you serious?</div><div class="quote">「我養你啊！」「你，認真？」</div><p class="usage"><strong>用法（Usage）</strong> 完整說法是「你是認重的嗎？」但台灣人常省略主詞，只說「認真？」或「你認真？」，通常用在感到驚訝、不敢相信，或懷疑對方是不是在開玩笑的時候。</p><div class="label">Examples</div><div class="example"><p>A：欸，我們這週末去日本玩好不好？<br>B：蛤？認真？</p><p class="en">Really? Are you serious?</p></div><div class="example"><p>A：我想跟老師說他的課很無聊。<br>B：你，認真？</p><p class="en">Are you serious?</p></div><div class="example"><p>A：我決定明天辭職。<br>B：真的假的，你認真？</p><p class="en">Seriously? Are you for real?</p></div></div>
+      <div class="card"><h3>靠，還真的…… <span class="pinyin">kào, hái zhēn de…</span></h3><div class="meaning">Wow! It actually…</div><div class="quote">「靠，還真的一樣。」</div><p class="usage"><strong>用法（Usage）</strong> 「靠」是台灣常見的語氣詞，用來表示驚訝、傻眼或不敢相信；「還真的……」表示原本不太相信，結果事情真的發生了。</p><div class="label">Examples</div><div class="example"><p>A：外面好像下雨了。<br>B：靠！還真的下雨了耶！</p><p class="en">Wow! It really is raining!</p></div><div class="example"><p>A：我聽說他考上台大了。<br>B：靠！還真的耶！</p><p class="en">Wow! He actually got in!</p></div></div>
+      <div class="card"><h3>搞什麼鬼啊！ <span class="pinyin">gǎo shén me guǐ a</span></h3><div class="meaning">What the heck?!</div><div class="quote">「搞什麼鬼啊！連個強迫症都不會治療！」</div><p class="usage"><strong>用法（Usage）</strong> 表示驚訝、不滿或傻眼，不是真的和鬼有關，而是在說「到底怎麼回事？」</p><div class="label">Examples</div><div class="example"><p>網站又壞掉了，搞什麼鬼啊！</p><p class="en">What the heck? The website is down again!</p></div><div class="example"><p>他突然說不來了，搞什麼鬼啊！</p><p class="en">What the heck? He suddenly said he wasn't coming!</p></div></div>
+      <div class="card"><h3>也是啦 <span class="pinyin">yě shì la</span></h3><div class="meaning">Fair enough. / I guess you're right.</div><div class="quote">「那是你上班上得還不夠久吧！？才第一天。」<br>「也是啦！」</div><p class="usage"><strong>用法（Usage）</strong> 表示被說服一點點，或不情願地承認對方說得有道理，通常帶一點無奈。</p><div class="label">Examples</div><div class="example"><p>A：吃這間餐廳很貴耶！<br>B：可是它真的很好吃啊。<br>A：也是啦。</p><p class="en">Fair enough.</p></div><div class="example"><p>A：今天不想上課。<br>B：可是期末考快到了。<br>A：也是啦。</p><p class="en">I guess you're right.</p></div></div>
+    </div></div>
+  </details>
+
+  <details class="section" open>
+    <summary><div><div class="section-title">Taiwanese Expressions</div><div class="section-desc">Expressions influenced by Taiwanese and everyday spoken Mandarin.</div></div><div class="toggle"></div></summary>
+    <div class="content"><div class="expr-list">
+      <div class="expr-card">
+        <div class="expr-header">
+          <div class="expr-meta-left">
+            <h3>很秋</h3><span class="expr-pinyin">hěn qiū</span><span class="tag">Taiwanese</span><span class="expr-meaning-inline">cool / cocky / impressive</span>
+          </div>
+          <div class="movie-line-container">
+            🎬 <span class="movie-line-text">「哇靠，當翻譯很秋耶！」</span>
+          </div>
+        </div>
+        <div class="expr-body">
+          <div></div> 
+          <div class="expr-examples-col">
+            <div class="expr-eg"><p>哇，你在 Google 工作喔？很秋耶！</p><p class="en">Wow, you work at Google? That's pretty cool!</p></div>
+            <div class="expr-eg"><p>他考第一名以後就開始很秋。</p><p class="en">After getting first place, he became a little cocky.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-header">
+          <div class="expr-meta-left">
+            <h3>好康</h3><span class="expr-pinyin">hǎo kāng</span><span class="tag">Taiwanese</span><span class="expr-meaning-inline">good deal / benefit</span>
+          </div>
+          <div class="movie-line-container">
+            🎬 <span class="movie-line-text">「總覺得沒那麼好康。」</span>
+          </div>
+        </div>
+        <div class="expr-body">
+          <div></div>
+          <div class="expr-examples-col">
+            <div class="expr-eg"><p>吃飯免費送 iPhone？這種好康的事有可能嗎？</p><p class="en">Free iPhones just for eating here? Is that even possible?</p></div>
+            <div class="expr-eg"><p>聽說這家店今天買一送一，超好康！</p><p class="en">I heard this store has a buy-one-get-one-free deal today. What a great bargain!</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-header">
+          <div class="expr-meta-left">
+            <h3>打槍</h3><span class="expr-pinyin">dǎ qiāng</span><span class="tag">Slang</span><span class="expr-meaning-inline">to reject / to shoot down an idea</span>
+          </div>
+          <div class="movie-line-container">
+            🎬 <span class="movie-line-text">「被醫生打槍。」</span>
+          </div>
+        </div>
+        <div class="expr-body">
+          <div></div>
+          <div class="expr-examples-col">
+            <div class="expr-eg"><p>我的提案被老闆打槍了。</p><p class="en">My proposal was rejected by my boss.</p></div>
+            <div class="expr-eg"><p>他跟她告白，結果被打槍。</p><p class="en">He confessed his feelings, but got rejected.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="expr-card">
+        <div class="expr-header">
+          <div class="expr-meta-left">
+            <h3>爛爆</h3><span class="expr-pinyin">làn bào</span><span class="tag">Slang</span><span class="expr-meaning-inline">terrible / awful</span>
+          </div>
+          <div class="movie-line-container">
+            🎬 <span class="movie-line-text">「這間爛爆。」</span>
+          </div>
+        </div>
+        <div class="expr-body">
+          <div></div>
+          <div class="expr-examples-col">
+            <div class="expr-eg"><p>那部電影爛爆了。</p><p class="en">That movie was terrible.</p></div>
+            <div class="expr-eg"><p>今天的趴踢真是爛爆了。</p><p class="en">The party today was a total disaster.</p></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </details>
+
+  <details class="section" open>
+    <summary><div><div class="section-title">Taiwanese Workplace Culture</div><div class="section-desc">Traditions, celebrations, and social customs in Taiwanese workplaces.</div></div><div class="toggle"></div></summary>
+    <div class="content"><div class="word-list" style="grid-template-columns:repeat(5,minmax(0,1fr));">
+      <div class="word"><strong>春酒 <span class="pinyin-inline">chūn jiǔ</span> <span class="en-inline">spring banquet</span></strong><span class="zh">農曆年後，公司或團體的開工聚餐。</span><span class="en-desc">A company banquet held after Lunar New Year to celebrate the beginning of a new working year.</span></div>
+      <div class="word"><strong>尾牙 <span class="pinyin-inline">wěi yá</span> <span class="en-inline">year-end party</span></strong><span class="zh">農曆年前，公司感謝員工的聚餐。</span><span class="en-desc">A year-end company party held before Lunar New Year to thank employees.</span></div>
+      <div class="word"><strong>年終 <span class="pinyin-inline">nián zhōng</span> <span class="en-inline">year-end bonus</span></strong><span class="zh">農曆年前常見的公司獎金。</span><span class="en-desc">An annual bonus employees usually receive before Lunar New Year.</span></div>
+      <div class="word"><strong>慶功 <span class="pinyin-inline">qìng gōng</span> <span class="en-inline">celebration dinner</span></strong><span class="zh">工作、活動或專案完成後的慶祝聚餐。</span><span class="en-desc">A celebration meal held after finishing a project or achieving success.</span></div>
+      <div class="word"><strong>續攤 <span class="pinyin-inline">xù tān</span> <span class="en-inline">after-party</span></strong><span class="zh">第一個聚會結束後，換地方繼續聚會。</span><span class="en-desc">Going to another place to continue socializing after the first gathering ends.</span></div>
+    </div></div>
+  </details>
+
+  <details class="section" open>
+    <summary><div><div class="section-title">Taiwanese Folk Beliefs</div><div class="section-desc">Traditional beliefs and rituals that remain part of everyday life in Taiwan.</div></div><div class="toggle"></div></summary>
+    <div class="content"><div class="word-list" style="grid-template-columns:repeat(3,minmax(0,1fr));">
+      <div class="word">
+        <strong>陰陽水<span class="pinyin-inline">yīn yáng shuǐ</span><span class="en-inline">ritual water</span></strong>
+        <span class="zh">民間信仰中，混合冷熱水或用於儀式的水。</span>
+        <span class="en-desc">A mixture of hot and cold water used in Taiwanese folk beliefs for ritual cleansing or protection.</span>
+      </div>
+      <div class="word">
+        <strong>卡到陰<span class="pinyin-inline">kǎ dào yīn</span><span class="en-inline">affected by spirits</span></strong>
+        <span class="zh">指被不好的靈體或陰氣影響，也常被拿來半開玩笑地說運氣很差。</span>
+        <span class="en-desc">A common Taiwanese expression meaning to be affected by bad spirits or negative energy.</span>
+      </div>
+      <div class="word">
+        <strong>放符<span class="pinyin-inline">fàng fú</span><span class="en-inline">placing a talisman</span></strong>
+        <span class="zh">把符咒放進水裡、身上或特定位置，以求保護或化解不安。</span>
+        <span class="en-desc">A ritual practice of using talismans for protection or spiritual cleansing.</span>
+      </div>
+    </div></div>
+  </details>
+</main>
+</body>
+</html>
