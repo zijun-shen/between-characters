@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ㄊ的故事 — 童話時間</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --b-color: #1A00FF;
+  --text-color: #3d2b1f;
+  --bg: #FFF9F0;
+  --page-bg: #FFFDF8;
+  --shadow: 0 8px 40px rgba(0,0,0,0.15);
+  --hanzi-size: 52px;
+  --zhuyin-size: 24px;
+  --tone-size: 13px;
+}
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Serif TC', '標楷體', 'DFKai-SB', serif;
+  overflow-x: hidden;
+}
+.cover-page .page-inner { padding: 0; }
+.cover-inner { position: relative; width: 100%; border-radius: 16px; overflow: hidden; }
+.cover-bg { width: 100%; height: auto; display: block; filter: brightness(0.72); }
+.cover-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px; text-align: center; }
+.cover-label { font-size: 1.4rem; font-weight: 700; color: #FFE566; letter-spacing: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.cover-title-main { font-size: 3.2rem; font-weight: 700; color: #fff; letter-spacing: 4px; text-shadow: 0 4px 16px rgba(0,0,0,0.6); line-height: 1.2; }
+.cover-subtitle { font-size: 1.3rem; color: #FFE566; font-weight: 700; letter-spacing: 3px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); margin-top: 8px; }
+.cover-age { font-size: 1rem; color: rgba(255,255,255,0.85); letter-spacing: 2px; margin-top: 4px; background: rgba(0,0,0,0.3); padding: 4px 16px; border-radius: 20px; }
+.book-wrapper { width: 100%; max-width: 920px; padding: 16px 16px 8px; }
+.pages-container { position: relative; overflow: hidden; width: 100%; border-radius: 16px; box-shadow: var(--shadow); background: var(--page-bg); }
+.page { display: none; width: 100%; animation: fadeIn 0.35s ease; }
+.page.active { display: block; }
+.page.reverse { animation-name: fadeInLeft; }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(36px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-36px); } to { opacity: 1; transform: translateX(0); } }
+.page-inner { display: flex; flex-direction: column; align-items: center; padding: 20px 20px 14px; gap: 14px; }
+.page.text-top .page-inner { flex-direction: column-reverse; }
+.page-img { width: 100%; max-width: 860px; height: auto; border-radius: 12px; object-fit: cover; display: block; }
+.page-text { width: 100%; max-width: 860px; padding: 20px 24px 16px; background: #fff; border-radius: 12px; border: 2px solid #D8E8FF; cursor: pointer; transition: background 0.2s, border-color 0.2s; position: relative; }
+.page-text:hover { background: #F0F5FF; border-color: var(--b-color); }
+.page-text.reading { background: #EEF0FF; border-color: var(--b-color); animation: pulse 1s infinite alternate; }
+@keyframes pulse { from { box-shadow: 0 0 0 0 rgba(26,0,255,0.15); } to { box-shadow: 0 0 0 8px rgba(26,0,255,0.0); } }
+.read-hint { font-size: 13px; color: #aaa; text-align: right; margin-top: 8px; font-family: sans-serif; transition: color 0.3s; }
+.reading .read-hint { color: var(--b-color); }
+.sentence { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 0px; line-height: 1; }
+.char-block { display: inline-flex; flex-direction: row; align-items: flex-end; flex-shrink: 0; }
+.hanzi { font-family: '標楷體', 'DFKai-SB', 'Noto Serif TC', serif; font-size: var(--hanzi-size); color: var(--text-color); line-height: 1; display: flex; align-items: center; font-weight: 400; flex-shrink: 0; }
+.zhuyin { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; font-size: var(--zhuyin-size); color: var(--text-color); width: 34px; min-width: 34px; padding-bottom: 4px; padding-left: 3px; line-height: 1.15; flex-shrink: 0; }
+.zym { display: block; text-align: left; line-height: 1.15; position: relative; white-space: nowrap; }
+.tone { font-size: var(--tone-size); vertical-align: super; position: relative; top: -2px; }
+.highlight .hanzi { color: var(--b-color); font-weight: 700; }
+.highlight .zhuyin { color: var(--b-color); font-weight: 700; }
+.punct { font-size: 42px; color: var(--text-color); align-self: flex-end; padding-bottom: 4px; font-family: '標楷體', 'DFKai-SB', serif; flex-shrink: 0; line-height: 1; }
+.page-num { font-size: 14px; color: #BBB; text-align: center; letter-spacing: 2px; }
+.top-bar { width: 100%; max-width: 920px; display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 4px; gap: 12px; }
+.top-bar h1 { font-size: 1.3rem; color: #2A3A6A; font-weight: 700; letter-spacing: 3px; }
+.top-hint { font-size: 12px; color: #AAA; white-space: nowrap; }
+.nav-row { display: flex; justify-content: center; align-items: center; gap: 20px; padding: 12px 0 10px; }
+.nav-btn { background: var(--b-color); color: #fff; border: none; border-radius: 50px; padding: 12px 34px; font-size: 18px; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.1s; box-shadow: 0 4px 14px rgba(26,0,255,0.25); }
+.nav-btn:hover { background: #1200CC; transform: scale(1.04); }
+.nav-btn:disabled { background: #CCC; cursor: default; transform: none; box-shadow: none; }
+.page-indicator { font-size: 16px; color: #666; min-width: 70px; text-align: center; }
+.print-btn { display: inline-block; margin: 4px auto 16px; background: #fff; color: var(--b-color); border: 2px solid var(--b-color); border-radius: 50px; padding: 8px 28px; font-size: 15px; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+.print-btn:hover { background: #EEF0FF; }
+.bottom-hint { font-size: 13px; color: #AAA; text-align: center; padding-bottom: 16px; }
+.bottom-hint strong { color: var(--b-color); }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #fff; }
+  .nav-row, .print-btn, .bottom-hint, .top-bar { display: none !important; }
+  .book-wrapper { padding: 0; max-width: 100%; }
+  .pages-container { box-shadow: none; border-radius: 0; }
+  .page { display: block !important; page-break-after: always; }
+  .page-inner { padding: 10px; }
+}
+.story-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #8C8275;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 5px 0;
+  box-shadow: none;
+  transition: color .25s ease, transform .25s ease;
+  white-space: nowrap;
+}
+.story-back-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(140, 130, 117, 0.38);
+  transform: scaleX(0.28);
+  transform-origin: left center;
+  transition: transform .28s ease, background .28s ease;
+}
+.story-back-link:hover {
+  transform: translateY(-1px);
+  color: #2C3E50;
+}
+.story-back-link:hover::after {
+  transform: scaleX(1);
+  background: rgba(44, 62, 80, 0.55);
+}
+@media (max-width: 640px) {
+  .top-bar {
+    flex-wrap: wrap;
+  }
+  .story-back-link {
+    order: -1;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+}
+
+
+</style>
+</head>
+<body>
+<div class="top-bar">
+<a class="story-back-link" href="unit02.html">← STORY COLLECTION</a>
+<h1>ㄊ 的故事</h1>
+<span class="top-hint">← → 鍵盤或按鈕翻頁</span>
+</div>
+<div class="book-wrapper">
+<div class="pages-container" id="pagesBox">
+<div class="page cover-page active" id="page-0">
+<div class="page-inner">
+<div class="cover-inner">
+<img alt="封面" class="cover-bg" src="images/t/cover.jpg"/>
+<div class="cover-overlay">
+<div class="cover-label">ㄊ 的故事</div>
+<div class="cover-title-main">童話時間</div>
+<div class="cover-subtitle">帶方阿姨去圖書館</div>
+<div class="cover-age">適合 3–6 歲</div>
+</div>
+</div>
+</div>
+</div>
+<div class="page" data-text="方阿姨想知道我們在美國的生活，芊芊和小宇決定帶她去最喜歡的圖書館。" id="page-1" data-audio="audio/t_page1.mp3"><div class="page-inner"><img alt="第1頁插圖" class="page-img" src="images/t/page1.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">方</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄤ</span></span></span><span class="char-block"><span class="hanzi">阿</span><span class="zhuyin"><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">姨</span><span class="zhuyin"><span class="zym">ㄧ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">想</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄤ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">知</span><span class="zhuyin"><span class="zym">ㄓ</span></span></span><span class="char-block"><span class="hanzi">道</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄠ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">我</span><span class="zhuyin"><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">們</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">在</span><span class="zhuyin"><span class="zym">ㄗ</span><span class="zym">ㄞ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">美</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄟ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">國</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">生</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄥ</span></span></span><span class="char-block"><span class="hanzi">活</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˊ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">芊</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄧ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">芊</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">和</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄜ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">宇</span><span class="zhuyin"><span class="zym">ㄩ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">決</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄩ</span><span class="zym">ㄝ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">定</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">帶</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄞ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">她</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">去</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄩ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">最</span><span class="zhuyin"><span class="zym">ㄗ</span><span class="zym">ㄨ</span><span class="zym">ㄟ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">喜</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">歡</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block highlight"><span class="hanzi">圖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">書</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span></span></span><span class="char-block"><span class="hanzi">館</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄢ<sup class="tone">ˇ</sup></span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 1 頁</div></div></div><div class="page text-top" data-text="出門前，媽媽笑著對小宇說：「去圖書館穿拖鞋不方便喔！」" id="page-2" data-audio="audio/t_page2.mp3"><div class="page-inner"><img alt="第2頁插圖" class="page-img" src="images/t/page2.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">出</span><span class="zhuyin"><span class="zym">ㄔ</span><span class="zym">ㄨ</span></span></span><span class="char-block"><span class="hanzi">門</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">前</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">媽</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">媽</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄚ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">笑</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">著</span><span class="zhuyin"><span class="zym">ㄓ</span><span class="zym">ㄜ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">對</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄨ</span><span class="zym">ㄟ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">宇</span><span class="zhuyin"><span class="zym">ㄩ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">說</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span><span class="zym">ㄛ</span></span></span><span class="punct">：</span><span class="punct">「</span><span class="char-block"><span class="hanzi">去</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄩ<sup class="tone">ˋ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">圖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">書</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span></span></span><span class="char-block"><span class="hanzi">館</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄢ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">穿</span><span class="zhuyin"><span class="zym">ㄔ</span><span class="zym">ㄨ</span><span class="zym">ㄢ</span></span></span><span class="char-block highlight"><span class="hanzi">拖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ</span><span class="zym">ㄛ</span></span></span><span class="char-block"><span class="hanzi">鞋</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄝ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">不</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">方</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄤ</span></span></span><span class="char-block"><span class="hanzi">便</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">喔</span><span class="zhuyin"><span class="zym">ㄛ</span></span></span><span class="punct">！</span><span class="punct">」</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 2 頁</div></div></div><div class="page" data-text="在路上，他們遇見鄰居婷婷。婷婷說：「今天有童話故事時間喔！」" id="page-3" data-audio="audio/t_page3.mp3"><div class="page-inner"><img alt="第3頁插圖" class="page-img" src="images/t/page3.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">在</span><span class="zhuyin"><span class="zym">ㄗ</span><span class="zym">ㄞ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">路</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">上</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄤ<sup class="tone">ˋ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">他</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">們</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">遇</span><span class="zhuyin"><span class="zym">ㄩ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">見</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">鄰</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄧ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">居</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄩ</span></span></span><span class="char-block highlight"><span class="hanzi">婷</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">ˊ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">婷</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">˙</sup></span></span></span><span class="punct">。</span><span class="char-block"><span class="hanzi">婷</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">婷</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">說</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span><span class="zym">ㄛ</span></span></span><span class="punct">：</span><span class="punct">「</span><span class="char-block"><span class="hanzi">今</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄣ</span></span></span><span class="char-block"><span class="hanzi">天</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">有</span><span class="zhuyin"><span class="zym">ㄧ</span><span class="zym">ㄡ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">童</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ</span><span class="zym">ㄥ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">話</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">故</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">事</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">時</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">間</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">喔</span><span class="zhuyin"><span class="zym">ㄛ</span></span></span><span class="punct">！</span><span class="punct">」</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 3 頁</div></div></div><div class="page text-top" data-text="進了圖書館後，大家靜靜地坐下，一起聽故事。" id="page-4" data-audio="audio/t_page4.mp3"><div class="page-inner"><img alt="第4頁插圖" class="page-img" src="images/t/page4.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">進</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄣ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">了</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄜ</span></span></span><span class="char-block highlight"><span class="hanzi">圖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">書</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span></span></span><span class="char-block"><span class="hanzi">館</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄢ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">後</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄡ<sup class="tone">ˋ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">大</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">家</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">靜</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">靜</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄥ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">地</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">坐</span><span class="zhuyin"><span class="zym">ㄗ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">下</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">一</span><span class="zhuyin"><span class="zym">ㄧ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">起</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄧ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">聽</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄥ</span></span></span><span class="char-block"><span class="hanzi">故</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">事</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˋ</sup></span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 4 頁</div></div></div><div class="page" data-text="今天的童話故事裡，有一隻愛吃甜甜圈的小兔子。" id="page-5" data-audio="audio/t_page5.mp3"><div class="page-inner"><img alt="第5頁插圖" class="page-img" src="images/t/page5.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">今</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄣ</span></span></span><span class="char-block"><span class="hanzi">天</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block highlight"><span class="hanzi">童</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ</span><span class="zym">ㄥ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">話</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">故</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">事</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">裡</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄧ<sup class="tone">ˇ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">有</span><span class="zhuyin"><span class="zym">ㄧ</span><span class="zym">ㄡ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">一</span><span class="zhuyin"><span class="zym">ㄧ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">隻</span><span class="zhuyin"><span class="zym">ㄓ</span></span></span><span class="char-block"><span class="hanzi">愛</span><span class="zhuyin"><span class="zym">ㄞ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">吃</span><span class="zhuyin"><span class="zym">ㄔ</span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">圈</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄩ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">兔</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">子</span><span class="zhuyin"><span class="zym">ㄗ</span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 5 頁</div></div></div><div class="page text-top" data-text="故事裡的小兔子蹦蹦跳跳地穿過糖果森林，還坐上飛毯，飛呀飛。" id="page-6" data-audio="audio/t_page6.mp3"><div class="page-inner"><img alt="第6頁插圖" class="page-img" src="images/t/page6.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">故</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">事</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">裡</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄧ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">兔</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">子</span><span class="zhuyin"><span class="zym">ㄗ</span></span></span><span class="char-block"><span class="hanzi">蹦</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄥ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">蹦</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄥ<sup class="tone">˙</sup></span></span></span><span class="char-block highlight"><span class="hanzi">跳</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˋ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">跳</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">地</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">穿</span><span class="zhuyin"><span class="zym">ㄔ</span><span class="zym">ㄨ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">過</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˋ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">糖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄤ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">果</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">森</span><span class="zhuyin"><span class="zym">ㄙ</span><span class="zym">ㄣ</span></span></span><span class="char-block"><span class="hanzi">林</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄧ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">還</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄞ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">坐</span><span class="zhuyin"><span class="zym">ㄗ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">上</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄤ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="char-block highlight"><span class="hanzi">毯</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄢ<sup class="tone">ˇ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="char-block"><span class="hanzi">呀</span><span class="zhuyin"><span class="zym">ㄧ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 6 頁</div></div></div><div class="page" data-text="飛毯越飛越高，高高地飛到天空中。一朵朵白雲飄呀飄，好像甜甜的棉花糖。" id="page-7" data-audio="audio/t_page7.mp3"><div class="page-inner"><img alt="第7頁插圖" class="page-img" src="images/t/page7.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="char-block highlight"><span class="hanzi">毯</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄢ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">越</span><span class="zhuyin"><span class="zym">ㄩ</span><span class="zym">ㄝ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="char-block"><span class="hanzi">越</span><span class="zhuyin"><span class="zym">ㄩ</span><span class="zym">ㄝ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">高</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄠ</span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">高</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄠ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">高</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄠ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">地</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">飛</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄟ</span></span></span><span class="char-block"><span class="hanzi">到</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄠ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">天</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ</span></span></span><span class="char-block highlight"><span class="hanzi">空</span><span class="zhuyin"><span class="zym">ㄎ</span><span class="zym">ㄨ</span><span class="zym">ㄥ</span></span></span><span class="char-block"><span class="hanzi">中</span><span class="zhuyin"><span class="zym">ㄓ</span><span class="zym">ㄨ</span><span class="zym">ㄥ</span></span></span><span class="punct">。</span><span class="char-block"><span class="hanzi">一</span><span class="zhuyin"><span class="zym">ㄧ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">朵</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">朵</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">白</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄞ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">雲</span><span class="zhuyin"><span class="zym">ㄩ</span><span class="zym">ㄣ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">飄</span><span class="zhuyin"><span class="zym">ㄆ</span><span class="zym">ㄧ</span><span class="zym">ㄠ</span></span></span><span class="char-block"><span class="hanzi">呀</span><span class="zhuyin"><span class="zym">ㄧ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">飄</span><span class="zhuyin"><span class="zym">ㄆ</span><span class="zym">ㄧ</span><span class="zym">ㄠ</span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">好</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">像</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄤ<sup class="tone">ˋ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">棉</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">花</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">糖</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄤ<sup class="tone">ˊ</sup></span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 7 頁</div></div></div><div class="page text-top" data-text="故事說完了，大家都很喜歡。我們把童話書放回推車。" id="page-8" data-audio="audio/t_page8.mp3"><div class="page-inner"><img alt="第8頁插圖" class="page-img" src="images/t/page8.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">故</span><span class="zhuyin"><span class="zym">ㄍ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">事</span><span class="zhuyin"><span class="zym">ㄕ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">說</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span><span class="zym">ㄛ</span></span></span><span class="char-block"><span class="hanzi">完</span><span class="zhuyin"><span class="zym">ㄨ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">了</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄜ<sup class="tone">˙</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">大</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">家</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">都</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄡ</span></span></span><span class="char-block"><span class="hanzi">很</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄣ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">喜</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">歡</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄢ</span></span></span><span class="punct">。</span><span class="char-block"><span class="hanzi">我</span><span class="zhuyin"><span class="zym">ㄨ</span><span class="zym">ㄛ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">們</span><span class="zhuyin"><span class="zym">ㄇ</span><span class="zym">ㄣ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">把</span><span class="zhuyin"><span class="zym">ㄅ</span><span class="zym">ㄚ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">童</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ</span><span class="zym">ㄥ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">話</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">書</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄨ</span></span></span><span class="char-block"><span class="hanzi">放</span><span class="zhuyin"><span class="zym">ㄈ</span><span class="zym">ㄤ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">回</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄟ<sup class="tone">ˊ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">推</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ</span><span class="zym">ㄟ</span></span></span><span class="char-block"><span class="hanzi">車</span><span class="zhuyin"><span class="zym">ㄔ</span><span class="zym">ㄜ</span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 8 頁</div></div></div><div class="page" data-text="回家的路上，小宇一直想著那隻愛吃甜甜圈的小兔子。" id="page-9" data-audio="audio/t_page9.mp3"><div class="page-inner"><img alt="第9頁插圖" class="page-img" src="images/t/page9.jpg"/><div class="page-text" onclick="readAloud(this)"><div class="sentence"><span class="char-block"><span class="hanzi">回</span><span class="zhuyin"><span class="zym">ㄏ</span><span class="zym">ㄨ</span><span class="zym">ㄟ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">家</span><span class="zhuyin"><span class="zym">ㄐ</span><span class="zym">ㄧ</span><span class="zym">ㄚ</span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">路</span><span class="zhuyin"><span class="zym">ㄌ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">上</span><span class="zhuyin"><span class="zym">ㄕ</span><span class="zym">ㄤ<sup class="tone">ˋ</sup></span></span></span><span class="punct">，</span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">宇</span><span class="zhuyin"><span class="zym">ㄩ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">一</span><span class="zhuyin"><span class="zym">ㄧ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">直</span><span class="zhuyin"><span class="zym">ㄓ<sup class="tone">ˊ</sup></span></span></span><span class="char-block"><span class="hanzi">想</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄤ<sup class="tone">ˇ</sup></span></span></span><span class="char-block"><span class="hanzi">著</span><span class="zhuyin"><span class="zym">ㄓ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">那</span><span class="zhuyin"><span class="zym">ㄋ</span><span class="zym">ㄚ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">隻</span><span class="zhuyin"><span class="zym">ㄓ</span></span></span><span class="char-block"><span class="hanzi">愛</span><span class="zhuyin"><span class="zym">ㄞ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">吃</span><span class="zhuyin"><span class="zym">ㄔ</span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">ˊ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">甜</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄧ</span><span class="zym">ㄢ<sup class="tone">˙</sup></span></span></span><span class="char-block"><span class="hanzi">圈</span><span class="zhuyin"><span class="zym">ㄑ</span><span class="zym">ㄩ</span><span class="zym">ㄢ</span></span></span><span class="char-block"><span class="hanzi">的</span><span class="zhuyin"><span class="zym">ㄉ</span><span class="zym">ㄜ</span></span></span><span class="char-block"><span class="hanzi">小</span><span class="zhuyin"><span class="zym">ㄒ</span><span class="zym">ㄧ</span><span class="zym">ㄠ<sup class="tone">ˇ</sup></span></span></span><span class="char-block highlight"><span class="hanzi">兔</span><span class="zhuyin"><span class="zym">ㄊ</span><span class="zym">ㄨ<sup class="tone">ˋ</sup></span></span></span><span class="char-block"><span class="hanzi">子</span><span class="zhuyin"><span class="zym">ㄗ</span></span></span><span class="punct">。</span></div><div class="read-hint">👆 點我聽故事</div></div><div class="page-num">第 9 頁</div></div></div></div>
+<div class="nav-row">
+<button class="nav-btn" id="prevBtn" onclick="changePage(-1)">◀ 上一頁</button>
+<span class="page-indicator" id="pageIndicator">封面</span>
+<button class="nav-btn" id="nextBtn" onclick="changePage(1)">下一頁 ▶</button>
+</div>
+<button class="print-btn" onclick="window.print()">🖨 列印全部頁面</button>
+<div class="bottom-hint"><strong>藍色加粗</strong> = ㄊ 發音的字   ✦  點擊句子可聽故事朗讀</div>
+</div>
+<script>
+let current = 0;
+const total = 9;
+function showPage(n, reverse) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active','reverse'));
+  const page = document.getElementById(n === 0 ? 'page-0' : 'page-' + n);
+  if (reverse) page.classList.add('reverse');
+  page.classList.add('active');
+  document.getElementById('pageIndicator').textContent = n === 0 ? '封面' : n + ' / ' + total;
+  document.getElementById('prevBtn').disabled = n === 0;
+  document.getElementById('nextBtn').disabled = n === total;
+}
+function changePage(dir) {
+  const next = current + dir;
+  if (next < 0 || next > total) return;
+  current = next;
+  showPage(current, dir < 0);
+}
+// External audio file paths are reserved for future voice replacement.
+// Current mode (方案 A): browser voice only, so every sentence is read once.
+// Future audio filenames: audio/t_page1.mp3 ... audio/t_page9.mp3
+const STORY_AUDIO_FILES = {'1': 'audio/t_page1.mp3', '2': 'audio/t_page2.mp3', '3': 'audio/t_page3.mp3', '4': 'audio/t_page4.mp3', '5': 'audio/t_page5.mp3', '6': 'audio/t_page6.mp3', '7': 'audio/t_page7.mp3', '8': 'audio/t_page8.mp3', '9': 'audio/t_page9.mp3'};
+const USE_EXTERNAL_AUDIO = false;
+let currentStoryAudio = null;
+
+function readAloud(el) {
+  const page = el.closest('.page');
+  const fullText = page.getAttribute('data-text') || '';
+  const pageId = page.getAttribute('id') || '';
+  const pageNum = parseInt(pageId.replace('page-', ''), 10);
+  const reservedAudioPath = STORY_AUDIO_FILES[pageNum] || page.getAttribute('data-audio') || '';
+
+  function stopAllAudio() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (currentStoryAudio) {
+      currentStoryAudio.pause();
+      currentStoryAudio.currentTime = 0;
+      currentStoryAudio = null;
+    }
+    document.querySelectorAll('.page-text.reading').forEach(x => x.classList.remove('reading'));
+  }
+
+  function speakWithBrowserVoice() {
+    if (!fullText || !('speechSynthesis' in window)) { el.classList.remove('reading'); return; }
+    function getBestVoice() {
+      const voices = window.speechSynthesis.getVoices();
+      return voices.find(v => v.lang.includes('TW') || v.name.includes('Taiwan') || v.name.includes('Meijia'))
+          || voices.find(v => v.lang.startsWith('zh')) || null;
+    }
+    function splitSegments(text) {
+      const parts = text.split(/([，。！？、「」：])/);
+      const segs = []; let cur = '';
+      for (const p of parts) {
+        if (/[，。！？、]/.test(p)) { cur += p; if (cur.trim()) segs.push(cur.trim()); cur = ''; }
+        else { cur += p; }
+      }
+      if (cur.trim()) segs.push(cur.trim());
+      return segs.filter(s => s.length > 0);
+    }
+    const segs = splitSegments(fullText); let idx = 0;
+    function speakNext() {
+      if (idx >= segs.length) { el.classList.remove('reading'); return; }
+      const seg = segs[idx++];
+      const utt = new SpeechSynthesisUtterance(seg);
+      utt.lang = 'zh-TW'; utt.rate = 0.62; utt.pitch = 1.2; utt.volume = 1;
+      const v = getBestVoice(); if (v) utt.voice = v;
+      utt.onend = () => setTimeout(speakNext, /[。！？]/.test(seg) ? 600 : 250);
+      utt.onerror = () => el.classList.remove('reading');
+      window.speechSynthesis.speak(utt);
+    }
+    if (window.speechSynthesis.getVoices().length === 0) {
+      window.speechSynthesis.onvoiceschanged = () => speakNext();
+    } else { speakNext(); }
+  }
+
+  stopAllAudio();
+  el.classList.add('reading');
+
+  // 方案 A: do not play MP3 now, to avoid duplicate reading.
+  // reservedAudioPath keeps the future filename connected to this page.
+  if (USE_EXTERNAL_AUDIO && reservedAudioPath) {
+    currentStoryAudio = new Audio(reservedAudioPath);
+    currentStoryAudio.onended = () => el.classList.remove('reading');
+    currentStoryAudio.onerror = () => speakWithBrowserVoice();
+    currentStoryAudio.play().catch(() => speakWithBrowserVoice());
+  } else {
+    speakWithBrowserVoice();
+  }
+}
+let startX = 0;
+const box = document.getElementById('pagesBox');
+box.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+box.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - startX; if (Math.abs(dx) > 50) changePage(dx < 0 ? 1 : -1); });
+document.addEventListener('keydown', e => { if (e.key==='ArrowRight') changePage(1); if (e.key==='ArrowLeft') changePage(-1); });
+showPage(0, false);
+</script>
+</body>
+</html>
