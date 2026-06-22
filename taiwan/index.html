@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我走過的台灣｜Between Characters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; }
+    body {
+        background-color: #F7F8F5;
+        font-family: "Noto Sans TC", "Helvetica Neue", sans-serif;
+        margin: 0; padding: 0; color: #333333;
+        display: flex; flex-direction: column; align-items: center;
+        min-height: 100vh; overflow-x: hidden;
+    }
+    .back-nav-container {
+        width: 90%; max-width: 1100px; margin-top: 40px;
+        display: flex; justify-content: flex-start;
+    }
+    .back-button {
+        background: none; border: none;
+        font-family: "Noto Sans TC", sans-serif;
+        font-size: 0.9rem; color: #8C8A7E; cursor: pointer;
+        padding: 10px 0; display: flex; align-items: center;
+        letter-spacing: 1px; font-weight: 400;
+        transition: color 0.2s ease; text-decoration: none;
+    }
+    .back-button:hover { color: #3A4A35; }
+    header {
+        text-align: center; padding: 40px 20px 40px;
+        max-width: 800px;
+    }
+    .brand-tag {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem; letter-spacing: 4px; color: #8C8A7E;
+        margin-bottom: 12px; font-weight: 500;
+    }
+    .main-title {
+        font-family: 'Noto Serif TC', serif;
+        font-size: 3.6rem; color: #3A4A35;
+        margin: 0 0 15px 0; font-weight: 500; letter-spacing: 0.08em;
+    }
+    .main-title span { font-family: "Noto Sans TC", sans-serif; font-weight: 300; color: #8C8A7E; }
+    .subtitle {
+        font-size: 0.95rem; color: #6C6B60; line-height: 1.8;
+        letter-spacing: 1.5px; font-weight: 300; max-width: 600px; margin: 0 auto;
+    }
+    .subtitle-en {
+        font-family: "Montserrat", sans-serif; font-size: 0.85rem;
+        color: #6F6A64; margin-top: 10px; font-weight: 400; letter-spacing: 1px;
+    }
+    .hub-container {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 35px; max-width: 1100px; width: 90%;
+        margin-bottom: 80px; padding: 20px;
+    }
+    .hub-card {
+        background-color: #FFFFFF; border-radius: 20px;
+        padding: 45px 35px; text-decoration: none;
+        box-shadow: 0 4px 25px rgba(100,110,90,0.06);
+        transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        display: flex; flex-direction: column;
+        border: 1px solid rgba(100,110,90,0.08);
+        cursor: pointer; color: inherit;
+    }
+    .hub-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(100,110,90,0.12); }
+    .locked-card { opacity: 0.65; cursor: default; }
+    .locked-card:hover { transform: none; box-shadow: 0 4px 25px rgba(100,110,90,0.06); }
+    .card-meta {
+        font-family: "Montserrat", sans-serif; font-size: 0.75rem;
+        letter-spacing: 3px; margin-bottom: 16px; text-transform: uppercase; font-weight: 500;
+    }
+    .card-title { font-size: 1.5rem; color: #2C3E50; margin: 0 0 10px; font-weight: 500; letter-spacing: 1px; }
+    .card-tags {
+        font-family: "Montserrat", sans-serif; font-size: 0.72rem;
+        letter-spacing: 2px; color: #9B9A8A; margin-bottom: 14px; font-weight: 400;
+        text-transform: uppercase;
+    }
+    .card-desc { font-size: 0.92rem; color: #666660; line-height: 1.8; margin: 0 0 14px; font-weight: 300; }
+    .card-desc-en {
+        font-family: "Montserrat", sans-serif; font-size: 0.8rem;
+        color: #6F6A64; line-height: 1.6; margin: 0 0 30px; font-weight: 400;
+    }
+    .card-action { margin-top: auto; font-size: 0.85rem; font-weight: 500; letter-spacing: 1px; }
+    footer {
+        font-family: "Montserrat", sans-serif; font-size: 0.78rem; font-style: italic;
+        color: #8C8A7E; letter-spacing: 0.08em;
+        text-align: center; padding: 2rem 2.5rem 3rem;
+    }
+    @media (max-width: 700px) {
+        .main-title { font-size: 3.2rem; }
+        .hub-container { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+    <div class="back-nav-container">
+        <a class="back-button" href="../index.html">← 返回 Between Characters 總部</a>
+    </div>
+
+    <header>
+        <div class="brand-tag">The Taiwan I Walk Through</div>
+        <h1 class="main-title">我走過的台灣<span>.</span></h1>
+        <div class="subtitle">走進台灣的廟宇、老街與宅院，從真實的地方與故事中，感受這座島嶼的文化底蘊與日常之美。</div>
+        <div class="subtitle-en">Step into the temples, streets, and gardens of Taiwan — discovering the island's cultural depth through real places and stories.</div>
+    </header>
+
+    <div class="hub-container">
+
+        <!-- 01：霧峰林家花園 (藍色) -->
+        <a class="hub-card" style="border-top: 6px solid #b8d8ea;" href="wufeng.html">
+            <div class="card-meta" style="color:#5a8fac;">台中 Taichung · 01</div>
+            <div class="card-title">霧峰林家花園</div>
+            <div class="card-tags">歷史宅邸 · 建築 · 家族史</div>
+            <div class="card-desc">台灣保存最完整的傳統漢式建築群之一，霧峰林家的宮保第與萊園，承載著一個家族與一座島嶼共同走過的歷史。</div>
+            <div class="card-desc-en">One of Taiwan's best-preserved traditional Chinese estate complexes — the Lin family's heritage site in Wufeng tells the story of a family interwoven with the island's history.</div>
+            <div class="card-action" style="color:#4a7fa5;">走進這裡 Explore →</div>
+        </a>
+
+        <!-- 02：官將首 (深紅) -->
+        <a class="hub-card" style="border-top: 6px solid #b87070;" href="guanjiangshou.html">
+            <div class="card-meta" style="color:#a04040;">嘉義 Chiayi · 02</div>
+            <div class="card-title">朴子配天宮</div>
+            <div class="card-tags">求花 · 官將首 · 廟會文化</div>
+            <div class="card-desc">威嚴的臉譜與獠牙背後，是民間信仰對驅邪罰惡的信念，更是台灣獨有的街頭美學。</div>
+            <div class="card-desc-en">The pinnacle of martial troupe performance originating from Xinzhuang Dizang Temple. Behind the fierce facial paints lies a deep cultural devotion to justice and protection.</div>
+            <div class="card-action" style="color:#a04040;">走進故事 Explore →</div>
+        </a>
+
+        <!-- 03：預留位 -->
+        <div class="hub-card locked-card" style="border-top: 6px solid #C4C0D8;">
+            <div class="card-meta" style="color:#7E7EB8;">更多地方 · Coming Soon</div>
+            <div class="card-title">下一個地方</div>
+            <div class="card-tags">To be announced</div>
+            <div class="card-desc">即將推出。更多台灣的角落正在路上——你也許會在這裡遇見一個從未去過，但讀完之後很想造訪的地方。</div>
+            <div class="card-desc-en">Coming soon. More corners of Taiwan are on the way — places you may never have heard of, but will want to visit.</div>
+            <div class="card-action" style="color:#7E7EB8;">即將推出 Coming Soon</div>
+        </div>
+
+    </div>
+
+    <footer>Between Characters · The Taiwan I Walk Through</footer>
+</body>
+</html>
