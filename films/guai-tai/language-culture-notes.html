@@ -6,15 +6,15 @@
   <title>I WeirDo｜Language & Culture Notes</title>
   <style>
     :root{
-      /* 核心配色：粉紅與紫藕色系 */
-      --bg: #f9f2f5;           /* 淡淡的灰粉底色 */
-      --paper: #fffcfd;        /* 微帶粉紅的明亮紙張色 */
-      --ink: #42383c;          /* 深紫藕調的墨水黑 */
-      --muted: #8c7a82;        /* 灰紫藕調的次要文字色 */
-      --line: #ebdce3;         /* 柔和的淺粉紫分隔線 */
-      --soft: #f4e6ec;         /* 電影台詞的粉紫底色 */
-      --accent: #9c6c84;       /* 濃郁的紫藕重點色 */
-      --tag: #b8869e;          /* 灰粉紅的標籤色 */
+      /* 核心配色：沉穩乾燥玫瑰系（與主頁一致） */
+      --bg: #f7f3f2;           /* 頁底 */
+      --paper: #fffdfd;        /* 明亮紙張色 */
+      --ink: #2a2f3a;          /* 主文字 */
+      --muted: #a87c84;        /* 次要文字色 */
+      --line: #ecdfe1;         /* 柔和分隔線 */
+      --soft: #f3e7ea;         /* 電影台詞底色 */
+      --accent: #b56576;       /* 乾燥玫瑰重點色 */
+      --tag: #a87c84;          /* 標籤色 */
     }
     *{box-sizing:border-box;}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman","Noto Serif TC",serif;line-height:1.8;}
@@ -23,7 +23,7 @@
     .eyebrow{font-family:Montserrat,Arial,sans-serif;font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
     h1{font-size:2.55rem;font-weight:400;letter-spacing:.5px;margin:0 0 12px;color:var(--ink);}
     .subtitle{max-width:680px; margin:0 auto; color:var(--muted); font-size:1rem;}
-    .section{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(92,72,81,.05);}
+    .section{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(181,101,118,.05);}
     details.section[open] summary { border-bottom:1px solid var(--line); }
     summary{cursor:pointer;list-style:none;padding:28px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
     summary::-webkit-details-marker{display:none;}
@@ -36,7 +36,7 @@
     
     /* Section 1: The Way We Speak */
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
-    .card{background:#fff9fb;border:1px solid var(--line);border-radius:22px;padding:24px 24px 22px;}
+    .card{background:#fffafa;border:1px solid var(--line);border-radius:22px;padding:24px 24px 22px;}
     .card h3{margin:0 0 4px;font-size:1.2rem;font-weight:500;color:var(--ink);}
     .pinyin{font-size:.92rem;font-style:italic;color:var(--muted);font-weight:400;margin-left:5px;}
     .meaning{color:var(--muted);font-size:.96rem;font-style:italic;margin-bottom:14px;}
@@ -49,14 +49,14 @@
     
     /* Section 2: Taiwanese Expressions */
     .expr-list{display:flex; flex-direction:column; gap:18px;}
-    .expr-card{background:#fff9fb; border:1px solid var(--line); border-radius:22px; padding:24px 28px;}
+    .expr-card{background:#fffafa; border:1px solid var(--line); border-radius:22px; padding:24px 28px;}
     
     /* 左側統一鎖定在 430px */
     .expr-header{display:grid; grid-template-columns: 430px 1fr; align-items: center; margin-bottom:14px; gap:10px;}
     .expr-meta-left{display:flex; align-items:center; flex-wrap:nowrap; gap:6px; white-space:nowrap;}
     .expr-header h3{margin:0; font-size:1.25rem; font-weight:500; color:var(--ink);}
     .expr-pinyin{font-family:Georgia, serif; font-size:.92rem; font-style:italic; color:var(--muted); font-weight:400;}
-    .tag{display:inline-block; padding:2px 8px; border-radius:99px; background:#f2e3ea; color:var(--accent); font-family:Montserrat,Arial,sans-serif; font-size:.68rem; letter-spacing:1px;}
+    .tag{display:inline-block; padding:2px 8px; border-radius:99px; background:#f3e7ea; color:var(--accent); font-family:Montserrat,Arial,sans-serif; font-size:.68rem; letter-spacing:1px;}
     .expr-meaning-inline{font-family:Georgia, serif; color:var(--muted); font-size:.92rem; font-style:italic; white-space:nowrap;}
     
     /* 電影台詞樣式 */
@@ -70,7 +70,7 @@
 
     /* 直式小方塊排版 (Section 3 & 4) */
     .word-list{display:grid; gap:14px;}
-    .word{background:#fff9fb;border:1px solid var(--line);border-radius:18px;padding:18px 16px;min-height:118px;}
+    .word{background:#fffafa;border:1px solid var(--line);border-radius:18px;padding:18px 16px;min-height:118px;}
     
     .word strong{display:inline-block; font-size:1.06rem; font-weight:500; color:var(--ink);}
     .word .pinyin-inline{display:inline-block; font-size:.9rem; font-style:italic; color:var(--muted); font-weight:400; margin-left:6px;}
@@ -89,7 +89,7 @@
     .back-link{
       display:inline-block;
       margin-bottom:28px;
-      color:#b8869e;
+      color:#a87c84;
       text-decoration:none;
       font-size:.95rem;
       letter-spacing:.4px;
