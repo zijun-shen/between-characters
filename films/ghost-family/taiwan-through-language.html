@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taiwan Through Language｜《鬼家人》語用與文化</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@500;600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F6F2;
+  --paper:#FFFDFA;
+  --cream:#FBF7F0;
+  --ink:#2B2522;
+  --soft:#6B5F58;
+  --muted:#A99A8C;
+  --wine:#7C2B33;
+  --wine-deep:#561E24;
+  --rose:#A8453F;
+  --gold:#A8842F;
+  --gold-soft:#C9A95C;
+  --line:#E5DCCF;
+  --border:rgba(124,43,51,.13);
+  --border-soft:rgba(124,43,51,.08);
+  --shadow:0 18px 48px rgba(86,30,36,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 3%,rgba(255,255,255,.95),transparent 25%),
+    linear-gradient(180deg,#FAF7F2 0%,#F5EEE7 100%);
+  font-family:"Noto Serif TC",serif;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem 2.4rem;
+  background:rgba(248,246,242,.88);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(16px);
+}
+.nav a,.nav-title{
+  font-family:"Cormorant Garamond",serif;
+  font-size:.88rem;
+  font-style:italic;
+  letter-spacing:.13em;
+  color:var(--muted);
+  text-decoration:none;
+}
+.nav a::before{content:"← ";}
+.hero{
+  padding:148px 24px 82px;
+  text-align:center;
+  border-bottom:1px solid var(--border-soft);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"囍";
+  position:absolute;
+  top:58px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:"Noto Serif TC",serif;
+  font-size:18rem;
+  line-height:1;
+  color:rgba(124,43,51,.025);
+  pointer-events:none;
+}
+.hero-inner{position:relative;max-width:820px;margin:0 auto;}
+.seal{
+  width:58px;height:58px;
+  margin:0 auto 24px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--wine);
+  border-radius:50%;
+  color:var(--wine);
+  background:rgba(255,253,250,.7);
+  font-size:1.45rem;
+}
+.eyebrow{
+  margin:0 0 13px;
+  color:var(--gold);
+  font-family:"Montserrat",sans-serif;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.31em;
+  text-transform:uppercase;
+}
+.hero h1{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:clamp(2rem,5vw,3.55rem);
+  font-weight:500;
+  letter-spacing:.07em;
+  line-height:1.35;
+}
+.hero-en{
+  margin:.7rem 0 1.15rem;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(1.25rem,2.4vw,1.65rem);
+  font-style:italic;
+}
+.hero-copy{
+  max-width:690px;
+  margin:0 auto;
+  color:var(--soft);
+  font-size:.98rem;
+}
+.hero-copy-en{
+  max-width:690px;
+  margin:.45rem auto 0;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.02rem;
+  font-style:italic;
+  line-height:1.65;
+}
+.pattern-nav{
+  max-width:980px;
+  margin:-24px auto 0;
+  padding:0 24px;
+  position:relative;
+  z-index:3;
+}
+.pattern-nav-inner{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  overflow:hidden;
+  background:rgba(255,253,250,.95);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+.pattern-nav a{
+  min-height:66px;
+  padding:.8rem .55rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:.15rem;
+  text-align:center;
+  text-decoration:none;
+  border-right:1px solid var(--border-soft);
+  transition:background .2s ease,color .2s ease;
+}
+.pattern-nav a:last-child{border-right:0}
+.pattern-nav a:hover{background:var(--cream);color:var(--wine)}
+.pattern-nav b{
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.05rem;
+  font-style:italic;
+  font-weight:500;
+}
+.pattern-nav span{
+  color:var(--soft);
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.68rem;
+  line-height:1.35;
+}
+main{
+  max-width:980px;
+  margin:0 auto;
+  padding:74px 24px 100px;
+}
+.lesson-list{display:grid;gap:28px}
+.lesson{
+  scroll-margin-top:95px;
+  background:var(--paper);
+  border:1px solid var(--border-soft);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.lesson > summary{list-style:none}
+.lesson > summary::-webkit-details-marker{display:none}
+.lesson-head{
+  display:grid;
+  grid-template-columns:74px minmax(0,1fr) auto;
+  gap:1.45rem;
+  align-items:center;
+  padding:2rem 2.25rem 1.8rem;
+  background:linear-gradient(135deg,rgba(124,43,51,.035),rgba(201,169,92,.045));
+  cursor:pointer;
+  transition:background .25s ease;
+}
+.lesson-head:hover{background:linear-gradient(135deg,rgba(124,43,51,.055),rgba(201,169,92,.07))}
+.lesson[open] .lesson-head{border-bottom:1px solid var(--border-soft)}
+.lesson-toggle{
+  width:34px;height:34px;
+  display:grid;place-items:center;
+  border:1px solid rgba(168,132,47,.32);
+  border-radius:50%;
+  color:var(--gold);
+  background:rgba(255,253,250,.75);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.25rem;
+  line-height:1;
+  transition:transform .25s ease,background .25s ease;
+}
+.lesson-toggle::before{content:"+"}
+.lesson[open] .lesson-toggle{transform:rotate(45deg);background:var(--cream)}
+.lesson-body{animation:lessonReveal .32s ease both}
+@keyframes lessonReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.lesson-num{
+  width:58px;height:58px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(168,132,47,.45);
+  border-radius:50%;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.65rem;
+  font-style:italic;
+}
+.lesson-title h2{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:clamp(1.45rem,3vw,2rem);
+  font-weight:500;
+  line-height:1.45;
+  letter-spacing:.03em;
+}
+.pattern-meta{
+  margin-top:.55rem;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.55rem .8rem;
+}
+.pinyin{
+  display:inline-flex;
+  align-items:center;
+  min-height:1.9rem;
+  padding:.25rem .7rem;
+  border-radius:999px;
+  background:#F3EAE2;
+  color:var(--wine);
+  font-family:"Times New Roman",Times,serif;
+  font-size:.94rem;
+  letter-spacing:.01em;
+}
+.meaning{
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.06rem;
+  font-style:italic;
+}
+.lesson-body{padding:2rem 2.25rem 2.3rem}
+.film-lines{
+  position:relative;
+  margin:0 0 1.8rem;
+  padding:1.25rem 1.45rem 1.2rem 1.55rem;
+  background:var(--cream);
+  border:1px solid var(--border-soft);
+  border-radius:14px;
+}
+.film-lines::before{
+  content:"FILM LINE";
+  display:block;
+  margin-bottom:.55rem;
+  color:var(--gold);
+  font-family:"Montserrat",sans-serif;
+  font-size:.61rem;
+  font-weight:600;
+  letter-spacing:.2em;
+}
+.film-lines p{
+  margin:.22rem 0;
+  color:var(--wine-deep);
+  font-size:1.05rem;
+  line-height:1.8;
+}
+.film-dialogue{display:grid;gap:.55rem}
+.film-turn{
+  display:grid;
+  grid-template-columns:2rem minmax(0,1fr);
+  gap:.75rem;
+  align-items:start;
+}
+.film-turn .speaker{
+  width:1.8rem;height:1.8rem;
+  display:grid;place-items:center;
+  border:1px solid rgba(168,132,47,.38);
+  border-radius:50%;
+  color:var(--gold);
+  background:rgba(255,253,250,.8);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.88rem;
+  font-style:italic;
+}
+.film-turn p{margin:0}
+.film-single{
+  margin-top:1rem!important;
+  padding-top:.85rem;
+  border-top:1px solid var(--border-soft);
+}
+.usage{
+  display:grid;
+  grid-template-columns:130px minmax(0,1fr);
+  gap:1.5rem;
+  margin-bottom:1.9rem;
+}
+.usage-label{
+  padding-top:.1rem;
+  color:var(--gold);
+  font-family:"Montserrat",sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.usage-copy p{margin:0 0 .75rem;color:var(--soft)}
+.usage-copy p:last-child{
+  margin-bottom:0;
+  color:#8B7D74;
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.05rem;
+  font-style:italic;
+  line-height:1.72;
+}
+.examples-title{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
+  margin:0 0 .9rem;
+  color:var(--wine);
+  font-family:"Montserrat",sans-serif;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.examples-title::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--border);
+}
+.examples{display:grid;gap:.85rem}
+.example{
+  padding:1rem 1.15rem;
+  border:1px solid var(--border-soft);
+  border-radius:12px;
+  background:rgba(255,255,255,.58);
+}
+.example p{margin:0}
+.example .zh{
+  color:var(--ink);
+  font-size:1rem;
+  line-height:1.78;
+}
+.example .en{
+  margin-top:.28rem;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-style:italic;
+  line-height:1.55;
+}
+.dialogue .zh + .zh,.dialogue .en + .en{margin-top:.18rem}
+.page-note{
+  margin-top:34px;
+  padding:1.2rem 1.4rem;
+  border:1px solid rgba(168,132,47,.22);
+  border-radius:14px;
+  background:rgba(251,247,240,.8);
+  color:var(--soft);
+  text-align:center;
+  font-size:.9rem;
+}
+footer{
+  padding:2.8rem 24px 4rem;
+  border-top:1px solid var(--border-soft);
+  text-align:center;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.85rem;
+  font-style:italic;
+  letter-spacing:.07em;
+}
+/* VISUAL ALIGNMENT FOR TITLE BEGINNING WITH PARENTHESIS */
+#pattern-3 .lesson-title h2{
+  margin-left:-.43em;
+}
+
+@media(max-width:820px){
+  .pattern-nav-inner{grid-template-columns:repeat(3,1fr)}
+  .pattern-nav a:nth-child(3){border-right:0}
+  .pattern-nav a:nth-child(-n+3){border-bottom:1px solid var(--border-soft)}
+}
+@media(max-width:640px){
+  .nav{padding:.9rem 1.2rem}
+  .nav-title{display:none}
+  .hero{padding:125px 20px 68px}
+  .hero::before{font-size:13rem;top:75px}
+  .pattern-nav{padding:0 14px}
+  .pattern-nav-inner{grid-template-columns:repeat(2,1fr)}
+  .pattern-nav a{border-bottom:1px solid var(--border-soft)}
+  .pattern-nav a:nth-child(odd){border-right:1px solid var(--border-soft)}
+  .pattern-nav a:nth-child(even){border-right:0}
+  .pattern-nav a:nth-last-child(-n+2){border-bottom:0}
+  main{padding:55px 14px 72px}
+  .lesson-head{grid-template-columns:52px 1fr auto;gap:1rem;padding:1.55rem 1.25rem 1.35rem}
+  .lesson-num{width:46px;height:46px;font-size:1.35rem}
+  .lesson-toggle{width:30px;height:30px;font-size:1.08rem}
+  .lesson-body{padding:1.4rem 1.25rem 1.7rem}
+  .usage{grid-template-columns:1fr;gap:.55rem}
+  .film-lines{padding:1.05rem 1.1rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">返回《鬼家人》主頁</a>
+  <div class="nav-title">Between Characters · Taiwan Through Language</div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="seal">囍</div>
+    <p class="eyebrow">Taiwan Through Language</p>
+    <h1>電影裡的語言與文化</h1>
+    <p class="hero-en">Language &amp; Culture in Marry My Dead Body</p>
+    <p class="hero-copy">從電影台詞出發，認識台灣華語裡真正有「態度」的說法，也從人物、信仰與情節中，討論電影所呈現的台灣文化。</p>
+    <p class="hero-copy-en">Starting from film dialogue, explore how Taiwanese Mandarin conveys attitude, and discuss the cultural meanings behind the film’s characters, beliefs, and story.</p>
+  </div>
+</header>
+
+<div class="pattern-nav" aria-label="句型導覽">
+  <div class="pattern-nav-inner">
+    <a href="#pattern-1"><b>01</b><span>也太……了吧！？</span></a>
+    <a href="#pattern-2"><b>02</b><span>拜託，我誰啊</span></a>
+    <a href="#pattern-3"><b>03</b><span>什麼年代了</span></a>
+    <a href="#pattern-4"><b>04</b><span>把 X 當什麼</span></a>
+    <a href="#pattern-5"><b>05</b><span>成這樣還想……</span></a>
+    <a href="#pattern-6"><b>06</b><span>叫你 V，你死不 V</span></a>
+  </div>
+</div>
+
+<main>
+  <div class="lesson-list">
+
+    <details class="lesson" id="pattern-1">
+      <summary class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="lesson-title">
+          <h2>也太……了吧！？</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">yě tài… le ba</span>
+            <span class="meaning">That’s so…! / That’s way too…!</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines">
+          <p>「你也太神了吧？」</p>
+          <p>「你男朋友也太樂觀了吧，這麼快就走出來囉？」</p>
+        </div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>「也太……了吧」用來強調說話者的情緒與評價，語氣比「太……了吧」更強烈、更誇張。中間可以搭配正面或負面的詞。</p>
+            <p>“Yě tài… le ba” emphasizes the speaker’s emotion and evaluation. It is stronger and more expressive than “tài… le ba” and can be used with both positive and negative words.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example"><p class="zh">才學中文三個月就考過 TOCFL A2，也太厲害了吧！</p><p class="en">You’ve only been studying Chinese for three months and already passed TOCFL A2? That’s amazing!</p></div>
+          <div class="example"><p class="zh">這杯飲料也太甜了吧！誰喝得完啊？</p><p class="en">This drink is way too sweet. Who could possibly finish it?</p></div>
+          <div class="example"><p class="zh">你遲到一個小時，也太誇張了吧！</p><p class="en">You’re an hour late? That’s ridiculous!</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="lesson" id="pattern-2">
+      <summary class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="lesson-title">
+          <h2>拜託，我誰啊？</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">bài tuō, wǒ shéi a?</span>
+            <span class="meaning">Come on—you know who I am!</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines film-dialogue-box">
+          <div class="film-dialogue">
+            <div class="film-turn"><span class="speaker">A</span><p>你也太神了吧？</p></div>
+            <div class="film-turn"><span class="speaker">B</span><p>拜託，我誰啊？</p></div>
+          </div>
+          <p class="film-single">「拜託，我誰？我要辦大案子的耶。」</p>
+        </div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>別人懷疑你的能力時，用自信、帶點臭屁的語氣表示：「這種事怎麼可能難得倒我？」這裡的「拜託」不是請求。</p>
+            <p>Used when someone doubts your ability. It confidently—and often playfully—suggests that the task should be easy for you.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example dialogue">
+            <p class="zh">A：一個人開十六個小時的車，你真的可以嗎？</p>
+            <p class="zh">B：拜託，我誰啊！</p>
+            <p class="en">A: Can you really drive for sixteen hours by yourself?</p>
+            <p class="en">B: Come on—you know who I am!</p>
+          </div>
+          <div class="example dialogue">
+            <p class="zh">A：你真的搶得到蔡依林演唱會的門票嗎？</p>
+            <p class="zh">B：拜託，我誰啊！我哪次沒買到？</p>
+            <p class="en">A: Do you really think you can get tickets to Jolin Tsai’s concert?</p>
+            <p class="en">B: Come on—you know who you’re talking to. When have I ever failed to get tickets?</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="lesson" id="pattern-3">
+      <summary class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="lesson-title">
+          <h2>（都）什麼年代了，還……</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">(dōu) shénme niándài le, hái…</span>
+            <span class="meaning">In this day and age, you still…?</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines">
+          <p>「都什麼年代了，還有人恐同，還打同志啊。」</p>
+          <p>「什麼年代了，還給我摔同志啊？」</p>
+        </div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>不是在問現在是哪一年，而是把某種觀念或行為視為早已過時，用來批評對方落伍或跟不上時代。</p>
+            <p>This is not a real question about the year. It criticizes an idea or behavior as outdated or backward.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example"><p class="zh">都什麼年代了，還沒聽過行動支付？</p><p class="en">Seriously? You’ve never heard of mobile payments?</p></div>
+          <div class="example"><p class="zh">什麼年代了，你還認為女人一定要結婚生子？</p><p class="en">In this day and age, you still think women have to get married and have children?</p></div>
+          <div class="example"><p class="zh">都什麼年代了，還認為男生不能哭？</p><p class="en">You still think men aren’t supposed to cry?</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="lesson" id="pattern-4">
+      <summary class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="lesson-title">
+          <h2>你把 X 當什麼啦？</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">Nǐ bǎ X dàng shénme la?</span>
+            <span class="meaning">What do you take X for?</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines">
+          <p>「你把鬼都當什麼啦？你以為死人都互相認識的啊？」</p>
+          <p>「你又把同志當成什麼啦？你以為同志都互相認識的啊？」</p>
+        </div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>「你把 X 當什麼啦？」用反問批評對方把某人或某個群體當成一種工具、角色或刻板形象。後面常再加一句問句或陳述句，把對方隱藏的想法直接說出來。</p>
+            <p>“What do you take X for?” is a rhetorical question used to criticize someone for treating a person or group as a tool, a fixed role, or a stereotype. It is often followed by a question or statement that exposes the assumption behind it.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example">
+            <p class="zh">我朋友每次有英文問題都來問我，覺得我是英國人就應該教他。把我當什麼啦？免費英文老師啊？</p>
+            <p class="en">My friend comes to me whenever he has a question about English, as if being British means I’m supposed to teach him. What does he think I am—his free English tutor?</p>
+          </div>
+          <div class="example">
+            <p class="zh">他每次喝酒都叫我半夜去接他，把我當什麼啦？以為我是 Uber 啊？</p>
+            <p class="en">Every time he goes drinking, he expects me to pick him up in the middle of the night. What does he think I am—his personal Uber!?</p>
+          </div>
+          <div class="example dialogue">
+            <p class="zh">A：中配的父母依親來台後，醫療費用讓台灣健保負擔不就好了？</p>
+            <p class="zh">B：你把台灣人當什麼啦？提款機啊？</p>
+            <p class="en">A: Why not just have Taiwan’s health insurance cover their medical expenses after the parents of Chinese spouses move to Taiwan as dependents?</p>
+            <p class="en">B: What do you think Taiwanese taxpayers are—an ATM?</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="lesson" id="pattern-5">
+      <summary class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="lesson-title">
+          <h2>V／SV 成這樣，你還想……喔？</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">V / SV chéng zhèyàng, nǐ hái xiǎng… ō?</span>
+            <span class="meaning">You’re already this…, and you still want to…?</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines"><p>「穿成這樣你還想進去喔？」</p></div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>「V／SV 成這樣」表示動作或狀態已經到了一定程度，使對方後面想做的事情顯得不合理或不適合。可用來吐槽、阻止或警告對方。</p>
+            <p>“V/SV + chéng zhèyàng” shows that an action or condition has reached such a degree that what the other person wants to do next seems unreasonable or inappropriate. It can be used to tease, stop, or warn someone.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example"><p class="zh">穿成這樣，你還想進去喔？</p><p class="en">Dressed like that, you still think you can get in?</p></div>
+          <div class="example"><p class="zh">房間亂成這樣，你還想找得到東西喔？</p><p class="en">Your room is such a mess—how do you expect to find anything?</p></div>
+          <div class="example"><p class="zh">都喝成這樣了，你還想自己開車喔？</p><p class="en">You’re that drunk, and you still think you can drive?</p></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="lesson" id="pattern-6">
+      <summary class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="lesson-title">
+          <h2>叫你 V，你死不 V</h2>
+          <div class="pattern-meta">
+            <span class="pinyin">jiào nǐ V, nǐ sǐ bù V</span>
+            <span class="meaning">I told you to V, but you just wouldn’t.</span>
+          </div>
+        </div>
+        <span class="lesson-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="lesson-body">
+        <div class="film-lines"><p>「為什麼叫你問路，你死不問路啊？」</p></div>
+        <div class="usage">
+          <div class="usage-label">Usage</div>
+          <div class="usage-copy">
+            <p>「死不＋動詞」表示一個人非常固執，無論別人怎麼勸都不肯做。這個句型常用在事情出問題之後，責怪對方先前不聽勸。</p>
+            <p>“Sǐ bù + verb” means stubbornly refusing to do something despite being told or advised to do it. It often carries a strong, blaming tone.</p>
+          </div>
+        </div>
+        <h3 class="examples-title">Examples</h3>
+        <div class="examples">
+          <div class="example"><p class="zh">叫你先備份，你死不備份，現在檔案不見了吧。</p><p class="en">I told you to back up the files, but you just wouldn’t. Now they’re gone.</p></div>
+          <div class="example"><p class="zh">大家都叫他去看醫生，他死不去！</p><p class="en">Everyone keeps telling him to see a doctor, but he flat-out refuses.</p></div>
+          <div class="example"><p class="zh">叫你早點出門，你死不聽，現在遲到了吧！</p><p class="en">I told you to leave earlier, but you wouldn’t listen. Now we’re late.</p></div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="page-note">語用重點不只在句型本身，也在說話者的情緒、關係與當下情境。</div>
+</main>
+
+<footer>Between Characters · Marry My Dead Body · Pragmatics &amp; Culture</footer>
+</body>
+</html>
