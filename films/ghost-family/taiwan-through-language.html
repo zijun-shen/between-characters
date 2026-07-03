@@ -425,6 +425,420 @@ footer{
   .film-lines{padding:1.05rem 1.1rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* CULTURE NOTES */
+.culture-notes-section{
+  scroll-margin-top:92px;
+  padding-top:5.4rem;
+}
+.culture-section-header{
+  max-width:760px;
+  margin:0 auto 2.7rem;
+  text-align:center;
+}
+.culture-section-header h2{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:clamp(1.7rem,3vw,2.25rem);
+  font-weight:500;
+  letter-spacing:.06em;
+}
+.culture-section-header p{
+  margin:.45rem 0 0;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.02rem;
+  font-style:italic;
+}
+.culture-note-stack{display:grid;gap:1.5rem}
+.culture-note-card{
+  position:relative;
+  overflow:hidden;
+  padding:2.2rem 2.35rem 2rem;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(168,132,47,.10),transparent 26%),
+    linear-gradient(145deg,#fffdfa 0%,#f8f1ea 100%);
+  border:1px solid rgba(124,43,51,.13);
+  border-radius:22px;
+  box-shadow:0 18px 42px rgba(86,30,36,.07);
+}
+.culture-note-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--wine-deep),var(--wine),var(--gold-soft));
+}
+.culture-note-card::after{
+  content:"";
+  position:absolute;
+  right:-62px;bottom:-78px;
+  width:145px;height:145px;
+  border:1px solid rgba(124,43,51,.10);
+  border-radius:50%;
+  box-shadow:0 0 0 14px rgba(168,132,47,.035),0 0 0 28px rgba(124,43,51,.025);
+  pointer-events:none;
+}
+.culture-note-head{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr);
+  gap:1.25rem;
+  align-items:start;
+  margin-bottom:1.25rem;
+}
+.culture-note-index{
+  width:64px;height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(168,132,47,.48);
+  border-radius:50%;
+  background:rgba(255,253,250,.72);
+  color:var(--wine);
+  box-shadow:inset 0 0 0 5px rgba(168,132,47,.055);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.48rem;
+  font-style:italic;
+  letter-spacing:.08em;
+}
+.culture-note-kicker{
+  margin-bottom:.2rem;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.8rem;
+  font-style:italic;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.culture-note-card h3{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:1.32rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  line-height:1.55;
+}
+.culture-note-subtitle{
+  margin-top:.2rem;
+  color:var(--soft);
+  font-size:.98rem;
+  letter-spacing:.04em;
+}
+.culture-vocab{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:.2rem 0 1.25rem;
+}
+.culture-vocab span{
+  min-height:2rem;
+  padding:.34rem .76rem;
+  display:inline-flex;
+  align-items:center;
+  border:1px solid rgba(124,43,51,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  color:var(--wine);
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.76rem;
+  line-height:1;
+}
+.culture-note-copy{
+  position:relative;
+  z-index:1;
+  margin:0;
+  color:var(--soft);
+  font-size:1rem;
+  line-height:2;
+}
+.culture-reflection{
+  position:relative;
+  z-index:1;
+  margin-top:1.35rem;
+  padding-top:1rem;
+  border-top:1px solid rgba(124,43,51,.12);
+}
+.culture-reflection summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  list-style:none;
+  cursor:pointer;
+  color:var(--wine-deep);
+  font-size:.98rem;
+  font-weight:500;
+  letter-spacing:.03em;
+}
+.culture-reflection summary::-webkit-details-marker{display:none}
+.culture-reflection summary small{
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.9rem;
+  font-style:italic;
+  font-weight:400;
+  letter-spacing:.05em;
+}
+.culture-plus{
+  flex:0 0 auto;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.55rem;
+  line-height:1;
+  transition:transform .25s ease;
+}
+.culture-reflection[open] .culture-plus{transform:rotate(45deg)}
+.culture-question-list{
+  margin:1.05rem 0 0;
+  padding:0;
+  display:grid;
+  gap:.82rem;
+  list-style:none;
+  counter-reset:culture-question;
+}
+.culture-question-list li{
+  position:relative;
+  padding-left:2.4rem;
+  counter-increment:culture-question;
+  color:var(--soft);
+  font-size:.95rem;
+  line-height:1.82;
+}
+.culture-question-list li::before{
+  content:counter(culture-question,decimal-leading-zero);
+  position:absolute;
+  left:0;top:.02rem;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.02rem;
+  font-style:italic;
+  letter-spacing:.04em;
+}
+.culture-question-list strong{font-weight:500;color:var(--wine-deep)}
+
+/* RITUAL GUIDE */
+.ritual-guide{
+  margin-top:3.4rem;
+  padding-top:3.1rem;
+  border-top:1px solid rgba(124,43,51,.14);
+}
+.ritual-guide-head{
+  max-width:680px;
+  margin:0 auto 2rem;
+  text-align:center;
+}
+.ritual-guide-label{
+  margin-bottom:.55rem;
+  color:var(--wine);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.75rem;
+  font-style:italic;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+}
+.ritual-guide-head h3{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:1.55rem;
+  font-weight:400;
+  letter-spacing:.05em;
+}
+.ritual-guide-head p{
+  margin:.45rem 0 0;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+}
+.ritual-card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+.ritual-card{
+  position:relative;
+  overflow:hidden;
+  min-height:250px;
+  padding:1.4rem 1.35rem 1.3rem;
+  border:1px solid rgba(124,43,51,.12);
+  border-radius:17px;
+  background:linear-gradient(180deg,rgba(255,253,250,.96),rgba(246,237,229,.96));
+  box-shadow:0 12px 28px rgba(86,30,36,.055);
+}
+.ritual-card::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:3px;
+  background:linear-gradient(180deg,var(--wine),var(--gold-soft));
+}
+.ritual-number{
+  margin-bottom:.35rem;
+  color:rgba(124,43,51,.48);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.18rem;
+  font-style:italic;
+}
+.ritual-card h4{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:1.08rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  line-height:1.55;
+}
+.ritual-meta{
+  margin:.28rem 0 .72rem;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.9rem;
+  font-style:italic;
+  line-height:1.5;
+}
+.ritual-zh{
+  margin:0 0 .65rem;
+  color:var(--soft);
+  font-size:.91rem;
+  line-height:1.78;
+}
+.ritual-en{
+  margin:0;
+  color:rgba(90,72,68,.78);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.88rem;
+  font-style:italic;
+  line-height:1.68;
+}
+
+/* COMPACT CONTACT CTA */
+.contact-section{
+  max-width:840px;
+  margin:3.15rem auto 0;
+  scroll-margin-top:90px;
+}
+.contact-card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:1.5rem;
+  padding:1.15rem 1.4rem;
+  text-align:left;
+  border:1px solid rgba(201,169,92,.38);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 12% 5%,rgba(201,169,92,.12),transparent 22%),
+    radial-gradient(circle at 92% 88%,rgba(255,255,255,.045),transparent 20%),
+    linear-gradient(135deg,#4a171e 0%,#6e252e 56%,#3c151a 100%);
+  box-shadow:0 12px 30px rgba(86,30,36,.13);
+}
+.contact-card::before,.contact-card::after{
+  content:"";
+  position:absolute;
+  width:82px;height:82px;
+  border:1px solid rgba(201,169,92,.13);
+  border-radius:50%;
+}
+.contact-card::before{left:-43px;top:-50px;box-shadow:0 0 0 10px rgba(201,169,92,.025)}
+.contact-card::after{right:-43px;bottom:-50px;box-shadow:0 0 0 10px rgba(201,169,92,.025)}
+.contact-main,.contact-actions{position:relative;z-index:1}
+.contact-eyebrow{
+  margin-bottom:.18rem;
+  color:var(--gold-soft);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.64rem;
+  font-style:italic;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+}
+.contact-card h2{
+  margin:0;
+  color:#fffaf4;
+  font-size:clamp(1.05rem,2vw,1.35rem);
+  font-weight:400;
+  letter-spacing:.04em;
+  line-height:1.45;
+}
+.contact-card .contact-en{
+  margin:.04rem 0 .25rem;
+  color:rgba(255,250,244,.58);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.86rem;
+  font-style:italic;
+  line-height:1.35;
+}
+.contact-card .contact-copy{
+  margin:0;
+  color:rgba(255,250,244,.72);
+  font-size:.78rem;
+  line-height:1.55;
+}
+.contact-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-width:220px;
+}
+.contact-button{
+  min-width:220px;
+  min-height:2.25rem;
+  margin:0;
+  padding:.38rem 1.05rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(201,169,92,.68);
+  border-radius:9px;
+  background:#fff9f1;
+  color:var(--wine-deep);
+  box-shadow:0 7px 18px rgba(20,5,8,.12);
+  text-decoration:none;
+  font-family:"Noto Serif TC",serif;
+  font-size:.76rem;
+  letter-spacing:.035em;
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.contact-button:hover{
+  transform:translateY(-1px);
+  background:#fff;
+  box-shadow:0 10px 22px rgba(20,5,8,.18);
+}
+.contact-email{
+  display:block;
+  margin-top:.38rem;
+  color:rgba(255,250,244,.52);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.7rem;
+  font-style:italic;
+  letter-spacing:.04em;
+}
+
+@media(max-width:860px){.ritual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+  .culture-notes-section{padding-top:4.2rem}
+  .culture-note-card{padding:1.8rem 1.45rem 1.55rem}
+  .culture-note-head{grid-template-columns:54px minmax(0,1fr);gap:.9rem}
+  .culture-note-index{width:50px;height:50px;font-size:1.18rem}
+  .culture-note-card h3{font-size:1.15rem}
+  .ritual-card-grid{grid-template-columns:1fr}
+  .ritual-card{min-height:0}
+  .contact-section{margin-top:2.7rem}
+  .contact-card{
+    grid-template-columns:1fr;
+    gap:.9rem;
+    padding:1.15rem 1.1rem;
+    text-align:center;
+  }
+  .contact-actions{min-width:0}
+  .contact-button{min-width:0;width:min(100%,235px)}
+}
+
 </style>
 </head>
 <body>
@@ -675,7 +1089,140 @@ footer{
 
   </div>
 
-  <div class="page-note">語用重點不只在句型本身，也在說話者的情緒、關係與當下情境。</div>
+
+  <section class="culture-notes-section" id="culture-notes">
+    <div class="culture-section-header">
+      <p class="eyebrow">Culture Notes</p>
+      <h2>文化筆記</h2>
+      <p>Words, beliefs, and rituals that shape the world of the film</p>
+    </div>
+
+    <div class="culture-note-stack">
+      <article class="culture-note-card">
+        <div class="culture-note-head">
+          <div class="culture-note-index">01</div>
+          <div>
+            <div class="culture-note-kicker">Fate &amp; Belief</div>
+            <h3>天命與緣分｜信仰觀</h3>
+            <div class="culture-note-subtitle">命運，藏在日常的說法裡</div>
+          </div>
+        </div>
+        <div class="culture-vocab" aria-label="天命與緣分相關詞彙">
+          <span>天注定</span><span>冥冥之中</span><span>天意不可違</span><span>正緣</span><span>自有天意</span><span>命中注定</span>
+        </div>
+        <p class="culture-note-copy">台灣人不一定天天談宗教，但「姻緣天注定」、「冥冥之中」這些說法早已長進日常語言裡。它們的背後是一種世界觀：人的相遇、生死與緣分，或許都有一隻看不見的手在安排。這些說法反映出台灣人怎麼看待命運與緣分。那麼，在你的文化裡，人們又怎麼說、怎麼想呢？</p>
+        <details class="culture-reflection">
+          <summary>
+            <span>Reflection｜想一想 <small>5 questions</small></span>
+            <span class="culture-plus">＋</span>
+          </summary>
+          <ol class="culture-question-list">
+            <li><strong>你相信「姻緣天注定」嗎？你覺得兩個人會相遇、相愛，是命運的安排，還是自己的選擇？</strong></li>
+            <li><strong>你有沒有遇過一件事，讓你覺得一切都是「冥冥之中」安排好的？當時發生了什麼事？</strong></li>
+            <li><strong>你覺得什麼樣的人可以被稱為「正緣」？遇到正緣，就一定會有好的結果嗎？</strong></li>
+            <li><strong>如果你很想改變一件事，但別人告訴你「天意不可違」，你會接受命運，還是繼續努力？為什麼？</strong></li>
+            <li><strong>你的語言或文化裡，有沒有和「命中注定」或「自有天意」相似的說法？人們通常會在什麼情況下使用？</strong></li>
+          </ol>
+        </details>
+      </article>
+
+      <article class="culture-note-card">
+        <div class="culture-note-head">
+          <div class="culture-note-index">02</div>
+          <div>
+            <div class="culture-note-kicker">Life, Death &amp; Afterlife</div>
+            <h3>死亡、魂魄與來世｜生死觀</h3>
+            <div class="culture-note-subtitle">死亡，不是句點，而是另一段路</div>
+          </div>
+        </div>
+        <div class="culture-vocab" aria-label="死亡、魂魄與來世相關詞彙">
+          <span>投胎轉世</span><span>魂魄</span><span>遺願未了</span><span>了無遺憾</span><span>在天上有知</span><span>前世今生</span><span>下輩子</span><span>人世間</span><span>陰間</span><span>在天之靈</span><span>魂飛魄散</span>
+        </div>
+        <p class="culture-note-copy">在台灣民間信仰中，死亡不一定代表徹底消失。人離開人世後，魂魄可能前往陰間、投胎轉世，也可能因為「遺願未了」而放不下。活著的人則透過祭拜、完成遺願與保存回憶，繼續與亡者保持關係。毛毛之所以走不了，不只是電影中的鬼魂設定，也反映了人們對死亡、思念與告別的文化想像。</p>
+        <details class="culture-reflection">
+          <summary>
+            <span>Reflection｜想一想 <small>5 questions</small></span>
+            <span class="culture-plus">＋</span>
+          </summary>
+          <ol class="culture-question-list">
+            <li><strong>你相信人死後還有「魂魄」、會「投胎轉世」，或還有「下輩子」嗎？為什麼？</strong></li>
+            <li><strong>相信有「下輩子」，會讓你比較容易接受死亡嗎？為什麼？</strong></li>
+            <li><strong>如果希望自己離開人世時能夠「了無遺憾」，你覺得現在應該怎麼生活？</strong></li>
+            <li><strong>如果你相信過世的家人「在天上有知」，這個想法會不會影響你做某些決定？為什麼？</strong></li>
+            <li><strong>人們常希望亡者的「在天之靈」能夠安息。你覺得這樣的想法會讓活著的人得到安慰，還是感到壓力？為什麼？</strong></li>
+          </ol>
+        </details>
+      </article>
+    </div>
+
+    <div class="ritual-guide" id="ritual-guide">
+      <div class="ritual-guide-head">
+        <div class="ritual-guide-label">Ritual Guide</div>
+        <h3>冥婚儀式與婚禮元素</h3>
+        <p>看懂電影中的冥婚儀式、角色與信仰象徵</p>
+      </div>
+      <div class="ritual-card-grid">
+        <article class="ritual-card">
+          <div class="ritual-number">01</div>
+          <h4>良辰吉時</h4>
+          <div class="ritual-meta">liáng chén jí shí · auspicious date and time</div>
+          <p class="ritual-zh">依照傳統信仰挑選適合舉行婚禮或重要儀式的時間。</p>
+          <p class="ritual-en">A date and time selected as especially favorable for a wedding or important ritual.</p>
+        </article>
+        <article class="ritual-card">
+          <div class="ritual-number">02</div>
+          <h4>神主牌位</h4>
+          <div class="ritual-meta">shén zhǔ pái wèi · spirit tablet</div>
+          <p class="ritual-zh">寫有亡者姓名、供家人祭拜的牌位。在冥婚中，也可以代表亡者參與婚禮。</p>
+          <p class="ritual-en">A tablet bearing the deceased person's name; in a ghost marriage, it may stand in for the deceased.</p>
+        </article>
+        <article class="ritual-card">
+          <div class="ritual-number">03</div>
+          <h4>主婚人</h4>
+          <div class="ritual-meta">zhǔ hūn rén · wedding officiant</div>
+          <p class="ritual-zh">主持或見證婚禮的人，通常也代表家族承認這段婚姻。</p>
+          <p class="ritual-en">The person who presides over or witnesses the wedding, often signaling family recognition of the marriage.</p>
+        </article>
+        <article class="ritual-card">
+          <div class="ritual-number">04</div>
+          <h4>拜堂</h4>
+          <div class="ritual-meta">bài táng · performing the wedding bows</div>
+          <p class="ritual-zh">新人向天地、祖先及彼此行禮，象徵婚姻正式成立。</p>
+          <p class="ritual-en">The couple bows to heaven and earth, their ancestors, and each other to formally seal the marriage.</p>
+        </article>
+        <article class="ritual-card">
+          <div class="ritual-number">05</div>
+          <h4>擲筊</h4>
+          <div class="ritual-meta">zhí jiǎo · divination with moon blocks</div>
+          <p class="ritual-zh">用筊杯向神明或亡者請示，確認對方是否同意或有所回應。</p>
+          <p class="ritual-en">Moon blocks are cast to ask a deity or the deceased for consent, guidance, or a response.</p>
+        </article>
+        <article class="ritual-card">
+          <div class="ritual-number">06</div>
+          <h4>洞房花燭夜</h4>
+          <div class="ritual-meta">dòng fáng huā zhú yè · wedding night</div>
+          <p class="ritual-zh">傳統上指新婚夫妻成婚後的第一晚，也常用來營造喜慶的婚禮想像。</p>
+          <p class="ritual-en">Traditionally, the newlyweds' first night together, evoking the festive imagery of marriage.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <div class="contact-main">
+        <div class="contact-eyebrow">Get in Touch</div>
+        <h2>想學習更完整的內容與延伸討論嗎？</h2>
+        <p class="contact-en">Looking for complete learning materials and extended discussions?</p>
+        <p class="contact-copy">電影華語課程、完整教材與教學內容，歡迎聯絡老師。</p>
+      </div>
+      <div class="contact-actions">
+        <a class="contact-button" href="mailto:betweencharacters.tw@gmail.com" aria-label="寄信聯絡老師">聯絡老師 · Contact the Teacher</a>
+        <span class="contact-email">betweencharacters.tw@gmail.com</span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>Between Characters · Marry My Dead Body · Pragmatics &amp; Culture</footer>
