@@ -427,6 +427,202 @@ footer{
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 
+
+/* TAIWANESE EXPRESSIONS — DISTINCT FROM THE RITUAL CARDS */
+.taiwanese-section{
+  scroll-margin-top:92px;
+  margin-top:5rem;
+  padding-top:3.2rem;
+  border-top:1px solid rgba(124,43,51,.14);
+}
+.taiwanese-head{
+  display:block;
+  margin-bottom:2rem;
+  text-align:center;
+}
+.taiwanese-head-copy{
+  max-width:760px;
+  margin:0 auto;
+}
+.taiwanese-kicker{
+  margin:0 0 .4rem;
+  color:var(--gold);
+  font-family:"Montserrat",sans-serif;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.23em;
+  text-transform:uppercase;
+}
+.taiwanese-head h2{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:clamp(1.8rem,3.4vw,2.25rem);
+  font-weight:500;
+  letter-spacing:.05em;
+}
+.taiwanese-head-copy > p:last-child{
+  margin:.42rem 0 0;
+  color:var(--muted);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.12rem;
+  font-style:italic;
+}
+.taiwanese-note{
+  max-width:620px;
+  margin:1.05rem auto 0;
+  padding:.78rem 1rem;
+  border:1px solid rgba(168,132,47,.23);
+  border-radius:10px;
+  color:var(--soft);
+  background:rgba(251,247,240,.72);
+  font-size:.88rem;
+  line-height:1.75;
+}
+.taiwanese-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.taiwanese-card{
+  position:relative;
+  overflow:hidden;
+  padding:1.45rem 1.5rem 1.4rem;
+  border:1px solid rgba(124,43,51,.12);
+  border-radius:13px;
+  background:rgba(255,253,250,.86);
+  box-shadow:0 10px 24px rgba(86,30,36,.045);
+}
+.taiwanese-card::after{
+  content:"“";
+  position:absolute;
+  right:.7rem;
+  top:-.45rem;
+  color:rgba(124,43,51,.045);
+  font-family:"Cormorant Garamond",serif;
+  font-size:6.2rem;
+  line-height:1;
+  pointer-events:none;
+}
+.taiwanese-card-top{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  margin-bottom:.95rem;
+}
+.taiwanese-number{
+  min-width:2.2rem;
+  height:1.55rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(168,132,47,.32);
+  border-radius:999px;
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.88rem;
+  font-style:italic;
+}
+.taiwanese-card h3{
+  margin:0;
+  color:var(--wine-deep);
+  font-size:1.32rem;
+  font-weight:500;
+  letter-spacing:.045em;
+}
+.taiwanese-sound{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.3rem .8rem;
+  margin-bottom:1rem;
+  padding:.78rem .92rem;
+  border-radius:9px;
+  background:#F3EAE2;
+}
+.taiwanese-script{
+  color:var(--wine);
+  font-size:1.08rem;
+  font-weight:500;
+}
+.taiwanese-romanization{
+  color:var(--gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.3rem;
+  font-style:italic;
+  font-weight:500;
+}
+.taiwanese-meaning{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:5rem minmax(0,1fr);
+  gap:.4rem .75rem;
+  align-items:start;
+}
+.taiwanese-meaning + .taiwanese-meaning{margin-top:.52rem}
+.taiwanese-label{
+  padding-top:.02rem;
+  color:var(--soft);
+  font-family:"Noto Serif TC",serif;
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:0;
+  text-transform:none;
+}
+.taiwanese-meaning.en .taiwanese-label{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:600;
+  font-style:italic;
+}
+.taiwanese-meaning p{
+  margin:0;
+  color:var(--soft);
+  font-size:.98rem;
+  line-height:1.82;
+}
+.taiwanese-meaning.en p{
+  color:rgba(90,72,68,.78);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.03rem;
+  font-style:italic;
+}
+.taiwanese-series{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.75rem;
+  margin-top:.15rem;
+}
+.taiwanese-series-item{
+  padding:.9rem .92rem;
+  border:1px solid rgba(124,43,51,.09);
+  border-radius:9px;
+  background:rgba(251,247,240,.74);
+}
+.taiwanese-series-item strong{
+  display:block;
+  margin-bottom:.35rem;
+  color:var(--wine);
+  font-size:1.06rem;
+  font-weight:500;
+}
+.taiwanese-series-item p{
+  margin:.14rem 0 0;
+  color:var(--soft);
+  font-size:.95rem;
+  line-height:1.75;
+}
+.taiwanese-series-item .en{
+  color:rgba(90,72,68,.78);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-style:italic;
+}
+
 /* CULTURE NOTES */
 .culture-notes-section{
   scroll-margin-top:92px;
@@ -717,7 +913,7 @@ footer{
 /* COMPACT CONTACT CTA */
 .contact-section{
   max-width:840px;
-  margin:3.15rem auto 0;
+  margin:6.4rem auto 0;
   scroll-margin-top:90px;
 }
 .contact-card{
@@ -819,8 +1015,16 @@ footer{
   letter-spacing:.04em;
 }
 
-@media(max-width:860px){.ritual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){
+  .ritual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .taiwanese-head{text-align:center}
+  .taiwanese-note{max-width:620px}
+}
 @media(max-width:640px){
+  .taiwanese-section{margin-top:4.2rem;padding-top:2.6rem}
+  .taiwanese-grid{grid-template-columns:1fr}
+  .taiwanese-series{grid-template-columns:1fr}
+  .taiwanese-card{padding:1.3rem 1.15rem}
   .culture-notes-section{padding-top:4.2rem}
   .culture-note-card{padding:1.8rem 1.45rem 1.55rem}
   .culture-note-head{grid-template-columns:54px minmax(0,1fr);gap:.9rem}
@@ -828,7 +1032,7 @@ footer{
   .culture-note-card h3{font-size:1.15rem}
   .ritual-card-grid{grid-template-columns:1fr}
   .ritual-card{min-height:0}
-  .contact-section{margin-top:2.7rem}
+  .contact-section{margin-top:4.4rem}
   .contact-card{
     grid-template-columns:1fr;
     gap:.9rem;
@@ -1090,6 +1294,71 @@ footer{
   </div>
 
 
+  <section class="taiwanese-section" id="taiwanese-in-film">
+    <div class="taiwanese-head">
+      <div class="taiwanese-head-copy">
+        <p class="taiwanese-kicker">Taiwanese in the Film</p>
+        <h2>電影裡的台語</h2>
+        <p>聽懂人物生氣、吐槽與互嗆時最有台灣味的說法</p>
+      </div>
+      <div class="taiwanese-note">這些說法多半帶有粗俗、挑釁或強烈情緒，使用時要注意人物關係與語氣。</div>
+    </div>
+
+    <div class="taiwanese-grid">
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">01</span><h3>靠么啊</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">哭枵啊</span><span class="taiwanese-romanization">khàu-iau--ah</span></div>
+        <div class="taiwanese-meaning"><span class="taiwanese-label">中文意思：</span><p>用來表達不滿、抱怨、驚訝或無奈，接近「搞什麼啊」、「靠」或「拜託」。</p></div>
+        <div class="taiwanese-meaning en"><span class="taiwanese-label">English:</span><p>What the hell? / Give me a break.</p></div>
+      </article>
+
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">02</span><h3>吃屎啦</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">食屎啦</span><span class="taiwanese-romanization">tsia̍h-sái--lah</span></div>
+        <div class="taiwanese-meaning"><span class="taiwanese-label">中文意思：</span><p>「吃大便啦！」是很直接、粗俗的罵人說法，用來表達強烈的不滿或憤怒。</p></div>
+        <div class="taiwanese-meaning en"><span class="taiwanese-label">English:</span><p>Eat shit!</p></div>
+      </article>
+
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">03</span><h3>「三小」系列</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">啥潲</span><span class="taiwanese-romanization">siánn-siâu</span></div>
+        <div class="taiwanese-series">
+          <div class="taiwanese-series-item">
+            <strong>看三小啦？</strong>
+            <p>你在看什麼？／你看什麼看？</p>
+            <p class="en">What the hell are you looking at?</p>
+          </div>
+          <div class="taiwanese-series-item">
+            <strong>幹三小啊？</strong>
+            <p>你在幹什麼？／你到底在做什麼？</p>
+            <p class="en">What the fuck are you doing?</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">04</span><h3>起笑喔</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">起痟喔</span><span class="taiwanese-romanization">khí-siáu--ooh</span></div>
+        <div class="taiwanese-meaning"><span class="taiwanese-label">中文意思：</span><p>「你瘋了嗎？」或「你是在發什麼瘋？」</p></div>
+        <div class="taiwanese-meaning en"><span class="taiwanese-label">English:</span><p>Are you crazy? / Have you lost your mind?</p></div>
+      </article>
+
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">05</span><h3>我沒在理他</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">我無咧插潲伊</span><span class="taiwanese-romanization">Guá bô teh tshap-siâu i.</span></div>
+        <div class="taiwanese-meaning"><span class="taiwanese-label">中文意思：</span><p>「我才懶得理他」或「我根本不鳥他」，比一般的「我沒有理他」更有態度。</p></div>
+        <div class="taiwanese-meaning en"><span class="taiwanese-label">English:</span><p>I’m not even bothering with him. / I couldn’t care less about him.</p></div>
+      </article>
+
+      <article class="taiwanese-card">
+        <div class="taiwanese-card-top"><span class="taiwanese-number">06</span><h3>你頭腦壞掉喔</h3></div>
+        <div class="taiwanese-sound"><span class="taiwanese-script">你頭殼歹去喔</span><span class="taiwanese-romanization">Lí thâu-khak pháinn--khì--ooh?</span></div>
+        <div class="taiwanese-meaning"><span class="taiwanese-label">中文意思：</span><p>「你頭腦壞掉了嗎？」或「你是不是瘋了？」</p></div>
+        <div class="taiwanese-meaning en"><span class="taiwanese-label">English:</span><p>Are you out of your mind?</p></div>
+      </article>
+    </div>
+  </section>
+
   <section class="culture-notes-section" id="culture-notes">
     <div class="culture-section-header">
       <p class="eyebrow">Culture Notes</p>
@@ -1108,7 +1377,7 @@ footer{
           </div>
         </div>
         <div class="culture-vocab" aria-label="天命與緣分相關詞彙">
-          <span>天注定</span><span>冥冥之中</span><span>天意不可違</span><span>正緣</span><span>自有天意</span><span>命中注定</span>
+          <span>天注定</span><span>姻緣天注定</span><span>冥冥之中</span><span>天意不可違</span><span>正緣</span><span>自有天意</span><span>命中注定</span>
         </div>
         <p class="culture-note-copy">台灣人不一定天天談宗教，但「姻緣天注定」、「冥冥之中」這些說法早已長進日常語言裡。它們的背後是一種世界觀：人的相遇、生死與緣分，或許都有一隻看不見的手在安排。這些說法反映出台灣人怎麼看待命運與緣分。那麼，在你的文化裡，人們又怎麼說、怎麼想呢？</p>
         <details class="culture-reflection">
