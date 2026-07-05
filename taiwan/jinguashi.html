@@ -911,6 +911,24 @@ body .study-suite .vocab-table td {
   letter-spacing:.01em;
 }
 
+
+/* Footer consistency */
+footer {
+  border-top: 1px solid rgba(160,121,47,.16) !important;
+  padding: 1.6rem 2.8rem 1.8rem !important;
+  text-align: center !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: .65rem !important;
+  letter-spacing: .20em !important;
+  text-transform: none !important;
+  color: #6E6657 !important;
+  opacity: .62 !important;
+  line-height: 1.9 !important;
+}
+footer div + div {
+  margin-top: .15rem !important;
+}
+
 </style>
 </head>
 <body>
@@ -921,7 +939,6 @@ body .study-suite .vocab-table td {
 <div class="eyebrow">TAIWAN THROUGH MY EYES － 金瓜石</div>
 <h1>金瓜石的黃金神社</h1>
 <p class="hero-subtitle">A Japanese Shrine Hidden in the Mountains of Jinguashi</p>
-<div class="hero-date">2026 / 7月</div>
 <p class="hero-desc">本來只是行程完全沒照原本安排走的一天，最後卻意外走進了一段地方的歷史。</p>
 </div>
 </header>
@@ -1143,5 +1160,20 @@ function closeLightbox(e) {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
 </script>
+<footer style="
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: #a08888;
+  border-top: 1px solid rgba(139,46,34,0.12);
+  margin-top: 4rem;
+">
+  <span>Between Characters · 我走過的台灣 · 金瓜石的黃金神社</span>
+  <span>© 2026 多姿 · Last updated July 5, 2026</span>
+</footer>
 </body>
 </html>
