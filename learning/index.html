@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漫遊字間｜Wander Between Words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F6F2;
+  --card:#FFFFFF;
+  --ink:#2C3E50;
+  --soft:#6F6A64;
+  --faint:#A69F95;
+  --rule:rgba(140,130,117,.16);
+  --shadow:0 4px 25px rgba(140,130,117,.055);
+  --shadow-hover:0 18px 38px rgba(140,130,117,.11);
+  --begin:#C98267;
+  --advanced:#B95F73;
+  --begin-line:#F2B39B;
+  --advanced-line:#C96F83;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Helvetica Neue",sans-serif;
+  min-height:100vh;padding:0 20px 72px;
+}
+.page{max-width:980px;margin:0 auto;padding-top:44px}
+.back{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:#8C8275;text-decoration:none;letter-spacing:.06em;padding:10px 0;margin-bottom:34px;transition:color .2s ease}
+.back:hover{color:var(--ink)}
+header{text-align:center;max-width:760px;margin:0 auto 58px}
+.brand{font-family:"Montserrat",sans-serif;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:#8C8275;margin-bottom:14px;font-weight:500}
+h1{font-family:"Noto Serif TC",serif;font-size:clamp(2.05rem,5vw,3.2rem);letter-spacing:.1em;font-weight:600;color:var(--ink);margin-bottom:18px}
+.sub{font-size:1rem;line-height:1.95;color:#8C8275;font-weight:300;letter-spacing:.08em}
+.sub-en{font-family:"Montserrat",sans-serif;font-size:.82rem;line-height:1.8;color:#8C8275;margin-top:12px;font-weight:300;letter-spacing:.06em}
+.portal-grid{display:grid;grid-template-columns:repeat(2,minmax(280px,380px));justify-content:center;gap:24px;margin:0 auto 56px}
+.portal{position:relative;display:flex;flex-direction:column;min-height:0;background:rgba(255,255,255,.78);border:1px solid var(--rule);border-radius:20px;text-decoration:none;color:inherit;overflow:hidden;box-shadow:var(--shadow);transition:all .42s cubic-bezier(.16,1,.3,1)}
+.portal:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);background:#FFFFFF}
+.portal::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--begin-line)}
+.portal.advanced::before{background:var(--advanced-line)}
+.portal-bg{display:none}
+.portal-inner{position:relative;z-index:1;padding:30px 34px 32px;display:flex;flex-direction:column;min-height:0}
+.portal-kicker{font-family:"Montserrat",sans-serif;font-size:.70rem;letter-spacing:.30em;text-transform:uppercase;color:var(--begin);font-weight:500;margin-bottom:22px}
+.portal.advanced .portal-kicker{color:var(--advanced)}
+.portal-num{font-family:"Montserrat",sans-serif;font-size:.75rem;letter-spacing:.22em;color:#B0A898;margin-bottom:12px}
+.portal-title{font-family:"Noto Serif TC",serif;font-size:1.85rem;line-height:1.35;letter-spacing:.08em;font-weight:600;margin-bottom:10px;color:var(--ink)}
+.portal-title-en{font-family:"Montserrat",sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#8C8275;margin-bottom:22px}
+.portal-desc{font-size:.98rem;line-height:1.9;letter-spacing:.05em;color:#5F5B56;font-weight:300;margin-bottom:10px}
+.portal-desc-en{font-family:"Montserrat",sans-serif;font-size:.80rem;line-height:1.75;letter-spacing:.04em;color:#8C8275;font-weight:300;margin-bottom:0}
+
+.note{max-width:780px;margin:0 auto;text-align:center;font-size:.88rem;line-height:1.9;letter-spacing:.04em;color:#8C8275;font-weight:300}
+footer{text-align:center;margin-top:76px;padding-top:34px;border-top:1px solid var(--rule);font-family:"Montserrat",sans-serif;font-size:.72rem;letter-spacing:.14em;color:#B0A898;line-height:1.8}
+@media(max-width:800px){.portal-grid{grid-template-columns:1fr;max-width:560px}.portal,.portal-inner{min-height:0}.portal-inner{padding:32px 28px 34px}}
+</style>
+</head>
+<body>
+<div class="page">
+<a class="back" href="../index.html">← 返回 Between characters</a>
+<header>
+  <div class="brand">Wander Between Words</div>
+  <h1>漫遊字間</h1>
+  <p class="sub">從一字一句，慢慢走進華語的語感與深意。</p>
+  <p class="sub-en">A quiet practice space for moving from individual words and sentences into deeper Mandarin expression.</p>
+</header>
+
+<main class="portal-grid" aria-label="漫遊字間分類入口">
+  <a class="portal beginner" href="beginner/index.html">
+    <div class="portal-inner">
+      <div class="portal-kicker">Beginner Practice</div>
+      <div class="portal-num">01</div>
+      <h2 class="portal-title">初階練習</h2>
+      <div class="portal-title-en">Practical Audio-Visual Chinese I</div>
+      <p class="portal-desc">《視聽華語一》詞彙識字、句型填空與基礎練習。</p>
+      <p class="portal-desc-en">Vocabulary, character recognition, and sentence-pattern practice based on Practical Audio-Visual Chinese I.</p>
+    </div>
+  </a>
+
+  <a class="portal advanced" href="advanced/index.html">
+    <div class="portal-inner">
+      <div class="portal-kicker">Advanced Readings</div>
+      <div class="portal-num">02</div>
+      <h2 class="portal-title">高階專題</h2>
+      <div class="portal-title-en">Original Reading Lessons</div>
+      <p class="portal-desc">自編高階讀寫教材，從當代人物、文化議題與社會討論中練習華語表達。</p>
+      <p class="portal-desc-en">Original advanced reading lessons for practicing Mandarin expression through contemporary figures, cultural issues, and social discussions.</p>
+    </div>
+  </a>
+</main>
+
+
+<footer>
+  Between Characters · Wander Between Words<br>
+  © 2026 Between Characters
+</footer>
+</div>
+</body>
+</html>

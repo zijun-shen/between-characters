@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一課　他們說這是為你好</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26302c;
+  --ink-soft:#4d5a54;
+  --ink-faint:#93a09a;
+  --paper:#fbfaf7;
+  --paper-warm:#f0efe9;
+  --card:#ffffff;
+  --rule:rgba(45,90,72,.20);
+  --rule-soft:rgba(45,90,72,.10);
+  --blue:#2d5a48;
+  --blue-light:#6f9c88;
+  --blue-pale:#e2eee8;
+  --slate:#68796f;
+  --mark:#2d5a48;
+  --mark-wash:#e2eee8;
+  --accent:#68796f;
+  --accent-wash:#eef4f0;
+  --maxw:760px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif TC",serif;
+  font-weight:400;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px 140px}
+
+
+/* ---------- lesson navigation ---------- */
+.lesson-top-nav{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:34px 0 0;
+}
+.lesson-back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  color:var(--slate);
+  text-decoration:none;
+  border:1px solid var(--rule);
+  background:rgba(255,255,255,.62);
+  border-radius:999px;
+  padding:9px 18px;
+  box-shadow:0 8px 24px -20px rgba(38,48,44,.45);
+  transition:all .25s ease;
+}
+.lesson-back:hover{
+  color:var(--blue);
+  border-color:var(--blue-light);
+  background:var(--card);
+  transform:translateY(-1px);
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:96px 0 56px;border-bottom:1px solid var(--rule)}
+.course{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.72rem;letter-spacing:.32em;font-weight:500;
+  color:var(--slate);text-transform:uppercase;margin-bottom:28px;
+}
+.lesson-no{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.8rem;letter-spacing:.24em;font-weight:500;
+  color:var(--blue);margin-bottom:14px;
+}
+h1{
+  font-size:clamp(2.1rem,5.6vw,3.1rem);
+  font-weight:600;line-height:1.35;letter-spacing:.02em;margin-bottom:22px;
+}
+.subtitle{
+  font-size:1.05rem;color:var(--ink-soft);font-weight:300;
+  line-height:1.85;max-width:34em;
+}
+.meta{
+  margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 28px;
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  letter-spacing:.03em;color:var(--slate);
+}
+.meta span{white-space:nowrap}
+
+/* ---------- section headers ---------- */
+section{padding-top:88px}
+.sec-head{margin-bottom:44px}
+.sec-title{display:flex;align-items:baseline;gap:20px}
+.sec-num{
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:1.9rem;font-weight:400;line-height:1.4;
+  color:var(--blue);flex-shrink:0;
+}
+.sec-head h2{
+  font-size:1.72rem;font-weight:600;letter-spacing:.03em;line-height:1.5;
+}
+.sec-head .note{
+  margin-top:14px;font-size:.94rem;color:var(--ink-faint);font-weight:300;
+}
+h3{
+  font-size:1.08rem;font-weight:600;letter-spacing:.03em;
+  margin:44px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+h3:first-of-type{margin-top:0}
+
+/* ---------- 課前卡片 ---------- */
+.pre-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:44px 44px 40px;
+  box-shadow:0 1px 3px rgba(38,48,44,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pre-block + .pre-block{
+  margin-top:40px;padding-top:40px;border-top:1px solid var(--rule);
+}
+.pre-block h3{
+  margin:0 0 16px;padding:0;border-bottom:none;
+  font-size:1.06rem;font-weight:600;letter-spacing:.03em;
+}
+.pre-card .aside{margin-top:34px}
+.pre-card .specimen{background:transparent}
+.pre-card .line:hover,.pre-card .line:focus-visible{background:var(--paper-warm)}
+.pre-card .tag{background:var(--paper)}
+.pre-card .prompts li{border-bottom-color:var(--rule-soft)}
+.q-set{margin-bottom:22px}
+.q-set p{
+  font-size:1.02rem;color:var(--ink);line-height:1.9;
+  padding:9px 0 9px 24px;position:relative;
+}
+.q-set p::before{
+  content:"";position:absolute;left:0;top:1.55em;
+  width:11px;height:1px;background:var(--ink-faint);
+}
+.q-set .closer{
+  margin-top:8px;padding-left:24px;font-family:"Noto Sans TC",sans-serif;
+  font-size:.86rem;color:var(--ink-faint);letter-spacing:.06em;
+}
+.q-set .closer::before{display:none}
+
+/* ---------- SIGNATURE: the eight sentences ---------- */
+.specimen{
+  border-top:2px solid var(--blue);
+  border-bottom:1px solid var(--rule);
+}
+.line{
+  display:grid;grid-template-columns:2.2rem 1fr;
+  gap:0 16px;align-items:baseline;
+  padding:16px 4px;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+  transition:background .35s ease,padding-left .35s ease;
+}
+.line:last-child{border-bottom:none}
+.line:hover,.line:focus-visible{background:var(--paper-warm);padding-left:12px;outline:none}
+.line.on{background:var(--mark-wash);padding-left:12px}
+.line .n{
+  font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:500;
+  color:var(--ink-faint);letter-spacing:.04em;
+}
+.line.on .n{color:var(--blue)}
+.line .said{font-size:1.08rem;line-height:1.7;letter-spacing:.02em}
+.line .tags{
+  grid-column:2;display:flex;gap:8px;flex-wrap:wrap;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.line.on .tags{max-height:80px;opacity:1;margin-top:13px}
+.tag{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.1em;
+  padding:6px 13px;border:1px solid var(--rule);border-radius:2px;
+  background:var(--paper);color:var(--ink-soft);
+  cursor:pointer;transition:all .2s ease;user-select:none;
+}
+.tag:hover{border-color:var(--ink-soft)}
+.tag.picked{background:var(--blue);border-color:var(--blue);color:#fff}
+.hint{
+  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;color:var(--ink-faint);
+  margin-bottom:16px;letter-spacing:.04em;
+}
+
+/* ---------- prompts ---------- */
+.prompts{margin-top:28px;padding-left:2px}
+.prompts li{
+  list-style:none;padding:11px 0 11px 24px;position:relative;
+  font-size:.98rem;color:var(--ink-soft);line-height:1.75;
+  border-bottom:1px dotted var(--rule);
+}
+.prompts li:last-child{border-bottom:none}
+.prompts li::before{
+  content:"";position:absolute;left:0;top:1.5em;
+  width:11px;height:1px;background:var(--mark);
+}
+.prompts strong{font-weight:600;color:var(--ink)}
+
+.aside{
+  margin-top:28px;padding:18px 22px;background:var(--blue-pale);
+  border-left:2px solid var(--blue-light);
+  font-size:.94rem;color:var(--ink-soft);line-height:1.8;
+}
+
+/* ---------- 課文 ---------- */
+.text-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-top:3px solid var(--blue);
+  border-radius:3px;
+  padding:56px 56px 40px;
+  box-shadow:0 1px 3px rgba(38,48,44,.04), 0 22px 48px -32px rgba(38,48,44,.34);
+}
+.text-body{font-size:1.14rem;line-height:2.15;letter-spacing:.025em}
+.text-body p{margin-bottom:1.9em}
+.text-body p.hinge{
+  text-align:center;color:var(--slate);font-style:normal;
+  margin:3.2em 0;font-size:1.06rem;letter-spacing:.12em;
+}
+.text-body q{quotes:"「" "」" "『" "』"}
+.text-body .close{margin-left:1.2em;padding-left:1.2em;border-left:2px solid var(--blue-pale);color:var(--ink)}
+.text-body .close p{margin-bottom:.9em}
+
+/* vocab underline */
+.v{
+  border-bottom:1px solid var(--blue-light);
+  cursor:help;position:relative;
+  transition:background .2s ease;
+}
+.v:hover{background:var(--blue-pale)}
+.v::after{
+  content:attr(data-g);
+  position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);
+  background:var(--blue);color:#fff;
+  font-family:"EB Garamond","Noto Serif TC",serif;font-size:.95rem;letter-spacing:.02em;
+  line-height:1.65;white-space:nowrap;padding:8px 14px;border-radius:3px;
+  opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:20;
+  box-shadow:0 4px 16px -6px rgba(38,48,44,.4);
+}
+.v:hover::after{opacity:1}
+
+.wordcount{
+  margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--ink-faint);letter-spacing:.04em;text-align:right;
+}
+
+/* ---------- 生詞表 ---------- */
+.vocab-tools{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--rule);
+}
+.filter{
+  font-family:"Noto Sans TC",sans-serif;font-size:.8rem;letter-spacing:.08em;
+  padding:8px 16px;border:1px solid var(--rule);background:var(--card);
+  color:var(--ink-soft);cursor:pointer;border-radius:2px;transition:all .2s ease;
+}
+.filter:hover{border-color:var(--ink-soft)}
+.filter.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.count{
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--slate);letter-spacing:.04em;margin-left:auto;
+}
+
+.vtable{width:100%;border-collapse:collapse;font-size:.95rem}
+.vtable thead th{
+  font-family:"EB Garamond",serif;font-size:.88rem;font-weight:500;
+  letter-spacing:.18em;color:var(--slate);text-align:left;
+  padding:0 12px 14px 0;border-bottom:1px solid var(--blue);text-transform:uppercase;
+}
+.vtable td{
+  padding:15px 12px 15px 0;border-bottom:1px solid var(--rule);
+  vertical-align:top;line-height:1.7;
+}
+.vtable tr:hover td{background:var(--blue-pale)}
+.vtable .c-n{
+  font-family:"Cormorant Garamond",serif;font-size:1rem;
+  color:var(--ink-faint);width:40px;padding-top:15px;
+}
+.vtable .c-w{font-size:1.06rem;font-weight:500;white-space:nowrap;letter-spacing:.04em}
+.vtable .c-p{
+  font-family:"EB Garamond",serif;font-size:1.02rem;
+  color:var(--slate);white-space:nowrap;letter-spacing:.015em;
+}
+.vtable .c-e{
+  font-family:"EB Garamond",serif;font-size:1.06rem;
+  color:var(--ink-soft);line-height:1.55;letter-spacing:.005em;
+}
+.vtable .c-t{
+  font-family:"EB Garamond",serif;font-size:.95rem;font-style:italic;
+  color:var(--ink-faint);white-space:nowrap;letter-spacing:.02em;
+}
+.vtable .c-d{font-size:.92rem;color:var(--ink-soft)}
+.core .c-w{color:var(--mark)}
+.core .c-w::after{
+  content:"●";font-size:.42rem;vertical-align:.5em;margin-left:6px;color:var(--mark);
+}
+tr.hide{display:none}
+
+/* ---------- 立場 ---------- */
+.stances{display:grid;gap:20px;margin-bottom:44px}
+.stance{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 32px;cursor:pointer;position:relative;
+  transition:all .3s ease;border-radius:2px;
+}
+.stance:hover{border-color:var(--ink-soft);transform:translateY(-1px)}
+.stance .label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:14px;
+}
+.stance.open .label{color:var(--mark)}
+.stance.open{border-color:var(--blue-light);background:var(--blue-pale)}
+.stance .claim{font-size:1.08rem;line-height:1.9;letter-spacing:.02em}
+.stance .push{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s ease,opacity .35s ease,margin-top .45s ease;
+  font-size:.94rem;color:var(--ink-soft);line-height:1.85;
+}
+.stance.open .push{max-height:280px;opacity:1;margin-top:20px}
+.stance .say{margin-top:22px}
+.stance .say label{
+  display:block;font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  letter-spacing:.14em;color:var(--ink-faint);margin-bottom:10px;
+}
+.stance.open .say label{color:var(--mark)}
+.stance textarea{
+  width:100%;min-height:110px;padding:16px 18px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.7);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.stance textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+.stance .toggle{
+  position:absolute;top:28px;right:28px;
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.14em;
+  color:var(--ink-faint);border:1px solid var(--rule);border-radius:2px;
+  padding:5px 12px;background:var(--paper);transition:all .2s ease;
+}
+.stance.open .toggle{background:var(--blue);border-color:var(--blue);color:#fff}
+.stance:hover .toggle{border-color:var(--ink-soft);color:var(--ink-soft)}
+/* ---------- 課文後的兩問 ---------- */
+.two-q{
+  margin:56px 0 0;
+  padding:64px 48px 60px;
+  background:var(--blue);
+  border-radius:3px;
+  box-shadow:0 20px 46px -30px rgba(38,48,44,.6);
+}
+.two-q p{
+  font-size:1.46rem;font-weight:500;line-height:1.9;letter-spacing:.05em;
+  color:#fff;
+}
+.two-q p + p{
+  margin-top:30px;padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+
+/* ---------- 口說 ---------- */
+.oral{
+  margin-top:44px;padding:28px 30px;
+  border:1px solid var(--blue-light);border-left:3px solid var(--blue);
+  background:var(--blue-pale);border-radius:3px;
+}
+.oral-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--blue);margin-bottom:16px;
+}
+.oral-lead{font-size:1.02rem;line-height:1.9;color:var(--ink);margin-bottom:12px}
+.oral-lead strong{font-weight:600;border-bottom:1px solid var(--blue)}
+.oral-note{font-size:.92rem;color:var(--ink-soft);line-height:1.85;opacity:.9}
+
+/* ---------- 如果是你 ---------- */
+.mirror{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pane{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 28px;border-radius:3px;border-top:2px solid var(--blue);
+  box-shadow:0 1px 3px rgba(38,48,44,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pane-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.22em;
+  color:var(--mark);margin-bottom:16px;
+}
+.pane-q{font-size:1.14rem;font-weight:600;line-height:1.75;letter-spacing:.02em;margin-bottom:14px}
+.pane-hint{font-size:.9rem;color:var(--ink-faint);line-height:1.85;margin-bottom:20px}
+.pane textarea{
+  width:100%;min-height:150px;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--paper);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.pane textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+
+.hinge-q{
+  margin-top:40px;padding:44px 30px;text-align:center;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+}
+.hinge-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:22px;
+}
+.hinge-q p{font-size:1.62rem;font-weight:600;letter-spacing:.06em;line-height:1.7;color:var(--ink)}
+.hinge-q .hinge-sub{
+  margin-top:14px;font-size:1.02rem;font-weight:400;
+  color:var(--ink-soft);letter-spacing:.03em;
+}
+.stance .push-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.2em;
+  color:var(--mark);margin-bottom:10px;
+}
+footer{
+  margin-top:110px;padding-top:26px;border-top:1px solid var(--rule);
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  color:var(--ink-faint);letter-spacing:.04em;line-height:1.7;
+}
+.f-line{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:20px;flex-wrap:wrap;margin-bottom:22px;
+}
+.f-date{font-family:"EB Garamond",serif;font-size:.95rem;color:var(--slate);white-space:nowrap}
+.f-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.7rem;letter-spacing:.22em;
+  color:var(--slate);margin-bottom:10px;
+}
+.refs{margin:0 0 16px;padding:0;list-style:none}
+.refs li{
+  padding:5px 0 5px 22px;position:relative;font-size:.74rem;line-height:1.65;
+}
+.refs li::before{
+  content:counter(r,cjk-ideographic)"、";counter-increment:r;
+  position:absolute;left:0;top:5px;color:var(--ink-faint);
+}
+.refs{counter-reset:r}
+.refs a{
+  font-family:"EB Garamond",serif;font-size:.85rem;
+  color:var(--blue);text-decoration:none;
+  border-bottom:1px solid var(--rule-soft);word-break:break-all;
+}
+.refs a:hover{border-bottom-color:var(--blue)}
+.f-note{font-size:.72rem;line-height:1.7;color:var(--ink-faint);opacity:.85}
+
+@media(max-width:640px){
+  .masthead{padding:64px 0 44px}
+  section{padding-top:66px}
+  .text-body{font-size:1.06rem;line-height:2.05}
+  .line .said{font-size:1.06rem}
+  .vtable .c-e,.vtable .c-d{display:none}
+  .v::after{white-space:normal;width:180px}
+  .stance{padding:24px 22px}
+  .text-card{padding:32px 24px 26px}
+  .pre-card{padding:26px 20px 24px}
+  .pre-block + .pre-block{margin-top:30px;padding-top:30px}
+  .stance .toggle{position:static;display:inline-block;margin-bottom:14px}
+  .mirror{grid-template-columns:1fr;gap:20px}
+  .pane{padding:24px 22px}
+  .hinge-q{padding:34px 16px}
+  .two-q{padding:40px 24px 38px;margin-top:40px}
+  .two-q p{font-size:1.14rem;line-height:1.85}
+  .two-q p + p{margin-top:24px;padding-top:24px}
+  .hinge-q p{font-size:1.3rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+<nav class="lesson-top-nav" aria-label="Lesson navigation">
+  <a class="lesson-back" href="advanced/index.html">← 返回高階專題</a>
+</nav>
+
+<header class="masthead">
+  <div class="course">華語高階讀寫　·　第一單元　我怎麼看自己</div>
+  <div class="lesson-no">第一課</div>
+  <h1>他們說這是為你好</h1>
+  <p class="subtitle">愛跟控制的界線在哪裡？誰有資格畫這條線？</p>
+  <div class="meta">
+    <span>ACTFL Advanced</span>
+    <span>課文約 970 字</span>
+    <span>生詞 60</span>
+    <span>語法重點：戴著問號的責備</span>
+  </div>
+</header>
+
+<!-- ============ 一、課前想一想 ============ -->
+<section id="pre">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">一</div><h2>課前想一想</h2></div>
+  </div>
+
+  <div class="pre-card">
+
+  <div class="pre-block">
+  <h3>（一）你聽過這些話嗎？</h3>
+  <p class="hint">點一句話，替它選一個標籤。可以選不只一個。</p>
+
+  <div class="specimen" id="specimen">
+    <div class="line" tabindex="0">
+      <span class="n">01</span>
+      <span class="said">我是為你好，才跟你說這些。</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">02</span>
+      <span class="said">你這樣就滿意了嗎？</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">03</span>
+      <span class="said">你看別人都做得到，為什麼你不行？</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">04</span>
+      <span class="said">我不是罵你，我是希望你進步。</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">05</span>
+      <span class="said">你要自己做決定，但你要想清楚後果。</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">06</span>
+      <span class="said">我相信你，不過我想提醒你一件事。</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">07</span>
+      <span class="said">你現在不辛苦，以後就會更辛苦。</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">08</span>
+      <span class="said">我講你兩句你就受不了？</span>
+      <span class="tags"><span class="tag">關心</span><span class="tag">批評</span><span class="tag">控制</span></span>
+    </div>
+  </div>
+
+  <ul class="prompts">
+    <li>哪一句聽起來最像<strong>關心</strong>？為什麼？</li>
+    <li>哪一句聽起來最有<strong>壓力</strong>？為什麼？</li>
+    <li>這八句話，如果是你的<strong>父母</strong>說的、你的<strong>老師</strong>說的、你的<strong>朋友</strong>說的、你的<strong>主管</strong>說的，感覺一樣嗎？哪幾句只有父母說得出口？</li>
+  </ul>
+  </div>
+
+  <div class="pre-block">
+  <h3>（二）你聽過什麼說法？</h3>
+
+  <div class="q-set">
+    <p>說到「亞洲父母」，你聽過哪些說法？</p>
+    <p>別人說你的國家的父母時，說的是什麼？</p>
+    <p>你最想去、或最不想去的那個國家，那裡的父母是什麼樣子？</p>
+    <p class="closer">三個問題，各寫三句。</p>
+  </div>
+
+  <ul class="prompts">
+    <li>這些說法你是從哪裡聽來的？電影、新聞、朋友、家人，還是網路？</li>
+    <li>你認識的人裡面，有沒有人<strong>不符合</strong>這些說法？</li>
+    <li>「亞洲」有幾十個國家。日本、韓國、印度、越南、台灣的父母，是同一種父母嗎？你了解其中幾個？</li>
+    <li>你寫下「別人怎麼說我的國家」的時候，覺得公平嗎？那你寫最後那個國家的三句，對他們公平嗎？</li>
+  </ul>
+
+  <div class="aside">
+    請把你的答案留著。這一課結束以後，我們會回來看。
+  </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- ============ 二、課文 ============ -->
+<section id="text">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">二</div><h2>課文</h2></div>
+    <p class="note">畫底線的詞可以用滑鼠停留查看。</p>
+  </div>
+
+  <div class="text-card">
+  <div class="text-body">
+    <p>輝達<span class="v" data-g="執行長 zhíxíngzhǎng — CEO">執行長</span>黃仁勳今年六十三歲。他在一場<span class="v" data-g="閉門 bìmén — closed-door">閉門</span><span class="v" data-g="峰會 fēnghuì — summit">峰會</span>上笑著說，那天下午他才剛被父母<span class="v" data-g="唸 niàn — to nag, to scold repeatedly">唸</span>了<span class="v" data-g="一頓 yídùn — (measure word for scoldings)">一頓</span>。</p>
+
+    <p>他說父母是<span class="v" data-g="典型 diǎnxíng — typical">典型</span>的亞洲父母，永遠在<span class="v" data-g="糾正 jiūzhèng — to correct">糾正</span>你。<q>我剛跟我爸開完<span class="v" data-g="績效 jīxiào — performance">績效</span><span class="v" data-g="檢討 jiǎntǎo — to review">檢討</span>會，我爸不斷給我建議，我就一直跟他說『好啦，好啦』。</q>他工作的時間已經比父親一輩子還長，但父母仍然覺得他可以更好。<q>他們<span class="v" data-g="展現 zhǎnxiàn — to display, to show">展現</span>愛的方式就是批評你。就算你已經<span class="v" data-g="盡力 jìnlì — to do one's best">盡力</span>了，對他們來說還是不夠好。</q></p>
+
+    <p>接著他說了一句話：<q>只要你是亞洲家庭長大的，亞洲父母養大的，這輩子都要看<span class="v" data-g="心理醫師 xīnlǐ yīshī — psychotherapist">心理醫師</span>。</q></p>
+
+    <p>這句話在網路上<span class="v" data-g="瘋傳 fēngchuán — to go viral">瘋傳</span>。</p>
+
+    <p>同一場<span class="v" data-g="訪談 fǎngtán — interview">訪談</span>裡，他也說：因為是這樣長大的，他很習慣接受批評，<span class="v" data-g="善於 shànyú — to be good at">善於</span>接受<span class="v" data-g="新知 xīnzhī — new knowledge">新知</span>，不怕<span class="v" data-g="放低身段 fàngdī shēnduàn — to lower oneself, to be humble">放低身段</span>，他也用同樣的方式管理輝達。<q>說一句『做得好』很容易，但願意花時間找出可以進步的地方，那才代表期待。</q>他說給人意見非常<span class="v" data-g="消耗 xiāohào — to consume, to drain">消耗</span>能量，常常讓他<span class="v" data-g="精疲力竭 jīngpí lìjié — exhausted, drained">精疲力竭</span>，但只要對團隊有幫助，就值得。</p>
+
+    <p class="hinge">那麼，黃仁勳說的亞洲父母，<span class="v" data-g="究竟 jiùjìng — after all, exactly">究竟</span>是什麼樣子？</p>
+
+    <p>他的父親是<span class="v" data-g="化學工程師 huàxué gōngchéngshī — chemical engineer">化學工程師</span>，母親是小學老師。父親因為工作到美國，看見那裡的<span class="v" data-g="繁華 fánhuá — bustling, prosperous">繁華</span>，決定帶孩子移民。出發前，母親每天從英文字典裡找單字教兩個兒子——她自己一句英文也不懂。兄弟倆先被送到肯塔基州的<span class="v" data-g="寄宿學校 jìsù xuéxiào — boarding school">寄宿學校</span>，那年黃仁勳九歲。後來父母飛去<span class="v" data-g="團聚 tuánjù — to reunite">團聚</span>，身上幾乎<span class="v" data-g="身無分文 shēnwú fēnwén — penniless">身無分文</span>。父親找到工程師的工作，母親只能在天主教學校做<span class="v" data-g="女傭 nǚyōng — maid, housemaid">女傭</span>。他們一輩子的<span class="v" data-g="付出 fùchū — to give, to devote">付出</span>與<span class="v" data-g="犧牲 xīshēng — to sacrifice">犧牲</span>，都是為了對孩子的<span class="v" data-g="期盼 qípàn — to yearn for; longing">期盼</span>。這些期盼，黃仁勳長大以後才<span class="v" data-g="漸漸 jiànjiàn — gradually">漸漸</span>明白。</p>
+
+    <p class="hinge">批評是愛，犧牲也是愛。有時候，愛還會變成另一種樣子。</p>
+
+    <p>黃仁勳的<span class="v" data-g="自嘲 zìcháo — to make fun of oneself">自嘲</span>引發許多人的<span class="v" data-g="共鳴 gòngmíng — resonance">共鳴</span>。有位台灣父親說，他小學五年級的兒子走在路上<span class="v" data-g="跌倒 diédǎo — to fall down, to trip">跌倒</span>，摔得<span class="v" data-g="鼻青臉腫 bíqīng liǎnzhǒng — battered and bruised">鼻青臉腫</span>回家。他<span class="v" data-g="心疼 xīnténg — to feel sorry for, to ache for">心疼</span>得不得了，可是<span class="v" data-g="脫口而出 tuōkǒu ér chū — to blurt out">脫口而出</span>的卻是：「走路不看路，難怪會跌倒。」還有一句：「這有什麼好哭的？你自己沒看路，要怪誰？」</p>
+
+    <p>一位<span class="v" data-g="親職 qīnzhí — parenting">親職</span><span class="v" data-g="講師 jiǎngshī — lecturer, speaker">講師</span>在網路上寫下他的看法。他說，並不是每個亞洲父母都這樣——「像我爸媽就不會」，只是<span class="v" data-g="比例 bǐlì — proportion">比例</span>上<span class="v" data-g="確實 quèshí — indeed, certainly">確實</span>高一些。他認為用批評來期待孩子變好，<span class="v" data-g="本意 běnyì — original intention">本意</span>是<span class="v" data-g="善良 shànliáng — kind-hearted">善良</span>的，做法卻是傷人的：孩子的<span class="v" data-g="自我價值感 zìwǒ jiàzhígǎn — sense of self-worth">自我價值感</span>會<span class="v" data-g="偏低 piāndī — on the low side">偏低</span>，一放鬆就有<span class="v" data-g="愧疚 kuìjiù — guilty, remorseful">愧疚</span>感，親子關係也容易<span class="v" data-g="疏離 shūlí — estranged, distant">疏離</span>。</p>
+
+    <p>但他也承認，這件事是<span class="v" data-g="雙面刃 shuāngmiànrèn — double-edged sword">雙面刃</span>。父母的嚴格，有時候會養成孩子不<span class="v" data-g="服輸 fúshū — to admit defeat；常用否定「不服輸」">服輸</span>的<span class="v" data-g="執著 zhízhuó — persistence">執著</span>，而那正是<span class="v" data-g="支撐 zhīchēng — to support, to sustain">支撐</span>一個人往前走的力量。然而他自己選擇給孩子<span class="v" data-g="無條件 wútiáojiàn — unconditional">無條件</span>的愛、<span class="v" data-g="包容 bāoróng — to be tolerant of">包容</span>與<span class="v" data-g="接納 jiēnà — to accept">接納</span>。不過他同時也提醒，這幾年越來越多年輕父母說「我不要用我被對待的方式對待孩子」，這是好事，可是尊重和<span class="v" data-g="教養 jiàoyǎng — upbringing">教養</span>的<span class="v" data-g="界線 jièxiàn — boundary, line">界線</span>需要<span class="v" data-g="拿捏 nániē — to judge, to gauge">拿捏</span>，「小心不要把尊重變成<span class="v" data-g="放縱 fàngzòng — to indulge, to let run wild">放縱</span>」。</p>
+
+    <p>文章的最後，他問了一個問題：會不會有些傳統家長看完黃仁勳的訪談，心裡想的卻是——</p>
+
+    <div class="close">
+      <p>「連黃仁勳到現在都還在被父母唸，你有什麼好抱怨的？」</p>
+      <p>「人家黃仁勳的爸媽把他唸到當上執行長，你呢？我一直唸你，怎麼都沒有用？」</p>
+    </div>
+  </div>
+
+  <div class="wordcount">約 970 字</div>
+  </div>
+
+  <div class="two-q">
+    <p>為什麼有些人可以一笑置之，有些人一輩子過不去？</p>
+    <p>很多爸媽都這樣，為什麼只有一個黃仁勳？</p>
+  </div>
+</section>
+
+<!-- ============ 三、生詞表 ============ -->
+<section id="vocab">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">三</div><h2>生詞表</h2></div>
+    </div>
+
+  <div class="vocab-tools">
+    <button class="filter on" data-f="all">全部</button>
+    <button class="filter" data-f="core">核心詞（產出）</button>
+    <button class="filter" data-f="recg">認讀詞</button>
+    <span class="count" id="count">60 個</span>
+  </div>
+
+  <table class="vtable">
+    <thead>
+      <tr><th></th><th>生詞</th><th>拼音</th><th>English</th><th>詞性</th><th>說明</th></tr>
+    </thead>
+    <tbody id="vbody">
+      <tr data-k="recg"><td class="c-n">1</td><td class="c-w">執行長</td><td class="c-p">zhíxíngzhǎng</td><td class="c-e">CEO</td><td class="c-t">N</td><td class="c-d">公司最高的管理者</td></tr>
+      <tr data-k="recg"><td class="c-n">2</td><td class="c-w">閉門</td><td class="c-p">bìmén</td><td class="c-e">closed-door</td><td class="c-t">Vs-attr</td><td class="c-d">不對外開放的（閉門峰會、閉門會議）</td></tr>
+      <tr data-k="recg"><td class="c-n">3</td><td class="c-w">峰會</td><td class="c-p">fēnghuì</td><td class="c-e">summit</td><td class="c-t">N</td><td class="c-d">高層人士的會議</td></tr>
+      <tr data-k="core"><td class="c-n">4</td><td class="c-w">唸</td><td class="c-p">niàn</td><td class="c-e">to nag, to scold repeatedly</td><td class="c-t">V</td><td class="c-d">反覆地說、責備。「被唸了一頓」</td></tr>
+      <tr data-k="recg"><td class="c-n">5</td><td class="c-w">一頓</td><td class="c-p">yídùn</td><td class="c-e">(MW for scoldings/beatings)</td><td class="c-t">Nf</td><td class="c-d">用在責備、打罵之後（罵一頓、打一頓）</td></tr>
+      <tr data-k="recg"><td class="c-n">6</td><td class="c-w">典型</td><td class="c-p">diǎnxíng</td><td class="c-e">typical</td><td class="c-t">Vs</td><td class="c-d">最能代表某一類的</td></tr>
+      <tr data-k="core"><td class="c-n">7</td><td class="c-w">糾正</td><td class="c-p">jiūzhèng</td><td class="c-e">to correct</td><td class="c-t">V</td><td class="c-d">指出錯誤並要求改正</td></tr>
+      <tr data-k="recg"><td class="c-n">8</td><td class="c-w">績效</td><td class="c-p">jīxiào</td><td class="c-e">performance, results</td><td class="c-t">N</td><td class="c-d">工作的成果與表現</td></tr>
+      <tr data-k="recg"><td class="c-n">9</td><td class="c-w">檢討</td><td class="c-p">jiǎntǎo</td><td class="c-e">to review, to examine</td><td class="c-t">V</td><td class="c-d">回頭檢查、找出問題</td></tr>
+      <tr data-k="core"><td class="c-n">10</td><td class="c-w">展現</td><td class="c-p">zhǎnxiàn</td><td class="c-e">to display, to show</td><td class="c-t">V</td><td class="c-d">表現出來、顯示出來</td></tr>
+      <tr data-k="core"><td class="c-n">11</td><td class="c-w">盡力</td><td class="c-p">jìnlì</td><td class="c-e">to do one's best</td><td class="c-t">V-sep</td><td class="c-d">用盡全部的力量。「已經盡力了」</td></tr>
+      <tr data-k="recg"><td class="c-n">12</td><td class="c-w">心理醫師</td><td class="c-p">xīnlǐ yīshī</td><td class="c-e">psychotherapist</td><td class="c-t">N</td><td class="c-d">治療心理問題的專業人員</td></tr>
+      <tr data-k="recg"><td class="c-n">13</td><td class="c-w">瘋傳</td><td class="c-p">fēngchuán</td><td class="c-e">to go viral</td><td class="c-t">V</td><td class="c-d">在網路上快速、大量地傳播</td></tr>
+      <tr data-k="core"><td class="c-n">14</td><td class="c-w">自嘲</td><td class="c-p">zìcháo</td><td class="c-e">to make fun of oneself</td><td class="c-t">V</td><td class="c-d">拿自己的處境或缺點開玩笑</td></tr>
+      <tr data-k="recg"><td class="c-n">15</td><td class="c-w">訪談</td><td class="c-p">fǎngtán</td><td class="c-e">interview</td><td class="c-t">N</td><td class="c-d">訪問與談話</td></tr>
+      <tr data-k="recg"><td class="c-n">16</td><td class="c-w">善於</td><td class="c-p">shànyú</td><td class="c-e">to be good at</td><td class="c-t">Vst</td><td class="c-d">擅長。「善於接受新知」</td></tr>
+      <tr data-k="recg"><td class="c-n">17</td><td class="c-w">新知</td><td class="c-p">xīnzhī</td><td class="c-e">new knowledge</td><td class="c-t">N</td><td class="c-d">新的知識</td></tr>
+      <tr data-k="recg"><td class="c-n">18</td><td class="c-w">放低身段</td><td class="c-p">fàngdī shēnduàn</td><td class="c-e">to lower oneself, to be humble</td><td class="c-t">Idiom</td><td class="c-d">不擺架子，願意謙虛地面對別人</td></tr>
+      <tr data-k="core"><td class="c-n">19</td><td class="c-w">消耗</td><td class="c-p">xiāohào</td><td class="c-e">to consume, to drain</td><td class="c-t">V</td><td class="c-d">用掉（能量、時間、體力）</td></tr>
+      <tr data-k="recg"><td class="c-n">20</td><td class="c-w">精疲力竭</td><td class="c-p">jīngpí lìjié</td><td class="c-e">exhausted, drained</td><td class="c-t">Idiom</td><td class="c-d">非常疲累，力氣用完了</td></tr>
+      <tr data-k="recg"><td class="c-n">21</td><td class="c-w">究竟</td><td class="c-p">jiùjìng</td><td class="c-e">after all, exactly</td><td class="c-t">Adv</td><td class="c-d">到底（用在疑問句，加強語氣）</td></tr>
+      <tr data-k="recg"><td class="c-n">22</td><td class="c-w">化學工程師</td><td class="c-p">huàxué gōngchéngshī</td><td class="c-e">chemical engineer</td><td class="c-t">N</td><td class="c-d">—</td></tr>
+      <tr data-k="recg"><td class="c-n">23</td><td class="c-w">繁華</td><td class="c-p">fánhuá</td><td class="c-e">bustling, prosperous</td><td class="c-t">Vs</td><td class="c-d">熱鬧、興盛（多用於城市）</td></tr>
+      <tr data-k="recg"><td class="c-n">24</td><td class="c-w">寄宿學校</td><td class="c-p">jìsù xuéxiào</td><td class="c-e">boarding school</td><td class="c-t">N</td><td class="c-d">學生住在校內的學校</td></tr>
+      <tr data-k="recg"><td class="c-n">25</td><td class="c-w">團聚</td><td class="c-p">tuánjù</td><td class="c-e">to reunite</td><td class="c-t">V</td><td class="c-d">分開的家人再次相聚</td></tr>
+      <tr data-k="recg"><td class="c-n">26</td><td class="c-w">身無分文</td><td class="c-p">shēnwú fēnwén</td><td class="c-e">penniless</td><td class="c-t">Idiom</td><td class="c-d">身上一毛錢也沒有</td></tr>
+      <tr data-k="recg"><td class="c-n">27</td><td class="c-w">女傭</td><td class="c-p">nǚyōng</td><td class="c-e">maid, housemaid</td><td class="c-t">N</td><td class="c-d">在別人家中做家事的女性受雇者</td></tr>
+      <tr data-k="core"><td class="c-n">28</td><td class="c-w">付出</td><td class="c-p">fùchū</td><td class="c-e">to give, to devote</td><td class="c-t">V/N</td><td class="c-d">給出時間、金錢、心力</td></tr>
+      <tr data-k="core"><td class="c-n">29</td><td class="c-w">犧牲</td><td class="c-p">xīshēng</td><td class="c-e">to sacrifice</td><td class="c-t">V/N</td><td class="c-d">為了別人或某個目的，放棄自己的利益</td></tr>
+      <tr data-k="recg"><td class="c-n">30</td><td class="c-w">期盼</td><td class="c-p">qípàn</td><td class="c-e">to yearn for; longing</td><td class="c-t">N/V</td><td class="c-d">深切的盼望（比「期待」更重、更書面）</td></tr>
+      <tr data-k="recg"><td class="c-n">31</td><td class="c-w">漸漸</td><td class="c-p">jiànjiàn</td><td class="c-e">gradually</td><td class="c-t">Adv</td><td class="c-d">慢慢地</td></tr>
+      <tr data-k="core"><td class="c-n">32</td><td class="c-w">共鳴</td><td class="c-p">gòngmíng</td><td class="c-e">resonance</td><td class="c-t">N</td><td class="c-d">感受相同。「引發共鳴」</td></tr>
+      <tr data-k="core"><td class="c-n">33</td><td class="c-w">跌倒</td><td class="c-p">diédǎo</td><td class="c-e">to fall down, to trip</td><td class="c-t">V</td><td class="c-d">走路或站立時失去平衡而倒下</td></tr>
+      <tr data-k="recg"><td class="c-n">34</td><td class="c-w">鼻青臉腫</td><td class="c-p">bíqīng liǎnzhǒng</td><td class="c-e">battered and bruised</td><td class="c-t">Idiom</td><td class="c-d">臉上受傷、瘀青紅腫</td></tr>
+      <tr data-k="core"><td class="c-n">35</td><td class="c-w">心疼</td><td class="c-p">xīnténg</td><td class="c-e">to feel sorry for, to ache for</td><td class="c-t">V</td><td class="c-d">因為捨不得而感到難過</td></tr>
+      <tr data-k="recg"><td class="c-n">36</td><td class="c-w">脫口而出</td><td class="c-p">tuōkǒu ér chū</td><td class="c-e">to blurt out</td><td class="c-t">Idiom</td><td class="c-d">話沒有經過思考就說出來</td></tr>
+      <tr data-k="recg"><td class="c-n">37</td><td class="c-w">親職</td><td class="c-p">qīnzhí</td><td class="c-e">parenting</td><td class="c-t">N</td><td class="c-d">為人父母的責任與角色</td></tr>
+      <tr data-k="recg"><td class="c-n">38</td><td class="c-w">講師</td><td class="c-p">jiǎngshī</td><td class="c-e">lecturer, speaker</td><td class="c-t">N</td><td class="c-d">演講或授課的人</td></tr>
+      <tr data-k="core"><td class="c-n">39</td><td class="c-w">確實</td><td class="c-p">quèshí</td><td class="c-e">indeed, certainly</td><td class="c-t">Adv</td><td class="c-d">的確、真的（用來承認事實）</td></tr>
+      <tr data-k="core"><td class="c-n">40</td><td class="c-w">比例</td><td class="c-p">bǐlì</td><td class="c-e">proportion, percentage</td><td class="c-t">N</td><td class="c-d">在整體中所占的份量</td></tr>
+      <tr data-k="recg"><td class="c-n">41</td><td class="c-w">本意</td><td class="c-p">běnyì</td><td class="c-e">original intention</td><td class="c-t">N</td><td class="c-d">原本的用意</td></tr>
+      <tr data-k="core"><td class="c-n">42</td><td class="c-w">善良</td><td class="c-p">shànliáng</td><td class="c-e">kind-hearted</td><td class="c-t">Vs</td><td class="c-d">心地好，願意對人好</td></tr>
+      <tr data-k="recg"><td class="c-n">43</td><td class="c-w">自我價值感</td><td class="c-p">zìwǒ jiàzhígǎn</td><td class="c-e">sense of self-worth</td><td class="c-t">N</td><td class="c-d">對自己的價值有多少肯定</td></tr>
+      <tr data-k="recg"><td class="c-n">44</td><td class="c-w">偏低</td><td class="c-p">piāndī</td><td class="c-e">on the low side</td><td class="c-t">Vs</td><td class="c-d">比一般的情況低一些</td></tr>
+      <tr data-k="recg"><td class="c-n">45</td><td class="c-w">愧疚</td><td class="c-p">kuìjiù</td><td class="c-e">guilty, remorseful</td><td class="c-t">Vs</td><td class="c-d">因為覺得對不起別人而不安</td></tr>
+      <tr data-k="core"><td class="c-n">46</td><td class="c-w">疏離</td><td class="c-p">shūlí</td><td class="c-e">estranged, distant</td><td class="c-t">Vs</td><td class="c-d">關係變得遙遠、不親近</td></tr>
+      <tr data-k="recg"><td class="c-n">47</td><td class="c-w">雙面刃</td><td class="c-p">shuāngmiànrèn</td><td class="c-e">double-edged sword</td><td class="c-t">N</td><td class="c-d">同時有好處也有壞處的事物</td></tr>
+      <tr data-k="core"><td class="c-n">48</td><td class="c-w">服輸</td><td class="c-p">fúshū</td><td class="c-e">to admit defeat</td><td class="c-t">V-sep</td><td class="c-d">承認自己輸了。常用否定：「不服輸」</td></tr>
+      <tr data-k="core"><td class="c-n">49</td><td class="c-w">執著</td><td class="c-p">zhízhuó</td><td class="c-e">persistence; persistent</td><td class="c-t">N/Vs</td><td class="c-d">對某件事非常堅持，不肯放棄</td></tr>
+      <tr data-k="core"><td class="c-n">50</td><td class="c-w">支撐</td><td class="c-p">zhīchēng</td><td class="c-e">to support, to sustain</td><td class="c-t">V</td><td class="c-d">從下面或旁邊撐住，使不倒下</td></tr>
+      <tr data-k="recg"><td class="c-n">51</td><td class="c-w">無條件</td><td class="c-p">wútiáojiàn</td><td class="c-e">unconditional</td><td class="c-t">Vs-attr</td><td class="c-d">不要求任何回報的</td></tr>
+      <tr data-k="core"><td class="c-n">52</td><td class="c-w">包容</td><td class="c-p">bāoróng</td><td class="c-e">to be tolerant of</td><td class="c-t">V</td><td class="c-d">容納、不計較</td></tr>
+      <tr data-k="core"><td class="c-n">53</td><td class="c-w">接納</td><td class="c-p">jiēnà</td><td class="c-e">to accept</td><td class="c-t">V</td><td class="c-d">接受並容許其存在</td></tr>
+      <tr data-k="core"><td class="c-n">54</td><td class="c-w">教養</td><td class="c-p">jiàoyǎng</td><td class="c-e">upbringing; to raise</td><td class="c-t">N/V</td><td class="c-d">教導養育（子女）</td></tr>
+      <tr data-k="core"><td class="c-n">55</td><td class="c-w">界線</td><td class="c-p">jièxiàn</td><td class="c-e">boundary, line</td><td class="c-t">N</td><td class="c-d">分開兩者的線；可以與不可以的分界</td></tr>
+      <tr data-k="core"><td class="c-n">56</td><td class="c-w">拿捏</td><td class="c-p">nániē</td><td class="c-e">to judge, to gauge</td><td class="c-t">V</td><td class="c-d">掌握分寸，判斷該到什麼程度</td></tr>
+      <tr data-k="core"><td class="c-n">57</td><td class="c-w">放縱</td><td class="c-p">fàngzòng</td><td class="c-e">to indulge, to let run wild</td><td class="c-t">V/Vs</td><td class="c-d">不加約束，任其為所欲為</td></tr>
+      <tr data-k="core"><td class="c-n">58</td><td class="c-w">韌性</td><td class="c-p">rènxìng</td><td class="c-e">resilience, toughness</td><td class="c-t">N</td><td class="c-d">遇到困難時撐得住、恢復得過來的能力</td></tr>
+      <tr data-k="core"><td class="c-n">59</td><td class="c-w">稱讚</td><td class="c-p">chēngzàn</td><td class="c-e">to praise</td><td class="c-t">V</td><td class="c-d">說出對方的好，表示肯定</td></tr>
+      <tr data-k="core"><td class="c-n">60</td><td class="c-w">挫折</td><td class="c-p">cuòzhé</td><td class="c-e">setback, frustration</td><td class="c-t">N</td><td class="c-d">事情失敗或受阻，因而感到失望</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!-- ============ 四、請選一個立場 ============ -->
+<section id="stance">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">四</div><h2>請選一個立場</h2></div>
+    <p class="note">點開任何一個說法，寫下你的看法。你可以同意，也可以反對。</p>
+  </div>
+
+  <div class="stances" id="stances">
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法一</div>
+      <p class="claim">父母嚴格一點沒有關係，因為孩子長大以後會明白，那也是一種愛。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        黃仁勳是那個長大以後明白的人。課文裡那個五年級的孩子還沒有長大。如果他一直沒有明白呢？
+        <div class="say">
+          <label for="s1">我的看法</label>
+          <textarea id="s1" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法二</div>
+      <p class="claim">就算父母的本意是好的，如果說話方式讓孩子受傷，也應該改變。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        課文裡那位父親心疼得不得了，說出口的卻是責備。他知道自己說錯了。如果他改不掉呢？「應該改變」和「做得到」是同一件事嗎？
+        <div class="say">
+          <label for="s2">我的看法</label>
+          <textarea id="s2" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法三</div>
+      <p class="claim">太過順著小孩、不讓孩子吃苦，將來孩子的<span class="v" data-g="韌性 rènxìng — resilience">韌性</span>會不足。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        多少苦叫做適量？誰來決定？那個摔得鼻青臉腫的孩子，他吃到苦了嗎？他的父親說「難怪會跌倒」的時候，是在鍛鍊他的韌性嗎？
+        <div class="say">
+          <label for="s3">我的看法</label>
+          <textarea id="s3" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法四</div>
+      <p class="claim">父母不應該經常<span class="v" data-g="稱讚 chēngzàn — to praise">稱讚</span>孩子。被稱讚慣了的孩子，長大以後承受不起<span class="v" data-g="挫折 cuòzhé — setback, frustration">挫折</span>。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        黃仁勳說：「說一句『做得好』很容易。」他認為那不夠。可是他自己被批評了六十三年——你確定讓他撐下去的，是批評嗎？
+        <div class="say">
+          <label for="s4">我的看法</label>
+          <textarea id="s4" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法五</div>
+      <p class="claim">稱讚本身沒有問題。問題是稱讚什麼——稱讚孩子「聰明」，跟稱讚孩子「很努力」，結果完全不一樣。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        如果這是真的，那麼「你這樣就滿意了嗎」這句話，能不能改成一句既不傷人、又讓孩子想更好的話？請你替那位父母寫出來。
+        <div class="say">
+          <label for="s5">我的看法</label>
+          <textarea id="s5" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="oral">
+    <div class="oral-h">口說練習</div>
+    <p class="oral-lead">抽籤決定你替哪一個說法辯護——<strong>不能選你自己同意的那一個</strong>。另一位同學反駁你。</p>
+    <p class="oral-note">你必須說出那個立場為什麼成立，而不是為什麼你不同意它。</p>
+  </div>
+</section>
+
+<!-- ============ 五、如果是你 ============ -->
+<section id="you">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">五</div><h2>如果是你</h2></div>
+    <p class="note">兩個問題，同一個場景。</p>
+  </div>
+
+  <div class="mirror">
+    <div class="pane">
+      <div class="pane-label">先回頭看</div>
+      <p class="pane-q">你理想中的父母，會怎麼教育你？</p>
+      <p class="pane-hint">想一個具體的場景。你考壞了、你想放棄、你做了一件他們不同意的事——那時候，你希望他們說什麼？</p>
+      <textarea id="m1" placeholder="請至少使用三個本課生詞。"></textarea>
+    </div>
+
+    <div class="pane">
+      <div class="pane-label">再往前看</div>
+      <p class="pane-q">如果你是父母，你會怎麼教育你的孩子？</p>
+      <p class="pane-hint">同樣的場景。你的孩子考壞了、想放棄、做了一件你不同意的事——你會說什麼？</p>
+      <textarea id="m2" placeholder="請至少使用三個本課生詞。"></textarea>
+    </div>
+  </div>
+
+  <div class="hinge-q">
+    <div class="hinge-label">最後一個問題</div>
+    <p>這兩個答案，一樣嗎？</p>
+    <p class="hinge-sub">如果不一樣，為什麼？</p>
+  </div>
+</section>
+
+<footer>
+  <div class="f-line">
+    <span>第一單元　我怎麼看自己　·　第一課　他們說這是為你好</span>
+    <span class="f-date">2026 年 7 月</span>
+  </div>
+
+  <div class="f-h">參考資料</div>
+  <ul class="refs">
+    <li>〈63歲還被父母碎碎念，黃仁勳幽默談「亞洲父母教育」：只要被他們養大，這輩子都需要心理治療！〉未來親子學習平台，2026年6月5日。<a href="https://futureparenting.cwgv.com.tw/family/content/index/36434">連結</a></li>
+    <li>〈黃仁勳：只要被亞洲父母養大，這輩子都要看心理醫師〉澤爸（親職教育講師）Facebook 貼文。</li>
+    <li>蔡宜芳〈為什麼有些人被父母批評能一笑置之，你卻總是往心裡去？〉商業周刊。<a href="https://www.businessweekly.com.tw/careers/blog/3021633">連結</a></li>
+  </ul>
+
+  <p class="f-note">課文改寫自資料一、二；文中父親與跌倒孩子的段落，語料引自資料三。文中觀點為受訪者與原作者所有，不代表本書立場。</p>
+</footer>
+
+</div>
+
+<script>
+// 八句話：點開／收合 + 選標籤
+document.querySelectorAll('#specimen .line').forEach(function(line){
+  function toggle(e){
+    if(e.target.classList.contains('tag')) return;
+    line.classList.toggle('on');
+  }
+  line.addEventListener('click', toggle);
+  line.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(e); }
+  });
+  line.querySelectorAll('.tag').forEach(function(tag){
+    tag.addEventListener('click', function(e){
+      e.stopPropagation();
+      tag.classList.toggle('picked');
+    });
+  });
+});
+
+// 生詞表篩選
+var rows = Array.prototype.slice.call(document.querySelectorAll('#vbody tr'));
+var countEl = document.getElementById('count');
+document.querySelectorAll('.filter').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    var f = btn.dataset.f, shown = 0;
+    rows.forEach(function(r){
+      var ok = (f === 'all') || (r.dataset.k === f);
+      r.classList.toggle('hide', !ok);
+      r.classList.toggle('core', r.dataset.k === 'core');
+      if(ok) shown++;
+    });
+    countEl.textContent = shown + ' 個';
+  });
+});
+rows.forEach(function(r){ if(r.dataset.k === 'core') r.classList.add('core'); });
+
+// 立場：各自展開，可同時打開多個
+document.querySelectorAll('#stances .stance').forEach(function(s){
+  function toggle(e){
+    if(e.target.tagName === 'TEXTAREA' || e.target.classList.contains('v')) return;
+    s.classList.toggle('open');
+    s.querySelector('.toggle').textContent = s.classList.contains('open') ? '收合' : '寫看法';
+  }
+  s.addEventListener('click', toggle);
+  s.addEventListener('keydown', function(e){
+    if(e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(e); }
+  });
+});
+</script>
+</body>
+</html>
