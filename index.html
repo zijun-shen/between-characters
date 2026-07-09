@@ -724,6 +724,71 @@
             filter: saturate(1.04) contrast(1.06);
         }
 
+
+
+        /* 漫遊字間：首頁輕量入口，不佔用主卡片版面 */
+        .studio-mini-entry {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .studio-mini-entry a {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.64);
+            border: 1px solid rgba(140, 130, 117, 0.13);
+            box-shadow: 0 4px 18px rgba(140, 130, 117, 0.05);
+            text-decoration: none;
+            color: #8C8275;
+            transition: all 0.3s ease;
+        }
+
+        .studio-mini-entry a:hover {
+            transform: translateY(-2px);
+            background: #FFFFFF;
+            box-shadow: 0 12px 26px rgba(140, 130, 117, 0.10);
+            color: #2C3E50;
+        }
+
+        .studio-mini-meta {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #A86F5B;
+            font-weight: 500;
+        }
+
+        .studio-mini-title {
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            color: #2C3E50;
+            font-weight: 400;
+        }
+
+        .studio-mini-arrow {
+            font-family: "Montserrat", "Noto Sans TC", sans-serif;
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            color: #A86F5B;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .studio-mini-entry a {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 12px;
+                padding: 12px 18px;
+            }
+            .studio-mini-meta { width: 100%; text-align: center; }
+        }
+
 </style>
 </head>
 <body>
@@ -741,6 +806,15 @@
             <div class="subtitle-en">
                 A mindful space for exploring modern Chinese language and Taiwanese culture.
             </div>
+
+            <div class="studio-mini-entry">
+                <a href="learning/index.html">
+                    <span class="studio-mini-meta">Wander Between Words</span>
+                    <span class="studio-mini-title">漫遊字間</span>
+                    <span class="studio-mini-arrow">Enter →</span>
+                </a>
+            </div>
+
         </header>
 
         <div class="hub-container">
