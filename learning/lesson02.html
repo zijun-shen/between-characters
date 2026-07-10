@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第二課　我不是故意的</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2f2723;
+  --ink-soft:#574c46;
+  --ink-faint:#9c8d85;
+  --paper:#fdfaf7;
+  --paper-warm:#f4ede7;
+  --card:#ffffff;
+  --rule:rgba(140,62,48,.20);
+  --rule-soft:rgba(140,62,48,.10);
+  --blue:#8c3e30;
+  --blue-light:#c08573;
+  --blue-pale:#f6e6e0;
+  --slate:#7d6a62;
+  --mark:#8c3e30;
+  --mark-wash:#f6e6e0;
+  --accent:#7d6a62;
+  --accent-wash:#f7efeb;
+  --maxw:760px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif TC",serif;
+  font-weight:400;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px 140px}
+
+
+/* ---------- lesson navigation ---------- */
+.lesson-top-nav{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:34px 0 0;
+}
+.lesson-back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  color:var(--slate);
+  text-decoration:none;
+  border:1px solid var(--rule);
+  background:rgba(255,255,255,.62);
+  border-radius:999px;
+  padding:9px 18px;
+  box-shadow:0 8px 24px -20px rgba(47,39,35,.42);
+  transition:all .25s ease;
+}
+.lesson-back:hover{
+  color:var(--blue);
+  border-color:var(--blue-light);
+  background:var(--card);
+  transform:translateY(-1px);
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:96px 0 56px;border-bottom:1px solid var(--rule)}
+.course{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.72rem;letter-spacing:.32em;font-weight:500;
+  color:var(--slate);text-transform:uppercase;margin-bottom:28px;
+}
+.lesson-no{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.8rem;letter-spacing:.24em;font-weight:500;
+  color:var(--blue);margin-bottom:14px;
+}
+h1{
+  font-size:clamp(2.1rem,5.6vw,3.1rem);
+  font-weight:600;line-height:1.35;letter-spacing:.02em;margin-bottom:22px;
+}
+.subtitle{
+  font-size:1.05rem;color:var(--ink-soft);font-weight:300;
+  line-height:1.85;max-width:34em;
+}
+.meta{
+  margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 28px;
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  letter-spacing:.03em;color:var(--slate);
+}
+.meta span{white-space:nowrap}
+
+/* ---------- section headers ---------- */
+section{padding-top:88px}
+.sec-head{margin-bottom:44px}
+.sec-title{display:flex;align-items:baseline;gap:20px}
+.sec-num{
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:1.9rem;font-weight:400;line-height:1.4;
+  color:var(--blue);flex-shrink:0;
+}
+.sec-head h2{
+  font-size:1.72rem;font-weight:600;letter-spacing:.03em;line-height:1.5;
+}
+.sec-head .note{
+  margin-top:14px;font-size:.94rem;color:var(--ink-faint);font-weight:300;
+}
+h3{
+  font-size:1.08rem;font-weight:600;letter-spacing:.03em;
+  margin:44px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+h3:first-of-type{margin-top:0}
+
+/* ---------- 課前卡片 ---------- */
+.pre-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:44px 44px 40px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pre-block + .pre-block{
+  margin-top:40px;padding-top:40px;border-top:1px solid var(--rule);
+}
+.pre-block h3{
+  margin:0 0 16px;padding:0;border-bottom:none;
+  font-size:1.06rem;font-weight:600;letter-spacing:.03em;
+}
+.pre-card .aside{margin-top:34px}
+.pre-card .specimen{background:transparent}
+.pre-card .line:hover,.pre-card .line:focus-visible{background:var(--paper-warm)}
+.pre-card .tag{background:var(--paper)}
+.pre-card .prompts li{border-bottom-color:var(--rule-soft)}
+.q-set{margin-bottom:22px}
+.q-set p{
+  font-size:1.02rem;color:var(--ink);line-height:1.9;
+  padding:9px 0 9px 24px;position:relative;
+}
+.q-set p::before{
+  content:"";position:absolute;left:0;top:1.55em;
+  width:11px;height:1px;background:var(--ink-faint);
+}
+.q-set .closer{
+  margin-top:8px;padding-left:24px;font-family:"Noto Sans TC",sans-serif;
+  font-size:.86rem;color:var(--ink-faint);letter-spacing:.06em;
+}
+.q-set .closer::before{display:none}
+
+/* ---------- SIGNATURE: the eight sentences ---------- */
+.specimen{
+  border-top:2px solid var(--blue);
+  border-bottom:1px solid var(--rule);
+}
+.line{
+  display:grid;grid-template-columns:2.2rem 1fr;
+  gap:0 16px;align-items:baseline;
+  padding:16px 4px;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+  transition:background .35s ease,padding-left .35s ease;
+}
+.line:last-child{border-bottom:none}
+.line:hover,.line:focus-visible{background:var(--paper-warm);padding-left:12px;outline:none}
+.line.on{background:var(--mark-wash);padding-left:12px}
+.line .n{
+  font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:500;
+  color:var(--ink-faint);letter-spacing:.04em;
+}
+.line.on .n{color:var(--blue)}
+.line .said{font-size:1.08rem;line-height:1.7;letter-spacing:.02em}
+.line .tags{
+  grid-column:2;display:flex;gap:8px;flex-wrap:wrap;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.line.on .tags{max-height:80px;opacity:1;margin-top:13px}
+.tag{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.1em;
+  padding:6px 13px;border:1px solid var(--rule);border-radius:2px;
+  background:var(--paper);color:var(--ink-soft);
+  cursor:pointer;transition:all .2s ease;user-select:none;
+}
+.tag:hover{border-color:var(--ink-soft)}
+.tag.picked{background:var(--blue);border-color:var(--blue);color:#fff}
+.hint{
+  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;color:var(--ink-faint);
+  margin-bottom:16px;letter-spacing:.04em;
+}
+
+/* ---------- prompts ---------- */
+.prompts{margin-top:28px;padding-left:2px}
+.prompts li{
+  list-style:none;padding:11px 0 11px 24px;position:relative;
+  font-size:.98rem;color:var(--ink-soft);line-height:1.75;
+  border-bottom:1px dotted var(--rule);
+}
+.prompts li:last-child{border-bottom:none}
+.prompts li::before{
+  content:"";position:absolute;left:0;top:1.5em;
+  width:11px;height:1px;background:var(--mark);
+}
+.prompts strong{font-weight:600;color:var(--ink)}
+
+.aside{
+  margin-top:28px;padding:18px 22px;background:var(--blue-pale);
+  border-left:2px solid var(--blue-light);
+  font-size:.94rem;color:var(--ink-soft);line-height:1.8;
+}
+
+/* ---------- 課文 ---------- */
+.text-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-top:3px solid var(--blue);
+  border-radius:3px;
+  padding:56px 56px 40px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 22px 48px -32px rgba(47,39,35,.32);
+}
+.text-body{font-size:1.14rem;line-height:2.15;letter-spacing:.025em}
+.text-body p{margin-bottom:1.9em}
+.text-body p.hinge{
+  text-align:center;color:var(--slate);font-style:normal;
+  margin:3.2em 0;font-size:1.06rem;letter-spacing:.12em;
+}
+.text-body q{quotes:"「" "」" "『" "』"}
+.text-body .close{margin-left:1.2em;padding-left:1.2em;border-left:2px solid var(--blue-pale);color:var(--ink)}
+.text-body .close p{margin-bottom:.9em}
+
+/* 語法點 */
+.g{
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:.03em;
+}
+
+/* vocab underline */
+.v{
+  border-bottom:1px solid var(--blue-light);
+  cursor:help;position:relative;
+  transition:background .2s ease;
+}
+.v:hover{background:var(--blue-pale)}
+.v::after{
+  content:attr(data-g);
+  position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);
+  background:var(--blue);color:#fff;
+  font-family:"EB Garamond","Noto Serif TC",serif;font-size:.95rem;letter-spacing:.02em;
+  line-height:1.65;white-space:nowrap;padding:8px 14px;border-radius:3px;
+  opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:20;
+  box-shadow:0 4px 16px -6px rgba(47,39,35,.38);
+}
+.v:hover::after{opacity:1}
+
+.wordcount{
+  margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--ink-faint);letter-spacing:.04em;text-align:right;
+}
+
+/* ---------- 生詞表 ---------- */
+.vocab-tools{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--rule);
+}
+.filter{
+  font-family:"Noto Sans TC",sans-serif;font-size:.8rem;letter-spacing:.08em;
+  padding:8px 16px;border:1px solid var(--rule);background:var(--card);
+  color:var(--ink-soft);cursor:pointer;border-radius:2px;transition:all .2s ease;
+}
+.filter:hover{border-color:var(--ink-soft)}
+.filter.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.count{
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--slate);letter-spacing:.04em;margin-left:auto;
+}
+
+.vtable{width:100%;border-collapse:collapse;font-size:.95rem}
+.vtable thead th{
+  font-family:"EB Garamond",serif;font-size:.88rem;font-weight:500;
+  letter-spacing:.18em;color:var(--slate);text-align:left;
+  padding:0 12px 14px 0;border-bottom:1px solid var(--blue);text-transform:uppercase;
+}
+.vtable td{
+  padding:15px 12px 15px 0;border-bottom:1px solid var(--rule);
+  vertical-align:top;line-height:1.7;
+}
+.vtable tr:hover td{background:var(--blue-pale)}
+.vtable .c-n{
+  font-family:"Cormorant Garamond",serif;font-size:1rem;
+  color:var(--ink-faint);width:40px;padding-top:15px;
+}
+.vtable .c-w{font-size:1.06rem;font-weight:500;white-space:nowrap;letter-spacing:.04em}
+.vtable .c-p{
+  font-family:"EB Garamond",serif;font-size:1.02rem;
+  color:var(--slate);white-space:nowrap;letter-spacing:.015em;
+}
+.vtable .c-e{
+  font-family:"EB Garamond",serif;font-size:1.06rem;
+  color:var(--ink-soft);line-height:1.55;letter-spacing:.005em;
+}
+.vtable .c-t{
+  font-family:"EB Garamond",serif;font-size:.95rem;font-style:italic;
+  color:var(--ink-faint);white-space:nowrap;letter-spacing:.02em;
+}
+.vtable .c-d{font-size:.92rem;color:var(--ink-soft)}
+.core .c-w{color:var(--mark)}
+.core .c-w::after{
+  content:"●";font-size:.42rem;vertical-align:.5em;margin-left:6px;color:var(--mark);
+}
+tr.hide{display:none}
+
+/* ---------- 立場 ---------- */
+.stances{display:grid;gap:20px;margin-bottom:44px}
+.stance{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 32px;cursor:pointer;position:relative;
+  transition:all .3s ease;border-radius:2px;
+}
+.stance:hover{border-color:var(--ink-soft);transform:translateY(-1px)}
+.stance .label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:14px;
+}
+.stance.open .label{color:var(--mark)}
+.stance.open{border-color:var(--blue-light);background:var(--blue-pale)}
+.stance .claim{font-size:1.08rem;line-height:1.9;letter-spacing:.02em}
+.stance .push{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s ease,opacity .35s ease,margin-top .45s ease;
+  font-size:.94rem;color:var(--ink-soft);line-height:1.85;
+}
+.stance.open .push{max-height:280px;opacity:1;margin-top:20px}
+.stance .say{margin-top:22px}
+.stance .say label{
+  display:block;font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  letter-spacing:.14em;color:var(--ink-faint);margin-bottom:10px;
+}
+.stance.open .say label{color:var(--mark)}
+.stance textarea{
+  width:100%;min-height:110px;padding:16px 18px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.7);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.stance textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+.stance .toggle{
+  position:absolute;top:28px;right:28px;
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.14em;
+  color:var(--ink-faint);border:1px solid var(--rule);border-radius:2px;
+  padding:5px 12px;background:var(--paper);transition:all .2s ease;
+}
+.stance.open .toggle{background:var(--blue);border-color:var(--blue);color:#fff}
+.stance:hover .toggle{border-color:var(--ink-soft);color:var(--ink-soft)}
+/* ---------- 課文後的兩問 ---------- */
+.two-q{
+  margin:56px 0 0;
+  padding:64px 48px 60px;
+  background:var(--blue);
+  border-radius:3px;
+  box-shadow:0 20px 46px -30px rgba(47,39,35,.55);
+}
+.two-q p{
+  font-size:1.46rem;font-weight:500;line-height:1.9;letter-spacing:.05em;
+  color:#fff;
+}
+.two-q p + p{
+  margin-top:30px;padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+
+/* ---------- 口說 ---------- */
+.oral{
+  margin-top:44px;padding:28px 30px;
+  border:1px solid var(--blue-light);border-left:3px solid var(--blue);
+  background:var(--blue-pale);border-radius:3px;
+}
+.oral-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--blue);margin-bottom:16px;
+}
+.oral-lead{font-size:1.02rem;line-height:1.9;color:var(--ink);margin-bottom:12px}
+.oral-lead strong{font-weight:600;border-bottom:1px solid var(--blue)}
+.oral-note{font-size:.92rem;color:var(--ink-soft);line-height:1.85;opacity:.9}
+
+/* ---------- 如果是你 ---------- */
+.mirror{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pane{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 28px;border-radius:3px;border-top:2px solid var(--blue);
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pane-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.22em;
+  color:var(--mark);margin-bottom:16px;
+}
+.pane-q{font-size:1.14rem;font-weight:600;line-height:1.75;letter-spacing:.02em;margin-bottom:14px}
+.pane-hint{font-size:.9rem;color:var(--ink-faint);line-height:1.85;margin-bottom:20px}
+.pane textarea{
+  width:100%;min-height:150px;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--paper);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.pane textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+
+.hinge-q{
+  margin-top:40px;padding:44px 30px;text-align:center;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+}
+.hinge-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:22px;
+}
+.hinge-q p{font-size:1.62rem;font-weight:600;letter-spacing:.06em;line-height:1.7;color:var(--ink)}
+.hinge-q .hinge-sub{
+  margin-top:14px;font-size:1.02rem;font-weight:400;
+  color:var(--ink-soft);letter-spacing:.03em;
+}
+.stance .push-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.2em;
+  color:var(--mark);margin-bottom:10px;
+}
+footer{
+  margin-top:110px;padding-top:26px;border-top:1px solid var(--rule);
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  color:var(--ink-faint);letter-spacing:.04em;line-height:1.7;
+}
+.f-line{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:20px;flex-wrap:wrap;margin-bottom:22px;
+}
+.f-date{font-family:"EB Garamond",serif;font-size:.95rem;color:var(--slate);white-space:nowrap}
+.f-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.7rem;letter-spacing:.22em;
+  color:var(--slate);margin-bottom:10px;
+}
+.refs{margin:0 0 16px;padding:0;list-style:none}
+.refs li{
+  padding:5px 0 5px 22px;position:relative;font-size:.74rem;line-height:1.65;
+}
+.refs li::before{
+  content:counter(r,cjk-ideographic)"、";counter-increment:r;
+  position:absolute;left:0;top:5px;color:var(--ink-faint);
+}
+.refs{counter-reset:r}
+.refs a{
+  font-family:"EB Garamond",serif;font-size:.85rem;
+  color:var(--blue);text-decoration:none;
+  border-bottom:1px solid var(--rule-soft);word-break:break-all;
+}
+.refs a:hover{border-bottom-color:var(--blue)}
+.f-note{font-size:.72rem;line-height:1.7;color:var(--ink-faint);opacity:.85}
+
+@media(max-width:640px){
+  .masthead{padding:64px 0 44px}
+  section{padding-top:66px}
+  .text-body{font-size:1.06rem;line-height:2.05}
+  .line .said{font-size:1.06rem}
+  .vtable .c-e,.vtable .c-d{display:none}
+  .v::after{white-space:normal;width:180px}
+  .stance{padding:24px 22px}
+  .text-card{padding:32px 24px 26px}
+  .pre-card{padding:26px 20px 24px}
+  .pre-block + .pre-block{margin-top:30px;padding-top:30px}
+  .stance .toggle{position:static;display:inline-block;margin-bottom:14px}
+  .mirror{grid-template-columns:1fr;gap:20px}
+  .pane{padding:24px 22px}
+  .hinge-q{padding:34px 16px}
+  .two-q{padding:40px 24px 38px;margin-top:40px}
+  .two-q p{font-size:1.14rem;line-height:1.85}
+  .two-q p + p{margin-top:24px;padding-top:24px}
+  .hinge-q p{font-size:1.3rem}
+}
+
+/* ---------- 暖身 ---------- */
+.warmup{
+  background:var(--card);border:1px solid var(--rule);border-radius:3px;
+  padding:34px 36px;margin-bottom:36px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(47,39,35,.28);
+}
+.warmup .q{font-size:1.14rem;font-weight:600;margin-bottom:20px;letter-spacing:.02em}
+.replies{border-top:2px solid var(--blue);border-bottom:1px solid var(--rule);margin-bottom:24px}
+.reply{
+  display:grid;grid-template-columns:2rem 1fr;gap:0 14px;align-items:baseline;
+  padding:15px 4px;border-bottom:1px solid var(--rule);cursor:pointer;
+  transition:background .3s ease,padding-left .3s ease;
+}
+.reply:last-child{border-bottom:none}
+.reply:hover,.reply:focus-visible{background:var(--paper-warm);padding-left:10px;outline:none}
+.reply.on{background:var(--blue-pale);padding-left:10px}
+.reply .n{font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--ink-faint)}
+.reply.on .n{color:var(--blue)}
+.reply .said{font-size:1.06rem;line-height:1.7}
+.reply .tags{
+  grid-column:2;display:flex;gap:8px;flex-wrap:wrap;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.reply.on .tags{max-height:80px;opacity:1;margin-top:13px}
+
+/* ---------- 辯論 ---------- */
+.debate{
+  background:var(--blue-pale);border:1px solid var(--blue-light);
+  border-left:3px solid var(--blue);border-radius:3px;padding:32px 34px;
+}
+.debate-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--blue);margin-bottom:18px;
+}
+.debate-lead{font-size:1.02rem;line-height:1.9;margin-bottom:26px;color:var(--ink)}
+.motions{counter-reset:m}
+.motion{
+  counter-increment:m;position:relative;padding:18px 0 18px 46px;
+  border-bottom:1px solid rgba(140,62,48,.16);
+  font-size:1.06rem;line-height:1.8;letter-spacing:.02em;
+}
+.motion:last-child{border-bottom:none}
+.motion::before{
+  content:counter(m);position:absolute;left:6px;top:19px;
+  font-family:"Cormorant Garamond",serif;font-size:1.3rem;
+  color:var(--blue);
+}
+.debate-rule{
+  margin-top:26px;padding-top:22px;border-top:1px solid rgba(140,62,48,.22);
+  font-size:.94rem;color:var(--ink-soft);line-height:1.85;
+}
+.debate-rule strong{font-weight:600;border-bottom:1px solid var(--blue)}
+
+/* ---------- 整合任務 ---------- */
+.tasks{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.task{
+  border:1px solid var(--rule);background:var(--card);border-radius:3px;
+  border-top:2px solid var(--blue);padding:30px 28px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(47,39,35,.28);
+  display:flex;
+  flex-direction:column;
+}
+.task-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin-bottom:16px;
+}
+.task-q{font-size:1.12rem;font-weight:600;line-height:1.75;margin-bottom:14px}
+.task-hint{font-size:.92rem;color:var(--ink-faint);line-height:1.85;margin-bottom:20px}
+.task textarea{
+  width:100%;height:150px;min-height:150px;padding:16px 18px;border:1px solid var(--rule);
+  background:var(--paper);font-family:"Noto Serif TC",serif;font-size:.98rem;
+  line-height:1.9;color:var(--ink);resize:vertical;border-radius:2px;
+  flex:0 0 auto;
+  margin-top:auto;
+}
+.task textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+.task-or{
+  text-align:center;font-family:"Noto Sans TC",sans-serif;font-size:.78rem;
+  letter-spacing:.24em;color:var(--ink-faint);margin-bottom:26px;
+}
+
+@media(max-width:640px){
+  .tasks{grid-template-columns:1fr}
+  .warmup{padding:24px 22px}
+  .debate{padding:24px 22px}
+  .task{padding:24px 22px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="lesson-nav">
+  <a class="lesson-back" href="advanced/index.html">← 返回高階專題</a>
+</nav>
+
+<header class="masthead">
+  <div class="course">華語高階讀寫　·　第一單元　那些難說出口的話</div>
+  <div class="lesson-no">第二課</div>
+  <h1>我不是故意的</h1>
+  <p class="subtitle">解釋和藉口，界線在哪裡？誰有資格畫這條線？</p>
+  <div class="meta">
+    <span>ACTFL Advanced–Superior</span>
+    <span>課文約 1200 字</span>
+    <span>生詞 65</span>
+    <span>語法重點：反問句與遞進結構</span>
+  </div>
+</header>
+
+<!-- ============ 一、課前想一想 ============ -->
+<section id="pre">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">一</div><h2>課前想一想</h2></div>
+  </div>
+
+  <div class="pre-card">
+
+  <div class="pre-block">
+  <h3>（一）他又遲到了</h3>
+  <p class="hint" style="margin-bottom:24px;">A 問：「你怎麼又遲到了？」　B 可以怎麼回答？點一句話，替它選一個標籤。</p>
+
+  <div class="warmup">
+    <div class="q">B 說——</div>
+    <div class="replies" id="replies">
+      <div class="reply" tabindex="0">
+        <span class="n">01</span>
+        <span class="said">我昨晚沒睡好。</span>
+        <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span></span>
+      </div>
+      <div class="reply" tabindex="0">
+        <span class="n">02</span>
+        <span class="said">我有 ADHD。</span>
+        <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span></span>
+      </div>
+      <div class="reply" tabindex="0">
+        <span class="n">03</span>
+        <span class="said">我就是健忘。</span>
+        <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span></span>
+      </div>
+      <div class="reply" tabindex="0">
+        <span class="n">04</span>
+        <span class="said">我最近壓力很大。</span>
+        <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span></span>
+      </div>
+    </div>
+
+    <ul class="prompts" style="margin-top:0;">
+      <li>哪一句最能讓你<strong>接受</strong>？</li>
+      <li>哪一句像<strong>理由</strong>？哪一句像<strong>藉口</strong>？</li>
+      <li>差別在哪裡？</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="pre-block">
+  <h3>（二）你聽過這些話嗎？</h3>
+  <p class="hint">點一句話，替它選標籤。可以選不只一個。</p>
+
+  <div class="specimen" id="specimen">
+    <div class="line" tabindex="0">
+      <span class="n">01</span>
+      <span class="said">我不是故意遲到，我真的很難管理時間。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">02</span>
+      <span class="said">我有 ADHD，所以我沒辦法做這個。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">03</span>
+      <span class="said">你不要逼我，我就是這樣的人。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">04</span>
+      <span class="said">我知道我容易分心，所以我需要把手機放遠一點。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">05</span>
+      <span class="said">我不是不努力，我只是需要不同的方法。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">06</span>
+      <span class="said">反正我有 ADHD，做不好也沒辦法。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">07</span>
+      <span class="said">我最近壓力很大，所以可能需要多一點時間。</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+    <div class="line" tabindex="0">
+      <span class="n">08</span>
+      <span class="said">我已經試過幾個方法，但還是不太行，你可以幫我一起想嗎？</span>
+      <span class="tags"><span class="tag">理由</span><span class="tag">藉口</span><span class="tag">求助</span><span class="tag">逃避</span></span>
+    </div>
+  </div>
+
+  <ul class="prompts">
+    <li>第 <strong>2</strong> 句和第 <strong>6</strong> 句都提到 ADHD。它們一樣嗎？</li>
+    <li>第 <strong>1</strong> 句和第 <strong>5</strong> 句都說「我不是……」。哪一句比較容易被接受？</li>
+    <li>第 <strong>4</strong> 句和第 <strong>8</strong> 句的說話者，做了一件前面幾句沒有做的事。那是什麼？</li>
+    <li>一句話要加上什麼，才會從<strong>藉口</strong>變成<strong>求助</strong>？</li>
+  </ul>
+
+  <div class="aside">
+    請把你的答案留著。這一課結束以後，我們會回來看。
+  </div>
+  </div>
+
+  </div>
+</section>
+
+<!-- ============ 二、課文 ============ -->
+<section id="text">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">二</div><h2>課文</h2></div>
+    <p class="note">畫底線的詞可以用滑鼠停留查看。粗體為本課語法點。</p>
+  </div>
+
+  <div class="text-card">
+  <div class="text-body">
+
+    <p>小組報告的前一天晚上，群組裡一片<span class="v" data-g="沉默 chénmò — silence">沉默</span>。過了很久，阿哲才傳來一句：「對不起，我又忘了。我不是故意的。」</p>
+
+    <p>這已經是第三次。<span class="v" data-g="起初 qǐchū — at first">起初</span>他沒來開會，<span class="v" data-g="眾人 zhòngrén — everyone, the group">眾人</span>說沒關係；<span class="v" data-g="隨後 suíhòu — subsequently">隨後</span>他沒交資料，組員替他補上。這一次，報告明天就要交，其他人也有自己的考試。有人想<span class="v" data-g="體諒 tǐliàng — to be understanding of">體諒</span>他，也有人開始<span class="v" data-g="質疑 zhìyí — to question, to challenge">質疑</span>：「他不是故意的，但<span class="g">憑什麼</span>我們要<span class="v" data-g="承擔 chéngdān — to bear, to shoulder">承擔</span>這些後果？」</p>
+
+    <p>沒有人知道阿哲的<span class="v" data-g="處境 chǔjìng — situation, plight">處境</span>。他自己也不確定。</p>
+
+    <p>近年來，ADHD、<span class="v" data-g="焦慮症 jiāolǜzhèng — anxiety disorder">焦慮症</span>、<span class="v" data-g="憂鬱症 yōuyùzhèng — depression">憂鬱症</span>成了社群媒體上<span class="v" data-g="盛行 shèngxíng — prevalent, in vogue">盛行</span>的話題。短影音上，網紅列出各種<span class="v" data-g="徵兆 zhēngzhào — sign, symptom">徵兆</span>：容易<span class="v" data-g="分心 fēnxīn — to be distracted">分心</span>、拖到最後一刻、明明知道有事要做，卻<span class="v" data-g="始終 shǐzhōng — all along, from start to finish">始終</span>滑著手機。許多人看完之後，第一次覺得自己被理解了。原來我<span class="v" data-g="未必 wèibì — not necessarily">未必</span>是<span class="v" data-g="懶惰 lǎnduò — lazy">懶惰</span>，也未必是不夠努力。</p>
+
+    <p class="hinge">「原來我有 ADHD」——對某些人來說，這句話幾乎是一種<span class="v" data-g="解脫 jiětuō — relief, release">解脫</span>。</p>
+
+    <p>在現代社會，競爭越來越激烈，資訊<span class="v" data-g="接踵而至 jiēzhǒng ér zhì — to come one after another">接踵而至</span>，<span class="v" data-g="趨勢 qūshì — trend">趨勢</span><span class="v" data-g="瞬息萬變 shùnxī wànbiàn — changing from moment to moment">瞬息萬變</span>，人際關係也<span class="v" data-g="日益 rìyì — increasingly, day by day">日益</span>複雜。許多人在<span class="v" data-g="多重 duōchóng — multiple">多重</span>壓力下，開始出現焦慮、憂鬱、注意力不集中等身心健康問題。但憂鬱症有時被<span class="v" data-g="誤解 wùjiě — to misunderstand">誤解</span>為<span class="v" data-g="脆弱 cuìruò — fragile, weak">脆弱</span>，ADHD <span class="g">則</span>被<span class="v" data-g="視為 shìwéi — to regard as">視為</span>懶惰。一些真正需要幫助的人，因為害怕被貼上「不夠努力」或「不負責任」的<span class="v" data-g="標籤 biāoqiān — label">標籤</span>，反而不敢<span class="v" data-g="求助 qiúzhù — to seek help">求助</span>，只能把痛苦藏起來。</p>
+
+    <p>但<span class="v" data-g="隨之 suízhī — accordingly, along with it">隨之</span><span class="v" data-g="衍生 yǎnshēng — to derive, to give rise to">衍生</span>的問題，也不能<span class="v" data-g="忽視 hūshì — to ignore, to overlook">忽視</span>。當身心健康問題變成社群媒體上的流行話題，有些人開始把普通的分心、<span class="v" data-g="拖延 tuōyán — to procrastinate">拖延</span>、害怕失敗，<span class="v" data-g="一律 yīlǜ — all without exception; uniformly">一律</span><span class="v" data-g="歸咎於 guījiù yú — to blame on; to attribute to">歸咎於</span> ADHD。更有些人把「我有 ADHD」當成<span class="v" data-g="盾牌 dùnpái — shield">盾牌</span>，用來<span class="v" data-g="合理化 hélǐhuà — to rationalize">合理化</span>自己<span class="v" data-g="失當 shīdàng — improper, inappropriate">失當</span>的行為。遲到，是因為 ADHD；作業沒交，是因為 ADHD；情緒<span class="v" data-g="失控 shīkòng — out of control">失控</span>，也是因為 ADHD。<span class="v" data-g="久而久之 jiǔ ér jiǔ zhī — over time, gradually">久而久之</span>，「我不是故意的」不再是解釋，而變成了一張<span class="v" data-g="免死金牌 miǎnsǐ jīnpái — a get-out-of-jail-free card">免死金牌</span>。</p>
+
+    <p class="hinge">在美國大學裡，這個問題被放大得更明顯。</p>
+
+    <p>那裡的學生可以憑<span class="v" data-g="診斷書 zhěnduànshū — medical certificate, diagnosis">診斷書</span>向學校申請「學習<span class="v" data-g="輔助 fǔzhù — assistance, accommodation">輔助</span>」，例如考試<span class="v" data-g="延長 yáncháng — to extend">延長</span>時間、較少<span class="v" data-g="干擾 gānrǎo — disturbance, distraction">干擾</span>的<span class="v" data-g="考場 kǎochǎng — exam room">考場</span>，或科技工具的使用。這些安排原本是為了幫助真正有需要的學生，讓他們在比較公平的條件下學習。可是，當心理健康或學習輔助<span class="g">不但不</span>再被<span class="v" data-g="污名化 wūmínghuà — to stigmatize">污名化</span>，<span class="g">甚至</span>可能成為求學道路上一個「可<span class="v" data-g="操作 cāozuò — to operate, to game (a system)">操作</span>的<span class="v" data-g="外掛 wàiguà — cheat, plug-in (gaming slang)">外掛</span>」時，問題就變得複雜了。</p>
+
+    <p>根據《大西洋》雜誌的報導，史丹佛有將近四成學生<span class="v" data-g="申報 shēnbào — to declare, to self-report">申報</span><span class="v" data-g="身心障礙 shēnxīn zhàng'ài — physical or mental disability">身心障礙</span>，布朗和哈佛約兩成；<span class="g">相較之下</span>，社區大學只有百分之三到四。</p>
+
+    <p>全美最會考試的一群年輕人，<span class="v" data-g="宣稱 xuānchēng — to claim, to assert">宣稱</span>自己有<span class="v" data-g="認知 rènzhī — cognitive; cognition">認知</span><span class="v" data-g="障礙 zhàng'ài — disorder, impairment">障礙</span>的比例，反而是社區大學學生的十倍。更<span class="v" data-g="弔詭 diàoguǐ — paradoxical, curious">弔詭</span>的是，<span class="v" data-g="取得 qǔdé — to obtain">取得</span>診斷證明的學生之中，<span class="v" data-g="富裕 fùyù — wealthy">富裕</span>家庭的比例遠高於低收入家庭。這背後指向一個<span class="v" data-g="難以啟齒 nányǐ qǐchǐ — hard to bring oneself to say">難以啟齒</span>的現實：診斷證明不只是醫療文件，也可能成為有錢家庭比較容易取得的升學工具。畢竟，不想排隊等公立系統<span class="v" data-g="評估 pínggū — assessment, evaluation">評估</span>，就可以改找私人<span class="v" data-g="機構 jīgòu — institution, agency">機構</span>；只要付得起數千美元，便比較有機會更快拿到評估和證明。對某些家庭而言，這<span class="g">不只是</span>醫療<span class="v" data-g="支出 zhīchū — expenditure">支出</span>，<span class="g">而是</span>升學<span class="v" data-g="策略 cèlüè — strategy">策略</span>。</p>
+
+    <p>當然，也有些學生並非故意<span class="v" data-g="說謊 shuōhuǎng — to lie">說謊</span>。他們<span class="v" data-g="自幼 zìyòu — from childhood">自幼</span><span class="v" data-g="優秀 yōuxiù — outstanding">優秀</span>，進了競爭<span class="v" data-g="激烈 jīliè — fierce, intense">激烈</span>的大學才第一次發現自己跟不上。這時候，「我可能有 ADHD」既像一種解釋，也像一種保護。畢竟承認「我有病」，<span class="g">遠比</span>承認「我不行」容易<span class="g">得多</span>。</p>
+
+    <p>可是問題的難點就在於此：如果完全不要求證明，制度可能被<span class="v" data-g="濫用 lànyòng — to abuse, to misuse">濫用</span>；如果每個人都必須提出證明，真正需要幫助的人又可能來不及、也沒有力氣證明自己。</p>
+
+    <p>而那些<span class="v" data-g="從未 cóngwèi — never">從未</span>申請過協助的人呢？他們沒有診斷書，也沒有延長時間。看著同學享有各種安排，心裡難免<span class="v" data-g="浮現 fúxiàn — to surface, to come to mind">浮現</span>一個<span class="v" data-g="念頭 niàntou — thought, notion">念頭</span>：<span class="g">憑什麼</span>我要體諒他們，然後自己<span class="v" data-g="吃虧 chīkuī — to be at a disadvantage, to lose out">吃虧</span>？</p>
+
+    <p>這個問題很難回答。因為說出口，似乎在懷疑別人是假的；不說出口，那份<span class="v" data-g="不平 bùpíng — grievance, sense of injustice">不平</span>又不會消失。</p>
+
+    <p>於是，當制度的資源被<span class="v" data-g="稀釋 xīshì — to dilute">稀釋</span>，一個手上握著診斷書的人，反而可能在別人的<span class="v" data-g="眼神 yǎnshén — look in one’s eyes; gaze">眼神</span>裡看見更多懷疑。而那份懷疑，又是誰製造出來的？</p>
+
+    <div class="close">
+      <p>到最後，ADHD 到底是幫助人認識自己的<span class="v" data-g="起點 qǐdiǎn — starting point">起點</span>，還是被人拿來取得好處的工具？</p>
+    </div>
+
+  </div>
+
+  <div class="wordcount">約 1200 字</div>
+  </div>
+
+  <div class="two-q">
+    <p>合理的協助，什麼時候會被別人看成特權？</p>
+    <p>為什麼有些困難不需要證明，有些需要？</p>
+  </div>
+</section>
+
+<!-- ============ 三、生詞表 ============ -->
+<section id="vocab">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">三</div><h2>生詞表</h2></div>
+  </div>
+
+  <div class="vocab-tools">
+    <button class="filter on" data-f="all">全部</button>
+    <button class="filter" data-f="core">核心詞（產出）</button>
+    <button class="filter" data-f="recg">認讀詞</button>
+    <span class="count" id="count">65 個</span>
+  </div>
+
+  <table class="vtable">
+    <thead>
+      <tr><th></th><th>生詞</th><th>拼音</th><th>English</th><th>詞性</th><th>說明</th></tr>
+    </thead>
+    <tbody id="vbody">
+      <tr data-k="core"><td class="c-n">1</td><td class="c-w">沉默</td><td class="c-p">chénmò</td><td class="c-e">silence; silent</td><td class="c-t">N/Vs</td><td class="c-d">不說話。「一片沉默」</td></tr>
+      <tr data-k="core"><td class="c-n">2</td><td class="c-w">起初</td><td class="c-p">qǐchū</td><td class="c-e">at first</td><td class="c-t">Adv</td><td class="c-d">最開始的時候</td></tr>
+      <tr data-k="recg"><td class="c-n">3</td><td class="c-w">眾人</td><td class="c-p">zhòngrén</td><td class="c-e">everyone, the group</td><td class="c-t">N</td><td class="c-d">在場的許多人（書面語）</td></tr>
+      <tr data-k="core"><td class="c-n">4</td><td class="c-w">隨後</td><td class="c-p">suíhòu</td><td class="c-e">subsequently</td><td class="c-t">Adv</td><td class="c-d">緊接著、後來</td></tr>
+      <tr data-k="core"><td class="c-n">5</td><td class="c-w">體諒</td><td class="c-p">tǐliàng</td><td class="c-e">to be understanding of</td><td class="c-t">V</td><td class="c-d">替對方著想，不苛責</td></tr>
+      <tr data-k="core"><td class="c-n">6</td><td class="c-w">質疑</td><td class="c-p">zhìyí</td><td class="c-e">to question, to challenge</td><td class="c-t">V</td><td class="c-d">提出懷疑，要求說明</td></tr>
+      <tr data-k="core"><td class="c-n">7</td><td class="c-w">承擔</td><td class="c-p">chéngdān</td><td class="c-e">to bear, to shoulder</td><td class="c-t">V</td><td class="c-d">負起（責任、後果）</td></tr>
+      <tr data-k="core"><td class="c-n">8</td><td class="c-w">處境</td><td class="c-p">chǔjìng</td><td class="c-e">situation, plight</td><td class="c-t">N</td><td class="c-d">所處的狀況（多指不利的）</td></tr>
+      <tr data-k="recg"><td class="c-n">9</td><td class="c-w">焦慮症</td><td class="c-p">jiāolǜzhèng</td><td class="c-e">anxiety disorder</td><td class="c-t">N</td><td class="c-d">—</td></tr>
+      <tr data-k="recg"><td class="c-n">10</td><td class="c-w">憂鬱症</td><td class="c-p">yōuyùzhèng</td><td class="c-e">depression</td><td class="c-t">N</td><td class="c-d">—</td></tr>
+      <tr data-k="core"><td class="c-n">11</td><td class="c-w">盛行</td><td class="c-p">shèngxíng</td><td class="c-e">prevalent, in vogue</td><td class="c-t">Vs</td><td class="c-d">廣泛流行</td></tr>
+      <tr data-k="core"><td class="c-n">12</td><td class="c-w">徵兆</td><td class="c-p">zhēngzhào</td><td class="c-e">sign, symptom</td><td class="c-t">N</td><td class="c-d">事情將要發生的跡象</td></tr>
+      <tr data-k="core"><td class="c-n">13</td><td class="c-w">分心</td><td class="c-p">fēnxīn</td><td class="c-e">to be distracted</td><td class="c-t">V-sep</td><td class="c-d">注意力離開該做的事</td></tr>
+      <tr data-k="recg"><td class="c-n">14</td><td class="c-w">始終</td><td class="c-p">shǐzhōng</td><td class="c-e">all along</td><td class="c-t">Adv</td><td class="c-d">從頭到尾都</td></tr>
+      <tr data-k="core"><td class="c-n">15</td><td class="c-w">未必</td><td class="c-p">wèibì</td><td class="c-e">not necessarily</td><td class="c-t">Adv</td><td class="c-d">不一定</td></tr>
+      <tr data-k="core"><td class="c-n">16</td><td class="c-w">懶惰</td><td class="c-p">lǎnduò</td><td class="c-e">lazy</td><td class="c-t">Vs</td><td class="c-d">不肯出力</td></tr>
+      <tr data-k="core"><td class="c-n">17</td><td class="c-w">解脫</td><td class="c-p">jiětuō</td><td class="c-e">relief, release</td><td class="c-t">N/V</td><td class="c-d">從痛苦或束縛中脫離</td></tr>
+      <tr data-k="recg"><td class="c-n">18</td><td class="c-w">接踵而至</td><td class="c-p">jiēzhǒng ér zhì</td><td class="c-e">to come one after another</td><td class="c-t">Idiom</td><td class="c-d">一件接著一件不斷到來</td></tr>
+      <tr data-k="core"><td class="c-n">19</td><td class="c-w">趨勢</td><td class="c-p">qūshì</td><td class="c-e">trend</td><td class="c-t">N</td><td class="c-d">事物發展的方向</td></tr>
+      <tr data-k="recg"><td class="c-n">20</td><td class="c-w">瞬息萬變</td><td class="c-p">shùnxī wànbiàn</td><td class="c-e">changing from moment to moment</td><td class="c-t">Idiom</td><td class="c-d">變化極快</td></tr>
+      <tr data-k="recg"><td class="c-n">21</td><td class="c-w">日益</td><td class="c-p">rìyì</td><td class="c-e">increasingly</td><td class="c-t">Adv</td><td class="c-d">一天比一天更（書面語）</td></tr>
+      <tr data-k="recg"><td class="c-n">22</td><td class="c-w">多重</td><td class="c-p">duōchóng</td><td class="c-e">multiple</td><td class="c-t">Vs-attr</td><td class="c-d">好幾層的。「多重壓力」</td></tr>
+      <tr data-k="core"><td class="c-n">23</td><td class="c-w">誤解</td><td class="c-p">wùjiě</td><td class="c-e">to misunderstand</td><td class="c-t">V/N</td><td class="c-d">理解錯了</td></tr>
+      <tr data-k="core"><td class="c-n">24</td><td class="c-w">脆弱</td><td class="c-p">cuìruò</td><td class="c-e">fragile, weak</td><td class="c-t">Vs</td><td class="c-d">容易受傷、撐不住</td></tr>
+      <tr data-k="core"><td class="c-n">25</td><td class="c-w">視為</td><td class="c-p">shìwéi</td><td class="c-e">to regard as</td><td class="c-t">V</td><td class="c-d">看成、當作</td></tr>
+      <tr data-k="core"><td class="c-n">26</td><td class="c-w">標籤</td><td class="c-p">biāoqiān</td><td class="c-e">label</td><td class="c-t">N</td><td class="c-d">「貼上……標籤」</td></tr>
+      <tr data-k="core"><td class="c-n">27</td><td class="c-w">求助</td><td class="c-p">qiúzhù</td><td class="c-e">to seek help</td><td class="c-t">V-sep</td><td class="c-d">向人請求幫助</td></tr>
+      <tr data-k="recg"><td class="c-n">28</td><td class="c-w">隨之</td><td class="c-p">suízhī</td><td class="c-e">accordingly, along with it</td><td class="c-t">Adv</td><td class="c-d">跟著它而來（書面語）</td></tr>
+      <tr data-k="core"><td class="c-n">29</td><td class="c-w">衍生</td><td class="c-p">yǎnshēng</td><td class="c-e">to give rise to</td><td class="c-t">V</td><td class="c-d">從原有的事物產生出來</td></tr>
+      <tr data-k="core"><td class="c-n">30</td><td class="c-w">忽視</td><td class="c-p">hūshì</td><td class="c-e">to ignore, to overlook</td><td class="c-t">V</td><td class="c-d">不加注意</td></tr>
+      <tr data-k="core"><td class="c-n">31</td><td class="c-w">拖延</td><td class="c-p">tuōyán</td><td class="c-e">to procrastinate</td><td class="c-t">V</td><td class="c-d">把事情往後推</td></tr>
+      <tr data-k="core"><td class="c-n">32</td><td class="c-w">一律</td><td class="c-p">yīlǜ</td><td class="c-e">all without exception; uniformly</td><td class="c-t">Adv</td><td class="c-d">全部都一樣；沒有例外</td></tr>
+      <tr data-k="recg"><td class="c-n">33</td><td class="c-w">歸咎</td><td class="c-p">guījiù</td><td class="c-e">to blame, to attribute to</td><td class="c-t">V</td><td class="c-d">把過錯推給。「歸咎於」</td></tr>
+      <tr data-k="recg"><td class="c-n">34</td><td class="c-w">盾牌</td><td class="c-p">dùnpái</td><td class="c-e">shield</td><td class="c-t">N</td><td class="c-d">擋住攻擊的武器；比喻推卸責任的藉口</td></tr>
+      <tr data-k="core"><td class="c-n">35</td><td class="c-w">合理化</td><td class="c-p">hélǐhuà</td><td class="c-e">to rationalize</td><td class="c-t">V</td><td class="c-d">替不合理的事找理由</td></tr>
+      <tr data-k="recg"><td class="c-n">36</td><td class="c-w">失當</td><td class="c-p">shīdàng</td><td class="c-e">improper</td><td class="c-t">Vs</td><td class="c-d">做得不恰當</td></tr>
+      <tr data-k="core"><td class="c-n">37</td><td class="c-w">失控</td><td class="c-p">shīkòng</td><td class="c-e">out of control</td><td class="c-t">V</td><td class="c-d">失去控制</td></tr>
+      <tr data-k="recg"><td class="c-n">38</td><td class="c-w">久而久之</td><td class="c-p">jiǔ ér jiǔ zhī</td><td class="c-e">over time</td><td class="c-t">Idiom</td><td class="c-d">時間一久</td></tr>
+      <tr data-k="recg"><td class="c-n">39</td><td class="c-w">免死金牌</td><td class="c-p">miǎnsǐ jīnpái</td><td class="c-e">a get-out-of-jail-free card</td><td class="c-t">N</td><td class="c-d">古代可免除死罪的令牌；比喻不必負責的特權</td></tr>
+      <tr data-k="core"><td class="c-n">40</td><td class="c-w">診斷書</td><td class="c-p">zhěnduànshū</td><td class="c-e">medical certificate</td><td class="c-t">N</td><td class="c-d">醫師開立的證明文件</td></tr>
+      <tr data-k="core"><td class="c-n">41</td><td class="c-w">輔助</td><td class="c-p">fǔzhù</td><td class="c-e">assistance, accommodation</td><td class="c-t">N/V</td><td class="c-d">從旁協助</td></tr>
+      <tr data-k="core"><td class="c-n">42</td><td class="c-w">延長</td><td class="c-p">yáncháng</td><td class="c-e">to extend</td><td class="c-t">V</td><td class="c-d">加長（時間、距離）</td></tr>
+      <tr data-k="core"><td class="c-n">43</td><td class="c-w">干擾</td><td class="c-p">gānrǎo</td><td class="c-e">disturbance</td><td class="c-t">N/V</td><td class="c-d">打斷、妨礙</td></tr>
+      <tr data-k="recg"><td class="c-n">44</td><td class="c-w">污名化</td><td class="c-p">wūmínghuà</td><td class="c-e">to stigmatize</td><td class="c-t">V</td><td class="c-d">使某群體背上壞名聲</td></tr>
+      <tr data-k="core"><td class="c-n">45</td><td class="c-w">操作</td><td class="c-p">cāozuò</td><td class="c-e">to operate; to game (a system)</td><td class="c-t">V</td><td class="c-d">此處指鑽制度的漏洞</td></tr>
+      <tr data-k="recg"><td class="c-n">46</td><td class="c-w">外掛</td><td class="c-p">wàiguà</td><td class="c-e">cheat, plug-in</td><td class="c-t">N</td><td class="c-d">遊戲用語：讓玩家取得不公平優勢的程式</td></tr>
+      <tr data-k="recg"><td class="c-n">47</td><td class="c-w">申報</td><td class="c-p">shēnbào</td><td class="c-e">to declare, to self-report</td><td class="c-t">V</td><td class="c-d">向機關報告</td></tr>
+      <tr data-k="recg"><td class="c-n">48</td><td class="c-w">身心障礙</td><td class="c-p">shēnxīn zhàng'ài</td><td class="c-e">physical or mental disability</td><td class="c-t">N</td><td class="c-d">台灣的法定用語</td></tr>
+      <tr data-k="core"><td class="c-n">49</td><td class="c-w">宣稱</td><td class="c-p">xuānchēng</td><td class="c-e">to claim, to assert</td><td class="c-t">V</td><td class="c-d">公開表示（未必屬實）</td></tr>
+      <tr data-k="core"><td class="c-n">50</td><td class="c-w">認知</td><td class="c-p">rènzhī</td><td class="c-e">cognition; cognitive</td><td class="c-t">N/Vs-attr</td><td class="c-d">認識與理解的能力</td></tr>
+      <tr data-k="core"><td class="c-n">51</td><td class="c-w">障礙</td><td class="c-p">zhàng'ài</td><td class="c-e">disorder, impairment</td><td class="c-t">N</td><td class="c-d">阻礙；醫學上指功能受損</td></tr>
+      <tr data-k="recg"><td class="c-n">52</td><td class="c-w">弔詭</td><td class="c-p">diàoguǐ</td><td class="c-e">paradoxical</td><td class="c-t">Vs</td><td class="c-d">看似矛盾卻真實存在</td></tr>
+      <tr data-k="core"><td class="c-n">53</td><td class="c-w">取得</td><td class="c-p">qǔdé</td><td class="c-e">to obtain</td><td class="c-t">V</td><td class="c-d">得到、拿到</td></tr>
+      <tr data-k="core"><td class="c-n">54</td><td class="c-w">富裕</td><td class="c-p">fùyù</td><td class="c-e">wealthy</td><td class="c-t">Vs</td><td class="c-d">財富充足</td></tr>
+      <tr data-k="recg"><td class="c-n">55</td><td class="c-w">難以啟齒</td><td class="c-p">nányǐ qǐchǐ</td><td class="c-e">hard to bring oneself to say</td><td class="c-t">Idiom</td><td class="c-d">不好意思說出口</td></tr>
+      <tr data-k="core"><td class="c-n">56</td><td class="c-w">評估</td><td class="c-p">pínggū</td><td class="c-e">assessment</td><td class="c-t">N/V</td><td class="c-d">判斷價值或程度</td></tr>
+      <tr data-k="core"><td class="c-n">57</td><td class="c-w">策略</td><td class="c-p">cèlüè</td><td class="c-e">strategy</td><td class="c-t">N</td><td class="c-d">達成目標的方法</td></tr>
+      <tr data-k="recg"><td class="c-n">58</td><td class="c-w">自幼</td><td class="c-p">zìyòu</td><td class="c-e">from childhood</td><td class="c-t">Adv</td><td class="c-d">從小（書面語）</td></tr>
+      <tr data-k="core"><td class="c-n">59</td><td class="c-w">濫用</td><td class="c-p">lànyòng</td><td class="c-e">to abuse, to misuse</td><td class="c-t">V</td><td class="c-d">超出正當範圍地使用</td></tr>
+      <tr data-k="core"><td class="c-n">60</td><td class="c-w">浮現</td><td class="c-p">fúxiàn</td><td class="c-e">to surface, to come to mind</td><td class="c-t">V</td><td class="c-d">（念頭、影像）顯露出來</td></tr>
+      <tr data-k="core"><td class="c-n">61</td><td class="c-w">吃虧</td><td class="c-p">chīkuī</td><td class="c-e">to lose out, to be at a disadvantage</td><td class="c-t">V-sep</td><td class="c-d">受到損失</td></tr>
+      <tr data-k="core"><td class="c-n">62</td><td class="c-w">不平</td><td class="c-p">bùpíng</td><td class="c-e">grievance, sense of injustice</td><td class="c-t">N/Vs</td><td class="c-d">覺得受到不公平對待</td></tr>
+      <tr data-k="recg"><td class="c-n">63</td><td class="c-w">稀釋</td><td class="c-p">xīshì</td><td class="c-e">to dilute</td><td class="c-t">V</td><td class="c-d">加入他物使濃度降低；此處指資源被分薄</td></tr>
+      <tr data-k="core"><td class="c-n">64</td><td class="c-w">眼神</td><td class="c-p">yǎnshén</td><td class="c-e">look in one’s eyes; gaze</td><td class="c-t">N</td><td class="c-d">眼睛流露出的態度或情緒</td></tr>
+      <tr data-k="core"><td class="c-n">65</td><td class="c-w">起點</td><td class="c-p">qǐdiǎn</td><td class="c-e">starting point</td><td class="c-t">N</td><td class="c-d">事情開始的地方或階段</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 四、請選一個立場 ============ -->
+<section id="stance">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">四</div><h2>請選一個立場</h2></div>
+    <p class="note">點開任何一個說法，寫下你的看法。你可以同意，也可以反對。</p>
+  </div>
+
+  <div class="stances" id="stances">
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法一</div>
+      <p class="claim">很多人看了短影音，就急著幫自己貼標籤。因為承認自己有病，比承認自己不行容易。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        一個「以為自己有病」的人，跟一個「真的有病」的人，他自己分得出來嗎？
+        <div class="say">
+          <label for="s1">我的看法</label>
+          <textarea id="s1" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法二</div>
+      <p class="claim">因為怕有人濫用制度，就讓真正需要幫助的人更難拿到幫助，這才不公平。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        那什麼都沒申請的人，考輸了怎麼算？
+        <div class="say">
+          <label for="s2">我的看法</label>
+          <textarea id="s2" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法三</div>
+      <p class="claim">很多濫用制度的人，才是害了真正需要幫助的人。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        但你怎麼知道誰在濫用？
+        <div class="say">
+          <label for="s3">我的看法</label>
+          <textarea id="s3" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法四</div>
+      <p class="claim">問題不在制度，在錢。評估要花數千美元，這個制度從一開始就是給有錢人的。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        那如果評估免費呢？濫用會變少，還是變多？
+        <div class="say">
+          <label for="s4">我的看法</label>
+          <textarea id="s4" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="stance" tabindex="0">
+      <div class="toggle">寫看法</div>
+      <div class="label">說法五</div>
+      <p class="claim">證明的制度應該更嚴格，才不會被濫用。</p>
+      <div class="push">
+        <div class="push-h">追問</div>
+        一個沒有力氣起床的人，要怎麼去拿證明？
+        <div class="say">
+          <label for="s5">我的看法</label>
+          <textarea id="s5" placeholder="請至少使用兩個本課生詞。"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 五、辯論 ============ -->
+<section id="debate">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">五</div><h2>辯論</h2></div>
+  </div>
+
+  <div class="debate">
+    <p class="debate-lead">抽籤決定你站哪一邊。你可能會被分到你不同意的立場。<br>那就替它找出最好的理由。</p>
+
+    <div class="motions">
+      <div class="motion">如果一個人有 ADHD，別人就應該多包容他的遲到、拖延和忘事。</div>
+      <div class="motion">「我不是故意的」只能解釋行為，不能取消責任。</div>
+      <div class="motion">沒有診斷書的人，不應該說自己有 ADHD。</div>
+      <div class="motion">學校要求每個人都拿出診斷證明，才是真正公平。</div>
+      <div class="motion">與其說有些人真的需要幫助，不如說現在太多人把身心健康問題當成藉口。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 六、整合任務 ============ -->
+<section id="task">
+  <div class="sec-head">
+    <div class="sec-title"><div class="sec-num">六</div><h2>整合任務</h2></div>
+    <p class="note">兩題任選一題。請至少使用三個本課生詞、兩個語法點。</p>
+  </div>
+
+  <div class="tasks">
+    <div class="task">
+      <div class="task-label">任務一</div>
+      <p class="task-q">回覆阿哲。</p>
+      <p class="task-hint">他第三次沒交，他說他不是故意的，他說他可能有 ADHD。報告明天要交。<br><br>你不能直接說「我不相信你」。<br>你也不能說「沒關係」——因為你也很累，你也有考試。<br><br>那兩句之間的話，你要怎麼說？</p>
+      <textarea id="t1" placeholder="傳給阿哲的訊息……"></textarea>
+    </div>
+
+    <div class="task">
+      <div class="task-label">任務二</div>
+      <p class="task-q">對那個什麼都沒申請、考輸了的人說話。</p>
+      <p class="task-hint">他沒有診斷書，沒有延長時間，也沒有作弊。他只是考得比較差。<br><br>你不能說「你也可以去申請」——他沒有病。<br>你不能說「這不公平」——那沒有幫助。<br><br>那你要告訴他什麼？</p>
+      <textarea id="t2" placeholder="你想說的話……"></textarea>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-line">
+    <span>第一單元　那些難說出口的話　·　第二課　我不是故意的</span>
+    <span class="f-date">2026 年 7 月</span>
+  </div>
+
+  <div class="f-h">參考資料</div>
+  <ul class="refs">
+    <li>Rose Horowitch,〈Accommodation Nation〉,《大西洋》(The Atlantic) 2026 年 1 月號。課文中史丹佛 38%、Amherst 34%、布朗與哈佛逾 20%、社區大學 3–4%，以及富裕家庭較易取得診斷等內容，皆據此篇。<a href="https://www.theatlantic.com/magazine/2026/01/elite-university-student-accommodation/684946/">連結</a></li>
+    <li>「美國高教阿伯」臉書專頁對上文的中文評述。<a href="https://www.facebook.com/HigherEdITUncle">連結</a></li>
+    <li>阿哲、小組報告等情境為教學虛構，非真實人物。</li>
+  </ul>
+
+  <p class="f-note">課文觀點僅供課堂討論，不代表本書立場。ADHD、焦慮症、憂鬱症皆為醫學診斷，本課無意評斷任何個人的病情或動機。</p>
+</footer>
+
+</div>
+
+<script>
+// 暖身：四句回答
+document.querySelectorAll('#replies .reply').forEach(function(r){
+  function toggle(e){
+    if(e.target.classList.contains('tag')) return;
+    r.classList.toggle('on');
+  }
+  r.addEventListener('click', toggle);
+  r.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
+  });
+  r.querySelectorAll('.tag').forEach(function(t){
+    t.addEventListener('click', function(e){ e.stopPropagation(); t.classList.toggle('picked'); });
+  });
+});
+
+// 八句話
+document.querySelectorAll('#specimen .line').forEach(function(line){
+  function toggle(e){
+    if(e.target.classList.contains('tag')) return;
+    line.classList.toggle('on');
+  }
+  line.addEventListener('click', toggle);
+  line.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
+  });
+  line.querySelectorAll('.tag').forEach(function(tag){
+    tag.addEventListener('click', function(e){ e.stopPropagation(); tag.classList.toggle('picked'); });
+  });
+});
+
+// 生詞表篩選
+var rows = Array.prototype.slice.call(document.querySelectorAll('#vbody tr'));
+var countEl = document.getElementById('count');
+document.querySelectorAll('.filter').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    var f = btn.dataset.f, shown = 0;
+    rows.forEach(function(r){
+      var ok = (f === 'all') || (r.dataset.k === f);
+      r.classList.toggle('hide', !ok);
+      if(ok) shown++;
+    });
+    countEl.textContent = shown + ' 個';
+  });
+});
+rows.forEach(function(r){ if(r.dataset.k === 'core') r.classList.add('core'); });
+
+// 立場
+document.querySelectorAll('#stances .stance').forEach(function(s){
+  function toggle(e){
+    if(e.target.tagName === 'TEXTAREA' || e.target.classList.contains('v')) return;
+    s.classList.toggle('open');
+    s.querySelector('.toggle').textContent = s.classList.contains('open') ? '收合' : '寫看法';
+  }
+  s.addEventListener('click', toggle);
+  s.addEventListener('keydown', function(e){
+    if(e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(e); }
+  });
+});
+</script>
+</body>
+</html>
