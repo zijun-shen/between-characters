@@ -620,6 +620,14 @@ ul.task-hint li::before{
 @media(max-width:640px){
   .tasks-3 .task{padding:24px 22px}
 }
+
+/* ---------- 年齡選擇卡 ---------- */
+.age-set .line.on .tags{max-height:110px}
+.age-set .tag{min-width:66px;text-align:center}
+@media(max-width:640px){
+  .age-set .line.on .tags{max-height:150px}
+}
+
 </style>
 </head>
 <body>
@@ -646,84 +654,74 @@ ul.task-hint li::before{
 </div>
 <div class="pre-card">
 <div class="pre-block">
-<h3>（一）可以接受嗎？</h3>
-<p class="hint" style="margin-bottom:24px;">先憑直覺站隊。點一句話，替它選一個標籤。</p>
-<div class="warmup">
-<div class="q">下面這些事，你覺得——</div>
-<div class="replies" id="replies">
-<div class="reply" tabindex="0">
-<span class="n">01</span>
-<span class="said">大學生週末回家時，父母替他洗衣服、煮飯。</span>
-<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
-</div>
-<div class="reply" tabindex="0">
-<span class="n">02</span>
-<span class="said">父母打電話向教授詢問孩子的成績。</span>
-<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
-</div>
-<div class="reply" tabindex="0">
-<span class="n">03</span>
-<span class="said">孩子怕搶不到熱門課，請父母代為搶課。</span>
-<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
-</div>
-<div class="reply" tabindex="0">
-<span class="n">04</span>
-<span class="said">父母出錢布置宿舍，也替孩子決定用品和房間配色。</span>
-<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
-</div>
-<div class="reply" tabindex="0">
-<span class="n">05</span>
-<span class="said">成年後繼續和父母同住，但會分擔家務與生活費。</span>
-<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
-</div>
-</div>
-<ul class="prompts" style="margin-top:0;">
-<li>哪一句大家的答案<strong>最不一致</strong>？為什麼？</li>
-<li>你的「可以」和「不能」，界線畫在哪裡？</li>
-</ul>
-</div>
+<h3>（一）這是幫忙，還是介入太多？</h3>
+<p class="hint">請選擇比較接近你的判斷。即使你認為要看情況，也必須先選一邊，再說明什麼情況會讓你改變答案。</p>
+<div class="specimen" id="support-cards"><div class="line" tabindex="0"><span class="n">01</span><span class="said">孩子第一次搬宿舍，父母開車幫忙搬行李。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">02</span><span class="said">大學生週末回家時，父母替他洗衣服、煮飯。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">03</span><span class="said">孩子生病住院，父母請假來照顧。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">04</span><span class="said">父母出錢布置宿舍，也替孩子決定用品和房間配色。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">05</span><span class="said">孩子的租屋處有問題，父母幫忙聯絡房東處理。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">06</span><span class="said">孩子怕搶不到熱門課，請父母代為搶課。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">07</span><span class="said">孩子和室友吵架，母親幫忙出面打電話給宿舍管理員。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div><div class="line" tabindex="0"><span class="n">08</span><span class="said">孩子收到低分，父母聯絡教授，請求重新評分。</span><span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span></span></div></div>
+<ul class="prompts"><li>請說明你判斷的界線在哪裡。</li><li>你判斷的標準是孩子的年齡、事情的難度，還是父母有沒有替他做決定？</li></ul>
 </div>
 <div class="pre-block">
-<h3>（二）這是幫忙，還是管太多？</h3>
-<p class="hint">點一張卡，替它選一個判斷——然後說出你的理由。</p>
-<div class="specimen" id="specimen">
+<h3>（二）幾歲應該會什麼？</h3>
+<p class="hint">你認為一個人最晚到了幾歲，應該能自己做到下面這件事？請選一個答案。</p>
+<div class="specimen age-set" id="age-cards">
 <div class="line" tabindex="0">
 <span class="n">01</span>
-<span class="said">孩子第一次搬宿舍，父母開車幫忙搬行李。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">自己洗衣服，也能煮一頓簡單的飯。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 <div class="line" tabindex="0">
 <span class="n">02</span>
-<span class="said">孩子生病住院，父母請假來照顧。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">自己掛號、看醫生和領藥。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 <div class="line" tabindex="0">
 <span class="n">03</span>
-<span class="said">孩子不知道怎麼報稅，父母先教他，再請他自己完成。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">記得繳房租、水電費和電話費。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 <div class="line" tabindex="0">
 <span class="n">04</span>
-<span class="said">孩子選不到課，父親打電話要求學校加簽。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">自己報稅，並看懂基本的帳單和合約。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 <div class="line" tabindex="0">
 <span class="n">05</span>
-<span class="said">孩子和室友吵架，母親直接打電話給宿舍管理員。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">存下一筆足以支付至少六個月基本生活費的緊急預備金。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 <div class="line" tabindex="0">
 <span class="n">06</span>
-<span class="said">孩子收到低分，父母要求教授重新評分。</span>
-<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+<span class="said">安排一次家族旅行，包括交通、住宿、行程和費用。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">07</span>
+<span class="said">安排過年、過節或家族聚餐，聯絡大家並處理訂位或準備食物。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">08</span>
+<span class="said">家人生病時，能安排就醫、住院、繳費和後續照顧。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">09</span>
+<span class="said">父母年紀大了以後，能和家人討論照顧方式與費用。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">10</span>
+<span class="said">為自己的退休生活準備存款、保險或其他安排。</span>
+<span class="tags"><span class="tag">20 歲</span><span class="tag">30 歲</span><span class="tag">40 歲</span><span class="tag">50 歲</span><span class="tag">不一定</span></span>
 </div>
 </div>
 <ul class="prompts">
-<li>不能只說「可以」或「不可以」，必須說明<strong>界線在哪裡</strong>。</li>
+<li>哪一項大家選的年齡差最多？為什麼？</li>
+<li>你現在已經能做到哪些事？還有哪一項需要別人幫忙？</li>
+<li>有沒有哪一項不應該用年齡判斷？</li>
 </ul>
 <div class="aside">
-    請把你的判斷留著。讀完課文以後，我們會回來看：你的界線有沒有改變？
-  </div>
+        請把你的答案留著。讀完課文以後，再看看你對「長大」的標準有沒有改變。
+      </div>
 </div>
 </div>
 </section>
@@ -915,33 +913,27 @@ ul.task-hint li::before{
 </footer>
 </div>
 <script>
-// 暖身：四句回答
-document.querySelectorAll('#replies .reply').forEach(function(r){
-  function toggle(e){
-    if(e.target.classList.contains('tag')) return;
-    r.classList.toggle('on');
-  }
-  r.addEventListener('click', toggle);
-  r.addEventListener('keydown', function(e){
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
-  });
-  r.querySelectorAll('.tag').forEach(function(t){
-    t.addEventListener('click', function(e){ e.stopPropagation(); t.classList.toggle('picked'); });
-  });
-});
-
-// 八句話
-document.querySelectorAll('#specimen .line').forEach(function(line){
-  function toggle(e){
-    if(e.target.classList.contains('tag')) return;
-    line.classList.toggle('on');
-  }
-  line.addEventListener('click', toggle);
-  line.addEventListener('keydown', function(e){
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
-  });
-  line.querySelectorAll('.tag').forEach(function(tag){
-    tag.addEventListener('click', function(e){ e.stopPropagation(); tag.classList.toggle('picked'); });
+// 課前互動卡：點開題目，每題只能選一個答案
+['support-cards','age-cards'].forEach(function(id){
+  document.querySelectorAll('#' + id + ' .line').forEach(function(line){
+    function toggle(e){
+      if(e.target.classList.contains('tag')) return;
+      line.classList.toggle('on');
+    }
+    line.addEventListener('click', toggle);
+    line.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggle(e);
+      }
+    });
+    line.querySelectorAll('.tag').forEach(function(tag){
+      tag.addEventListener('click', function(e){
+        e.stopPropagation();
+        line.querySelectorAll('.tag').forEach(function(t){ t.classList.remove('picked'); });
+        tag.classList.add('picked');
+      });
+    });
   });
 });
 
