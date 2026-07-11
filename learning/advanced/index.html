@@ -1,16 +1,484 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高階專題｜漫遊字間</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--paper:#F8F6F2;--card:#FFFFFF;--ink:#2C3E50;--soft:#6F6A64;--faint:#A69F95;--rule:rgba(140,130,117,.16);--moss:#5C8A55;}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans TC",sans-serif;padding:0 20px 72px;min-height:100vh}.page{max-width:920px;margin:0 auto;padding-top:44px}a{color:inherit}.back{display:inline-flex;text-decoration:none;color:#8C8275;font-size:.86rem;letter-spacing:.06em;padding:10px 0;margin-bottom:36px}.back:hover{color:var(--ink)}header{margin-bottom:46px;border-bottom:1px solid var(--rule);padding-bottom:32px}.brand{font-family:"Montserrat",sans-serif;font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;color:var(--moss);margin-bottom:16px}h1{font-family:"Noto Serif TC",serif;font-size:clamp(2rem,4.8vw,3rem);letter-spacing:.08em;font-weight:600;margin-bottom:14px}.sub{font-size:1rem;line-height:1.9;color:#8C8275;font-weight:300;letter-spacing:.05em;max-width:700px}.sub-en{font-family:"Montserrat",sans-serif;font-size:.86rem;line-height:1.8;color:#8C8275;font-weight:300;letter-spacing:.04em;max-width:760px;margin-top:10px}.unit{margin-top:36px}.unit-head{font-family:"Montserrat","Noto Sans TC",sans-serif;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:#8C8275;margin-bottom:14px}.list{background:rgba(255,255,255,.76);border:1px solid var(--rule);border-radius:24px;overflow:hidden;box-shadow:0 4px 25px rgba(140,130,117,.055)}.lesson{display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:center;padding:22px 30px;text-decoration:none;border-top:1px solid var(--rule);transition:background .25s ease,transform .25s ease}.lesson:first-child{border-top:none}.lesson:hover{background:#FFFFFF}.num{font-family:"Montserrat",sans-serif;font-size:.78rem;letter-spacing:.16em;color:var(--moss)}.title{font-size:1.08rem;letter-spacing:.04em;font-weight:500;color:var(--ink)}.desc{font-size:.86rem;color:#8C8275;line-height:1.7;margin-top:5px;font-weight:300}.action{font-family:"Montserrat",sans-serif;font-size:.72rem;letter-spacing:.13em;color:var(--moss);white-space:nowrap}.locked{opacity:.52;cursor:default}.locked:hover{background:transparent}footer{text-align:center;margin-top:76px;padding-top:34px;border-top:1px solid var(--rule);font-family:"Montserrat",sans-serif;font-size:.72rem;letter-spacing:.14em;color:#B0A898;line-height:1.8}@media(max-width:640px){.lesson{grid-template-columns:1fr;gap:8px;padding:22px 22px}.action{margin-top:4px}}
-</style></head>
-<body><div class="page"><a class="back" href="../index.html">← 返回 漫遊字間</a><header><div class="brand">Advanced Readings</div><h1>高階專題</h1><p class="sub">自編高階讀寫教材，從當代人物、文化議題與社會討論中練習華語表達。</p><p class="sub-en">Original advanced reading lessons for practicing Mandarin expression through contemporary figures, cultural issues, and social discussions.</p></header>
-<main class="unit"><div class="unit-head">第一單元　我怎麼看自己</div><div class="list">
-  <a class="lesson" href="../lesson01.html"><div class="num">LESSON 01</div><div><div class="title">第一課｜他們說這是為你好</div><div class="desc">從黃仁勳談「亞洲父母」開始，討論批評、關心、犧牲與自我價值之間的界線。</div></div><div class="action">Enter →</div></a>
-  <a class="lesson" href="../lesson02.html"><div class="num">LESSON 02</div><div><div class="title">第二課｜我不是故意的</div><div class="desc">從 ADHD、理由與藉口開始，討論理解、責任與公平之間的界線。</div></div><div class="action">Enter →</div></a>
-  <div class="lesson locked"><div class="num">LESSON 03</div><div><div class="title">第三課｜休息與倦怠</div></div><div class="action">Coming Soon</div></div>
-</div></main><footer>Between Characters · Wander Between Words<br>© 2026 Between Characters</footer></div></body></html>
+:root{
+  --paper:#F8F6F2;
+  --card:#FFFFFF;
+  --ink:#2C3E50;
+  --soft:#756E66;
+  --faint:#A69F95;
+  --rule:rgba(140,130,117,.16);
+  --moss:#6D9270;
+  --rose:#C88972;
+  --unit-accent:var(--moss);
+  --unit-wash:rgba(109,146,112,.07);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  min-height:100vh;
+  padding:0 20px 72px;
+  background:
+    radial-gradient(circle at 88% 9%, rgba(109,146,112,.055), transparent 24%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans TC",sans-serif;
+}
+
+.page{
+  max-width:960px;
+  margin:0 auto;
+  padding-top:44px;
+}
+
+a{color:inherit}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:36px;
+  padding:10px 0;
+  color:#8C8275;
+  font-size:.86rem;
+  letter-spacing:.06em;
+  text-decoration:none;
+  transition:color .2s ease, transform .2s ease;
+}
+
+.back:hover{
+  color:var(--ink);
+  transform:translateX(-3px);
+}
+
+header{
+  position:relative;
+  margin-bottom:52px;
+  padding-bottom:34px;
+  border-bottom:1px solid var(--rule);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+  color:var(--moss);
+  font-family:"Montserrat",sans-serif;
+  font-size:.76rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+}
+
+.brand::after{
+  width:42px;
+  height:1px;
+  background:rgba(109,146,112,.45);
+  content:"";
+}
+
+h1{
+  margin-bottom:16px;
+  font-family:"Noto Serif TC",serif;
+  font-size:clamp(2rem,4.8vw,3rem);
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+.sub{
+  max-width:760px;
+  color:#7F776E;
+  font-size:1rem;
+  font-weight:300;
+  letter-spacing:.045em;
+  line-height:1.95;
+}
+
+.sub-en{
+  max-width:820px;
+  margin-top:10px;
+  color:#938A80;
+  font-family:"Montserrat",sans-serif;
+  font-size:.84rem;
+  font-weight:300;
+  letter-spacing:.025em;
+  line-height:1.85;
+}
+
+.unit{
+  --unit-accent:var(--moss);
+  --unit-wash:rgba(109,146,112,.07);
+  margin-top:48px;
+}
+
+.unit.unit-two{
+  --unit-accent:var(--rose);
+  --unit-wash:rgba(200,137,114,.07);
+  margin-top:58px;
+}
+
+.unit.unit-three{
+  --unit-accent:#738A9A;
+  --unit-wash:rgba(115,138,154,.07);
+  margin-top:58px;
+}
+
+.unit-intro{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:22px;
+  align-items:center;
+  margin-bottom:27px;
+  padding-left:2px;
+}
+
+.unit-no{
+  min-width:72px;
+  padding-top:2px;
+  color:var(--unit-accent);
+  font-family:"Montserrat",sans-serif;
+  font-size:.76rem;
+  font-weight:500;
+  letter-spacing:.2em;
+}
+
+.unit-copy{
+  position:relative;
+  display:flex;
+  align-items:baseline;
+  gap:18px;
+  padding-left:21px;
+}
+
+.unit-copy::before{
+  position:absolute;
+  top:4px;
+  bottom:2px;
+  left:0;
+  width:2px;
+  border-radius:999px;
+  background:var(--unit-accent);
+  content:"";
+  opacity:.68;
+}
+
+.unit-title{
+  flex:0 0 auto;
+  color:#53606C;
+  font-family:"Noto Serif TC",serif;
+  font-size:1.26rem;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+.unit-desc{
+  margin-top:0;
+  color:#8A8279;
+  font-size:.91rem;
+  font-weight:300;
+  letter-spacing:.035em;
+  line-height:1.75;
+}
+
+.list{
+  overflow:hidden;
+  border:1px solid var(--rule);
+  border-radius:24px;
+  background:rgba(255,255,255,.79);
+  box-shadow:0 8px 30px rgba(92,78,64,.055);
+}
+
+.lesson{
+  position:relative;
+  display:grid;
+  grid-template-columns:96px 1fr auto;
+  gap:24px;
+  align-items:center;
+  min-height:96px;
+  padding:21px 30px;
+  border-top:1px solid var(--rule);
+  text-decoration:none;
+  transition:background .25s ease, padding-left .25s ease;
+}
+
+.lesson:first-child{border-top:none}
+
+.lesson::before{
+  position:absolute;
+  top:21px;
+  bottom:21px;
+  left:0;
+  width:3px;
+  border-radius:0 999px 999px 0;
+  background:var(--unit-accent);
+  content:"";
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+a.lesson:hover{
+  padding-left:34px;
+  background:linear-gradient(90deg,var(--unit-wash),rgba(255,255,255,.95) 40%);
+}
+
+a.lesson:hover::before{opacity:.7}
+
+.num{
+  color:var(--unit-accent);
+  font-family:"Montserrat",sans-serif;
+  font-size:.76rem;
+  font-weight:500;
+  letter-spacing:.16em;
+}
+
+.title{
+  color:var(--ink);
+  font-size:1.07rem;
+  font-weight:500;
+  letter-spacing:.04em;
+}
+
+.desc{
+  margin-top:5px;
+  color:#8C8275;
+  font-size:.85rem;
+  font-weight:300;
+  line-height:1.7;
+}
+
+.action{
+  color:var(--unit-accent);
+  font-family:"Montserrat",sans-serif;
+  font-size:.71rem;
+  letter-spacing:.13em;
+  white-space:nowrap;
+  transition:transform .25s ease;
+}
+
+a.lesson:hover .action{transform:translateX(4px)}
+
+.locked{
+  cursor:default;
+  opacity:.53;
+}
+
+.locked .action{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.locked .action::before{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor;
+  content:"";
+  opacity:.7;
+}
+
+footer{
+  margin-top:80px;
+  padding-top:34px;
+  border-top:1px solid var(--rule);
+  color:#B0A898;
+  font-family:"Montserrat",sans-serif;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  line-height:1.8;
+  text-align:center;
+}
+
+@media(max-width:700px){
+  body{padding-right:16px;padding-left:16px}
+  .page{padding-top:30px}
+  .back{margin-bottom:28px}
+  header{margin-bottom:42px}
+  .unit{margin-top:40px}
+  .unit.unit-two,
+  .unit.unit-three{margin-top:50px}
+  .unit-intro{grid-template-columns:1fr;gap:9px;margin-bottom:22px}
+  .unit-no{min-width:0}
+  .unit-copy{
+    display:block;
+    padding-left:15px;
+  }
+  .unit-desc{margin-top:7px;font-size:.88rem}
+  .lesson{
+    grid-template-columns:1fr;
+    gap:7px;
+    min-height:0;
+    padding:21px 22px;
+  }
+  a.lesson:hover{padding-left:25px}
+  .lesson::before{top:18px;bottom:18px}
+  .action{margin-top:4px}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+  <a class="back" href="../index.html">← 返回 漫遊字間</a>
+
+  <header>
+    <div class="brand">Advanced Readings</div>
+    <h1>高階專題</h1>
+    <p class="sub">從自我、他人到社會與世界，透過當代議題練習思考、建立觀點，並用華語表達複雜而真實的想法。</p>
+    <p class="sub-en">From the self and our relationships with others to society and the wider world, these readings explore contemporary issues, helping learners form perspectives and express complex, authentic ideas in Mandarin.</p>
+  </header>
+
+  <main>
+    <section class="unit unit-one">
+      <div class="unit-intro">
+        <div class="unit-no">UNIT 01</div>
+        <div class="unit-copy">
+          <h2 class="unit-title">那些難說出口的話</h2>
+          <p class="unit-desc">從家庭、心理與關係出發，思考我們如何理解自己，也如何回應他人。</p>
+        </div>
+      </div>
+
+      <div class="list">
+        <a class="lesson" href="../lesson01.html">
+          <div class="num">LESSON 01</div>
+          <div>
+            <div class="title">第一課｜他們說這是為你好</div>
+            <div class="desc">從黃仁勳談「亞洲父母」開始，討論批評、關心、犧牲與自我價值之間的界線。</div>
+          </div>
+          <div class="action">Enter →</div>
+        </a>
+
+        <a class="lesson" href="../lesson02.html">
+          <div class="num">LESSON 02</div>
+          <div>
+            <div class="title">第二課｜我不是故意的</div>
+            <div class="desc">從 ADHD、理由與藉口開始，討論理解、責任與公平之間的界線。</div>
+          </div>
+          <div class="action">Enter →</div>
+        </a>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 03</div>
+          <div>
+            <div class="title">第三課｜我可以說不嗎？</div>
+            <div class="desc">從拒絕與人際界線出發，思考體貼別人與保護自己之間的距離。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 04</div>
+          <div>
+            <div class="title">第四課｜我們到底算什麼？</div>
+            <div class="desc">從難以定義的關係開始，討論承諾、期待與親密關係中的不確定。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit unit-two">
+      <div class="unit-intro">
+        <div class="unit-no">UNIT 02</div>
+        <div class="unit-copy">
+          <h2 class="unit-title">上大學，然後呢？</h2>
+          <p class="unit-desc">從成年、分數、AI 與學制出發，重新思考大學的意義與學習的價值。</p>
+        </div>
+      </div>
+
+      <div class="list">
+        <a class="lesson" href="../lesson05.html">
+          <div class="num">LESSON 05</div>
+          <div>
+            <div class="title">第五課｜上大學的我，長大了嗎？</div>
+            <div class="desc">從父母替大學新生打點生活開始，討論成年、獨立與世代差異。</div>
+          </div>
+          <div class="action">Enter →</div>
+        </a>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 06</div>
+          <div>
+            <div class="title">第六課｜大家都拿高分，誰才是真的優秀？</div>
+            <div class="desc">從成績與評量開始，思考高分是否仍能代表能力與學習成果。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 07</div>
+          <div>
+            <div class="title">第七課｜如果 AI 都會了，什麼還值得我花時間學？</div>
+            <div class="desc">從生成式 AI 進入校園開始，重新思考知識、能力與學習的價值。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 08</div>
+          <div>
+            <div class="title">第八課｜大學一定要讀四年嗎？</div>
+            <div class="desc">從大學學制的改變出發，討論效率、深度與高等教育的目的。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="unit unit-three">
+      <div class="unit-intro">
+        <div class="unit-no">UNIT 03</div>
+        <div class="unit-copy">
+          <h2 class="unit-title">誰在教我怎麼活</h2>
+          <p class="unit-desc">從社群媒體、演算法與語言規範出發，思考誰在影響我們的判斷、選擇與表達。</p>
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 09</div>
+          <div>
+            <div class="title">第九課｜他們真心想幫你</div>
+            <div class="desc">從社群媒體上的建議與說教開始，分辨關心、炫耀與控制之間的界線。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 10</div>
+          <div>
+            <div class="title">第十課｜這是我想要的，還是演算法想要的？</div>
+            <div class="desc">從推薦內容與個人選擇開始，思考演算法如何塑造喜好、注意力與生活。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+
+        <div class="lesson locked" aria-disabled="true">
+          <div class="num">LESSON 11</div>
+          <div>
+            <div class="title">第十一課｜誰決定什麼話不能說？</div>
+            <div class="desc">從政治正確與公共語言開始，討論尊重、冒犯與言論界線。</div>
+          </div>
+          <div class="action">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Between Characters · Wander Between Words<br>
+    © 2026 Between Characters
+  </footer>
+</div>
+</body>
+</html>
