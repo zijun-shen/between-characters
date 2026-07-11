@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>第五課　上大學的我，長大了嗎？</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Noto+Serif+TC:wght@300;400;500;600;700&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#22303c;
+  --ink-soft:#41525f;
+  --ink-faint:#7e94a3;
+  --paper:#f9fcfe;
+  --paper-warm:#eef4f9;
+  --card:#ffffff;
+  --rule:rgba(53,99,137,.22);
+  --rule-soft:rgba(53,99,137,.11);
+  --blue:#35638a;
+  --blue-light:#7ba7c8;
+  --blue-pale:#e6f0f7;
+  --slate:#557186;
+  --mark:#35638a;
+  --mark-wash:#e6f0f7;
+  --accent:#557186;
+  --accent-wash:#eef4f9;
+  --maxw:760px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif TC",serif;
+  font-weight:400;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px 140px}
+
+
+/* ---------- lesson navigation ---------- */
+.lesson-top-nav{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:34px 0 0;
+}
+.lesson-back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  color:var(--slate);
+  text-decoration:none;
+  border:1px solid var(--rule);
+  background:rgba(255,255,255,.62);
+  border-radius:999px;
+  padding:9px 18px;
+  box-shadow:0 8px 24px -20px rgba(47,39,35,.42);
+  transition:all .25s ease;
+}
+.lesson-back:hover{
+  color:var(--blue);
+  border-color:var(--blue-light);
+  background:var(--card);
+  transform:translateY(-1px);
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:96px 0 56px;border-bottom:1px solid var(--rule)}
+.course{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.72rem;letter-spacing:.32em;font-weight:500;
+  color:var(--slate);text-transform:uppercase;margin-bottom:28px;
+}
+.lesson-no{
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.8rem;letter-spacing:.24em;font-weight:500;
+  color:var(--blue);margin-bottom:14px;
+}
+h1{
+  font-size:clamp(2.1rem,5.6vw,3.1rem);
+  font-weight:600;line-height:1.35;letter-spacing:.02em;margin-bottom:22px;
+}
+.subtitle{
+  font-size:1.05rem;color:var(--ink-soft);font-weight:300;
+  line-height:1.85;max-width:34em;
+}
+.meta{
+  margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 28px;
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  letter-spacing:.03em;color:var(--slate);
+}
+.meta span{white-space:nowrap}
+
+/* ---------- section headers ---------- */
+section{padding-top:88px}
+.sec-head{margin-bottom:44px}
+.sec-title{display:flex;align-items:baseline;gap:20px}
+.sec-num{
+  font-family:"Cormorant Garamond","Noto Serif TC",serif;
+  font-size:1.9rem;font-weight:400;line-height:1.4;
+  color:var(--blue);flex-shrink:0;
+}
+.sec-head h2{
+  font-size:1.72rem;font-weight:600;letter-spacing:.03em;line-height:1.5;
+}
+.sec-head .note{
+  margin-top:14px;font-size:.94rem;color:var(--ink-faint);font-weight:300;
+}
+h3{
+  font-size:1.08rem;font-weight:600;letter-spacing:.03em;
+  margin:44px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+h3:first-of-type{margin-top:0}
+
+/* ---------- 課前卡片 ---------- */
+.pre-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:44px 44px 40px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pre-block + .pre-block{
+  margin-top:40px;padding-top:40px;border-top:1px solid var(--rule);
+}
+.pre-block h3{
+  margin:0 0 16px;padding:0;border-bottom:none;
+  font-size:1.06rem;font-weight:600;letter-spacing:.03em;
+}
+.pre-card .aside{margin-top:34px}
+.pre-card .specimen{background:transparent}
+.pre-card .line:hover,.pre-card .line:focus-visible{background:var(--paper-warm)}
+.pre-card .tag{background:var(--paper)}
+.pre-card .prompts li{border-bottom-color:var(--rule-soft)}
+.q-set{margin-bottom:22px}
+.q-set p{
+  font-size:1.02rem;color:var(--ink);line-height:1.9;
+  padding:9px 0 9px 24px;position:relative;
+}
+.q-set p::before{
+  content:"";position:absolute;left:0;top:1.55em;
+  width:11px;height:1px;background:var(--ink-faint);
+}
+.q-set .closer{
+  margin-top:8px;padding-left:24px;font-family:"Noto Sans TC",sans-serif;
+  font-size:.86rem;color:var(--ink-faint);letter-spacing:.06em;
+}
+.q-set .closer::before{display:none}
+
+/* ---------- SIGNATURE: the eight sentences ---------- */
+.specimen{
+  border-top:2px solid var(--blue);
+  border-bottom:1px solid var(--rule);
+}
+.line{
+  display:grid;grid-template-columns:2.2rem 1fr;
+  gap:0 16px;align-items:baseline;
+  padding:16px 4px;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+  transition:background .35s ease,padding-left .35s ease;
+}
+.line:last-child{border-bottom:none}
+.line:hover,.line:focus-visible{background:var(--paper-warm);padding-left:12px;outline:none}
+.line.on{background:var(--mark-wash);padding-left:12px}
+.line .n{
+  font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:500;
+  color:var(--ink-faint);letter-spacing:.04em;
+}
+.line.on .n{color:var(--blue)}
+.line .said{font-size:1.08rem;line-height:1.7;letter-spacing:.02em}
+.line .tags{
+  grid-column:2;display:flex;gap:8px;flex-wrap:wrap;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.line.on .tags{max-height:80px;opacity:1;margin-top:13px}
+.tag{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.1em;
+  padding:6px 13px;border:1px solid var(--rule);border-radius:2px;
+  background:var(--paper);color:var(--ink-soft);
+  cursor:pointer;transition:all .2s ease;user-select:none;
+}
+.tag:hover{border-color:var(--ink-soft)}
+.tag.picked{background:var(--blue);border-color:var(--blue);color:#fff}
+.hint{
+  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;color:var(--ink-faint);
+  margin-bottom:16px;letter-spacing:.04em;
+}
+
+/* ---------- prompts ---------- */
+.prompts{margin-top:28px;padding-left:2px}
+.prompts li{
+  list-style:none;padding:11px 0 11px 24px;position:relative;
+  font-size:.98rem;color:var(--ink-soft);line-height:1.75;
+  border-bottom:1px dotted var(--rule);
+}
+.prompts li:last-child{border-bottom:none}
+.prompts li::before{
+  content:"";position:absolute;left:0;top:1.5em;
+  width:11px;height:1px;background:var(--mark);
+}
+.prompts strong{font-weight:600;color:var(--ink)}
+
+.aside{
+  margin-top:28px;padding:18px 22px;background:var(--blue-pale);
+  border-left:2px solid var(--blue-light);
+  font-size:.94rem;color:var(--ink-soft);line-height:1.8;
+}
+
+/* ---------- 課文 ---------- */
+.text-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-top:3px solid var(--blue);
+  border-radius:3px;
+  padding:56px 56px 40px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 22px 48px -32px rgba(47,39,35,.32);
+}
+.text-body{font-size:1.14rem;line-height:2.15;letter-spacing:.025em}
+.text-body p{margin-bottom:1.9em}
+.text-body p.hinge{
+  text-align:center;color:var(--slate);font-style:normal;
+  margin:3.2em 0;font-size:1.06rem;letter-spacing:.12em;
+}
+.text-body q{quotes:"「" "」" "『" "』"}
+.text-body .close{margin-left:1.2em;padding-left:1.2em;border-left:2px solid var(--blue-pale);color:var(--ink)}
+.text-body .close p{margin-bottom:.9em}
+
+/* 語法點 */
+.g{
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:.03em;
+}
+
+/* vocab underline */
+.v{
+  border-bottom:1px solid var(--blue-light);
+  cursor:help;position:relative;
+  transition:background .2s ease;
+}
+.v:hover{background:var(--blue-pale)}
+.v::after{
+  content:attr(data-g);
+  position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);
+  background:var(--blue);color:#fff;
+  font-family:"EB Garamond","Noto Serif TC",serif;font-size:.95rem;letter-spacing:.02em;
+  line-height:1.65;white-space:nowrap;padding:8px 14px;border-radius:3px;
+  opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:20;
+  box-shadow:0 4px 16px -6px rgba(47,39,35,.38);
+}
+.v:hover::after{opacity:1}
+
+.wordcount{
+  margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--ink-faint);letter-spacing:.04em;text-align:right;
+}
+
+/* ---------- 生詞表 ---------- */
+.vocab-tools{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--rule);
+}
+.filter{
+  font-family:"Noto Sans TC",sans-serif;font-size:.8rem;letter-spacing:.08em;
+  padding:8px 16px;border:1px solid var(--rule);background:var(--card);
+  color:var(--ink-soft);cursor:pointer;border-radius:2px;transition:all .2s ease;
+}
+.filter:hover{border-color:var(--ink-soft)}
+.filter.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.count{
+  font-family:"EB Garamond","Noto Sans TC",serif;font-size:.98rem;
+  color:var(--slate);letter-spacing:.04em;margin-left:auto;
+}
+
+.vtable{width:100%;border-collapse:collapse;font-size:.95rem}
+.vtable thead th{
+  font-family:"EB Garamond",serif;font-size:.88rem;font-weight:500;
+  letter-spacing:.18em;color:var(--slate);text-align:left;
+  padding:0 12px 14px 0;border-bottom:1px solid var(--blue);text-transform:uppercase;
+}
+.vtable td{
+  padding:15px 12px 15px 0;border-bottom:1px solid var(--rule);
+  vertical-align:top;line-height:1.7;
+}
+.vtable tr:hover td{background:var(--blue-pale)}
+.vtable .c-n{
+  font-family:"Cormorant Garamond",serif;font-size:1rem;
+  color:var(--ink-faint);width:40px;padding-top:15px;
+}
+.vtable .c-w{font-size:1.06rem;font-weight:500;white-space:nowrap;letter-spacing:.04em}
+.vtable .c-p{
+  font-family:"EB Garamond",serif;font-size:1.02rem;
+  color:var(--slate);white-space:nowrap;letter-spacing:.015em;
+}
+.vtable .c-e{
+  font-family:"EB Garamond",serif;font-size:1.06rem;
+  color:var(--ink-soft);line-height:1.55;letter-spacing:.005em;
+}
+.vtable .c-t{
+  font-family:"EB Garamond",serif;font-size:.95rem;font-style:italic;
+  color:var(--ink-faint);white-space:nowrap;letter-spacing:.02em;
+}
+.vtable .c-d{font-size:.92rem;color:var(--ink-soft)}
+/* 核心詞：深藍、較粗，並加圓點 */
+.vtable tr[data-k="core"] .c-w,
+.core .c-w{
+  color:var(--mark);
+  font-weight:600;
+}
+.vtable tr[data-k="core"] .c-w::after,
+.core .c-w::after{
+  content:"●";
+  font-size:.42rem;
+  vertical-align:.5em;
+  margin-left:6px;
+  color:var(--mark);
+}
+
+/* 認讀詞：降低視覺重量，不與核心詞競爭 */
+.vtable tr[data-k="recg"] .c-w{
+  color:#748693;
+  font-weight:400;
+}
+.vtable tr[data-k="recg"] .c-p,
+.vtable tr[data-k="recg"] .c-e,
+.vtable tr[data-k="recg"] .c-t,
+.vtable tr[data-k="recg"] .c-d{
+  color:#8A98A2;
+}
+tr.hide{display:none}
+
+/* ---------- 立場 ---------- */
+.stances{display:grid;gap:20px;margin-bottom:44px}
+.stance{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 32px;cursor:pointer;position:relative;
+  transition:all .3s ease;border-radius:2px;
+}
+.stance:hover{border-color:var(--ink-soft);transform:translateY(-1px)}
+.stance .label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:14px;
+}
+.stance.open .label{color:var(--mark)}
+.stance.open{border-color:var(--blue-light);background:var(--blue-pale)}
+.stance .claim{font-size:1.08rem;line-height:1.9;letter-spacing:.02em}
+.stance .push{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s ease,opacity .35s ease,margin-top .45s ease;
+  font-size:.94rem;color:var(--ink-soft);line-height:1.85;
+}
+.stance.open .push{max-height:280px;opacity:1;margin-top:20px}
+.stance .say{margin-top:22px}
+.stance .say label{
+  display:block;font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  letter-spacing:.14em;color:var(--ink-faint);margin-bottom:10px;
+}
+.stance.open .say label{color:var(--mark)}
+.stance textarea{
+  width:100%;min-height:110px;padding:16px 18px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.7);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.stance textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+.stance .toggle{
+  position:absolute;top:28px;right:28px;
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.14em;
+  color:var(--ink-faint);border:1px solid var(--rule);border-radius:2px;
+  padding:5px 12px;background:var(--paper);transition:all .2s ease;
+}
+.stance.open .toggle{background:var(--blue);border-color:var(--blue);color:#fff}
+.stance:hover .toggle{border-color:var(--ink-soft);color:var(--ink-soft)}
+/* ---------- 課文後的兩問 ---------- */
+.two-q{
+  margin:56px 0 0;
+  padding:64px 48px 60px;
+  background:var(--blue);
+  border-radius:3px;
+  box-shadow:0 20px 46px -30px rgba(47,39,35,.55);
+}
+.two-q p{
+  font-size:1.28rem;font-weight:500;line-height:1.7;letter-spacing:.01em;
+  color:#fff;white-space:nowrap;
+}
+@media(max-width:640px){.two-q p{white-space:normal;font-size:1.08rem}}
+.two-q p + p{
+  margin-top:30px;padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+
+/* ---------- 口說 ---------- */
+.oral{
+  margin-top:44px;padding:28px 30px;
+  border:1px solid var(--blue-light);border-left:3px solid var(--blue);
+  background:var(--blue-pale);border-radius:3px;
+}
+.oral-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--blue);margin-bottom:16px;
+}
+.oral-lead{font-size:1.02rem;line-height:1.9;color:var(--ink);margin-bottom:12px}
+.oral-lead strong{font-weight:600;border-bottom:1px solid var(--blue)}
+.oral-note{font-size:.92rem;color:var(--ink-soft);line-height:1.85;opacity:.9}
+
+/* ---------- 如果是你 ---------- */
+.mirror{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pane{
+  border:1px solid var(--rule);background:var(--card);
+  padding:30px 28px;border-radius:3px;border-top:2px solid var(--blue);
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(38,48,44,.30);
+}
+.pane-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.22em;
+  color:var(--mark);margin-bottom:16px;
+}
+.pane-q{font-size:1.14rem;font-weight:600;line-height:1.75;letter-spacing:.02em;margin-bottom:14px}
+.pane-hint{font-size:.9rem;color:var(--ink-faint);line-height:1.85;margin-bottom:20px}
+.pane textarea{
+  width:100%;min-height:150px;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--paper);
+  font-family:"Noto Serif TC",serif;font-size:.98rem;line-height:1.9;
+  color:var(--ink);resize:vertical;border-radius:2px;
+}
+.pane textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+
+.hinge-q{
+  margin-top:40px;padding:44px 30px;text-align:center;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+}
+.hinge-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--ink-faint);margin-bottom:22px;
+}
+.hinge-q p{font-size:1.62rem;font-weight:600;letter-spacing:.06em;line-height:1.7;color:var(--ink)}
+.hinge-q .hinge-sub{
+  margin-top:14px;font-size:1.02rem;font-weight:400;
+  color:var(--ink-soft);letter-spacing:.03em;
+}
+.stance .push-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.2em;
+  color:var(--mark);margin-bottom:10px;
+}
+footer{
+  margin-top:110px;padding-top:26px;border-top:1px solid var(--rule);
+  font-family:"Noto Sans TC",sans-serif;font-size:.74rem;
+  color:var(--ink-faint);letter-spacing:.04em;line-height:1.7;
+}
+.f-line{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:20px;flex-wrap:wrap;margin-bottom:22px;
+}
+.f-date{font-family:"EB Garamond",serif;font-size:.95rem;color:var(--slate);white-space:nowrap}
+.f-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.7rem;letter-spacing:.22em;
+  color:var(--slate);margin-bottom:10px;
+}
+.refs{margin:0 0 16px;padding:0;list-style:none}
+.refs li{
+  padding:3px 0 3px 20px;position:relative;font-size:.68rem;line-height:1.6;
+}
+.refs li::before{
+  content:counter(r,cjk-ideographic)"、";counter-increment:r;
+  position:absolute;left:0;top:3px;color:var(--ink-faint);
+}
+.refs{counter-reset:r}
+.refs a{
+  font-family:"EB Garamond",serif;font-size:.72rem;
+  color:var(--blue);text-decoration:none;
+  border-bottom:1px solid var(--rule-soft);white-space:nowrap;
+}
+.refs a:hover{border-bottom-color:var(--blue)}
+.f-note{font-size:.72rem;line-height:1.7;color:var(--ink-faint);opacity:.85}
+.refs-plain{counter-reset:none}
+.refs-plain li::before{content:"·　";counter-increment:none}
+
+@media(max-width:640px){
+  .masthead{padding:64px 0 44px}
+  section{padding-top:66px}
+  .text-body{font-size:1.06rem;line-height:2.05}
+  .line .said{font-size:1.06rem}
+  .vtable .c-e,.vtable .c-d{display:none}
+  .v::after{white-space:normal;width:180px}
+  .stance{padding:24px 22px}
+  .text-card{padding:32px 24px 26px}
+  .pre-card{padding:26px 20px 24px}
+  .pre-block + .pre-block{margin-top:30px;padding-top:30px}
+  .stance .toggle{position:static;display:inline-block;margin-bottom:14px}
+  .mirror{grid-template-columns:1fr;gap:20px}
+  .pane{padding:24px 22px}
+  .hinge-q{padding:34px 16px}
+  .two-q{padding:40px 24px 38px;margin-top:40px}
+  .two-q p{font-size:1.14rem;line-height:1.85}
+  .two-q p + p{margin-top:24px;padding-top:24px}
+  .hinge-q p{font-size:1.3rem}
+}
+
+/* ---------- 暖身 ---------- */
+.warmup{
+  background:var(--card);border:1px solid var(--rule);border-radius:3px;
+  padding:34px 36px;margin-bottom:36px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(47,39,35,.28);
+}
+.warmup .q{font-size:1.14rem;font-weight:600;margin-bottom:20px;letter-spacing:.02em}
+.replies{border-top:2px solid var(--blue);border-bottom:1px solid var(--rule);margin-bottom:24px}
+.reply{
+  display:grid;grid-template-columns:2rem 1fr;gap:0 14px;align-items:baseline;
+  padding:15px 4px;border-bottom:1px solid var(--rule);cursor:pointer;
+  transition:background .3s ease,padding-left .3s ease;
+}
+.reply:last-child{border-bottom:none}
+.reply:hover,.reply:focus-visible{background:var(--paper-warm);padding-left:10px;outline:none}
+.reply.on{background:var(--blue-pale);padding-left:10px}
+.reply .n{font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--ink-faint)}
+.reply.on .n{color:var(--blue)}
+.reply .said{font-size:1.06rem;line-height:1.7}
+.reply .tags{
+  grid-column:2;display:flex;gap:8px;flex-wrap:wrap;
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.reply.on .tags{max-height:80px;opacity:1;margin-top:13px}
+
+/* ---------- 辯論 ---------- */
+.debate{
+  background:var(--blue-pale);border:1px solid var(--blue-light);
+  border-left:3px solid var(--blue);border-radius:3px;padding:32px 34px;
+}
+.debate-h{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.24em;
+  color:var(--blue);margin-bottom:18px;
+}
+.debate-lead{font-size:1.02rem;line-height:1.9;margin-bottom:26px;color:var(--ink)}
+.motions{counter-reset:m}
+.motion{
+  counter-increment:m;position:relative;padding:18px 0 18px 46px;
+  border-bottom:1px solid rgba(53,99,137,.16);
+  font-size:1.06rem;line-height:1.8;letter-spacing:.02em;
+}
+.motion:last-child{border-bottom:none}
+.motion::before{
+  content:counter(m);position:absolute;left:6px;top:19px;
+  font-family:"Cormorant Garamond",serif;font-size:1.3rem;
+  color:var(--blue);
+}
+.debate-rule{
+  margin-top:26px;padding-top:22px;border-top:1px solid rgba(53,99,137,.22);
+  font-size:.94rem;color:var(--ink-soft);line-height:1.85;
+}
+.debate-rule strong{font-weight:600;border-bottom:1px solid var(--blue)}
+
+/* ---------- 整合任務 ---------- */
+.tasks{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.task{
+  border:1px solid var(--rule);background:var(--card);border-radius:3px;
+  border-top:2px solid var(--blue);padding:30px 28px;
+  box-shadow:0 1px 3px rgba(47,39,35,.04), 0 18px 40px -30px rgba(47,39,35,.28);
+  display:flex;
+  flex-direction:column;
+}
+.task-label{
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin-bottom:16px;
+}
+.task-q{font-size:1.12rem;font-weight:600;line-height:1.75;margin-bottom:14px}
+.task-hint{font-size:.96rem;color:var(--ink-soft);line-height:1.8;margin-bottom:20px}
+.task-hint p{margin:0 0 .5em}
+.task-hint p:last-child{margin-bottom:0}
+ul.task-hint{list-style:none;margin:0 0 .8em;padding:0 0 0 1.4em}
+ul.task-hint li{
+  position:relative;padding:1px 0 1px 18px;line-height:1.75;
+  font-size:.96rem;color:var(--ink-soft);
+}
+ul.task-hint li::before{
+  content:"·";position:absolute;left:2px;top:1px;color:var(--blue);font-weight:700;
+}
+.task-hint .q-final{margin-top:.4em}
+.task-hint strong{font-weight:600;color:var(--ink)}
+.task textarea{
+  width:100%;height:150px;min-height:150px;padding:16px 18px;border:1px solid var(--rule);
+  background:var(--paper);font-family:"Noto Serif TC",serif;font-size:.98rem;
+  line-height:1.9;color:var(--ink);resize:vertical;border-radius:2px;
+  flex:0 0 auto;
+  margin-top:auto;
+}
+.task textarea:focus{outline:none;border-color:var(--blue);background:var(--card)}
+.task-or{
+  text-align:center;font-family:"Noto Sans TC",sans-serif;font-size:.78rem;
+  letter-spacing:.24em;color:var(--ink-faint);margin-bottom:26px;
+}
+
+@media(max-width:640px){
+  .tasks{grid-template-columns:1fr}
+  .warmup{padding:24px 22px}
+  .debate{padding:24px 22px}
+  .task{padding:24px 22px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+
+/* 三欄整合任務 */
+/* 橫幅整合任務：單欄堆疊，卡內縱向順排 */
+.tasks-3{grid-template-columns:1fr;gap:20px}
+.tasks-3 .task{padding:30px 36px}
+.tasks-3 .task .task-label{margin-bottom:14px}
+.tasks-3 .task .task-q{font-size:1.16rem;margin-bottom:14px}
+.tasks-3 .task .task-hint{margin-bottom:20px;max-width:none}
+.tasks-3 .task textarea{margin-top:0}
+@media(max-width:640px){
+  .tasks-3 .task{padding:24px 22px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Lesson navigation" class="lesson-top-nav">
+<a class="lesson-back" href="advanced/index.html">← 返回高階專題</a>
+</nav>
+<header class="masthead">
+<div class="course">華語高階讀寫　·　第二單元　上大學，然後呢？</div>
+<div class="lesson-no">第五課</div>
+<h1>上大學的我，長大了嗎？</h1>
+<p class="subtitle">買齊了用品，就等於準備好放手了嗎？成年有年齡，長大有沒有？</p>
+<div class="meta">
+<span>ACTFL Advanced–Superior</span>
+<span>課文約 1000 字</span>
+<span>生詞 67</span>
+<span>語法重點：定義、列因、條件與反問</span>
+</div>
+</header>
+<!-- ============ 一、課前想一想 ============ -->
+<section id="pre">
+<div class="sec-head">
+<div class="sec-title"><div class="sec-num">一</div><h2>課前想一想</h2></div>
+</div>
+<div class="pre-card">
+<div class="pre-block">
+<h3>（一）可以接受嗎？</h3>
+<p class="hint" style="margin-bottom:24px;">先憑直覺站隊。點一句話，替它選一個標籤。</p>
+<div class="warmup">
+<div class="q">下面這些事，你覺得——</div>
+<div class="replies" id="replies">
+<div class="reply" tabindex="0">
+<span class="n">01</span>
+<span class="said">大學生週末回家時，父母替他洗衣服、煮飯。</span>
+<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
+</div>
+<div class="reply" tabindex="0">
+<span class="n">02</span>
+<span class="said">父母打電話向教授詢問孩子的成績。</span>
+<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
+</div>
+<div class="reply" tabindex="0">
+<span class="n">03</span>
+<span class="said">孩子怕搶不到熱門課，請父母代為搶課。</span>
+<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
+</div>
+<div class="reply" tabindex="0">
+<span class="n">04</span>
+<span class="said">父母出錢布置宿舍，也替孩子決定用品和房間配色。</span>
+<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
+</div>
+<div class="reply" tabindex="0">
+<span class="n">05</span>
+<span class="said">成年後繼續和父母同住，但會分擔家務與生活費。</span>
+<span class="tags"><span class="tag">可以接受</span><span class="tag">不能接受</span></span>
+</div>
+</div>
+<ul class="prompts" style="margin-top:0;">
+<li>哪一句大家的答案<strong>最不一致</strong>？為什麼？</li>
+<li>你的「可以」和「不能」，界線畫在哪裡？</li>
+</ul>
+</div>
+</div>
+<div class="pre-block">
+<h3>（二）這是幫忙，還是管太多？</h3>
+<p class="hint">點一張卡，替它選一個判斷——然後說出你的理由。</p>
+<div class="specimen" id="specimen">
+<div class="line" tabindex="0">
+<span class="n">01</span>
+<span class="said">孩子第一次搬宿舍，父母開車幫忙搬行李。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">02</span>
+<span class="said">孩子生病住院，父母請假來照顧。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">03</span>
+<span class="said">孩子不知道怎麼報稅，父母先教他，再請他自己完成。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">04</span>
+<span class="said">孩子選不到課，父親打電話要求學校加簽。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">05</span>
+<span class="said">孩子和室友吵架，母親直接打電話給宿舍管理員。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+<div class="line" tabindex="0">
+<span class="n">06</span>
+<span class="said">孩子收到低分，父母要求教授重新評分。</span>
+<span class="tags"><span class="tag">合理支持</span><span class="tag">過度介入</span><span class="tag">視情況而定</span></span>
+</div>
+</div>
+<ul class="prompts">
+<li>不能只說「可以」或「不可以」，必須說明<strong>界線在哪裡</strong>。</li>
+</ul>
+<div class="aside">
+    請把你的判斷留著。讀完課文以後，我們會回來看：你的界線有沒有改變？
+  </div>
+</div>
+</div>
+</section>
+<!-- ============ 二、課文 ============ -->
+<section id="text">
+<div class="sec-head">
+<div class="sec-title"><div class="sec-num">二</div><h2>課文</h2></div>
+<p class="note">畫底線的詞可以用滑鼠停留查看。粗體為本課語法點。</p>
+</div>
+<div class="text-card">
+<div class="text-body">
+<p>暑假<span class="v" data-g="尾聲 wěishēng — final stage, end">尾聲</span>，台灣的大學校園裡經常出現<span class="v" data-g="相似 xiāngsì — similar">相似</span>的畫面：父母<span class="v" data-g="滿頭大汗 mǎntóudàhàn — dripping with sweat">滿頭大汗</span>替孩子<span class="v" data-g="扛 káng — to carry; to shoulder">扛</span>行李、<span class="v" data-g="鋪床 pūchuáng — to make the bed">鋪床</span>，一邊整理衣物，一邊提醒孩子多久該洗一次衣服。近年不少大學為新生家長舉辦<span class="v" data-g="座談 zuòtán — forum, discussion session">座談</span>，家長的<span class="v" data-g="提問 tíwèn — to ask a question">提問</span><span class="v" data-g="五花八門 wǔhuābāmén — all kinds of">五花八門</span>：有人擔心上舖太危險，有人<span class="v" data-g="嫌 xián — to dislike; to find fault with">嫌</span>宿舍的床太硬，甚至有母親詢問，自己能不能到校替孩子洗衣服。孩子雖已<span class="v" data-g="邁入 màirù — to step into">邁入</span>大學，生活裡卻處處留著父母照顧的<span class="v" data-g="痕跡 hénjì — trace, mark">痕跡</span>。</p>
+<p>這樣的現象<span class="v" data-g="並非 bìngfēi — to be not">並非</span>台灣<span class="v" data-g="獨有 dúyǒu — exclusive to">獨有</span>，且父母的<span class="v" data-g="介入 jièrù — to intervene">介入</span>有時不僅止於生活。在韓國，據《東亞日報》報導，首爾一所大學的教授曾接到家長<span class="v" data-g="激動 jīdòng — agitated, worked up">激動</span>的<span class="v" data-g="申訴 shēnsù — to appeal, to complain">申訴</span>電話，<span class="v" data-g="質問 zhìwèn — to question sharply">質問</span>孩子怎麼可能拿到這種分數；另一位教授則遇過家長要求替出國旅遊的孩子選課。在英國，也有父母直接聯絡校方詢問成績、要求<span class="v" data-g="延後 yánhòu — to postpone">延後</span><span class="v" data-g="繳交 jiǎojiāo — to hand in, to submit">繳交</span>作業，甚至<span class="v" data-g="索取 suǒqǔ — to demand, to ask for">索取</span>孩子的課表。原本該由學生自己面對的事，最後卻由父母出面<span class="v" data-g="交涉 jiāoshè — to negotiate">交涉</span>。</p>
+<p>在美國，孩子上大學前的家庭<span class="v" data-g="採買 cǎimǎi — to purchase, to shop for">採買</span>，更像是一場<span class="v" data-g="通往 tōngwǎng — leading to">通往</span>成年的<span class="v" data-g="隆重 lóngzhòng — grand, solemn">隆重</span><span class="v" data-g="儀式 yíshì — ceremony, ritual">儀式</span>。每年開學前，大型賣場裡都可以看到父母陪著<span class="v" data-g="即將 jíjiāng — about to">即將</span>離家的孩子，<span class="v" data-g="挑選 tiāoxuǎn — to select">挑選</span>床單、檯燈、洗衣籃、收納盒和各種宿舍用品，希望把未來可能用到的東西一次<span class="v" data-g="備齊 bèiqí — to get everything ready">備齊</span>。到了搬宿舍那一天，父母又開著<span class="v" data-g="塞滿 sāimǎn — to fill; to stuff full">塞滿</span>行李的車來到校園，幫忙<span class="v" data-g="卸下 xièxià — to unload; to take off">卸下</span>物品、搬進房間，再陪孩子整理新的生活空間。TikTok 上還流行起宿舍<span class="v" data-g="開箱 kāixiāng — unboxing; room reveal">開箱</span>與<span class="v" data-g="改造 gǎizào — to transform; to renovate">改造</span>的影片，但有些學生的宿舍，<b class="g">小至</b>床單、檯燈，<b class="g">大至</b>房間的配色與整體<span class="v" data-g="風格 fēnggé — style">風格</span>，卻全是父母<span class="v" data-g="一手 yìshǒu — single-handedly">一手</span>打理的成果。</p>
+<p>這場家庭採買既可以是溫暖的成年儀式，也可能<span class="v" data-g="暴露 bàolù — to expose, to reveal">暴露</span>出父母不願<span class="v" data-g="放手 fàngshǒu — to let go">放手</span>的<span class="v" data-g="矛盾 máodùn — contradiction">矛盾</span>。父母<span class="v" data-g="遲遲 chíchí — for a long time; without acting">遲遲</span>不放手，<b class="g">一來</b>擔心孩子在外照顧不好自己，<b class="g">二來</b>也<span class="v" data-g="捨不得 shěbùdé — to be reluctant to">捨不得</span><span class="v" data-g="退出 tuìchū — to withdraw from">退出</span>熟悉的角色。但當父母連選課和成績申訴都<span class="v" data-g="一併 yíbìng — all together">一併</span><span class="v" data-g="接手 jiēshǒu — to take over">接手</span>時，他們<span class="v" data-g="究竟 jiūjìng — after all, exactly">究竟</span>是在孩子身後提供協助，還是已經走到孩子前面，替他<span class="v" data-g="擋下 dǎngxià — to block, to ward off">擋下</span>所有困難？</p>
+<p class="hinge">有人<span class="v" data-g="不禁 bùjīn — can't help but">不禁</span>要問：這樣的孩子，什麼時候才能長大？</p>
+<p>回頭看四五十年前的人們，二十<span class="v" data-g="出頭 chūtóu — just over">出頭</span>便結婚生子，開始扛起一個家。如今，同樣年紀的年輕人，卻還在<span class="v" data-g="依賴 yīlài — to depend on; reliance">依賴</span>父母。究竟是社會<span class="v" data-g="結構 jiégòu — structure">結構</span>讓「轉大人」的<span class="v" data-g="門檻 ménkǎn — threshold">門檻</span>愈來愈高？還是不願放手的父母？</p>
+<p><b class="g">於是</b>，「初級大人」與「高級大人」這種帶著<span class="v" data-g="自嘲 zìcháo — to mock oneself">自嘲</span>意味的說法，開始在台灣社群上流行。<b class="g">所謂</b>「初級大人」，<b class="g">指的就是</b><span class="v" data-g="法定 fǎdìng — legally prescribed">法定</span>年齡早已成年，在外也能<span class="v" data-g="獨當一面 dúdāngyímiàn — to handle things on one's own">獨當一面</span>，可是<b class="g">一旦</b>父母在身邊，便<span class="v" data-g="瞬間 shùnjiān — in an instant">瞬間</span><span class="v" data-g="退化 tuìhuà — to regress">退化</span>成小孩，凡事等著被照顧——用電鍋煮飯，不知道<span class="v" data-g="內鍋 nèiguō — inner pot">內鍋</span>也要放水；到廟裡拜拜，不知道該投多少<span class="v" data-g="香油錢 xiāngyóuqián — temple donation">香油錢</span>；天然氣公司上門檢查，30 歲的人竟回一句：「家裡現在沒有大人，你可以晚一點再來嗎？」也有人<span class="v" data-g="苦笑 kǔxiào — to smile bitterly">苦笑</span>，母親二十七歲時已經生下自己，而二十七歲的自己，還<span class="v" data-g="賴 lài — to lounge; to stay put">賴</span>在沙發上滑手機、等媽媽喊吃飯。</p>
+<p>這種依賴心理並不<span class="v" data-g="限於 xiànyú — to be limited to">限於</span>台灣。日本社會常用「甘え」（amae）來形容一個人期待被他人<span class="v" data-g="包容 bāoróng — to tolerate, to embrace">包容</span>、照顧，甚至<span class="v" data-g="縱容 zòngróng — to indulge, to condone">縱容</span>的心理。在父母面前<span class="v" data-g="撒嬌 sājiāo — to act coquettishly">撒嬌</span>、依賴，遇到重要事情時遲遲無法自己做決定。</p>
+<p class="hinge">看來，捨不得離開被照顧的位置，似乎不只發生在某一個<span class="v" data-g="世代 shìdài — generation">世代</span>，也不只存在於某一個國家。</p>
+<p>上大學可以是一場象徵成年的儀式，卻不是長大的證明。成年也許有<span class="v" data-g="明確 míngquè — clear; definite">明確</span>的法定年齡，長大卻沒有清楚的日期。真正的成熟，或許不是從此不再依靠任何人，而是學會為自己做決定並<span class="v" data-g="承擔 chéngdān — to bear, to shoulder">承擔</span>結果。但當一個人知道身後<span class="v" data-g="始終 shǐzhōng — all along; throughout">始終</span>有父母<span class="v" data-g="撐著 chēngzhe — to support; to back up">撐著</span>，他又<b class="g">何必</b>急著學會自己面對？</p>
+</div>
+<div class="wordcount">課文約 1000 字　·　生詞 67　·　語法點 6</div>
+</div>
+<div class="two-q">
+<p>父母替孩子解決所有問題，是愛他，還是反而讓他無法長大？</p>
+<p>是現在的年輕人比較晚熟，還是社會讓我們更難「長大」？</p>
+</div>
+</section>
+<!-- ============ 三、生詞表 ============ -->
+<section id="vocab">
+<div class="sec-head">
+<div class="sec-title"><div class="sec-num">三</div><h2>生詞表</h2></div>
+</div>
+<div class="vocab-tools">
+<button class="filter on" data-f="all">全部</button>
+<button class="filter" data-f="core">核心詞（產出）</button>
+<button class="filter" data-f="recg">認讀詞</button>
+<span class="count" id="count">67 個</span>
+</div>
+<table class="vtable">
+<thead>
+<tr><th></th><th>生詞</th><th>拼音</th><th>English</th><th>詞性</th><th>說明</th></tr>
+</thead>
+<tbody id="vbody"><tr data-k="core"><td class="c-n">1</td><td class="c-w">介入</td><td class="c-p">jièrù</td><td class="c-e">to intervene</td><td class="c-t">V</td><td class="c-d">插手參與他人的事</td></tr><tr data-k="core"><td class="c-n">2</td><td class="c-w">放手</td><td class="c-p">fàngshǒu</td><td class="c-e">to let go</td><td class="c-t">V-sep</td><td class="c-d">放開；不再控制或干預</td></tr><tr data-k="core"><td class="c-n">3</td><td class="c-w">依賴</td><td class="c-p">yīlài</td><td class="c-e">to depend on; reliance</td><td class="c-t">V/N</td><td class="c-d">凡事靠別人，不能自立</td></tr><tr data-k="core"><td class="c-n">4</td><td class="c-w">矛盾</td><td class="c-p">máodùn</td><td class="c-e">contradiction</td><td class="c-t">N/Vs</td><td class="c-d">互相衝突、無法並存</td></tr><tr data-k="core"><td class="c-n">5</td><td class="c-w">承擔</td><td class="c-p">chéngdān</td><td class="c-e">to bear, to shoulder</td><td class="c-t">V</td><td class="c-d">負起（責任、後果）</td></tr><tr data-k="core"><td class="c-n">6</td><td class="c-w">門檻</td><td class="c-p">ménkǎn</td><td class="c-e">threshold</td><td class="c-t">N</td><td class="c-d">進入某狀態所需的條件</td></tr><tr data-k="core"><td class="c-n">7</td><td class="c-w">結構</td><td class="c-p">jiégòu</td><td class="c-e">structure</td><td class="c-t">N</td><td class="c-d">組成的方式與關係（此指社會結構）</td></tr><tr data-k="core"><td class="c-n">8</td><td class="c-w">世代</td><td class="c-p">shìdài</td><td class="c-e">generation</td><td class="c-t">N</td><td class="c-d">同一時代出生的一群人</td></tr><tr data-k="core"><td class="c-n">9</td><td class="c-w">退化</td><td class="c-p">tuìhuà</td><td class="c-e">to regress</td><td class="c-t">V</td><td class="c-d">由好變差、由強變弱</td></tr><tr data-k="recg"><td class="c-n">10</td><td class="c-w">退出</td><td class="c-p">tuìchū</td><td class="c-e">to withdraw from</td><td class="c-t">V</td><td class="c-d">離開原本的位置或角色</td></tr><tr data-k="core"><td class="c-n">11</td><td class="c-w">接手</td><td class="c-p">jiēshǒu</td><td class="c-e">to take over</td><td class="c-t">V</td><td class="c-d">接下別人手上的事</td></tr><tr data-k="core"><td class="c-n">12</td><td class="c-w">究竟</td><td class="c-p">jiūjìng</td><td class="c-e">after all, exactly</td><td class="c-t">Adv</td><td class="c-d">到底（用於追問）</td></tr><tr data-k="core"><td class="c-n">13</td><td class="c-w">暴露</td><td class="c-p">bàolù</td><td class="c-e">to expose, to reveal</td><td class="c-t">V</td><td class="c-d">顯露出（缺點、問題）</td></tr><tr data-k="core"><td class="c-n">14</td><td class="c-w">包容</td><td class="c-p">bāoróng</td><td class="c-e">to tolerate, to embrace</td><td class="c-t">V</td><td class="c-d">寬容、接納</td></tr><tr data-k="core"><td class="c-n">15</td><td class="c-w">縱容</td><td class="c-p">zòngróng</td><td class="c-e">to indulge, to condone</td><td class="c-t">V</td><td class="c-d">放任、不加約束</td></tr><tr data-k="core"><td class="c-n">16</td><td class="c-w">獨當一面</td><td class="c-p">dúdāngyímiàn</td><td class="c-e">to handle things on one's own</td><td class="c-t">Idiom</td><td class="c-d">能獨力承擔一方面的事</td></tr><tr data-k="core"><td class="c-n">17</td><td class="c-w">滿頭大汗</td><td class="c-p">mǎntóudàhàn</td><td class="c-e">dripping with sweat</td><td class="c-t">Idiom</td><td class="c-d">汗流滿面，形容忙累</td></tr><tr data-k="core"><td class="c-n">18</td><td class="c-w">五花八門</td><td class="c-p">wǔhuābāmén</td><td class="c-e">all kinds of</td><td class="c-t">Idiom</td><td class="c-d">種類繁多、樣式很多</td></tr><tr data-k="core"><td class="c-n">19</td><td class="c-w">嫌</td><td class="c-p">xián</td><td class="c-e">to dislike; to find fault with</td><td class="c-t">V</td><td class="c-d">因不滿意而挑剔或抱怨</td></tr><tr data-k="recg"><td class="c-n">20</td><td class="c-w">尾聲</td><td class="c-p">wěishēng</td><td class="c-e">final stage, end</td><td class="c-t">N</td><td class="c-d">接近結束的階段。「暑假尾聲」</td></tr><tr data-k="recg"><td class="c-n">21</td><td class="c-w">相似</td><td class="c-p">xiāngsì</td><td class="c-e">similar</td><td class="c-t">Vs</td><td class="c-d">彼此很像</td></tr><tr data-k="recg"><td class="c-n">22</td><td class="c-w">扛</td><td class="c-p">káng</td><td class="c-e">to carry; to shoulder</td><td class="c-t">V</td><td class="c-d">用肩膀或手臂負重；也可指承擔重任</td></tr><tr data-k="recg"><td class="c-n">23</td><td class="c-w">鋪床</td><td class="c-p">pūchuáng</td><td class="c-e">to make the bed</td><td class="c-t">V-sep</td><td class="c-d">鋪好並整理床單、被褥</td></tr><tr data-k="recg"><td class="c-n">24</td><td class="c-w">座談</td><td class="c-p">zuòtán</td><td class="c-e">forum, discussion session</td><td class="c-t">N/V</td><td class="c-d">多人聚在一起討論</td></tr><tr data-k="recg"><td class="c-n">25</td><td class="c-w">提問</td><td class="c-p">tíwèn</td><td class="c-e">to ask a question</td><td class="c-t">V/N</td><td class="c-d">提出問題</td></tr><tr data-k="recg"><td class="c-n">26</td><td class="c-w">邁入</td><td class="c-p">màirù</td><td class="c-e">to step into</td><td class="c-t">V</td><td class="c-d">進入（某階段）</td></tr><tr data-k="recg"><td class="c-n">27</td><td class="c-w">痕跡</td><td class="c-p">hénjì</td><td class="c-e">trace, mark</td><td class="c-t">N</td><td class="c-d">留下的印子</td></tr><tr data-k="recg"><td class="c-n">28</td><td class="c-w">並非</td><td class="c-p">bìngfēi</td><td class="c-e">to be not</td><td class="c-t">—</td><td class="c-d">並不是（書面語）</td></tr><tr data-k="recg"><td class="c-n">29</td><td class="c-w">獨有</td><td class="c-p">dúyǒu</td><td class="c-e">exclusive to</td><td class="c-t">Vs</td><td class="c-d">只有某一方才有</td></tr><tr data-k="core"><td class="c-n">30</td><td class="c-w">激動</td><td class="c-p">jīdòng</td><td class="c-e">agitated, worked up</td><td class="c-t">Vs</td><td class="c-d">情緒強烈起伏</td></tr><tr data-k="core"><td class="c-n">31</td><td class="c-w">申訴</td><td class="c-p">shēnsù</td><td class="c-e">to appeal, to complain</td><td class="c-t">V</td><td class="c-d">向上級陳述不滿或要求</td></tr><tr data-k="core"><td class="c-n">32</td><td class="c-w">質問</td><td class="c-p">zhìwèn</td><td class="c-e">to question sharply</td><td class="c-t">V</td><td class="c-d">嚴厲追問、責問</td></tr><tr data-k="core"><td class="c-n">33</td><td class="c-w">延後</td><td class="c-p">yánhòu</td><td class="c-e">to postpone</td><td class="c-t">V</td><td class="c-d">把原定時間往後推</td></tr><tr data-k="recg"><td class="c-n">34</td><td class="c-w">繳交</td><td class="c-p">jiǎojiāo</td><td class="c-e">to hand in, to submit</td><td class="c-t">V</td><td class="c-d">交出（作業、費用）</td></tr><tr data-k="core"><td class="c-n">35</td><td class="c-w">索取</td><td class="c-p">suǒqǔ</td><td class="c-e">to demand, to ask for</td><td class="c-t">V</td><td class="c-d">要求對方給予</td></tr><tr data-k="core"><td class="c-n">36</td><td class="c-w">交涉</td><td class="c-p">jiāoshè</td><td class="c-e">to negotiate</td><td class="c-t">V</td><td class="c-d">為某事與對方協商</td></tr><tr data-k="recg"><td class="c-n">37</td><td class="c-w">採買</td><td class="c-p">cǎimǎi</td><td class="c-e">to purchase, to shop for</td><td class="c-t">V</td><td class="c-d">購買（多為備辦）</td></tr><tr data-k="recg"><td class="c-n">38</td><td class="c-w">通往</td><td class="c-p">tōngwǎng</td><td class="c-e">leading to</td><td class="c-t">V</td><td class="c-d">通向、連接到</td></tr><tr data-k="recg"><td class="c-n">39</td><td class="c-w">隆重</td><td class="c-p">lóngzhòng</td><td class="c-e">grand, solemn</td><td class="c-t">Vs</td><td class="c-d">盛大而慎重</td></tr><tr data-k="recg"><td class="c-n">40</td><td class="c-w">儀式</td><td class="c-p">yíshì</td><td class="c-e">ceremony, ritual</td><td class="c-t">N</td><td class="c-d">具象徵意義的正式活動</td></tr><tr data-k="recg"><td class="c-n">41</td><td class="c-w">即將</td><td class="c-p">jíjiāng</td><td class="c-e">about to</td><td class="c-t">Adv</td><td class="c-d">快要、就要</td></tr><tr data-k="recg"><td class="c-n">42</td><td class="c-w">挑選</td><td class="c-p">tiāoxuǎn</td><td class="c-e">to select</td><td class="c-t">V</td><td class="c-d">仔細選擇</td></tr><tr data-k="recg"><td class="c-n">43</td><td class="c-w">備齊</td><td class="c-p">bèiqí</td><td class="c-e">to get everything ready</td><td class="c-t">V</td><td class="c-d">準備齊全</td></tr><tr data-k="recg"><td class="c-n">44</td><td class="c-w">塞滿</td><td class="c-p">sāimǎn</td><td class="c-e">to fill; to stuff full</td><td class="c-t">V</td><td class="c-d">裝得滿滿的</td></tr><tr data-k="recg"><td class="c-n">45</td><td class="c-w">卸下</td><td class="c-p">xièxià</td><td class="c-e">to unload; to take off</td><td class="c-t">V</td><td class="c-d">把載著或扛著的東西拿下來</td></tr><tr data-k="core"><td class="c-n">46</td><td class="c-w">開箱</td><td class="c-p">kāixiāng</td><td class="c-e">unboxing; room reveal</td><td class="c-t">V/N</td><td class="c-d">打開並展示物品或空間</td></tr><tr data-k="recg"><td class="c-n">47</td><td class="c-w">改造</td><td class="c-p">gǎizào</td><td class="c-e">to transform; to renovate</td><td class="c-t">V</td><td class="c-d">改變原有的樣貌或功能</td></tr><tr data-k="recg"><td class="c-n">48</td><td class="c-w">風格</td><td class="c-p">fēnggé</td><td class="c-e">style</td><td class="c-t">N</td><td class="c-d">作品、空間或表現方式呈現的特色</td></tr><tr data-k="recg"><td class="c-n">49</td><td class="c-w">一手</td><td class="c-p">yìshǒu</td><td class="c-e">single-handedly</td><td class="c-t">Adv</td><td class="c-d">獨自一人（包辦）</td></tr><tr data-k="recg"><td class="c-n">50</td><td class="c-w">遲遲</td><td class="c-p">chíchí</td><td class="c-e">for a long time</td><td class="c-t">Adv</td><td class="c-d">一再拖延</td></tr><tr data-k="core"><td class="c-n">51</td><td class="c-w">捨不得</td><td class="c-p">shěbùdé</td><td class="c-e">to be reluctant to</td><td class="c-t">V</td><td class="c-d">因珍惜而不願放棄</td></tr><tr data-k="recg"><td class="c-n">52</td><td class="c-w">一併</td><td class="c-p">yíbìng</td><td class="c-e">all together</td><td class="c-t">Adv</td><td class="c-d">合在一起（處理）</td></tr><tr data-k="recg"><td class="c-n">53</td><td class="c-w">擋下</td><td class="c-p">dǎngxià</td><td class="c-e">to block, to ward off</td><td class="c-t">V</td><td class="c-d">阻擋、替人擋住</td></tr><tr data-k="recg"><td class="c-n">54</td><td class="c-w">不禁</td><td class="c-p">bùjīn</td><td class="c-e">can't help but</td><td class="c-t">Adv</td><td class="c-d">忍不住</td></tr><tr data-k="recg"><td class="c-n">55</td><td class="c-w">出頭</td><td class="c-p">chūtóu</td><td class="c-e">just over</td><td class="c-t">Suffix</td><td class="c-d">接在整數年齡後，表示稍微超過</td></tr><tr data-k="core"><td class="c-n">56</td><td class="c-w">自嘲</td><td class="c-p">zìcháo</td><td class="c-e">to mock oneself</td><td class="c-t">V</td><td class="c-d">拿自己的缺點開玩笑</td></tr><tr data-k="recg"><td class="c-n">57</td><td class="c-w">法定</td><td class="c-p">fǎdìng</td><td class="c-e">legally prescribed</td><td class="c-t">Attr</td><td class="c-d">法律規定的</td></tr><tr data-k="recg"><td class="c-n">58</td><td class="c-w">瞬間</td><td class="c-p">shùnjiān</td><td class="c-e">in an instant</td><td class="c-t">N/Adv</td><td class="c-d">極短的時間</td></tr><tr data-k="recg"><td class="c-n">59</td><td class="c-w">內鍋</td><td class="c-p">nèiguō</td><td class="c-e">inner pot</td><td class="c-t">N</td><td class="c-d">電鍋中用來盛放食物的鍋</td></tr><tr data-k="recg"><td class="c-n">60</td><td class="c-w">香油錢</td><td class="c-p">xiāngyóuqián</td><td class="c-e">temple donation</td><td class="c-t">N</td><td class="c-d">到寺廟參拜時捐獻的錢</td></tr><tr data-k="core"><td class="c-n">61</td><td class="c-w">苦笑</td><td class="c-p">kǔxiào</td><td class="c-e">to smile bitterly</td><td class="c-t">V</td><td class="c-d">無奈勉強地笑</td></tr><tr data-k="recg"><td class="c-n">62</td><td class="c-w">賴</td><td class="c-p">lài</td><td class="c-e">to lounge; to stay put</td><td class="c-t">V</td><td class="c-d">懶散地待著，不肯離開</td></tr><tr data-k="recg"><td class="c-n">63</td><td class="c-w">限於</td><td class="c-p">xiànyú</td><td class="c-e">to be limited to</td><td class="c-t">V</td><td class="c-d">範圍只到某處；課文中用「不限於」</td></tr><tr data-k="core"><td class="c-n">64</td><td class="c-w">撒嬌</td><td class="c-p">sājiāo</td><td class="c-e">to act coquettishly</td><td class="c-t">V-sep</td><td class="c-d">故意裝可愛以求疼愛</td></tr><tr data-k="recg"><td class="c-n">65</td><td class="c-w">明確</td><td class="c-p">míngquè</td><td class="c-e">clear; definite</td><td class="c-t">Vs</td><td class="c-d">清楚而確定</td></tr><tr data-k="recg"><td class="c-n">66</td><td class="c-w">始終</td><td class="c-p">shǐzhōng</td><td class="c-e">all along; throughout</td><td class="c-t">Adv</td><td class="c-d">從開始到最後一直如此</td></tr><tr data-k="recg"><td class="c-n">67</td><td class="c-w">撐著</td><td class="c-p">chēngzhe</td><td class="c-e">to support; to back up</td><td class="c-t">V</td><td class="c-d">在背後支持或保護</td></tr></tbody>
+</table>
+</section>
+<!-- ============ 四、請選一個立場 ============ -->
+<section id="stance">
+<div class="sec-head">
+<div class="sec-title"><div class="sec-num">四</div><h2>請選一個立場</h2></div>
+<p class="note">點開任何一個說法，寫下你的看法。你可以同意，也可以反對。</p>
+</div>
+<div class="stances" id="stances">
+<div class="stance" tabindex="0">
+<div class="toggle">寫看法</div>
+<div class="label">說法一</div>
+<p class="claim">父母替孩子打點好一切，是因為愛他。愛他，怎麼會有錯？</p>
+<div class="push">
+<div class="push-h">追問</div>
+        如果這份愛讓他一直學不會自己面對，那還算愛嗎？
+        <div class="say">
+<label for="s1">我的看法</label>
+<textarea id="s1" placeholder="請至少使用兩個本課生詞。"></textarea>
+</div>
+</div>
+</div>
+<div class="stance" tabindex="0">
+<div class="toggle">寫看法</div>
+<div class="label">說法二</div>
+<p class="claim">「初級大人」只是在父母面前偶爾撒嬌，不代表他真的沒有生活能力。</p>
+<div class="push">
+<div class="push-h">追問</div>
+        如果這種依賴已經讓他無法自己處理問題，還能只當成玩笑嗎？
+        <div class="say">
+<label for="s2">我的看法</label>
+<textarea id="s2" placeholder="請至少使用兩個本課生詞。"></textarea>
+</div>
+</div>
+</div>
+<div class="stance" tabindex="0">
+<div class="toggle">寫看法</div>
+<div class="label">說法三</div>
+<p class="claim">這一代不是不想長大，而是房價、學費與工作環境讓他們無法早早獨立。</p>
+<div class="push">
+<div class="push-h">追問</div>
+        那麼，在相同的社會條件下，為什麼仍然有人能獨立，有人不能？
+        <div class="say">
+<label for="s3">我的看法</label>
+<textarea id="s3" placeholder="請至少使用兩個本課生詞。"></textarea>
+</div>
+</div>
+</div>
+<div class="stance" tabindex="0">
+<div class="toggle">寫看法</div>
+<div class="label">說法四</div>
+<p class="claim">以前的人二十出頭就能養家，現在的人做不到，就是因為被父母保護得太好。</p>
+<div class="push">
+<div class="push-h">追問</div>
+        如果把今天的年輕人放回五十年前，他們就會突然變得更成熟嗎？
+        <div class="say">
+<label for="s4">我的看法</label>
+<textarea id="s4" placeholder="請至少使用兩個本課生詞。"></textarea>
+</div>
+</div>
+</div>
+<div class="stance" tabindex="0">
+<div class="toggle">寫看法</div>
+<div class="label">說法五</div>
+<p class="claim">只要能自己賺錢、養活自己，就算真正長大了。</p>
+<div class="push">
+<div class="push-h">追問</div>
+        如果一個人經濟獨立，遇到事情卻總要父母替他處理，他算成熟嗎？
+        <div class="say">
+<label for="s5">我的看法</label>
+<textarea id="s5" placeholder="請至少使用兩個本課生詞。"></textarea>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ 五、整合任務 ============ -->
+<section id="task">
+<div class="sec-head">
+<div class="sec-title"><div class="sec-num">五</div><h2>整合任務</h2></div>
+<p class="note">三題任選一題。請至少使用三個本課生詞、兩個語法點。</p>
+</div>
+<div class="tasks tasks-3">
+<div class="task">
+<div class="task-label">任務一　世代調查</div>
+<p class="task-q">訪問兩個不同世代的人。</p>
+<p class="task-hint" style="margin-bottom:.3em;">找一位同齡人、一位父母輩的成年人，問他們：</p>
+<ul class="task-hint">
+<li>幾歲開始工作？幾歲第一次離家生活？</li>
+<li>二十歲時，會自己處理哪些事？遇到問題找誰幫忙？</li>
+<li>怎麼看「父母幫大學生搬宿舍、布置房間」這件事？</li>
+<li>覺得真正長大的標準是什麼？</li>
+</ul>
+<p class="task-hint">整理成一份短報告，比較兩個世代「轉大人」的條件，最後回答：<strong>現在的年輕人比較晚長大，究竟是個人選擇，還是社會條件改變的結果？</strong></p>
+<textarea id="t1" placeholder="你的調查報告……"></textarea>
+</div>
+<div class="task">
+<div class="task-label">任務二　大人等級測驗</div>
+<p class="task-q">替你的文化設計一份「大人等級檢測表」。</p>
+<p class="task-hint">仿照課文的「初級大人／高級大人」，列出 5–8 個「在你的社會裡，做到了才算真正長大」的項目。</p>
+<p class="task-hint">例如：自己報稅、自己看醫生、處理家族人情往來……</p>
+<p class="task-hint">並說明：為什麼這幾項在<strong>你的文化裡</strong>特別關鍵？（進階：為什麼不同社會的「大人指標」不一樣？）</p>
+<textarea id="t2" placeholder="我的大人等級檢測表……"></textarea>
+</div>
+<div class="task">
+<div class="task-label">任務三　續寫最後一段</div>
+<p class="task-q">接著課文的結尾，寫下去。</p>
+<p class="task-hint" style="margin-bottom:.3em;">課文以一個問句結尾。請從下面三個立場中選一個，接著課文的最後一段繼續寫，把你的觀點寫成完整的一段：</p>
+<ul class="task-hint">
+<li>父母應該更早放手。</li>
+<li>年輕人應該主動承擔責任。</li>
+<li>社會不應再用過去的標準要求現在的年輕人。</li>
+</ul>
+<textarea id="t3" placeholder="……但當一個人知道身後始終有父母撐著，他又何必急著學會自己面對？
+
+（從這裡接下去）"></textarea>
+</div>
+</div>
+</section>
+<footer>
+<div class="f-line">
+<span>第二單元　上大學，然後呢？　·　第五課　上大學的我，長大了嗎？</span>
+<span class="f-date">2026 年 7 月</span>
+</div>
+<div class="f-h">文化詞</div>
+<ul class="refs refs-plain">
+<li>甘え（あまえ，amae）：日本社會心理學概念，指人期待被親近者包容、照顧甚至縱容的依賴心理。</li>
+<li>初級大人／高級大人：2026 年初於社群平台 Threads 流行的自嘲用語，指法定已成年、卻在父母面前退回小孩狀態的人。</li>
+</ul>
+<div class="f-h">參考資料</div>
+<ul class="refs">
+<li>馮靖惠〈【媽寶養成1】宿舍幫洗衣、食物標期限……新生家長請止步〉，《聯合報》，2020/8/18。</li>
+<li>김민지〈[단독] 교수에 전화해 자녀 학점 따지는 부모들〉，《東亞日報》，2025/9/30。<a href="https://www.donga.com/news/Society/article/all/20250930/132491609/2">連結</a></li>
+<li>〈Forever young: students tied to the electronic apron strings〉，《Times Higher Education》，2010/6/24。</li>
+<li>Meagan Francis〈How Parents Hijacked the College Dorm〉，《The Atlantic》，2025/8/26。</li>
+<li>〈TikTok Sparks Inspiration—and Pressure—as Students Shop for School〉，《TIME》，2023。<a href="https://time.com/6310245/tiktok-back-to-school-shopping-hauls-dormtok/">連結</a></li>
+<li>〈Inside the World of Parent-Led Dorm Design…〉，《People》，2024。<a href="https://people.com/inside-the-world-of-parent-led-dorm-design-where-college-move-in-day-costs-5k-exclusive-8698289">連結</a></li>
+<li>〈30歲還想喊「媽」正常嗎？Threads熱議「初級大人」現象〉，《女人迷／Roomie》，2026/3/4。<a href="https://www.roomie.tw/posts/158902">連結</a></li>
+<li>〈「初級大人」爆紅！30歲回家秒變3歲〉，Yahoo 新聞，2026/2/19。</li>
+<li>內政部戶政司〈歷年平均結婚年齡〉。</li>
+<li>Susumu Yamaguchi, "Further Clarifications of the Concept of Amae in Relation to Dependence and Attachment," 2004。</li>
+</ul>
+<p class="f-note">課文觀點僅供課堂討論，不代表本書立場。文中各國情形為現象舉例，非對任一社會的價值判斷。</p>
+</footer>
+</div>
+<script>
+// 暖身：四句回答
+document.querySelectorAll('#replies .reply').forEach(function(r){
+  function toggle(e){
+    if(e.target.classList.contains('tag')) return;
+    r.classList.toggle('on');
+  }
+  r.addEventListener('click', toggle);
+  r.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
+  });
+  r.querySelectorAll('.tag').forEach(function(t){
+    t.addEventListener('click', function(e){ e.stopPropagation(); t.classList.toggle('picked'); });
+  });
+});
+
+// 八句話
+document.querySelectorAll('#specimen .line').forEach(function(line){
+  function toggle(e){
+    if(e.target.classList.contains('tag')) return;
+    line.classList.toggle('on');
+  }
+  line.addEventListener('click', toggle);
+  line.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(e);}
+  });
+  line.querySelectorAll('.tag').forEach(function(tag){
+    tag.addEventListener('click', function(e){ e.stopPropagation(); tag.classList.toggle('picked'); });
+  });
+});
+
+// 生詞表篩選
+var rows = Array.prototype.slice.call(document.querySelectorAll('#vbody tr'));
+var countEl = document.getElementById('count');
+document.querySelectorAll('.filter').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+    var f = btn.dataset.f, shown = 0;
+    rows.forEach(function(r){
+      var ok = (f === 'all') || (r.dataset.k === f);
+      r.classList.toggle('hide', !ok);
+      if(ok) shown++;
+    });
+    countEl.textContent = shown + ' 個';
+  });
+});
+rows.forEach(function(r){ if(r.dataset.k === 'core') r.classList.add('core'); });
+
+// 立場
+document.querySelectorAll('#stances .stance').forEach(function(s){
+  function toggle(e){
+    if(e.target.tagName === 'TEXTAREA' || e.target.classList.contains('v')) return;
+    s.classList.toggle('open');
+    s.querySelector('.toggle').textContent = s.classList.contains('open') ? '收合' : '寫看法';
+  }
+  s.addEventListener('click', toggle);
+  s.addEventListener('keydown', function(e){
+    if(e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(e); }
+  });
+});
+</script>
+</body>
+</html>
