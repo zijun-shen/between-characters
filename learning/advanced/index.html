@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>高階專題｜漫遊字間</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Noto+Serif+TC:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-:root{
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   我們與世界之間｜當代議題高階華語教材
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Noto+Serif+TC:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root{
   --paper:#F8F6F2;
   --card:#FFFFFF;
   --ink:#2C3E50;
@@ -95,12 +96,13 @@ h1{
 }
 
 .sub{
-  max-width:760px;
+  max-width:none;
   color:#7F776E;
-  font-size:1rem;
+  font-size:.95rem;
   font-weight:300;
-  letter-spacing:.045em;
+  letter-spacing:.035em;
   line-height:1.95;
+  white-space:nowrap;
 }
 
 .sub-en{
@@ -298,6 +300,27 @@ footer{
   text-align:center;
 }
 
+
+.book-subtitle{
+  margin-top:-5px;
+  margin-bottom:18px;
+  color:#6F776F;
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:.98rem;
+  font-weight:400;
+  letter-spacing:.16em;
+}
+
+.unit.unit-four{
+  --unit-accent:#8A7598;
+  --unit-wash:rgba(138,117,152,.07);
+  margin-top:58px;
+}
+
+@media(max-width:900px){
+  .sub{white-space:normal;}
+}
+
 @media(max-width:700px){
   body{padding-right:16px;padding-left:16px}
   .page{padding-top:30px}
@@ -305,7 +328,8 @@ footer{
   header{margin-bottom:42px}
   .unit{margin-top:40px}
   .unit.unit-two,
-  .unit.unit-three{margin-top:50px}
+  .unit.unit-three,
+  .unit.unit-four{margin-top:50px}
   .unit-intro{grid-template-columns:1fr;gap:9px;margin-bottom:22px}
   .unit-no{min-width:0}
   .unit-copy{
@@ -323,144 +347,361 @@ footer{
   .lesson::before{top:18px;bottom:18px}
   .action{margin-top:4px}
 }
-</style>
-</head>
-<body>
-<div class="page">
-<a class="back" href="../index.html">← 返回 漫遊字間</a>
-<header>
-<div class="brand">Advanced Readings</div>
-<h1>高階專題</h1>
-<p class="sub">從自我、他人到社會與世界，透過當代議題練習思考、建立觀點，並用華語表達複雜而真實的想法。</p>
-<p class="sub-en">From the self and our relationships with others to society and the wider world, these readings explore contemporary issues, helping learners form perspectives and express complex, authentic ideas in Mandarin.</p>
-</header>
-<main>
-<section class="unit unit-one">
-<div class="unit-intro">
-<div class="unit-no">UNIT 01</div>
-<div class="unit-copy">
-<h2 class="unit-title">那些難說出口的話</h2>
-<p class="unit-desc">從家庭、心理與關係出發，思考我們如何理解自己，也如何回應他人。</p>
-</div>
-</div>
-<div class="list">
-<a class="lesson" href="../lesson01.html">
-<div class="num">LESSON 01</div>
-<div>
-<div class="title">第一課｜他們說這是為你好</div>
-<div class="desc">從黃仁勳談「亞洲父母」開始，討論批評、關心、犧牲與自我價值之間的界線。</div>
-</div>
-<div class="action">Enter →</div>
-</a>
-<a class="lesson" href="../lesson02.html">
-<div class="num">LESSON 02</div>
-<div>
-<div class="title">第二課｜我不是故意的</div>
-<div class="desc">從 ADHD、理由與藉口開始，討論理解、責任與公平之間的界線。</div>
-</div>
-<div class="action">Enter →</div>
-</a>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 03</div>
-<div>
-<div class="title">第三課｜我可以說不嗎？</div>
-<div class="desc">從拒絕與人際界線出發，思考體貼別人與保護自己之間的距離。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 04</div>
-<div>
-<div class="title">第四課｜我們到底算什麼？</div>
-<div class="desc">從難以定義的關係開始，討論承諾、期待與親密關係中的不確定。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-</div>
-</section>
-<section class="unit unit-two">
-<div class="unit-intro">
-<div class="unit-no">UNIT 02</div>
-<div class="unit-copy">
-<h2 class="unit-title">上大學，然後呢？</h2>
-<p class="unit-desc">從成年、分數、AI 與學制出發，重新思考大學的意義與學習的價值。</p>
-</div>
-</div>
-<div class="list">
-<a class="lesson" href="../lesson05.html">
-<div class="num">LESSON 05</div>
-<div>
-<div class="title">第五課｜上大學的我，長大了嗎？</div>
-<div class="desc">從父母替大學新生打點生活開始，討論成年、獨立與世代差異。</div>
-</div>
-<div class="action">Enter →</div>
-</a>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 06</div>
-<div>
-<div class="title">第六課｜大家都拿高分，誰才是真的優秀？</div>
-<div class="desc">從成績與評量開始，思考高分是否仍能代表能力與學習成果。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 07</div>
-<div>
-<div class="title">第七課｜如果 AI 都會了，什麼還值得我花時間學？</div>
-<div class="desc">從生成式 AI 進入校園開始，重新思考知識、能力與學習的價值。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 08</div>
-<div>
-<div class="title">第八課｜大學一定要讀四年嗎？</div>
-<div class="desc">從大學學制的改變出發，討論效率、深度與高等教育的目的。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-</div>
-</section>
-<section class="unit unit-three">
-<div class="unit-intro">
-<div class="unit-no">UNIT 03</div>
-<div class="unit-copy">
-<h2 class="unit-title">誰在教我怎麼活</h2>
-<p class="unit-desc">從社群媒體、演算法與語言規範出發，思考誰在影響我們的判斷、選擇與表達。</p>
-</div>
-</div>
-<div class="list">
-<a class="lesson" href="../lesson09.html">
-<div class="num">LESSON 09</div>
-<div>
-<div class="title">第九課｜為什麼要聽你的？</div>
-<div class="desc">從旅行與社群媒體上的人生建議開始，討論說教、特權，以及個人經驗如何被包裝成所有人都該遵守的標準。</div>
-</div>
-<div class="action">Enter →</div>
-</a>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 10</div>
-<div>
-<div class="title">第十課｜這是我想要的，還是演算法想要的？</div>
-<div class="desc">從推薦內容與個人選擇開始，思考演算法如何塑造喜好、注意力與生活。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-<div aria-disabled="true" class="lesson locked">
-<div class="num">LESSON 11</div>
-<div>
-<div class="title">第十一課｜誰決定什麼話不能說？</div>
-<div class="desc">從政治正確與公共語言開始，討論尊重、冒犯與言論界線。</div>
-</div>
-<div class="action">Coming Soon</div>
-</div>
-</div>
-</section>
-</main>
-<footer>
-    Between Characters · Wander Between Words<br/>
+  </style>
+ </head>
+ <body>
+  <div class="page">
+   <a class="back" href="../index.html">
+    ← 返回 漫遊字間
+   </a>
+   <header>
+    <div class="brand">
+     Advanced Mandarin
+    </div>
+    <h1>
+     我們與世界之間
+    </h1>
+    <p class="book-subtitle">
+     當代議題高階華語教材
+    </p>
+    <p class="sub">
+     從自我、他人到社會與世界，透過十六個當代議題練習思考、建立觀點，並用華語表達複雜而真實的想法。
+    </p>
+    <p class="sub-en">
+     Sixteen contemporary topics guide learners from the self and relationships to society, identity, and the wider world, while developing the ability to express complex ideas in Mandarin.
+    </p>
+   </header>
+   <main>
+    <section class="unit unit-one">
+     <div class="unit-intro">
+      <div class="unit-no">
+       UNIT 01
+      </div>
+      <div class="unit-copy">
+       <h2 class="unit-title">
+        那些難說出口的話
+       </h2>
+       <p class="unit-desc">
+        從家庭、心理與關係出發，思考我們如何理解自己，也如何回應他人。
+       </p>
+      </div>
+     </div>
+     <div class="list">
+      <a class="lesson" href="../lesson01.html">
+       <div class="num">
+        LESSON 01
+       </div>
+       <div>
+        <div class="title">
+         第一課｜他們說這是為你好
+        </div>
+        <div class="desc">
+         從黃仁勳談「亞洲父母」開始，討論批評、關心、犧牲與自我價值之間的界線。
+        </div>
+       </div>
+       <div class="action">
+        Enter →
+       </div>
+      </a>
+      <a class="lesson" href="../lesson02.html">
+       <div class="num">
+        LESSON 02
+       </div>
+       <div>
+        <div class="title">
+         第二課｜我不是故意的
+        </div>
+        <div class="desc">
+         從 ADHD、理由與藉口開始，討論理解、責任與公平之間的界線。
+        </div>
+       </div>
+       <div class="action">
+        Enter →
+       </div>
+      </a>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 03
+       </div>
+       <div>
+        <div class="title">
+         第三課｜我可以說不嗎？
+        </div>
+        <div class="desc">
+         從拒絕與人際界線出發，思考體貼別人與保護自己之間的距離。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 04
+       </div>
+       <div>
+        <div class="title">
+         第四課｜我們到底算什麼？
+        </div>
+        <div class="desc">
+         從難以定義的關係開始，討論承諾、期待與親密關係中的不確定。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="unit unit-two">
+     <div class="unit-intro">
+      <div class="unit-no">
+       UNIT 02
+      </div>
+      <div class="unit-copy">
+       <h2 class="unit-title">
+        上大學，然後呢？
+       </h2>
+       <p class="unit-desc">
+        從成年、分數、AI 與學制出發，重新思考大學的意義與學習的價值。
+       </p>
+      </div>
+     </div>
+     <div class="list">
+      <a class="lesson" href="../lesson05.html">
+       <div class="num">
+        LESSON 05
+       </div>
+       <div>
+        <div class="title">
+         第五課｜上大學的我，長大了嗎？
+        </div>
+        <div class="desc">
+         從父母替大學新生打點生活開始，討論成年、獨立與世代差異。
+        </div>
+       </div>
+       <div class="action">
+        Enter →
+       </div>
+      </a>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 06
+       </div>
+       <div>
+        <div class="title">
+         第六課｜大家都拿高分，誰才是真的優秀？
+        </div>
+        <div class="desc">
+         從成績與評量開始，思考高分是否仍能代表能力與學習成果。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 07
+       </div>
+       <div>
+        <div class="title">
+         第七課｜如果 AI 都會了，什麼還值得我花時間學？
+        </div>
+        <div class="desc">
+         從生成式 AI 進入校園開始，重新思考知識、能力與學習的價值。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 08
+       </div>
+       <div>
+        <div class="title">
+         第八課｜大學一定要讀四年嗎？
+        </div>
+        <div class="desc">
+         從大學學制的改變出發，討論效率、深度與高等教育的目的。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="unit unit-three">
+     <div class="unit-intro">
+      <div class="unit-no">
+       UNIT 03
+      </div>
+      <div class="unit-copy">
+       <h2 class="unit-title">
+        誰在教我怎麼活
+       </h2>
+       <p class="unit-desc">
+        從社群媒體、演算法與語言規範出發，思考誰在影響我們的判斷、選擇與表達。
+       </p>
+      </div>
+     </div>
+     <div class="list">
+      <a class="lesson" href="../lesson09.html">
+       <div class="num">
+        LESSON 09
+       </div>
+       <div>
+        <div class="title">
+         第九課｜為什麼要聽你的？
+        </div>
+        <div class="desc">
+         從旅行與社群媒體上的人生建議開始，討論說教、特權，以及個人經驗如何被包裝成所有人都該遵守的標準。
+        </div>
+       </div>
+       <div class="action">
+        Enter →
+       </div>
+      </a>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 10
+       </div>
+       <div>
+        <div class="title">
+         第十課｜這是我想要的，還是演算法想要的？
+        </div>
+        <div class="desc">
+         從推薦內容與個人選擇開始，思考演算法如何塑造喜好、注意力與生活。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 11
+       </div>
+       <div>
+        <div class="title">
+         第十一課｜誰決定什麼話不能說？
+        </div>
+        <div class="desc">
+         從政治正確與公共語言開始，討論尊重、冒犯與言論界線。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="unit unit-four">
+     <div class="unit-intro">
+      <div class="unit-no">
+       UNIT 04
+      </div>
+      <div class="unit-copy">
+       <h2 class="unit-title">
+        我從哪裡來，又屬於哪裡
+       </h2>
+       <p class="unit-desc">
+        從文化差異、公共生活、國家認同與歸屬感出發，重新理解我們與世界之間的關係。
+       </p>
+      </div>
+     </div>
+     <div class="list">
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 12
+       </div>
+       <div>
+        <div class="title">
+         第十二課｜為什麼小事也會讓人崩潰？
+        </div>
+        <div class="desc">
+         從文化衝擊與日常摩擦開始，討論陌生環境如何改變情緒、判斷與自我理解。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 13
+       </div>
+       <div>
+        <div class="title">
+         第十三課｜Alex 為什麼要爬 101？
+        </div>
+        <div class="desc">
+         從極限挑戰與公共目光出發，思考冒險、成就、城市象徵與媒體關注。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 14
+       </div>
+       <div>
+        <div class="title">
+         第十四課｜為什麼有些事要開這麼多會？
+        </div>
+        <div class="desc">
+         從不在籍投票與公共決策出發，討論效率、公平、程序與民主制度的代價。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+      <a class="lesson" href="../lesson15.html">
+       <div class="num">
+        LESSON 15
+       </div>
+       <div>
+        <div class="title">
+         第十五課｜輸球了，為什麼還開心？
+        </div>
+        <div class="desc">
+         從台灣、韓國、挪威與德國的國家隊故事出發，討論失敗、期待、媒體敘事與國家認同。
+        </div>
+       </div>
+       <div class="action">
+        Enter →
+       </div>
+      </a>
+      <div aria-disabled="true" class="lesson locked">
+       <div class="num">
+        LESSON 16
+       </div>
+       <div>
+        <div class="title">
+         第十六課｜你覺得你是哪裡人？
+        </div>
+        <div class="desc">
+         從語言、國籍、成長經驗與認同出發，思考一個人如何回答「我屬於哪裡」。
+        </div>
+       </div>
+       <div class="action">
+        Coming Soon
+       </div>
+      </div>
+     </div>
+    </section>
+   </main>
+   <footer>
+    我們與世界之間 · 4 Units · 16 Lessons
+    <br/>
     © 2026 Between Characters
-  </footer>
-</div>
-</body>
+   </footer>
+  </div>
+ </body>
 </html>
