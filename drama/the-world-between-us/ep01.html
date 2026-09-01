@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -122,6 +122,7 @@
             box-shadow: 0 8px 24px rgba(62,56,53,0.04);
         }
         .synopsis-text {
+            font-family: 'Noto Serif TC', 'Songti TC', serif;
             font-size: 18px;
             line-height: 2.2;
             text-align: justify;
@@ -135,12 +136,90 @@
         .synopsis-text p:last-child {
             margin-bottom: 0;
         }
-        .synopsis-text strong {
-            color: #A64B2A;
-            font-weight: 500;
-            border-bottom: 1.5px solid rgba(166,75,42,0.3);
+        .synopsis-text .v,
+        .synopsis-text .v-soft {
+            cursor: pointer;
+            font-weight: 700;
             padding-bottom: 1px;
+            border-bottom: 1.5px dotted currentColor;
+            transition: background 0.15s;
         }
+        .synopsis-text .v { color: #7a5c3e; }
+        .synopsis-text .v-soft { color: #a89a86; font-weight: 500; }
+        .synopsis-text .v:hover,
+        .synopsis-text .v-soft:hover {
+            background: rgba(122,92,62,0.10);
+            border-radius: 3px;
+        }
+        .synopsis-text .v:focus-visible,
+        .synopsis-text .v-soft:focus-visible {
+            outline: 2px solid #7a5c3e;
+            outline-offset: 2px;
+        }
+        /* vocab popover */
+        .v-pop {
+            position: absolute;
+            z-index: 60;
+            display: none;
+            min-width: 210px;
+            max-width: 280px;
+            background: #fffdf8;
+            border: 1px solid #E6DFD5;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(60,45,30,0.16);
+            padding: 14px 16px;
+            font-family: 'Noto Serif TC', serif;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .v-pop.show { display: block; }
+        .v-pop .p-word {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #3E3835;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+        .v-pop .p-pinyin {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #7a5c3e;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .v-pop .p-pos {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.72rem;
+            color: #8C827A;
+            border: 1px solid #E6DFD5;
+            border-radius: 4px;
+            padding: 1px 6px;
+            margin-left: 2px;
+            font-weight: 400;
+        }
+        .v-pop .p-def {
+            font-family: 'Georgia', serif;
+            font-size: 0.92rem;
+            color: #3E3835;
+        }
+        .v-pop .say {
+            border: none;
+            background: #7a5c3e;
+            color: #fff;
+            cursor: pointer;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+        .v-pop .say:hover { background: #5f472f; }
 
         /* ── 生詞表 ── */
         .vocab-table-wrapper {
@@ -182,28 +261,31 @@
             line-height: 1.6;
         }
         .td-num {
-            color: #A64B2A;
-            font-weight: 500;
+            color: #6f6a60;
+            font-family: 'Georgia', serif;
+            font-weight: 400;
             font-size: 13px;
             width: 40px;
             text-align: center;
         }
         .td-word {
+            font-family: 'Noto Serif TC', 'Songti TC', serif;
             font-weight: 500;
             font-size: 17px;
             color: #3E3835;
             min-width: 100px;
         }
         .td-pinyin {
+            font-family: 'Georgia', serif;
             font-style: italic;
             color: #8C827A;
-            font-size: 13px;
+            font-size: 14px;
             min-width: 140px;
         }
         .td-pos {
-            color: #A64B2A;
+            color: #7a5c3e;
             font-size: 12px;
-            background: rgba(166,75,42,0.07);
+            background: rgba(122,92,62,0.07);
             padding: 3px 8px !important;
             border-radius: 3px;
             white-space: nowrap;
@@ -211,8 +293,10 @@
             text-align: center;
         }
         .td-en {
+            font-family: 'Georgia', serif;
             color: #554E4A;
-            font-size: 14px;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         /* ── 頁尾 ── */
@@ -394,7 +478,11 @@
 </style>
 <script>
 function goBackToLobby() {
-    window.location.href = 'index.html';
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = '../../index.html';
+    }
 }
 </script>
 
@@ -413,12 +501,12 @@ function goBackToLobby() {
     <div class="bc-vocab-hero-label">Key Expressions</div>
     <div class="bc-vocab-hero-links">
         <div class="bc-vocab-hero-card"
-             onclick="window.location.href='ep01-key-expressions-part1.html'">
+             onclick="window.location.href='ep1-key-expressions-part1.html'">
             <div class="bc-vocab-hero-title">Scenes 01–05</div>
         </div>
 
         <div class="bc-vocab-hero-card"
-             onclick="window.location.href='ep01-key-expressions-part2.html'">
+             onclick="window.location.href='ep1-key-expressions-part2.html'">
             <div class="bc-vocab-hero-title">Scenes 06–10</div>
         </div>
     </div>
@@ -450,13 +538,13 @@ function goBackToLobby() {
 
     <div class="synopsis-box">
         <div class="synopsis-text">
-            <p>兩年前，台灣發生一起令人<strong>震驚</strong>的戲院<strong>隨機</strong>殺人案：<strong>冷血殺手</strong>李曉明在電影院開槍，造成九死二十一傷。案發後，他沒有逃跑，靜靜等待警方到來，犯案動機至今成謎。法院認定他具有刑事責任能力，<strong>駁回</strong>上訴，<strong>宣判</strong>死刑。</p>
+            <p>兩年前，台灣發生一起令人<span class="v" data-w="震驚" data-p="zhènjīng" data-pos="動／形" data-d="to shock; shocking">震驚</span>的戲院<span class="v" data-w="隨機" data-p="suíjī" data-pos="形" data-d="random; indiscriminate">隨機</span>殺人案：<span class="v" data-w="冷血殺手" data-p="lěngxuè shāshǒu" data-pos="名" data-d="cold-blooded killer">冷血殺手</span>李曉明在電影院開槍，造成九死二十一傷。案發後，他沒有逃跑，靜靜等待警方到來，犯案動機至今成謎。法院認定他具有刑事責任能力，<span class="v" data-w="駁回" data-p="bóhuí" data-pos="動" data-d="to reject; to dismiss (an appeal)">駁回</span>上訴，<span class="v" data-w="宣判" data-p="xuānpàn" data-pos="動" data-d="to announce a verdict">宣判</span>死刑。</p>
 
-            <p>他的辯護律師王赦走出法庭，就遭到受害者家屬<strong>潑糞</strong>，被罵「<strong>人渣</strong>」、沒有<strong>良知</strong>。即便如此，他仍相信必須了解犯案<strong>脈絡</strong>，才能避免悲劇再度<strong>上演</strong>。即使李曉明<strong>死刑定讞</strong>，他還是找上先驅報<strong>執行長</strong>劉昭國，希望<strong>推動</strong>隨機殺人犯的<strong>專題報導</strong>。身為受害者家屬，劉昭國<strong>質疑</strong>王赦只想讓李曉明躲過死刑，並<strong>坦白</strong>說，不在乎死刑與否，因為這換不回兒子天彥的命。</p>
+            <p>他的辯護律師王赦走出法庭，就遭到受害者家屬<span class="v" data-w="潑糞" data-p="pō fèn" data-pos="動" data-d="to throw filth at someone">潑糞</span>，被罵「<span class="v" data-w="人渣" data-p="rénzhā" data-pos="名" data-d="scum; lowlife">人渣</span>」、沒有<span class="v" data-w="良知" data-p="liángzhī" data-pos="名" data-d="moral conscience">良知</span>。即便如此，他仍相信必須了解犯案<span class="v" data-w="脈絡" data-p="màiluò" data-pos="名" data-d="context; thread of reasoning">脈絡</span>，才能避免悲劇再度<span class="v" data-w="上演" data-p="shàngyǎn" data-pos="動" data-d="to play out; to happen again">上演</span>。即使李曉明<span class="v" data-w="死刑定讞" data-p="sǐxíng dìngyàn" data-pos="名" data-d="finalized death sentence">死刑定讞</span>，他還是找上先驅報<span class="v" data-w="執行長" data-p="zhíxíngzhǎng" data-pos="名" data-d="CEO; executive director">執行長</span>劉昭國，希望<span class="v" data-w="推動" data-p="tuīdòng" data-pos="動" data-d="to promote; to push forward">推動</span>隨機殺人犯的<span class="v" data-w="專題報導" data-p="zhuāntí bàodǎo" data-pos="名" data-d="special report; feature story">專題報導</span>。身為受害者家屬，劉昭國<span class="v" data-w="質疑" data-p="zhíyí" data-pos="動" data-d="to question; to doubt">質疑</span>王赦只想讓李曉明躲過死刑，並<span class="v" data-w="坦白" data-p="tǎnbái" data-pos="動／形" data-d="to be honest; to confess">坦白</span>說，不在乎死刑與否，因為這換不回兒子天彥的命。</p>
 
-            <p>劉昭國的妻子宋喬安，在品味新聞台擔任主管，下屬眼中的她十分<strong>嚴厲</strong>。兒子天彥在兩年前的槍殺案中<strong>罹難</strong>，讓她心中有著無法<strong>撫平</strong>的<strong>傷痛</strong>，與丈夫不合，和女兒天晴的關係也不好。在女兒生日當天，她被一則普吉島<strong>爆炸</strong>假新聞<strong>波及</strong>，沒能說到做到幫女兒慶生，讓天晴失望地離開，只留下一張卡片，透露出她覺得媽媽從未真正愛過自己，而是已經<strong>罹難</strong>的哥哥。</p>
+            <p>劉昭國的妻子宋喬安，在品味新聞台擔任主管，下屬眼中的她十分<span class="v" data-w="嚴厲" data-p="yánlì" data-pos="形" data-d="strict; stern">嚴厲</span>。兒子天彥在兩年前的槍殺案中<span class="v" data-w="罹難" data-p="línàn" data-pos="動" data-d="to perish; to die in a disaster">罹難</span>，讓她心中有著無法<span class="v" data-w="撫平" data-p="fǔpíng" data-pos="動" data-d="to soothe; to heal">撫平</span>的<span class="v" data-w="傷痛" data-p="shāngtòng" data-pos="名" data-d="grief; sorrow">傷痛</span>，與丈夫不合，和女兒天晴的關係也不好。在女兒生日當天，她被一則普吉島<span class="v" data-w="爆炸" data-p="bàozhà" data-pos="動／名" data-d="explosion; to explode">爆炸</span>假新聞<span class="v" data-w="波及" data-p="bōjí" data-pos="動" data-d="to affect; to involve">波及</span>，沒能說到做到幫女兒慶生，讓天晴失望地離開，只留下一張卡片，透露出她覺得媽媽從未真正愛過自己，而是已經<span class="v" data-w="罹難" data-p="línàn" data-pos="動" data-d="to perish; to die in a disaster">罹難</span>的哥哥。</p>
 
-            <p>而在同一間新聞台裡，新來的助理編輯李大芝<strong>敬業</strong>認真，卻總是<strong>垂頭喪氣</strong>，似乎藏著秘密。其實，她正是李曉明的妹妹。李家在案發後成為受害家屬<strong>宣洩</strong>的<strong>出口</strong>，無法生活。李家父母在<strong>上香</strong>道歉後<strong>隨即</strong>神隱，<strong>避而不見</strong>。李家人的未來，是否也將一起<strong>葬</strong>在這個事件之中？</p>
+            <p>而在同一間新聞台裡，新來的助理編輯李大芝<span class="v" data-w="敬業" data-p="jìngyè" data-pos="形" data-d="professionally dedicated">敬業</span>認真，卻總是<span class="v" data-w="垂頭喪氣" data-p="chuítóu sàngqì" data-pos="成語" data-d="dejected; dispirited">垂頭喪氣</span>，似乎藏著秘密。其實，她正是李曉明的妹妹。李家在案發後成為受害家屬<span class="v" data-w="宣洩" data-p="xuānxiè" data-pos="動" data-d="to vent; to release emotions">宣洩</span>的<span class="v" data-w="出口" data-p="chūkǒu" data-pos="名" data-d="outlet; vent">出口</span>，無法生活。李家父母在<span class="v" data-w="上香" data-p="shàngxiāng" data-pos="動" data-d="to burn incense (to honor the dead)">上香</span>道歉後<span class="v" data-w="隨即" data-p="suíjí" data-pos="副" data-d="immediately; right away">隨即</span>神隱，<span class="v" data-w="避而不見" data-p="bì ér bù jiàn" data-pos="成語" data-d="to deliberately avoid seeing someone">避而不見</span>。李家人的未來，是否也將一起<span class="v" data-w="葬" data-p="zàng" data-pos="動" data-d="to bury; to be buried with">葬</span>在這個事件之中？</p>
         </div>
     </div>
 
@@ -516,5 +604,64 @@ function goBackToLobby() {
 </footer>
 
 </div>
+
+<div class="v-pop" id="v-pop" role="dialog" aria-live="polite"></div>
+<script>
+(function(){
+  var pop = document.getElementById('v-pop');
+  var current = null;
+  function speak(text){
+    if(!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'zh-TW';
+    u.rate = 0.5;
+    u.pitch = 1;
+    var vs = window.speechSynthesis.getVoices();
+    var zh = vs.find(function(v){return /zh(-|_)?(TW|HK|CN)/i.test(v.lang);});
+    if(zh) u.voice = zh;
+    window.speechSynthesis.speak(u);
+  }
+  function showPop(el){
+    var w=el.dataset.w,p=el.dataset.p,pos=el.dataset.pos,d=el.dataset.d;
+    pop.innerHTML =
+      '<div class="p-word">'+w+
+        '<button class="say" title="播放發音" aria-label="播放發音">▶</button>'+
+        '<span class="p-pos">'+pos+'</span></div>'+
+      '<div class="p-pinyin">'+p+'</div>'+
+      '<div class="p-def">'+d+'</div>';
+    pop.classList.add('show');
+    pop.querySelector('.say').addEventListener('click',function(e){
+      e.stopPropagation(); speak(w);
+    });
+    var r = el.getBoundingClientRect();
+    var pr = pop.getBoundingClientRect();
+    var top = window.scrollY + r.bottom + 8;
+    var left = window.scrollX + r.left;
+    var maxLeft = window.scrollX + document.documentElement.clientWidth - pr.width - 12;
+    if(left > maxLeft) left = maxLeft;
+    if(left < window.scrollX + 12) left = window.scrollX + 12;
+    pop.style.top = top + 'px';
+    pop.style.left = left + 'px';
+    current = el;
+    speak(w);
+  }
+  function hidePop(){ pop.classList.remove('show'); current=null; }
+  document.querySelectorAll('.synopsis-text .v, .synopsis-text .v-soft').forEach(function(el){
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(current===el){ hidePop(); } else { showPop(el); }
+    });
+    el.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.click(); }
+    });
+  });
+  document.addEventListener('click',function(e){ if(!pop.contains(e.target)) hidePop(); });
+  window.addEventListener('scroll',hidePop,{passive:true});
+  if('speechSynthesis' in window){ window.speechSynthesis.getVoices(); }
+})();
+</script>
 </body>
 </html>
